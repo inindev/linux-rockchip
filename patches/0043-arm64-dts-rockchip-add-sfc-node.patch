@@ -1,0 +1,63 @@
+From 6ff7705ac6c8a584d7f9d65e4c8c9422c2b22c55 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Thu, 21 Dec 2023 19:44:52 +0000
+Subject: [PATCH 43/44] arm64: dts: rockchip: add sfc node
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
+index 64fee1ac3..443ab29bc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
+@@ -585,6 +585,45 @@ &sdmmc {
+ 	status = "okay";
+ };
+ 
++&sfc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&fspim2_pins>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <1>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			partition@0 {
++				label = "u-boot-spl";
++				reg = <0x0 0xe0000>;
++			};
++			partition@e0000 {
++				label = "u-boot-env";
++				reg = <0xe0000 0x20000>;
++		};
++			partition@100000 {
++				label = "u-boot";
++				reg = <0x100000 0x300000>;
++			};
++			partition@400000 {
++				label = "reserved";
++				reg = <0x400000 0xc00000>;
++			};
++		};
++	};
++};
++
+ &spi2 {
+ 	status = "okay";
+ 	assigned-clocks = <&cru CLK_SPI2>;
+-- 
+2.39.2
+

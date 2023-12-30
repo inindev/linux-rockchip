@@ -1,0 +1,64 @@
+From 94c4716fe6a24cae4fe8edc5b7707b2d55c6ef88 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 24 Jul 2023 15:18:39 +0200
+Subject: [PATCH 23/44] arm64: dts: rockchip: rock5a: add cpu mem regulator
+ info
+
+Add the second supply regulator for the CPU cores, which is used
+for supplying the memory interface.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
+index a6ec5e770..58c58ec03 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
+@@ -120,34 +120,42 @@ &combphy2_psu {
+ 
+ &cpu_b0 {
+ 	cpu-supply = <&vdd_cpu_big0_s0>;
++	mem-supply = <&vdd_cpu_big0_s0>;
+ };
+ 
+ &cpu_b1 {
+ 	cpu-supply = <&vdd_cpu_big0_s0>;
++	mem-supply = <&vdd_cpu_big0_s0>;
+ };
+ 
+ &cpu_b2 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
++	mem-supply = <&vdd_cpu_big1_s0>;
+ };
+ 
+ &cpu_b3 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
++	mem-supply = <&vdd_cpu_big1_s0>;
+ };
+ 
+ &cpu_l0 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
++	mem-supply = <&vdd_cpu_lit_mem_s0>;
+ };
+ 
+ &cpu_l1 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
++	mem-supply = <&vdd_cpu_lit_mem_s0>;
+ };
+ 
+ &cpu_l2 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
++	mem-supply = <&vdd_cpu_lit_mem_s0>;
+ };
+ 
+ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
++	mem-supply = <&vdd_cpu_lit_mem_s0>;
+ };
+ 
+ &i2c0 {
+-- 
+2.39.2
+
