@@ -19,13 +19,13 @@ all: check_prereqs $(LDIR)
 	$(MAKE) build
 
 configure:
-	@echo "\n\033[1m\033[33mconfiguring source tree...\033[m"
+	@echo "\n$(h1)configuring source tree...$(rst)"
 	@test -z $(kver) || echo $(kver) > $(LDIR)/.version
 	# todo: config fixups?
 	$(MAKE) -C $(LDIR) ARCH=arm64 inindev_defconfig
 
 build: configure
-	@echo "\n\033[1m\033[33mbeginning compile...\033[m"
+	@echo "\n$(h1)beginning compile...$(rst)"
 	@kv="$$(make --no-print-directory -C $(LDIR) kernelversion)"; \
 	bv="$$(expr "$$(cat $(LDIR)/.version 2>/dev/null || echo 0)" + 1 2>/dev/null)"; \
 	export SOURCE_DATE_EPOCH="$$(stat -c %Y $(LDIR)/README)"; \
@@ -39,10 +39,7 @@ build: configure
 	nice $(MAKE) -C $(LDIR) -j"$$(nproc)" CC="$$(readlink /usr/bin/gcc)" bindeb-pkg KBUILD_IMAGE='arch/arm64/boot/Image' LOCALVERSION="-$$bv-arm64"; \
 	t2=$$(date +%s); \
 	\
-	echo "\n\033[36mkernel package ready (elapsed: $$(date -d@$$((t2-t1)) '+%H:%M:%S'))\033[35m"; \
-	ln -sfv "kernel-$(LINUX_VER)/linux-image-$$kv-$$bv-arm64_$$kv-$${bv}_arm64.deb"; \
-	ln -sfv "kernel-$(LINUX_VER)/linux-headers-$$kv-$$bv-arm64_$$kv-$${bv}_arm64.deb"; \
-	echo "\033[m"
+	echo "\n$(cya)kernel package ready (elapsed: $$(date -d@$$((t2-t1)) '+%H:%M:%S'))$(rst)\n"
 
 # unpack and patch linux tar
 $(LDIR): downloads/$(LINUX_FILE)
@@ -51,7 +48,7 @@ $(LDIR): downloads/$(LINUX_FILE)
 
 	@echo "\n==> patching..."
 	@for patch in patches/*.patch; do \
-	    echo "\n\033[32m$$patch\033[m"; \
+	    echo "\n$(grn)$$patch$(rst)"; \
 	    patch -p1 -d $(LDIR) -i "../../$$patch"; \
 	done
 
@@ -72,8 +69,8 @@ check_prereqs:
 	done; \
 	\
 	if ! test -z "$$todo"; then \
-	    echo "the following packages need to be installed:\033[1m\033[33m$$todo\033[m"; \
-	    echo "   run: \033[1m\033[32msudo apt update && sudo apt -y install$$todo\033[m\n"; \
+	    echo "the following packages need to be installed:$(bld)$(yel)$$todo$(rst)"; \
+	    echo "   run: $(bld)$(grn)sudo apt update && sudo apt -y install$$todo$(rst)\n"; \
 	    exit 1; \
 	fi
 
@@ -89,3 +86,14 @@ clean:
 
 
 .PHONY: all configure build check_prereqs clean
+
+# colors
+rst := [m
+bld := [1m
+red := [31m
+grn := [32m
+yel := [33m
+blu := [34m
+mag := [35m
+cya := [36m
+h1  := $(blu)==>$(rst) $(bld)
