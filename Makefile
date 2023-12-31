@@ -62,8 +62,8 @@ downloads/$(LINUX_FILE):
 	@echo "\n==> downloading $(LINUX_FILE)...\n"
 	@curl -O --create-dirs --output-dir downloads $(LINUX_URL)
 	@echo "\n==> checking sha256 $(LINUX_SHA256)..."
-	@sha=$$(sha256sum "linux-$(LINUX_VER).tar.gz" | cut -c1-64); \
-	test "_$(LINUX_SHA256)" = "_$$SHA256" || { echo "error: invalid sha256 $$sha"; exit 5; }
+	@sha=$$(sha256sum "downloads/linux-$(LINUX_VER).tar.gz" | cut -c1-64); \
+	test "_$(LINUX_SHA256)" = "_$$sha" || { echo "error: invalid sha256 $$sha"; exit 5; }
 
 check_prereqs:
 	@todo=""; \
