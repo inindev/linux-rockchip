@@ -30,7 +30,7 @@ build: configure
 	bv="$$(expr "$$(cat $(LDIR)/.version 2>/dev/null || echo 0)" + 1 2>/dev/null)"; \
 	export SOURCE_DATE_EPOCH="$$(stat -c %Y $(LDIR)/README)"; \
 	export KDEB_CHANGELOG_DIST='stable'; \
-	export KBUILD_BUILD_TIMESTAMP="Debian $$kv-$$bv $$(date -d @$$SOURCE_DATE_EPOCH +'(%Y-%m-%d)')"; \
+	export KBUILD_BUILD_TIMESTAMP="Debian $$kv-$$bv $$(date -ud @$$SOURCE_DATE_EPOCH +'(%Y-%m-%d)')"; \
 	export KBUILD_BUILD_HOST='github.com/inindev'; \
 	export KBUILD_BUILD_USER='linux-kernel'; \
 	export KBUILD_BUILD_VERSION="$$bv"; \
@@ -42,17 +42,14 @@ build: configure
 	echo "\n$(cya)kernel package ready (elapsed: $$(date -d@$$((t2-t1)) '+%H:%M:%S'))$(rst)\n"
 
 # unpack and patch linux tar
-$(LDIR): downloads/$(LINUX_FILE)
+$(LDIR): | downloads/$(LINUX_FILE)
 	@tar --one-top-level=kernel-$(LINUX_VER) -xavf downloads/$(LINUX_FILE)
-	# $(MAKE) -C $(LDIR) mrproper
 
 	@echo "\n==> patching..."
 	@for patch in patches/*.patch; do \
 	    echo "\n$(grn)$$patch$(rst)"; \
 	    patch -p1 -d $(LDIR) -i "../../$$patch"; \
 	done
-
-	@touch $(LDIR)
 
 # download linux tar
 downloads/$(LINUX_FILE):
