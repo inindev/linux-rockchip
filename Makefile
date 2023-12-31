@@ -4,6 +4,7 @@
 LINUX_VER = 6.7-rc7
 LINUX_SHA256 = d0c92280db03d6f776d6f67faf035eba904bc5f2a04a807dfab77d1ebce39b02
 
+LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
 ifneq (,$(findstring -rc,$(LINUX_VER)))
     LINUX_FILE = linux-$(LINUX_VER).tar.gz
@@ -12,7 +13,6 @@ else
     LINUX_FILE = linux-$(LINUX_VER).tar.xz
     LINUX_URL  = https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)
 endif
-LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
 
 all: check_prereqs $(LDIR)
@@ -28,6 +28,7 @@ build: configure
 	@echo "\n$(h1)beginning compile...$(rst)"
 	@kv="$$(make --no-print-directory -C $(LDIR) kernelversion)"; \
 	bv="$$(expr "$$(cat $(LDIR)/.version 2>/dev/null || echo 0)" + 1 2>/dev/null)"; \
+	\
 	export SOURCE_DATE_EPOCH="$$(stat -c %Y $(LDIR)/README)"; \
 	export KDEB_CHANGELOG_DIST='stable'; \
 	export KBUILD_BUILD_TIMESTAMP="Debian $$kv-$$bv $$(date -ud @$$SOURCE_DATE_EPOCH +'(%Y-%m-%d)')"; \
@@ -45,7 +46,7 @@ build: configure
 $(LDIR): | downloads/$(LINUX_FILE)
 	@tar --one-top-level=kernel-$(LINUX_VER) -xavf downloads/$(LINUX_FILE)
 
-	@echo "\n==> patching..."
+	@echo "\n$(h1)patching...$(rst)"
 	@for patch in patches/*.patch; do \
 	    echo "\n$(grn)$$patch$(rst)"; \
 	    patch -p1 -d $(LDIR) -i "../../$$patch"; \
@@ -53,9 +54,9 @@ $(LDIR): | downloads/$(LINUX_FILE)
 
 # download linux tar
 downloads/$(LINUX_FILE):
-	@echo "\n==> downloading $(LINUX_FILE)...\n"
+	@echo "\n$(h1)downloading $(LINUX_FILE)...$(rst)\n"
 	@curl -O --create-dirs --output-dir downloads $(LINUX_URL)
-	@echo "\n==> checking sha256 $(LINUX_SHA256)..."
+	@echo "\n$(h1)checking sha256 $(LINUX_SHA256)...$(rst)"
 	@sha=$$(sha256sum "downloads/linux-$(LINUX_VER).tar.gz" | cut -c1-64); \
 	test "_$(LINUX_SHA256)" = "_$$sha" || { echo "error: invalid sha256 $$sha"; exit 5; }
 
@@ -76,13 +77,14 @@ ifeq (,$(STY)$(TMUX))
 endif
 
 clean:
-	@echo "\n==> cleaning..."
+	@echo "\n$(h1)cleaning...$(rst)"
 	@echo "removing kernel-$(LINUX_VER)..."
 	@rm -rf kernel-$(LINUX_VER)
 	@echo
 
 
 .PHONY: all configure build check_prereqs clean
+
 
 # colors
 rst := [m
