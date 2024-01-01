@@ -1,8 +1,8 @@
 
 # Copyright (C) 2023, John Clark <inindev@gmail.com>
 
-LINUX_VER = 6.7-rc7
-LINUX_SHA256 = d0c92280db03d6f776d6f67faf035eba904bc5f2a04a807dfab77d1ebce39b02
+LINUX_VER = 6.7-rc8
+LINUX_SHA256 = 4306cbb1b33b2fd67a86d9a3e4faba9a95413398c3d9cf57991ee97800a0640a
 
 LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
