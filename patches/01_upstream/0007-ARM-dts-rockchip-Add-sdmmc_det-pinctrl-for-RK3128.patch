@@ -1,0 +1,33 @@
+From 7caef590de7a453216b74e65cfa1043b312f46ea Mon Sep 17 00:00:00 2001
+From: Alex Bee <knaerzche@gmail.com>
+Date: Sun, 19 Nov 2023 14:03:53 +0100
+Subject: [PATCH 07/81] ARM: dts: rockchip: Add sdmmc_det pinctrl for RK3128
+
+The pincontrol for sd card detection is currently missing.
+Add it.
+
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Link: https://lore.kernel.org/r/20231119130351.112261-6-knaerzche@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm/boot/dts/rockchip/rk3128.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3128.dtsi b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+index 01edf244d..b397c93c9 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+@@ -843,6 +843,10 @@ sdmmc_cmd: sdmmc-cmd {
+ 				rockchip,pins = <1 RK_PB7 1 &pcfg_pull_default>;
+ 			};
+ 
++			sdmmc_det: sdmmc-det {
++				rockchip,pins = <1 RK_PC1 1 &pcfg_pull_default>;
++			};
++
+ 			sdmmc_wp: sdmmc-wp {
+ 				rockchip,pins = <1 RK_PA7 1 &pcfg_pull_default>;
+ 			};
+-- 
+2.43.0
+

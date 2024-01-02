@@ -1,0 +1,32 @@
+From e9f52b698c0eb3bb9009e79fee52a3980c902690 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Mon, 18 Dec 2023 18:55:22 +0800
+Subject: [PATCH 64/81] ARM: dts: rockchip: Add stdout-path for rk3036 kylin
+
+Add stdout-path to get a uart console when system boot.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20231218105523.2478315-3-andyshrk@163.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm/boot/dts/rockchip/rk3036-kylin.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3036-kylin.dts b/arch/arm/boot/dts/rockchip/rk3036-kylin.dts
+index 4a8d27ace..e32c73d32 100644
+--- a/arch/arm/boot/dts/rockchip/rk3036-kylin.dts
++++ b/arch/arm/boot/dts/rockchip/rk3036-kylin.dts
+@@ -8,6 +8,10 @@ / {
+ 	model = "Rockchip RK3036 KylinBoard";
+ 	compatible = "rockchip,rk3036-kylin", "rockchip,rk3036";
+ 
++	chosen {
++		stdout-path = "serial2:115200n8";
++	};
++
+ 	memory@60000000 {
+ 		device_type = "memory";
+ 		reg = <0x60000000 0x20000000>;
+-- 
+2.43.0
+

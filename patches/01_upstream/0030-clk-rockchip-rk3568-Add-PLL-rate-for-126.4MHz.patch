@@ -1,0 +1,34 @@
+From 7ae6aeee0df999340b36cbf30119f28c779b100b Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Mon, 4 Dec 2023 12:57:17 -0600
+Subject: [PATCH 30/81] clk: rockchip: rk3568: Add PLL rate for 126.4MHz
+
+Add support for a PLL rate of 126.4MHz so that the Powkiddy X55 panel
+can run at a requested 60hz.
+
+I have confirmed this rate fits with all the constraints
+listed in the TRM for the VPLL (as an integer PLL) in Part 1 "Chapter
+2 Clock & Reset Unit (CRU)."
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Link: https://lore.kernel.org/r/20231204185719.569021-9-macroalpha82@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/clk/rockchip/clk-rk3568.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/clk/rockchip/clk-rk3568.c b/drivers/clk/rockchip/clk-rk3568.c
+index bfbcbb744..b441be711 100644
+--- a/drivers/clk/rockchip/clk-rk3568.c
++++ b/drivers/clk/rockchip/clk-rk3568.c
+@@ -78,6 +78,7 @@ static struct rockchip_pll_rate_table rk3568_pll_rates[] = {
+ 	RK3036_PLL_RATE(200000000, 1, 100, 3, 4, 1, 0),
+ 	RK3036_PLL_RATE(148500000, 1, 99, 4, 4, 1, 0),
+ 	RK3036_PLL_RATE(135000000, 2, 45, 4, 1, 1, 0),
++	RK3036_PLL_RATE(126400000, 1, 79, 5, 3, 1, 0),
+ 	RK3036_PLL_RATE(119000000, 3, 119, 4, 2, 1, 0),
+ 	RK3036_PLL_RATE(115200000, 1, 24, 5, 1, 1, 0),
+ 	RK3036_PLL_RATE(108000000, 2, 45, 5, 1, 1, 0),
+-- 
+2.43.0
+

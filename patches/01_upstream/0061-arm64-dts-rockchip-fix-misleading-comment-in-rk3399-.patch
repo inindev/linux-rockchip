@@ -1,0 +1,35 @@
+From d4bdb94460e0d4f37ce5c4889b06b20812278f9c Mon Sep 17 00:00:00 2001
+From: Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
+Date: Thu, 14 Dec 2023 13:27:59 +0100
+Subject: [PATCH 61/81] arm64: dts: rockchip: fix misleading comment in
+ rk3399-puma-haikou.dts
+
+Haikou is an evaluation and development platform for System on
+Modules (SOMs).
+
+The GPIO0_B1 is routed to the Wake button instead of BIOS_DISABLE,
+update the comment to reflect that.
+
+Signed-off-by: Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
+Link: https://lore.kernel.org/r/20231214122801.3144180-1-vahe.grigoryan@theobroma-systems.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
+index 115c14c0a..4f2d4bb12 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
+@@ -177,7 +177,7 @@ haikou_pin_hog: haikou-pin-hog {
+ 			  <0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
+ 			  /* SLP_BTN# */
+ 			  <0 RK_PB3 RK_FUNC_GPIO &pcfg_pull_up>,
+-			  /* BIOS_DISABLE# */
++			  /* WAKE# */
+ 			  <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
+-- 
+2.43.0
+

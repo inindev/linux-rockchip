@@ -1,0 +1,107 @@
+From dd6e058ff1c791603d65ae73a4d7711c6afcf98e Mon Sep 17 00:00:00 2001
+From: Johan Jonker <jbx6244@gmail.com>
+Date: Sat, 2 Dec 2023 19:22:01 +0100
+Subject: [PATCH 32/81] ARM: dts: rockchip: add gpio alias for gpio dt nodes
+
+Rockchip SoC TRM, SoC datasheet and board schematics always refer to
+the same gpio numbers - even if not all are used for a specific board.
+In order to not have to re-define them for every board add the
+aliases to SoC dtsi files.
+
+Co-developed-by: Jianqun Xu <jay.xu@rock-chips.com>
+Signed-off-by: Jianqun Xu <jay.xu@rock-chips.com>
+Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+Link: https://lore.kernel.org/r/89f2a229-9f14-d43f-c53d-5d4688e70456@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm/boot/dts/rockchip/rk3036.dtsi  | 3 +++
+ arch/arm/boot/dts/rockchip/rk3066a.dtsi | 5 +++++
+ arch/arm/boot/dts/rockchip/rk322x.dtsi  | 4 ++++
+ arch/arm/boot/dts/rockchip/rk3288.dtsi  | 9 +++++++++
+ arch/arm/boot/dts/rockchip/rk3xxx.dtsi  | 4 ++++
+ 5 files changed, 25 insertions(+)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3036.dtsi b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+index 78686fc72..8aa2e0864 100644
+--- a/arch/arm/boot/dts/rockchip/rk3036.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+@@ -17,6 +17,9 @@ / {
+ 	interrupt-parent = <&gic>;
+ 
+ 	aliases {
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
+diff --git a/arch/arm/boot/dts/rockchip/rk3066a.dtsi b/arch/arm/boot/dts/rockchip/rk3066a.dtsi
+index de9915d94..30139f21d 100644
+--- a/arch/arm/boot/dts/rockchip/rk3066a.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3066a.dtsi
+@@ -13,6 +13,11 @@
+ / {
+ 	compatible = "rockchip,rk3066a";
+ 
++	aliases {
++		gpio4 = &gpio4;
++		gpio6 = &gpio6;
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+diff --git a/arch/arm/boot/dts/rockchip/rk322x.dtsi b/arch/arm/boot/dts/rockchip/rk322x.dtsi
+index a721744cb..831561fc1 100644
+--- a/arch/arm/boot/dts/rockchip/rk322x.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk322x.dtsi
+@@ -15,6 +15,10 @@ / {
+ 	interrupt-parent = <&gic>;
+ 
+ 	aliases {
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
++		gpio3 = &gpio3;
+ 		serial0 = &uart0;
+ 		serial1 = &uart1;
+ 		serial2 = &uart2;
+diff --git a/arch/arm/boot/dts/rockchip/rk3288.dtsi b/arch/arm/boot/dts/rockchip/rk3288.dtsi
+index cb9cdaddf..ead343dc3 100644
+--- a/arch/arm/boot/dts/rockchip/rk3288.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3288.dtsi
+@@ -19,6 +19,15 @@ / {
+ 
+ 	aliases {
+ 		ethernet0 = &gmac;
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
++		gpio3 = &gpio3;
++		gpio4 = &gpio4;
++		gpio5 = &gpio5;
++		gpio6 = &gpio6;
++		gpio7 = &gpio7;
++		gpio8 = &gpio8;
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
+diff --git a/arch/arm/boot/dts/rockchip/rk3xxx.dtsi b/arch/arm/boot/dts/rockchip/rk3xxx.dtsi
+index cb4e42ede..f37137f29 100644
+--- a/arch/arm/boot/dts/rockchip/rk3xxx.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3xxx.dtsi
+@@ -16,6 +16,10 @@ / {
+ 
+ 	aliases {
+ 		ethernet0 = &emac;
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
++		gpio3 = &gpio3;
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
+-- 
+2.43.0
+

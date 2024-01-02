@@ -1,0 +1,75 @@
+From 82225c851baf83a280ac4db543db6b86e02e8f75 Mon Sep 17 00:00:00 2001
+From: Dragan Simic <dsimic@manjaro.org>
+Date: Tue, 12 Dec 2023 08:53:51 +0100
+Subject: [PATCH 53/81] arm64: dts: rockchip: Remove ethernet0 alias from the
+ SoC dtsi for PX30
+
+Not all supported boards actually use the PX30's built-in (G)MAC, while the
+SoC TRM and the datasheet don't define some standard numbering in this case.
+Thus, remove the ethernet0 alias from the PX30 SoC dtsi file, and add the same
+alias back to the appropriate board dts(i) files.
+
+This is quite similar to the already performed migration of the mmcX aliases
+from the Rockchip SoC dtsi files to the board dts(i) files.
+
+Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+Link: https://lore.kernel.org/r/0d9da8959b4f567622676c34b5feb74c49489554.1702366958.git.dsimic@manjaro.org
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/px30-engicam-common.dtsi | 1 +
+ arch/arm64/boot/dts/rockchip/px30-evb.dts             | 1 +
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 1 +
+ arch/arm64/boot/dts/rockchip/px30.dtsi                | 1 -
+ 4 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/px30-engicam-common.dtsi b/arch/arm64/boot/dts/rockchip/px30-engicam-common.dtsi
+index 3429e124d..5b4e22385 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-engicam-common.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-engicam-common.dtsi
+@@ -7,6 +7,7 @@
+ 
+ / {
+ 	aliases {
++		ethernet0 = &gmac;
+ 		mmc1 = &sdmmc;
+ 		mmc2 = &sdio;
+ 	};
+diff --git a/arch/arm64/boot/dts/rockchip/px30-evb.dts b/arch/arm64/boot/dts/rockchip/px30-evb.dts
+index c1bbd555f..0a90a88fc 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-evb.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-evb.dts
+@@ -14,6 +14,7 @@ / {
+ 	compatible = "rockchip,px30-evb", "rockchip,px30";
+ 
+ 	aliases {
++		ethernet0 = &gmac;
+ 		mmc0 = &sdmmc;
+ 		mmc1 = &sdio;
+ 		mmc2 = &emmc;
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+index 7d4c5324c..16798eb77 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+@@ -13,6 +13,7 @@ / {
+ 	compatible = "tsd,px30-ringneck-haikou", "rockchip,px30";
+ 
+ 	aliases {
++		ethernet0 = &gmac;
+ 		mmc2 = &sdmmc;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/rockchip/px30.dtsi b/arch/arm64/boot/dts/rockchip/px30.dtsi
+index 42ce78beb..d09055153 100644
+--- a/arch/arm64/boot/dts/rockchip/px30.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30.dtsi
+@@ -20,7 +20,6 @@ / {
+ 	#size-cells = <2>;
+ 
+ 	aliases {
+-		ethernet0 = &gmac;
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
+-- 
+2.43.0
+

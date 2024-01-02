@@ -1,0 +1,41 @@
+From 8e866f804960e47eda3916cd9d7977ef6f7d68b9 Mon Sep 17 00:00:00 2001
+From: Jagan Teki <jagan@edgeble.ai>
+Date: Sat, 25 Nov 2023 19:59:14 +0530
+Subject: [PATCH 14/81] arm64: dts: rockchip: Use NCM6A-IO board for
+ edgeble-neu6b
+
+Edgeble AI 6TOPS board topology is now changed in final revisions
+as a compatible IO board, NCM6A-IO, is made available for both
+variants of SoM: NCM6A and NCM6B.
+
+With this change, 6b-io is not as available and 6a; 6b SoM's have
+the same compatible IO board as 6a-io. This change is due to the
+common optimised design of the IO board made available now in
+final revisions, which was not the case in initial revisions.
+
+So, use the NCM6A-IO compatible for NCM6B SoM based IO dts.
+
+Signed-off-by: Jagan Teki <jagan@edgeble.ai>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231125142914.57459-2-jagan@edgeble.ai
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dts b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dts
+index 9933765e4..861067b5d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dts
+@@ -9,7 +9,7 @@
+ 
+ / {
+ 	model = "Edgeble Neu6B IO Board";
+-	compatible = "edgeble,neural-compute-module-6b-io",
++	compatible = "edgeble,neural-compute-module-6a-io",
+ 		     "edgeble,neural-compute-module-6b", "rockchip,rk3588";
+ 
+ 	aliases {
+-- 
+2.43.0
+

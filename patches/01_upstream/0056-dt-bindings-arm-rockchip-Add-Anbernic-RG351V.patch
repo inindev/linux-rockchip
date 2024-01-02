@@ -1,0 +1,37 @@
+From 28cfa076965599e6f94c5c788433d81f11a5c5f1 Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Mon, 20 Nov 2023 17:01:29 -0600
+Subject: [PATCH 56/81] dt-bindings: arm: rockchip: Add Anbernic RG351V
+
+The Anbernic RG351V is a portable gaming console from Anbernic with the
+RK3326 SoC.
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231120230131.57705-2-macroalpha82@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 5deb66a5c..2158d0a9f 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -30,9 +30,11 @@ properties:
+           - const: amarula,vyasa-rk3288
+           - const: rockchip,rk3288
+ 
+-      - description: Anbernic RG351M
++      - description: Anbernic RK3326 Handheld Gaming Console
+         items:
+-          - const: anbernic,rg351m
++          - enum:
++              - anbernic,rg351m
++              - anbernic,rg351v
+           - const: rockchip,rk3326
+ 
+       - description: Anbernic RG353P
+-- 
+2.43.0
+

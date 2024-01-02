@@ -1,0 +1,31 @@
+From 982f3cf8cf0792eec06d723870477df024b46d15 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Mon, 11 Dec 2023 19:58:36 +0800
+Subject: [PATCH 59/81] dt-bindings: soc: rockchip: add rk3588 vop/vo syscon
+
+Add VOP and VO GRF syscon compatibles for RK3588
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Acked-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/r/20231211115836.1785248-1-andyshrk@163.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 1309bf5ae..9793ea6f0 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -28,6 +28,8 @@ properties:
+               - rockchip,rk3588-sys-grf
+               - rockchip,rk3588-pcie3-phy-grf
+               - rockchip,rk3588-pcie3-pipe-grf
++              - rockchip,rk3588-vo-grf
++              - rockchip,rk3588-vop-grf
+               - rockchip,rv1108-usbgrf
+           - const: syscon
+       - items:
+-- 
+2.43.0
+

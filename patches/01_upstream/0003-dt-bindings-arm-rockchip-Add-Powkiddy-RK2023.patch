@@ -1,0 +1,38 @@
+From ac8856d794fb3f828916bac378e9a559a1a17dfd Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Fri, 17 Nov 2023 14:25:34 -0600
+Subject: [PATCH 03/81] dt-bindings: arm: rockchip: Add Powkiddy RK2023
+
+The Powkiddy RK2023 is a handheld gaming device made by Powkiddy and
+powered by the Rockchip RK3566 SoC. Group the Powkiddy RK3566 based
+devices together as they are both extremely similar.
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231117202536.1387815-5-macroalpha82@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 5f7c6c4aa..5b015c4ed 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -674,9 +674,11 @@ properties:
+           - const: pine64,soquartz
+           - const: rockchip,rk3566
+ 
+-      - description: Powkiddy RGB30
++      - description: Powkiddy RK3566 Handheld Gaming Console
+         items:
+-          - const: powkiddy,rgb30
++          - enum:
++              - powkiddy,rgb30
++              - powkiddy,rk2023
+           - const: rockchip,rk3566
+ 
+       - description: Radxa Compute Module 3(CM3)
+-- 
+2.43.0
+

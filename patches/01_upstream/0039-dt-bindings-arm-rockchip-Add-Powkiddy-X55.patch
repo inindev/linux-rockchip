@@ -1,0 +1,35 @@
+From 83060d5b1a943d017557b85f8231f9adab9f0617 Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Mon, 4 Dec 2023 12:57:18 -0600
+Subject: [PATCH 39/81] dt-bindings: arm: rockchip: Add Powkiddy X55
+
+The Powkiddy X55 is a handheld gaming device made by Powkiddy and
+powered by the Rockchip RK3566 SoC. This device is somewhat similar
+to the existing Powkiddy RK3566 devices, which have been grouped
+together with a previous commit[1].
+
+[1] https://lore.kernel.org/linux-rockchip/20231117202536.1387815-1-macroalpha82@gmail.com/T/#m4764997cfafaca22fe677200de96caa5fb8f0005
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231204185719.569021-10-macroalpha82@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 4c994f387..7bcf79b66 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -680,6 +680,7 @@ properties:
+           - enum:
+               - powkiddy,rgb30
+               - powkiddy,rk2023
++              - powkiddy,x55
+           - const: rockchip,rk3566
+ 
+       - description: Radxa Compute Module 3(CM3)
+-- 
+2.43.0
+

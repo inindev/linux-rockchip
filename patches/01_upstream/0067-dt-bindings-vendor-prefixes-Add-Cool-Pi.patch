@@ -1,0 +1,31 @@
+From c59c33be58ff34dda69bb9cb08e78eaffa506f23 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andyshrk@163.com>
+Date: Tue, 12 Dec 2023 20:42:23 +0800
+Subject: [PATCH 67/81] dt-bindings: vendor-prefixes: Add Cool Pi
+
+Add vendor prefix for Cool Pi(https://cool-pi.com/)
+
+Signed-off-by: Andy Yan <andyshrk@163.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231212124223.1897314-1-andyshrk@163.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 309b94c32..ddbba46fc 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -294,6 +294,8 @@ patternProperties:
+     description: CompuLab Ltd.
+   "^congatec,.*":
+     description: congatec GmbH
++  "^coolpi,.*":
++    description: cool-pi.com
+   "^coreriver,.*":
+     description: CORERIVER Semiconductor Co.,Ltd.
+   "^corpro,.*":
+-- 
+2.43.0
+

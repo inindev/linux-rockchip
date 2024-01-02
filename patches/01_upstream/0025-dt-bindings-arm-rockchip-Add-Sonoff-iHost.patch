@@ -1,0 +1,37 @@
+From dd318a5de3e496c6feb25710840a1d6b8197ca90 Mon Sep 17 00:00:00 2001
+From: Tim Lunn <tim@feathertop.org>
+Date: Sun, 3 Dec 2023 23:40:04 +1100
+Subject: [PATCH 25/81] dt-bindings: arm: rockchip: Add Sonoff iHost
+
+Sonoff iHost is a smart home hub with built in radios for wifi/bt
+and Zigbee. It is based off the Rockchip RV1126 (or RV1109) SoC.
+
+Signed-off-by: Tim Lunn <tim@feathertop.org>
+Acked-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/r/20231203124004.2676174-9-tim@feathertop.org
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 75f23d1d4..4c994f387 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -925,6 +925,13 @@ properties:
+           - const: rockchip,rk3568-bpi-r2pro
+           - const: rockchip,rk3568
+ 
++      - description: Sonoff iHost Smart Home Hub
++        items:
++          - const: itead,sonoff-ihost
++          - enum:
++              - rockchip,rv1126
++              - rockchip,rv1109
++
+ additionalProperties: true
+ 
+ ...
+-- 
+2.43.0
+

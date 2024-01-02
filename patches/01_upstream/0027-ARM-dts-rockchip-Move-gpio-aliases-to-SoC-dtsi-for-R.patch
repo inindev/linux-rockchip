@@ -1,0 +1,72 @@
+From 8440870e5a74c7573870b404ee084847be82af3b Mon Sep 17 00:00:00 2001
+From: Alex Bee <knaerzche@gmail.com>
+Date: Sat, 2 Dec 2023 14:05:05 +0100
+Subject: [PATCH 27/81] ARM: dts: rockchip: Move gpio aliases to SoC dtsi for
+ RK3128
+
+SoC TRM, SoC datasheet and board schematics always refer to the
+same gpio numbers - even if not all are used for a specific board.
+In order to not have to re-define them for every board move the
+aliases to SoC dtsi for RK3128 like it's being done for most other
+Rockchip ARM SoCs.
+
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Link: https://lore.kernel.org/r/20231202130506.66738-3-knaerzche@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm/boot/dts/rockchip/rk3128-evb.dts      | 4 ----
+ arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts | 4 ----
+ arch/arm/boot/dts/rockchip/rk3128.dtsi         | 7 +++++++
+ 3 files changed, 7 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3128-evb.dts b/arch/arm/boot/dts/rockchip/rk3128-evb.dts
+index c38f42497..776a483cc 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128-evb.dts
++++ b/arch/arm/boot/dts/rockchip/rk3128-evb.dts
+@@ -12,10 +12,6 @@ / {
+ 	compatible = "rockchip,rk3128-evb", "rockchip,rk3128";
+ 
+ 	aliases {
+-		gpio0 = &gpio0;
+-		gpio1 = &gpio1;
+-		gpio2 = &gpio2;
+-		gpio3 = &gpio3;
+ 		i2c1 = &i2c1;
+ 		mmc0 = &emmc;
+ 	};
+diff --git a/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts b/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
+index de497f6e9..931c03f14 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
++++ b/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
+@@ -12,10 +12,6 @@ / {
+ 
+ 	aliases {
+ 		ethernet0 = &gmac;
+-		gpio0 = &gpio0;
+-		gpio1 = &gpio1;
+-		gpio2 = &gpio2;
+-		gpio3 = &gpio3;
+ 		mmc0 = &emmc;
+ 		mmc1 = &sdmmc;
+ 		serial0 = &uart1;
+diff --git a/arch/arm/boot/dts/rockchip/rk3128.dtsi b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+index 4b5eb159b..acae2dc34 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+@@ -16,6 +16,13 @@ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+ 
++	aliases {
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
++		gpio3 = &gpio3;
++	};
++
+ 	arm-pmu {
+ 		compatible = "arm,cortex-a7-pmu";
+ 		interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
+-- 
+2.43.0
+

@@ -1,0 +1,52 @@
+From 2324881b412f6539500ab57d52678d2a82e935d9 Mon Sep 17 00:00:00 2001
+From: David Heidelberg <david@ixit.cz>
+Date: Sat, 9 Dec 2023 18:15:40 +0100
+Subject: [PATCH 49/81] arm64: dts: rockchip: make dts use gpio-fan matrix
+ instead of array
+
+No functional changes.
+
+Adjust to comply with dt-schema requirements
+and make possible to validate values.
+
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: David Heidelberg <david@ixit.cz>
+Link: https://lore.kernel.org/r/20231209171653.85468-2-david@ixit.cz
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi  | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts | 5 +++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
+index e6ac292ce..69dd3568b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
+@@ -44,7 +44,7 @@ dc_12v: dc-12v {
+ 	fan0: gpio-fan {
+ 		#cooling-cells = <2>;
+ 		compatible = "gpio-fan";
+-		gpio-fan,speed-map = <0 0 3000 1>;
++		gpio-fan,speed-map = <0 0>, <3000 1>;
+ 		gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
+ 		status = "okay";
+ 	};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts b/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
+index 854d02b46..59843a7a1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
+@@ -31,8 +31,9 @@ gmac1_clkin: external-gmac1-clock {
+ 	fan: gpio_fan {
+ 		compatible = "gpio-fan";
+ 		gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
+-		gpio-fan,speed-map = <0    0
+-				      4500 1>;
++		gpio-fan,speed-map =
++				<   0 0>,
++				<4500 1>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&fan_en_h>;
+ 		#cooling-cells = <2>;
+-- 
+2.43.0
+

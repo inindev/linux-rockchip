@@ -1,0 +1,34 @@
+From 5cc8da63b0b69702b6d0947d2a3d133936e38a44 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andyshrk@163.com>
+Date: Tue, 12 Dec 2023 20:42:37 +0800
+Subject: [PATCH 68/81] dt-bindings: arm: rockchip: Add Cool Pi 4B
+
+Add Cool Pi 4B, a SBC powered by RK3588S
+
+Signed-off-by: Andy Yan <andyshrk@163.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20231212124237.1897378-1-andyshrk@163.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 2158d0a9f..e3fffd69e 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -97,6 +97,11 @@ properties:
+           - const: chipspark,rayeager-px2
+           - const: rockchip,rk3066a
+ 
++      - description: Cool Pi 4 Model B
++        items:
++          - const: coolpi,pi-4b
++          - const: rockchip,rk3588s
++
+       - description: Edgeble Neural Compute Module 2(Neu2) SoM based boards
+         items:
+           - const: edgeble,neural-compute-module-2-io   # Edgeble Neural Compute Module 2 IO Board
+-- 
+2.43.0
+

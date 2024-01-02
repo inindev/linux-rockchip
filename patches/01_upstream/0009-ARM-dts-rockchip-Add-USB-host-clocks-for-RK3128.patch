@@ -1,0 +1,37 @@
+From 656ce2121fb4189ba657b0c5ab7d23658094e57e Mon Sep 17 00:00:00 2001
+From: Alex Bee <knaerzche@gmail.com>
+Date: Sun, 19 Nov 2023 13:13:38 +0100
+Subject: [PATCH 09/81] ARM: dts: rockchip: Add USB host clocks for RK3128
+
+Add the required AHB clocks for both the ehci and ohci controller.
+
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Link: https://lore.kernel.org/r/20231119121340.109025-4-knaerzche@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm/boot/dts/rockchip/rk3128.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3128.dtsi b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+index b397c93c9..915e2b5b7 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+@@ -163,6 +163,7 @@ usb_host_ehci: usb@101c0000 {
+ 		compatible = "generic-ehci";
+ 		reg = <0x101c0000 0x20000>;
+ 		interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru HCLK_HOST2>;
+ 		phys = <&usb2phy_host>;
+ 		phy-names = "usb";
+ 		status = "disabled";
+@@ -172,6 +173,7 @@ usb_host_ohci: usb@101e0000 {
+ 		compatible = "generic-ohci";
+ 		reg = <0x101e0000 0x20000>;
+ 		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru HCLK_HOST2>;
+ 		phys = <&usb2phy_host>;
+ 		phy-names = "usb";
+ 		status = "disabled";
+-- 
+2.43.0
+

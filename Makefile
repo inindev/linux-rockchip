@@ -47,7 +47,8 @@ $(LDIR): | downloads/$(LINUX_FILE)
 	@tar --one-top-level=kernel-$(LINUX_VER) -xavf downloads/$(LINUX_FILE)
 
 	@echo "\n$(h1)patching...$(rst)"
-	@for patch in patches/*.patch; do \
+	@patches="$$(find patches -maxdepth 2 -name '*.patch' 2>/dev/null | sort)"; \
+	for patch in $$patches; do \
 	    echo "\n$(grn)$$patch$(rst)"; \
 	    patch -p1 -d $(LDIR) -i "../../$$patch"; \
 	done

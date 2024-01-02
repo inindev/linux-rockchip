@@ -1,0 +1,29 @@
+From f8459e14b43a1e55cfb0319df3f302ac7876c560 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Fri, 10 Nov 2023 00:40:54 +0200
+Subject: [PATCH 30/30] arm64: defconfig: Enable Rockchip Samsung HDMI/DP Combo
+ PHY
+
+Enable support for the Rockchip HDMI/DP Combo PHY based on a Samsung IP
+block. This is used by the RK3588 SoC family.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index b60aa1f89..8ce3a52cf 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1451,6 +1451,7 @@ CONFIG_PHY_ROCKCHIP_INNO_USB2=y
+ CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=m
+ CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
+ CONFIG_PHY_ROCKCHIP_PCIE=m
++CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX_HDMI=m
+ CONFIG_PHY_ROCKCHIP_SNPS_PCIE3=y
+ CONFIG_PHY_ROCKCHIP_TYPEC=y
+ CONFIG_PHY_SAMSUNG_UFS=y
+-- 
+2.43.0
+

@@ -1,0 +1,88 @@
+From bf7fb7dcb8e86aa928cf841ff8e84a1b5747111a Mon Sep 17 00:00:00 2001
+From: Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
+Date: Thu, 14 Dec 2023 13:28:01 +0100
+Subject: [PATCH 63/81] arm64: dts: rockchip: make use gpio-keys for buttons on
+ puma-haikou
+
+Haikou is an evaluation and development platform for System on
+Modules (SOMs).
+
+Haikou devkit exposes multiple buttons so let's register them as
+such so that the input subsystem can generate events when pressed or
+switched.
+
+Signed-off-by: Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
+Link: https://lore.kernel.org/r/20231214122801.3144180-3-vahe.grigoryan@theobroma-systems.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ .../boot/dts/rockchip/rk3399-puma-haikou.dts  | 40 ++++++++++++++++---
+ 1 file changed, 35 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
+index 4f2d4bb12..18a98c464 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
+@@ -5,6 +5,7 @@
+ 
+ /dts-v1/;
+ #include "rk3399-puma.dtsi"
++#include <dt-bindings/input/input.h>
+ 
+ / {
+ 	model = "Theobroma Systems RK3399-Q7 SoM";
+@@ -18,6 +19,38 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-0 = <&haikou_keys_pin>;
++		pinctrl-names = "default";
++
++		button-batlow-n {
++			gpios = <&gpio0 RK_PB2 GPIO_ACTIVE_LOW>;
++			label = "BATLOW#";
++			linux,code = <KEY_BATTERY>;
++		};
++
++		button-slp-btn-n {
++			gpios = <&gpio0 RK_PB3 GPIO_ACTIVE_LOW>;
++			label = "SLP_BTN#";
++			linux,code = <KEY_SLEEP>;
++		};
++
++		button-wake-n {
++			gpios = <&gpio0 RK_PB1 GPIO_ACTIVE_LOW>;
++			label = "WAKE#";
++			linux,code = <KEY_WAKEUP>;
++			wakeup-source;
++		};
++
++		switch-lid-btn-n {
++			gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
++			label = "LID_BTN#";
++			linux,code = <SW_LID>;
++			linux,input-type = <EV_SW>;
++		};
++	};
++
+ 	leds {
+ 		pinctrl-0 = <&module_led_pin>, <&sd_card_led_pin>;
+ 
+@@ -165,11 +198,8 @@ &pcie0 {
+ };
+ 
+ &pinctrl {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&haikou_pin_hog>;
+-
+-	hog {
+-		haikou_pin_hog: haikou-pin-hog {
++	buttons {
++		haikou_keys_pin: haikou-keys-pin {
+ 			rockchip,pins =
+ 			  /* LID_BTN */
+ 			  <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>,
+-- 
+2.43.0
+
