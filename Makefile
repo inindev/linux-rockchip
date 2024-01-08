@@ -1,8 +1,8 @@
 
 # Copyright (C) 2023, John Clark <inindev@gmail.com>
 
-LINUX_VER = 6.7-rc8
-LINUX_SHA256 = 4306cbb1b33b2fd67a86d9a3e4faba9a95413398c3d9cf57991ee97800a0640a
+LINUX_VER = 6.7
+LINUX_SHA256 = ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069
 
 LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
@@ -44,6 +44,10 @@ build: configure
 
 # unpack and patch linux tar
 $(LDIR): | downloads/$(LINUX_FILE)
+	@echo "\n$(h1)checking sha256 $(LINUX_SHA256)...$(rst)"
+	@sha=$$(sha256sum "downloads/$(LINUX_FILE)" | cut -c1-64); \
+	test "_$(LINUX_SHA256)" = "_$$sha" || { echo "error: invalid sha256 $$sha"; exit 5; }
+
 	@tar --one-top-level=kernel-$(LINUX_VER) -xavf downloads/$(LINUX_FILE)
 
 	@echo "\n$(h1)patching...$(rst)"
@@ -57,9 +61,6 @@ $(LDIR): | downloads/$(LINUX_FILE)
 downloads/$(LINUX_FILE):
 	@echo "\n$(h1)downloading $(LINUX_FILE)...$(rst)\n"
 	@curl -O --create-dirs --output-dir downloads $(LINUX_URL)
-	@echo "\n$(h1)checking sha256 $(LINUX_SHA256)...$(rst)"
-	@sha=$$(sha256sum "downloads/linux-$(LINUX_VER).tar.gz" | cut -c1-64); \
-	test "_$(LINUX_SHA256)" = "_$$sha" || { echo "error: invalid sha256 $$sha"; exit 5; }
 
 check_prereqs:
 	@todo=""; \
