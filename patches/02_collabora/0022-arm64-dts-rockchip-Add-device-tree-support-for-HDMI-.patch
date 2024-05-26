@@ -1,0 +1,179 @@
+From aab0c3969f50b836f436533d675d2c8fcb543fe6 Mon Sep 17 00:00:00 2001
+From: Shreeya Patel <shreeya.patel@collabora.com>
+Date: Wed, 20 Dec 2023 16:50:14 +0530
+Subject: [PATCH 22/50] arm64: dts: rockchip: Add device tree support for HDMI
+ RX Controller
+
+Add device tree support for Synopsys DesignWare HDMI RX
+Controller.
+
+Signed-off-by: Dingxian Wen <shawn.wen@rock-chips.com>
+Co-developed-by: Shreeya Patel <shreeya.patel@collabora.com>
+Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Signed-off-by: Shreeya Patel <shreeya.patel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588-pinctrl.dtsi     | 41 +++++++++++++++
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      | 18 +++++++
+ arch/arm64/boot/dts/rockchip/rk3588.dtsi      | 50 +++++++++++++++++++
+ 3 files changed, 109 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-pinctrl.dtsi
+index 244c66faa..e5f3d0acb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-pinctrl.dtsi
+@@ -169,6 +169,47 @@ hdmim0_tx1_sda: hdmim0-tx1-sda {
+ 				/* hdmim0_tx1_sda */
+ 				<2 RK_PB4 4 &pcfg_pull_none>;
+ 		};
++
++		/omit-if-no-ref/
++		hdmim1_rx: hdmim1-rx {
++			rockchip,pins =
++                                /* hdmim1_rx_cec */
++                                <3 RK_PD1 5 &pcfg_pull_none>,
++                                /* hdmim1_rx_scl */
++                                <3 RK_PD2 5 &pcfg_pull_none_smt>,
++                                /* hdmim1_rx_sda */
++                                <3 RK_PD3 5 &pcfg_pull_none_smt>,
++                                /* hdmim1_rx_hpdin */
++                                <3 RK_PD4 5 &pcfg_pull_none>;
++                };
++
++                /omit-if-no-ref/
++                hdmim1_rx_cec: hdmim1-rx-cec {
++                        rockchip,pins =
++                                /* hdmim1_rx_cec */
++                                <3 RK_PD1 5 &pcfg_pull_none>;
++                };
++
++                /omit-if-no-ref/
++                hdmim1_rx_hpdin: hdmim1-rx-hpdin {
++                        rockchip,pins =
++                                /* hdmim1_rx_hpdin */
++                                <3 RK_PD4 5 &pcfg_pull_none>;
++                };
++
++                /omit-if-no-ref/
++                hdmim1_rx_scl: hdmim1-rx-scl {
++                        rockchip,pins =
++                                /* hdmim1_rx_scl */
++                                <3 RK_PD2 5 &pcfg_pull_none>;
++                };
++
++                /omit-if-no-ref/
++                hdmim1_rx_sda: hdmim1-rx-sda {
++                        rockchip,pins =
++                                /* hdmim1_rx_sda */
++                                <3 RK_PD3 5 &pcfg_pull_none>;
++                };
+ 	};
+ 
+ 	i2c0 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index a7c6dcfef..c555e6248 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -196,6 +196,18 @@ &gpu {
+ 	status = "okay";
+ };
+ 
++&hdmirx_cma {
++	status = "okay";
++};
++
++&hdmirx_ctrler {
++	status = "okay";
++	hdmirx-5v-detection-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_5v_detection>;
++	pinctrl-names = "default";
++	memory-region = <&hdmirx_cma>;
++};
++
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
+@@ -408,6 +420,12 @@ &pcie3x4 {
+ };
+ 
+ &pinctrl {
++	hdmirx {
++		hdmirx_5v_detection: hdmirx-5v-detection {
++			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588.dtsi b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
+index 5984016b5..534c42262 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588.dtsi
+@@ -7,6 +7,24 @@
+ #include "rk3588-pinctrl.dtsi"
+ 
+ / {
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++		/*
++		 * The 4k HDMI capture controller works only with 32bit
++		 * phys addresses and doesn't support IOMMU. HDMI RX CMA
++		 * must be reserved below 4GB.
++		 */
++		hdmirx_cma: hdmirx_cma {
++			compatible = "shared-dma-pool";
++			alloc-ranges = <0x0 0x0 0x0 0xffffffff>;
++			size = <0x0 (160 * 0x100000)>; /* 160MiB */
++			no-map;
++			status = "disabled";
++		};
++	};
++
+ 	usb_host1_xhci: usb@fc400000 {
+ 		compatible = "rockchip,rk3588-dwc3", "snps,dwc3";
+ 		reg = <0x0 0xfc400000 0x0 0x400000>;
+@@ -135,6 +153,38 @@ i2s10_8ch: i2s@fde00000 {
+ 		status = "disabled";
+ 	};
+ 
++	hdmirx_ctrler: hdmirx-controller@fdee0000 {
++		compatible = "rockchip,rk3588-hdmirx-ctrler", "snps,dw-hdmi-rx";
++		reg = <0x0 0xfdee0000 0x0 0x6000>;
++		power-domains = <&power RK3588_PD_VO1>;
++		rockchip,grf = <&sys_grf>;
++		rockchip,vo1_grf = <&vo1_grf>;
++		interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 436 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 179 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "cec", "hdmi", "dma";
++		clocks = <&cru ACLK_HDMIRX>,
++			 <&cru CLK_HDMIRX_AUD>,
++			 <&cru CLK_CR_PARA>,
++			 <&cru PCLK_HDMIRX>,
++			 <&cru CLK_HDMIRX_REF>,
++			 <&cru PCLK_S_HDMIRX>,
++			 <&cru HCLK_VO1>;
++		clock-names = "aclk",
++			      "audio",
++			      "cr_para",
++			      "pclk",
++			      "ref",
++			      "hclk_s_hdmirx",
++			      "hclk_vo1";
++		resets = <&cru SRST_A_HDMIRX>, <&cru SRST_P_HDMIRX>,
++			 <&cru SRST_HDMIRX_REF>, <&cru SRST_A_HDMIRX_BIU>;
++		reset-names = "rst_a", "rst_p", "rst_ref", "rst_biu";
++		pinctrl-0 = <&hdmim1_rx>;
++		pinctrl-names = "default";
++		status = "disabled";
++	};
++
+ 	pcie3x4: pcie@fe150000 {
+ 		compatible = "rockchip,rk3588-pcie", "rockchip,rk3568-pcie";
+ 		#address-cells = <3>;
+-- 
+2.43.0
+
