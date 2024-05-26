@@ -1,7 +1,7 @@
-From 3ce3e838580144e0f88dfc6ca95a14cb9d4f5f3d Mon Sep 17 00:00:00 2001
+From 9b123e97d184ff757f8214cc4662064f5e591873 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 21 Dec 2023 19:44:52 +0000
-Subject: [PATCH 2/8] arm64: dts: rockchip: add sfc node for nanopc-t6
+Subject: [PATCH 2/4] arm64: dts: rockchip: add sfc node for nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
@@ -9,10 +9,10 @@ Signed-off-by: John Clark <inindev@gmail.com>
  1 file changed, 39 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
-index d7722772e..254ac3365 100644
+index ad8e36a33..34ff24d1b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
-@@ -548,6 +548,45 @@ &sdmmc {
+@@ -576,6 +576,45 @@ &sdmmc {
  	status = "okay";
  };
  
@@ -42,7 +42,7 @@ index d7722772e..254ac3365 100644
 +			partition@e0000 {
 +				label = "u-boot-env";
 +				reg = <0xe0000 0x20000>;
-+		};
++			};
 +			partition@100000 {
 +				label = "u-boot";
 +				reg = <0x100000 0x300000>;
