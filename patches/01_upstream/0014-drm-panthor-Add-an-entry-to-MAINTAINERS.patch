@@ -1,0 +1,52 @@
+From ee73b852a7d884030addb20d5222fc74299a91bc Mon Sep 17 00:00:00 2001
+From: Boris Brezillon <boris.brezillon@collabora.com>
+Date: Thu, 29 Feb 2024 17:22:28 +0100
+Subject: [PATCH 14/30] drm/panthor: Add an entry to MAINTAINERS
+
+Add an entry for the Panthor driver to the MAINTAINERS file.
+
+v6:
+- Add Maxime's and Heiko's acks
+
+v4:
+- Add Steve's R-b
+
+v3:
+- Add bindings document as an 'F:' line.
+- Add Steven and Liviu as co-maintainers.
+
+Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+Reviewed-by: Steven Price <steven.price@arm.com>
+Acked-by: Maxime Ripard <mripard@kernel.org>
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20240229162230.2634044-15-boris.brezillon@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ MAINTAINERS | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 28e20975c..f9b38a1df 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1688,6 +1688,17 @@ F:	Documentation/gpu/panfrost.rst
+ F:	drivers/gpu/drm/panfrost/
+ F:	include/uapi/drm/panfrost_drm.h
+ 
++ARM MALI PANTHOR DRM DRIVER
++M:	Boris Brezillon <boris.brezillon@collabora.com>
++M:	Steven Price <steven.price@arm.com>
++M:	Liviu Dudau <liviu.dudau@arm.com>
++L:	dri-devel@lists.freedesktop.org
++S:	Supported
++T:	git git://anongit.freedesktop.org/drm/drm-misc
++F:	Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
++F:	drivers/gpu/drm/panthor/
++F:	include/uapi/drm/panthor_drm.h
++
+ ARM MALI-DP DRM DRIVER
+ M:	Liviu Dudau <liviu.dudau@arm.com>
+ S:	Supported
+-- 
+2.43.0
+

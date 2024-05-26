@@ -1,0 +1,28 @@
+From d7b3c30fddac4b56e40c12e4a696ea36e3bc01fb Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 25 Jan 2024 14:46:53 +0100
+Subject: [PATCH 15/30] arm64: defconfig: support Mali CSF-based GPUs
+
+Enable support for Mali CSF-based GPUs, which is found on recent
+ARM SoCs, such as Rockchip or Mediatek.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 2c30d617e..65e33174f 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -907,6 +907,7 @@ CONFIG_DRM_MESON=m
+ CONFIG_DRM_PL111=m
+ CONFIG_DRM_LIMA=m
+ CONFIG_DRM_PANFROST=m
++CONFIG_DRM_PANTHOR=m
+ CONFIG_DRM_TIDSS=m
+ CONFIG_DRM_POWERVR=m
+ CONFIG_FB=y
+-- 
+2.43.0
+

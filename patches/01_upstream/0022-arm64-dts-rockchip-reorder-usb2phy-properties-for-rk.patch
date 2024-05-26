@@ -1,0 +1,57 @@
+From 4ce8040c43dba237bd5d85d743d7f73ca1170758 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 13 Feb 2024 15:12:27 +0100
+Subject: [PATCH 22/30] arm64: dts: rockchip: reorder usb2phy properties for
+ rk3588
+
+Reorder common DT properties alphabetically for usb2phy, according
+to latest DT style rules.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588s.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
+index 89d40cff6..df7da3a67 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
+@@ -602,13 +602,13 @@ usb2phy2_grf: syscon@fd5d8000 {
+ 		u2phy2: usb2-phy@8000 {
+ 			compatible = "rockchip,rk3588-usb2phy";
+ 			reg = <0x8000 0x10>;
+-			interrupts = <GIC_SPI 391 IRQ_TYPE_LEVEL_HIGH 0>;
+-			resets = <&cru SRST_OTGPHY_U2_0>, <&cru SRST_P_USB2PHY_U2_0_GRF0>;
+-			reset-names = "phy", "apb";
++			#clock-cells = <0>;
+ 			clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>;
+ 			clock-names = "phyclk";
+ 			clock-output-names = "usb480m_phy2";
+-			#clock-cells = <0>;
++			interrupts = <GIC_SPI 391 IRQ_TYPE_LEVEL_HIGH 0>;
++			resets = <&cru SRST_OTGPHY_U2_0>, <&cru SRST_P_USB2PHY_U2_0_GRF0>;
++			reset-names = "phy", "apb";
+ 			status = "disabled";
+ 
+ 			u2phy2_host: host-port {
+@@ -627,13 +627,13 @@ usb2phy3_grf: syscon@fd5dc000 {
+ 		u2phy3: usb2-phy@c000 {
+ 			compatible = "rockchip,rk3588-usb2phy";
+ 			reg = <0xc000 0x10>;
+-			interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH 0>;
+-			resets = <&cru SRST_OTGPHY_U2_1>, <&cru SRST_P_USB2PHY_U2_1_GRF0>;
+-			reset-names = "phy", "apb";
++			#clock-cells = <0>;
+ 			clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>;
+ 			clock-names = "phyclk";
+ 			clock-output-names = "usb480m_phy3";
+-			#clock-cells = <0>;
++			interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH 0>;
++			resets = <&cru SRST_OTGPHY_U2_1>, <&cru SRST_P_USB2PHY_U2_1_GRF0>;
++			reset-names = "phy", "apb";
+ 			status = "disabled";
+ 
+ 			u2phy3_host: host-port {
+-- 
+2.43.0
+
