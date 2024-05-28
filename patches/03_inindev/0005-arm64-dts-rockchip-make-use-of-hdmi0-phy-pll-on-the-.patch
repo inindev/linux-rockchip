@@ -1,0 +1,30 @@
+From eb80decb8b9b5271472ec14d47fd199baf3d576e Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Tue, 28 May 2024 10:37:32 +0000
+Subject: [PATCH 5/6] arm64: dts: rockchip: make use of hdmi0 phy pll on the
+ nanopc-t6
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
+index 0f70e0ab8..04aa141b9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
+@@ -241,6 +241,11 @@ &cpu_b3 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
+ };
+ 
++&display_subsystem {
++	clocks = <&hdptxphy_hdmi0>;
++	clock-names = "hdmi0_phy_pll";
++};
++
+ &gpio0 {
+ 	gpio-line-names = /* GPIO0 A0-A7 */
+ 			  "", "", "", "",
+-- 
+2.43.0
+

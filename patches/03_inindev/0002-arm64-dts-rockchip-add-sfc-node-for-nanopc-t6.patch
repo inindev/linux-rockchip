@@ -1,7 +1,7 @@
-From 9b123e97d184ff757f8214cc4662064f5e591873 Mon Sep 17 00:00:00 2001
+From 9bef6756f10a4909cf271307fd14fe41f661736e Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 21 Dec 2023 19:44:52 +0000
-Subject: [PATCH 2/4] arm64: dts: rockchip: add sfc node for nanopc-t6
+Subject: [PATCH 2/6] arm64: dts: rockchip: add sfc node for nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---

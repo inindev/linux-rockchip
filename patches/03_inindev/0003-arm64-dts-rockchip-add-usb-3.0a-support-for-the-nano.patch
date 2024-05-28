@@ -1,16 +1,16 @@
-From 8bb4376626f06c66ea0173ac9281b2fd472ab200 Mon Sep 17 00:00:00 2001
+From 628881657c6c9d7198d88bf823e921c9fb68488a Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Tue, 21 May 2024 02:07:27 +0000
-Subject: [PATCH 3/4] arm64: dts: rockchip: add usb 3.0a support for the
+Subject: [PATCH 3/6] arm64: dts: rockchip: add usb 3.0a support for the
  nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 40 +++++++++++++++++--
- 1 file changed, 37 insertions(+), 3 deletions(-)
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 39 +++++++++++++++++--
+ 1 file changed, 36 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
-index 34ff24d1b..ba61685df 100644
+index 34ff24d1b..3ede63528 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 @@ -171,6 +171,18 @@ vcc3v3_sd_s0: vcc3v3-sd-s0-regulator {
@@ -83,7 +83,7 @@ index 34ff24d1b..ba61685df 100644
  &usb_host0_ehci {
  	status = "okay";
  };
-@@ -982,3 +1011,8 @@ &usb_host1_ehci {
+@@ -982,3 +1011,7 @@ &usb_host1_ehci {
  &usb_host1_ohci {
  	status = "okay";
  };
@@ -91,7 +91,6 @@ index 34ff24d1b..ba61685df 100644
 +&usb_host1_xhci {
 +	status = "okay";
 +};
-+
 -- 
 2.43.0
 
