@@ -18,7 +18,7 @@ index ad8e36a33..34ff24d1b 100644
  
 +&sfc {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&fspim2_pins>;
++	pinctrl-0 = <&fspim1_pins>;
 +	#address-cells = <1>;
 +	#size-cells = <0>;
 +	status = "okay";
