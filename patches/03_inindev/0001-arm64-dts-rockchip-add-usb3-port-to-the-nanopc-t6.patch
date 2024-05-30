@@ -1,16 +1,15 @@
-From 628881657c6c9d7198d88bf823e921c9fb68488a Mon Sep 17 00:00:00 2001
+From 954939c08eda5ff3fb5fe125319d671882891f28 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
-Date: Tue, 21 May 2024 02:07:27 +0000
-Subject: [PATCH 3/6] arm64: dts: rockchip: add usb 3.0a support for the
- nanopc-t6
+Date: Wed, 29 May 2024 16:30:56 -0400
+Subject: [PATCH 1/7] arm64: dts: rockchip: add usb3 port to the nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 39 +++++++++++++++++--
- 1 file changed, 36 insertions(+), 3 deletions(-)
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
-index 34ff24d1b..3ede63528 100644
+index ad8e36a33..9323c3aae 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 @@ -171,6 +171,18 @@ vcc3v3_sd_s0: vcc3v3-sd-s0-regulator {
@@ -43,39 +42,26 @@ index 34ff24d1b..3ede63528 100644
  	};
  };
  
-@@ -950,12 +966,12 @@ &uart2 {
+@@ -911,6 +927,15 @@ &uart2 {
  	status = "okay";
  };
  
--&u2phy2_host {
--	phy-supply = <&vdd_4g_3v3>;
 +&u2phy1 {
- 	status = "okay";
- };
- 
--&u2phy3_host {
++	status = "okay";
++};
++
 +&u2phy1_otg {
 +	phy-supply = <&vcc5v0_host_30>;
- 	status = "okay";
- };
- 
-@@ -963,10 +979,23 @@ &u2phy2 {
- 	status = "okay";
- };
- 
-+&u2phy2_host {
-+	phy-supply = <&vdd_4g_3v3>;
 +	status = "okay";
 +};
 +
- &u2phy3 {
+ &u2phy2_host {
+ 	phy-supply = <&vdd_4g_3v3>;
+ 	status = "okay";
+@@ -928,6 +953,10 @@ &u2phy3 {
  	status = "okay";
  };
  
-+&u2phy3_host {
-+	status = "okay";
-+};
-+
 +&usbdp_phy1 {
 +	status = "okay";
 +};
@@ -83,14 +69,15 @@ index 34ff24d1b..3ede63528 100644
  &usb_host0_ehci {
  	status = "okay";
  };
-@@ -982,3 +1011,7 @@ &usb_host1_ehci {
+@@ -943,3 +972,8 @@ &usb_host1_ehci {
  &usb_host1_ohci {
  	status = "okay";
  };
 +
 +&usb_host1_xhci {
++	dr_mode = "host";
 +	status = "okay";
 +};
 -- 
-2.43.0
+2.39.2
 

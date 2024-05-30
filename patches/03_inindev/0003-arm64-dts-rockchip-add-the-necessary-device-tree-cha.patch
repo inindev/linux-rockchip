@@ -1,7 +1,7 @@
-From 755ea8785d1830e59b55659491cc99dc1b020a79 Mon Sep 17 00:00:00 2001
+From 2928a760e32fae9728574844877f6320db090e1e Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
-Date: Tue, 28 May 2024 10:33:41 +0000
-Subject: [PATCH 4/6] arm64: dts: rockchip: add the necessary device tree
+Date: Wed, 29 May 2024 20:05:45 -0400
+Subject: [PATCH 3/7] arm64: dts: rockchip: add the necessary device tree
  changes to enable hdmi0 on the nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
@@ -10,7 +10,7 @@ Signed-off-by: John Clark <inindev@gmail.com>
  1 file changed, 30 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
-index 3ede63528..0f70e0ab8 100644
+index a0404f909..ed18546d8 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dts
 @@ -9,6 +9,7 @@
@@ -21,8 +21,8 @@ index 3ede63528..0f70e0ab8 100644
  #include <dt-bindings/usb/pd.h>
  #include "rk3588.dtsi"
  
-@@ -315,6 +316,20 @@ &gpio4 {
- 			  "", "", "", "";
+@@ -320,6 +321,20 @@ &gpu {
+ 	status = "okay";
  };
  
 +&hdmi0 {
@@ -42,8 +42,8 @@ index 3ede63528..0f70e0ab8 100644
  &i2c0 {
  	pinctrl-names = "default";
  	pinctrl-0 = <&i2c0m2_xfer>;
-@@ -1015,3 +1030,18 @@ &usb_host1_ohci {
- &usb_host1_xhci {
+@@ -982,3 +997,18 @@ &usb_host1_xhci {
+ 	dr_mode = "host";
  	status = "okay";
  };
 +
@@ -62,5 +62,5 @@ index 3ede63528..0f70e0ab8 100644
 +	};
 +};
 -- 
-2.43.0
+2.39.2
 

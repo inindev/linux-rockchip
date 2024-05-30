@@ -1,7 +1,7 @@
-From 93dfb877590cf96ad3dda3ad0e18ed6079b831ee Mon Sep 17 00:00:00 2001
+From d9acdee0adb7e0ee479f1f5fccd6dfda4a1bb16f Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 19 May 2024 12:30:33 +0000
-Subject: [PATCH 6/6] arm64: inindev_defconfig: enhanced kernel module support
+Subject: [PATCH 7/7] arm64: inindev_defconfig: enhanced kernel module support
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
@@ -3761,5 +3761,5 @@ index 000000000..4a3b498cd
 +CONFIG_TEST_STATIC_KEYS=m
 +CONFIG_MEMTEST=y
 -- 
-2.43.0
+2.39.2
 
