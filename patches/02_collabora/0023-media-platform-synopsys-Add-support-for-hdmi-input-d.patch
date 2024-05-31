@@ -1,7 +1,7 @@
 From 25b627df1b78b6d31aa92b2741dfc8d88b440e18 Mon Sep 17 00:00:00 2001
 From: Shreeya Patel <shreeya.patel@collabora.com>
 Date: Wed, 20 Dec 2023 16:52:01 +0530
-Subject: [PATCH 23/50] media: platform: synopsys: Add support for hdmi input
+Subject: [PATCH 23/53] media: platform: synopsys: Add support for hdmi input
  driver
 
 Add initial support for the Synopsys DesignWare HDMI RX

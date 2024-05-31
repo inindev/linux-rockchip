@@ -1,7 +1,7 @@
 From e20bd0ed943d1a5b81cd5a4cf1195a55fcc9b5c7 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 20 May 2024 15:07:08 +0300
-Subject: [PATCH 50/50] drm/rockchip: dw_hdmi: Add basic RK3588 support
+Subject: [PATCH 50/53] drm/rockchip: dw_hdmi: Add basic RK3588 support
 
 RK3588 SoC updated the Synopsis DesignWare HDMI transmitter used in the
 older SoCs to Quad-Pixel (QP) variant, which is HDMI 2.1 compliant,

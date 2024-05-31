@@ -1,7 +1,7 @@
 From 2347bad59a71470adbaf59bd3965a3b7bb5d36c1 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 28 Mar 2024 00:47:03 +0200
-Subject: [PATCH 48/50] dt-bindings: display: rockchip,dw-hdmi: Add compatible
+Subject: [PATCH 48/53] dt-bindings: display: rockchip,dw-hdmi: Add compatible
  for RK3588
 
 Document the DW HDMI TX Controller found on Rockchip RK3588 SoC.

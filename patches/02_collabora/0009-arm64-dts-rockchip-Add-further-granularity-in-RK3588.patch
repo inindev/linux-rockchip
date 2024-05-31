@@ -1,7 +1,7 @@
 From 8373ed9563684555611be00bf3d2a354f99edd8f Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Thu, 29 Feb 2024 23:26:36 +0400
-Subject: [PATCH 09/50] arm64: dts: rockchip: Add further granularity in RK3588
+Subject: [PATCH 09/53] arm64: dts: rockchip: Add further granularity in RK3588
  CPU OPPs
 
 This introduces additional OPPs that share the same voltage as

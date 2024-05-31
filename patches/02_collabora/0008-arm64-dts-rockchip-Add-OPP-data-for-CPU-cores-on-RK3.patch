@@ -1,7 +1,7 @@
 From 6afe1b6432acd8b14dfa3c94ff269d8f931f824f Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Thu, 29 Feb 2024 23:26:35 +0400
-Subject: [PATCH 08/50] arm64: dts: rockchip: Add OPP data for CPU cores on
+Subject: [PATCH 08/53] arm64: dts: rockchip: Add OPP data for CPU cores on
  RK3588
 
 By default the CPUs on RK3588 start up in a conservative performance

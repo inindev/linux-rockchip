@@ -1,7 +1,7 @@
 From 24915ebcf4a580106a2d7caf00129f04603b1f71 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 24 Apr 2024 14:35:06 +0300
-Subject: [PATCH 38/50] drm/bridge: dw-hdmi: Move common data to separate
+Subject: [PATCH 38/53] drm/bridge: dw-hdmi: Move common data to separate
  header
 
 In preparation to add support for the HDMI 2.1 Quad-Pixel TX Controller,

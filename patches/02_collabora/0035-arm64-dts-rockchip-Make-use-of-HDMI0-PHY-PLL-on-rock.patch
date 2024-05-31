@@ -1,7 +1,7 @@
 From 3b5511a3640900e38f8c62b4e4b0ac359a697fde Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 3 Nov 2023 20:05:05 +0200
-Subject: [PATCH 35/50] arm64: dts: rockchip: Make use of HDMI0 PHY PLL on
+Subject: [PATCH 35/53] arm64: dts: rockchip: Make use of HDMI0 PHY PLL on
  rock-5b
 
 The initial vop2 support for rk3588 in mainline is not able to handle

@@ -1,7 +1,7 @@
 From 383862f06005bfa903d46b5247da90cbc854835d Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 16 Jan 2024 03:13:38 +0200
-Subject: [PATCH 34/50] arm64: dts: rockchip: Enable HDMI0 PHY clk provider on
+Subject: [PATCH 34/53] arm64: dts: rockchip: Enable HDMI0 PHY clk provider on
  rk3588
 
 The HDMI0 PHY can be used as a clock provider on RK3588, hence add the

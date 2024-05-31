@@ -1,7 +1,7 @@
 From a33ab0c664577f1c74c6aebc6078ab0a22026245 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 30 Apr 2024 13:06:11 +0300
-Subject: [PATCH 40/50] drm/bridge: dw-hdmi: Commonize AVI infoframe setup
+Subject: [PATCH 40/53] drm/bridge: dw-hdmi: Commonize AVI infoframe setup
 
 In preparation to support DW HDMI QP variant and minimize code
 duplication, split hdmi_config_AVI() into a common

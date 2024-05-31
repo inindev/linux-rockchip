@@ -1,7 +1,7 @@
 From a19443b31902c34d198a3c2a4bdf5d5d3ff5cff9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 11 Mar 2024 18:05:34 +0100
-Subject: [PATCH 11/50] clk: rockchip: rk3588: drop unused code
+Subject: [PATCH 11/53] clk: rockchip: rk3588: drop unused code
 
 All clocks are registered early using CLK_OF_DECLARE(), which marks
 the DT node as processed. For the processed DT node the probe routine

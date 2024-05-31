@@ -1,7 +1,7 @@
 From 2a6722f6c16d852898debb367d0df77f045bff4c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 27 Mar 2024 20:36:15 +0200
-Subject: [PATCH 29/50] dt-bindings: display: rockchip-drm: Add optional clocks
+Subject: [PATCH 29/53] dt-bindings: display: rockchip-drm: Add optional clocks
  property
 
 Allow using the clock provided by HDMI0 PHY PLL to improve HDMI output

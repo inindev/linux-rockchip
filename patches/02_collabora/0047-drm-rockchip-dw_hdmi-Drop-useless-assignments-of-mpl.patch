@@ -1,7 +1,7 @@
 From 743bfc4831ac8fb6cfe3a73f433318b92e643968 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 27 May 2024 22:38:38 +0300
-Subject: [PATCH 47/50] drm/rockchip: dw_hdmi: Drop useless assignments of
+Subject: [PATCH 47/53] drm/rockchip: dw_hdmi: Drop useless assignments of
  mpll_cfg, cur_ctr, phy_config
 
 The mpll_cfg, cur_ctr and phy_config members in struct dw_hdmi_plat_data

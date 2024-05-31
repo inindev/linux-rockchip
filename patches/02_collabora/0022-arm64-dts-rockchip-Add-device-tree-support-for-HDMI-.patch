@@ -1,7 +1,7 @@
 From aab0c3969f50b836f436533d675d2c8fcb543fe6 Mon Sep 17 00:00:00 2001
 From: Shreeya Patel <shreeya.patel@collabora.com>
 Date: Wed, 20 Dec 2023 16:50:14 +0530
-Subject: [PATCH 22/50] arm64: dts: rockchip: Add device tree support for HDMI
+Subject: [PATCH 22/53] arm64: dts: rockchip: Add device tree support for HDMI
  RX Controller
 
 Add device tree support for Synopsys DesignWare HDMI RX

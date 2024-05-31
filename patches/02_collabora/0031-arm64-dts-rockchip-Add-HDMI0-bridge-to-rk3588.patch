@@ -1,7 +1,7 @@
 From e72dd894aabc77889b04bbbe31929e3fb3e5b85f Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 15 Jan 2024 22:47:41 +0200
-Subject: [PATCH 31/50] arm64: dts: rockchip: Add HDMI0 bridge to rk3588
+Subject: [PATCH 31/53] arm64: dts: rockchip: Add HDMI0 bridge to rk3588
 
 Add DT node for the HDMI0 bridge found on RK3588 SoC.
 

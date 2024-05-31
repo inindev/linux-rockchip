@@ -1,7 +1,7 @@
 From b25740e8d3afed9767f14d86434ff92c68b2abea Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 14 May 2024 17:29:32 +0200
-Subject: [PATCH 25/50] usb: typec: tcpm: avoid resets for missing source
+Subject: [PATCH 25/53] usb: typec: tcpm: avoid resets for missing source
  capability messages
 
 When the Linux Type-C controller drivers probe, they requests a soft

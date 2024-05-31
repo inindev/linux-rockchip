@@ -1,7 +1,7 @@
 From 6129875337213386665a521c0343d5ead365d31a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 16 Jan 2024 19:27:40 +0200
-Subject: [PATCH 28/50] phy: phy-rockchip-samsung-hdptx: Add clock provider
+Subject: [PATCH 28/53] phy: phy-rockchip-samsung-hdptx: Add clock provider
 
 The HDMI PHY PLL can be used as an alternative dclk source to SoC CRU.
 It provides more accurate clock rates required to properly support

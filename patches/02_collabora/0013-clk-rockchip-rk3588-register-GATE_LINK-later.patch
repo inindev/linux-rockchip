@@ -1,7 +1,7 @@
 From 515c1a968c7cfc7452229367a466d12251bfcb16 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 12 Mar 2024 16:12:18 +0100
-Subject: [PATCH 13/50] clk: rockchip: rk3588: register GATE_LINK later
+Subject: [PATCH 13/53] clk: rockchip: rk3588: register GATE_LINK later
 
 The proper GATE_LINK implementation will use runtime PM to handle the
 linked gate clocks, which requires device context. Currently all clocks

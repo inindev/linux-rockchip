@@ -1,7 +1,7 @@
 From 3ffb6d9ecc9a43e09bee8644f8314ce38c98e44a Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Thu, 29 Feb 2024 23:26:34 +0400
-Subject: [PATCH 07/50] arm64: dts: rockchip: Add CPU/memory regulator coupling
+Subject: [PATCH 07/53] arm64: dts: rockchip: Add CPU/memory regulator coupling
  for RK3588
 
 RK3588 chips allow for their CPU cores to be powered by a different

@@ -1,7 +1,7 @@
 From 5a4a42bc7fb3adf1b9af99ee1d29e56b8e00a68d Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Thu, 29 Feb 2024 23:26:32 +0400
-Subject: [PATCH 05/50] arm64: dts: rockchip: enable built-in thermal
+Subject: [PATCH 05/53] arm64: dts: rockchip: enable built-in thermal
  monitoring on RK3588
 
 Include thermal zones information in device tree for RK3588 variants.

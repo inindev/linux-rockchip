@@ -1,7 +1,7 @@
 From 9a0bdf3f333598760eabd26744865cbc1ca6337f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 25 Mar 2024 19:29:22 +0100
-Subject: [PATCH 14/50] clk: rockchip: expose rockchip_clk_set_lookup
+Subject: [PATCH 14/53] clk: rockchip: expose rockchip_clk_set_lookup
 
 Move rockchip_clk_add_lookup to clk.h, so that it can be used
 by sub-devices with their own driver. These might also have to

@@ -1,7 +1,7 @@
 From 3ae92d436324f6489d9a9f591cec994b1f10138b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 15 May 2024 18:30:14 +0200
-Subject: [PATCH 24/50] usb: typec: tcpm: print error on hard reset
+Subject: [PATCH 24/53] usb: typec: tcpm: print error on hard reset
 
 A USB-C hard reset involves removing the voltage from VBUS for some
 time. So basically it has the same effect as removing the USB-C plug

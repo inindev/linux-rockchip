@@ -1,7 +1,7 @@
 From eb9b1d2d7ed31997cb78a650af5032ea042ff3cf Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 20 May 2024 14:49:50 +0300
-Subject: [PATCH 49/50] drm/bridge: synopsys: Add DW HDMI QP TX controller
+Subject: [PATCH 49/53] drm/bridge: synopsys: Add DW HDMI QP TX controller
  driver
 
 The Synopsys DesignWare HDMI 2.1 Quad-Pixel (QP) TX controller supports

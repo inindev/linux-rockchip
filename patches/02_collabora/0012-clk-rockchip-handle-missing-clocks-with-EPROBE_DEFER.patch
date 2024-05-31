@@ -1,7 +1,7 @@
 From 5efd77d3c05902475e32afeccb89a6ba7048fd84 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 8 Mar 2024 23:19:55 +0100
-Subject: [PATCH 12/50] clk: rockchip: handle missing clocks with -EPROBE_DEFER
+Subject: [PATCH 12/53] clk: rockchip: handle missing clocks with -EPROBE_DEFER
 
 In the future some clocks will be registered using CLK_OF_DECLARE
 and some are registered later from the driver probe routine. Any

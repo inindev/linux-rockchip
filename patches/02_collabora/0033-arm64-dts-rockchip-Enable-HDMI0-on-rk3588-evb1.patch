@@ -1,7 +1,7 @@
 From e25dfea5cd3e35146bd409b22505783814e9dbd1 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 17 Jan 2024 01:53:38 +0200
-Subject: [PATCH 33/50] arm64: dts: rockchip: Enable HDMI0 on rk3588-evb1
+Subject: [PATCH 33/53] arm64: dts: rockchip: Enable HDMI0 on rk3588-evb1
 
 Add the necessary DT changes to enable HDMI0 on Rockchip RK3588 EVB1.
 

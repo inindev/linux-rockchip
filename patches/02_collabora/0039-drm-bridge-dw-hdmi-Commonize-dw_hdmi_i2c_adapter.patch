@@ -1,7 +1,7 @@
 From e15999514b3eedd72eb775652d2ab3b590302745 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 30 Apr 2024 12:48:34 +0300
-Subject: [PATCH 39/50] drm/bridge: dw-hdmi: Commonize dw_hdmi_i2c_adapter()
+Subject: [PATCH 39/53] drm/bridge: dw-hdmi: Commonize dw_hdmi_i2c_adapter()
 
 In preparation to support DW HDMI QP variant, add a new parameter to
 dw_hdmi_i2c_adapter() which allows using a different i2c_algorithm and

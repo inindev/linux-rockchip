@@ -1,7 +1,7 @@
 From 0c43b774ccdfa27f9bf3008f6a6c0c5be4c9a558 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 25 Mar 2024 19:42:07 +0100
-Subject: [PATCH 16/50] clk: rockchip: implement linked gate clock support
+Subject: [PATCH 16/53] clk: rockchip: implement linked gate clock support
 
 Recent Rockchip SoCs have a new hardware block called Native Interface
 Unit (NIU), which gates clocks to devices behind them. These clock

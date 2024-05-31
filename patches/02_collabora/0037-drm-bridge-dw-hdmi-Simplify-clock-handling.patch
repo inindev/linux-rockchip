@@ -1,7 +1,7 @@
 From de0d160dadeb6be4160941c3b9e691ab479e0af3 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Sat, 18 May 2024 02:49:30 +0300
-Subject: [PATCH 37/50] drm/bridge: dw-hdmi: Simplify clock handling
+Subject: [PATCH 37/53] drm/bridge: dw-hdmi: Simplify clock handling
 
 Make use of devm_clk_get_enabled() to replace devm_clk_get() and
 clk_prepare_enable() for isfr and iahb clocks, and drop the now

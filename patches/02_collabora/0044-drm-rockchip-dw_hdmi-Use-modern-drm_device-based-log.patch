@@ -1,7 +1,7 @@
 From bc913530530889bf0a9e8933cd7982c1287eec64 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 24 May 2024 23:46:26 +0300
-Subject: [PATCH 44/50] drm/rockchip: dw_hdmi: Use modern drm_device based
+Subject: [PATCH 44/53] drm/rockchip: dw_hdmi: Use modern drm_device based
  logging
 
 Prefer drm_{err|info|dbg}() over deprecated DRM_DEV_{ERROR|INFO|DEBUG}()

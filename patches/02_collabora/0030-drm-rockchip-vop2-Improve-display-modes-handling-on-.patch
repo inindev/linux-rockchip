@@ -1,7 +1,7 @@
 From f2c3e115f922dfbb9d4b739e622802f5a9daf188 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 3 Nov 2023 19:58:02 +0200
-Subject: [PATCH 30/50] drm/rockchip: vop2: Improve display modes handling on
+Subject: [PATCH 30/53] drm/rockchip: vop2: Improve display modes handling on
  rk3588
 
 The initial vop2 support for rk3588 in mainline is not able to handle

@@ -1,7 +1,7 @@
 From ca104a2f8a8fd9eb56867501a76cfcbb4de92dc2 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 7 May 2024 19:16:01 +0300
-Subject: [PATCH 45/50] drm/rockchip: dw_hdmi: Simplify clock handling
+Subject: [PATCH 45/53] drm/rockchip: dw_hdmi: Simplify clock handling
 
 Make use of devm_clk_get_optional_enabled() to replace devm_clk_get()
 and clk_prepare_enable() for ref_clk and drop the now unnecessary calls

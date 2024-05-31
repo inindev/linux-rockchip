@@ -1,7 +1,7 @@
 From 74ad06fe9b00f1c466033e9ab6d6cd1de4db667d Mon Sep 17 00:00:00 2001
 From: Shreeya Patel <shreeya.patel@collabora.com>
 Date: Wed, 20 Dec 2023 18:30:13 +0530
-Subject: [PATCH 21/50] dt-bindings: media: Document bindings for HDMI RX
+Subject: [PATCH 21/53] dt-bindings: media: Document bindings for HDMI RX
  Controller
 
 Document bindings for the Synopsys DesignWare HDMI RX Controller.

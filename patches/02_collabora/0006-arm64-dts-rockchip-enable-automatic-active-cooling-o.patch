@@ -1,7 +1,7 @@
 From a4308d674a7f0cdb88c742b2b670638f8e9224f1 Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Thu, 29 Feb 2024 23:26:33 +0400
-Subject: [PATCH 06/50] arm64: dts: rockchip: enable automatic active cooling
+Subject: [PATCH 06/53] arm64: dts: rockchip: enable automatic active cooling
  on Rock 5B
 
 This links the PWM fan on Radxa Rock 5B as an active cooling device

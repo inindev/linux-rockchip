@@ -1,7 +1,7 @@
 From 5af47d84395fd3de17d8ba92ba6c4ae99f5b5057 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 15 May 2024 02:24:03 +0300
-Subject: [PATCH 46/50] drm/rockchip: dw_hdmi: Use devm_regulator_get_enable()
+Subject: [PATCH 46/53] drm/rockchip: dw_hdmi: Use devm_regulator_get_enable()
 
 The regulators are only enabled at bind() and disabled at unbind(),
 hence replace the boilerplate code by making use of

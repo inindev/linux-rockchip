@@ -1,7 +1,7 @@
 From 0c8555880d498d96168d954da57efe2c5716ef86 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 30 Apr 2024 23:51:06 +0300
-Subject: [PATCH 42/50] drm/bridge: dw-hdmi: Commonize hdmi_data_info setup
+Subject: [PATCH 42/53] drm/bridge: dw-hdmi: Commonize hdmi_data_info setup
 
 In preparation to support DW HDMI QP variant and minimize code
 duplication, split dw_hdmi_setup() into a common dw_hdmi_prep_data()

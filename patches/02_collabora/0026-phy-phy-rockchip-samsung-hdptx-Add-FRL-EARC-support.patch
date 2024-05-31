@@ -1,7 +1,7 @@
 From 6fda51d4c9f2d3add915a899e8a4ebc3340b5d03 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 5 Feb 2024 01:38:48 +0200
-Subject: [PATCH 26/50] phy: phy-rockchip-samsung-hdptx: Add FRL & EARC support
+Subject: [PATCH 26/53] phy: phy-rockchip-samsung-hdptx: Add FRL & EARC support
 
 For upstreaming, this requires extending the standard PHY API to support
 HDMI configuration options [1].
