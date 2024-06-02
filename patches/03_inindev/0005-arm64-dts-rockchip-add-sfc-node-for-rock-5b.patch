@@ -1,7 +1,7 @@
-From cfb4d0b5e7f8b8f04859ee0ae5789ba74d3cd76d Mon Sep 17 00:00:00 2001
+From e864361f7a8c9cee344ddec4698dccd55e10957f Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sat, 24 Jun 2023 01:10:07 +0000
-Subject: [PATCH 5/7] arm64: dts: rockchip: add sfc node for rock-5b
+Subject: [PATCH 5/8] arm64: dts: rockchip: add sfc node for rock-5b
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
