@@ -1,7 +1,7 @@
-From 43d03929efd894f82dd7cdf91dfcce5f5863bc39 Mon Sep 17 00:00:00 2001
+From 15a9d7cbfcd2234db71736519b7f43fd3bc0849c Mon Sep 17 00:00:00 2001
 From: Liviu Dudau <liviu.dudau@arm.com>
 Date: Thu, 29 Feb 2024 17:22:27 +0100
-Subject: [PATCH 13/30] dt-bindings: gpu: mali-valhall-csf: Add support for Arm
+Subject: [PATCH 13/71] dt-bindings: gpu: mali-valhall-csf: Add support for Arm
  Mali CSF GPUs
 
 Arm has introduced a new v10 GPU architecture that replaces the Job Manager
@@ -44,8 +44,7 @@ Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 Reviewed-by: Rob Herring <robh@kernel.org>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-14-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-14-boris.brezillon@collabora.com
 ---
  .../bindings/gpu/arm,mali-valhall-csf.yaml    | 147 ++++++++++++++++++
  1 file changed, 147 insertions(+)
@@ -205,5 +204,5 @@ index 000000000..a5b4e0021
 +
 +...
 -- 
-2.43.0
+2.39.2
 

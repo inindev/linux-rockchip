@@ -1,8 +1,8 @@
 
 # Copyright (C) 2023, John Clark <inindev@gmail.com>
 
-LINUX_VER = 6.9.5
-LINUX_SHA256 = a51fb4ab5003a6149bd9bf4c18c9b1f0f4945c272549095ab154b9d1052f95b1
+LINUX_VER = 6.9.6
+LINUX_SHA256 = 5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b
 
 LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
@@ -51,7 +51,7 @@ $(LDIR): | downloads/$(LINUX_FILE)
 	@tar --one-top-level=kernel-$(LINUX_VER) -xavf downloads/$(LINUX_FILE)
 
 	@echo "\n$(h1)patching...$(rst)"
-	@patches="$$(find patches -maxdepth 2 -name '*.patch' 2>/dev/null | sort)"; \
+	@patches="$$(find patches -name '*.patch' 2>/dev/null | sort)"; \
 	for patch in $$patches; do \
 	    echo "\n$(grn)$$patch$(rst)"; \
 	    patch -p1 -d $(LDIR) -i "../../$$patch"; \

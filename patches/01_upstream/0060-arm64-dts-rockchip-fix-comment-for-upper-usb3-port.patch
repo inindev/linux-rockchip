@@ -1,0 +1,48 @@
+From 0ea542a0da53a86b5def8c1979518c83ec65a297 Mon Sep 17 00:00:00 2001
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Date: Mon, 22 Apr 2024 18:39:49 +0200
+Subject: [PATCH 60/71] arm64: dts: rockchip: fix comment for upper usb3 port
+
+The comment for the host2_xhci points to the wrong port on the board.
+The upper usb3 port is the correct one, so fix the comment to prevent
+confusion.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Reviewed-by: Quentin Schulz <quentin.schulz@theobroma-systems.com>
+Link: https://lore.kernel.org/r/20240422163951.2604273-2-heiko@sntech.de
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+index d672198c6..32020d3eb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+@@ -240,12 +240,12 @@ &uart5 {
+ 	status = "okay";
+ };
+ 
+-/* host0 on Q7_USB_P2, lower usb3 port */
++/* host0 on Q7_USB_P2, upper usb3 port */
+ &usb_host0_ehci {
+ 	status = "okay";
+ };
+ 
+-/* host0 on Q7_USB_P2, lower usb3 port */
++/* host0 on Q7_USB_P2, upper usb3 port */
+ &usb_host0_ohci {
+ 	status = "okay";
+ };
+@@ -260,7 +260,7 @@ &usb_host1_ohci {
+ 	status = "okay";
+ };
+ 
+-/* host2 on Q7_USB_P2, lower usb3 port */
++/* host2 on Q7_USB_P2, upper usb3 port */
+ &usb_host2_xhci {
+ 	status = "okay";
+ };
+-- 
+2.39.2
+

@@ -1,7 +1,7 @@
-From d8152b6c89534576eee35d3e527c329eb9ca1ede Mon Sep 17 00:00:00 2001
+From 072bf04a2e1d30b5cba98c086cd8ff93992c2149 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:20 +0100
-Subject: [PATCH 06/30] drm/panthor: Add the devfreq logical block
+Subject: [PATCH 06/71] drm/panthor: Add the devfreq logical block
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -36,8 +36,7 @@ Acked-by: Boris Brezillon <boris.brezillon@collabora.com> # MIT+GPL2 relicensing
 Acked-by: Clément Péron <peron.clem@gmail.com> # MIT+GPL2 relicensing
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-7-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-7-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_devfreq.c | 283 ++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_devfreq.h |  21 ++
@@ -362,5 +361,5 @@ index 000000000..83a5c9522
 +
 +#endif /* __PANTHOR_DEVFREQ_H__ */
 -- 
-2.43.0
+2.39.2
 

@@ -1,7 +1,7 @@
-From 55ef2ac5b5247c3a91794452ae32229896e207ff Mon Sep 17 00:00:00 2001
+From f337a410e954e63d842c3d3a08844fe4683963bf Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:19 +0100
-Subject: [PATCH 05/30] drm/panthor: Add GEM logical block
+Subject: [PATCH 05/71] drm/panthor: Add GEM logical block
 
 Anything relating to GEM object management is placed here. Nothing
 particularly interesting here, given the implementation is based on
@@ -38,8 +38,7 @@ Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-6-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-6-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_gem.c | 230 ++++++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_gem.h | 142 ++++++++++++++++
@@ -432,5 +431,5 @@ index 000000000..3bccba394
 +
 +#endif /* __PANTHOR_GEM_H__ */
 -- 
-2.43.0
+2.39.2
 

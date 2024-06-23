@@ -1,7 +1,7 @@
-From 5ced18c22375ffd59fa1f39ae5b418b647f8d1e2 Mon Sep 17 00:00:00 2001
+From bb0b810b2df70a9ab5a1bd3186259c852164d397 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:26 +0100
-Subject: [PATCH 12/30] drm/panthor: Allow driver compilation
+Subject: [PATCH 12/71] drm/panthor: Allow driver compilation
 
 Now that all blocks are available, we can add/update Kconfig/Makefile
 files to allow compilation.
@@ -28,8 +28,7 @@ Acked-by: Boris Brezillon <boris.brezillon@collabora.com> # MIT+GPL2 relicensing
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-13-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-13-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/Kconfig          |  2 ++
  drivers/gpu/drm/Makefile         |  1 +
@@ -114,5 +113,5 @@ index 000000000..15294719b
 +
 +obj-$(CONFIG_DRM_PANTHOR) += panthor.o
 -- 
-2.43.0
+2.39.2
 

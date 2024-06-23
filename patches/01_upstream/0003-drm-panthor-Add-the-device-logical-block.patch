@@ -1,7 +1,7 @@
-From d152d51046f7bfd5a98b0542bb6959e07c2d78f1 Mon Sep 17 00:00:00 2001
+From a5dddaa995113bca8134a82809eaa28f9bde2fb1 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:17 +0100
-Subject: [PATCH 03/30] drm/panthor: Add the device logical block
+Subject: [PATCH 03/71] drm/panthor: Add the device logical block
 
 The panthor driver is designed in a modular way, where each logical
 block is dealing with a specific HW-block or software feature. In order
@@ -54,8 +54,7 @@ Reviewed-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-4-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-4-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_device.c | 549 +++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_device.h | 394 ++++++++++++++++
@@ -1019,5 +1018,5 @@ index 000000000..51c9d61b6
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

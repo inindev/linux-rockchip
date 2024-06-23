@@ -1,0 +1,32 @@
+From eca320f6c8075a8c2afdc217bff5a45938df8785 Mon Sep 17 00:00:00 2001
+From: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+Date: Tue, 2 Apr 2024 03:40:40 -0700
+Subject: [PATCH 29/71] drm/panthor: Fix NULL vs IS_ERR() bug in
+ panthor_probe()
+
+The devm_drm_dev_alloc() function returns error pointers.
+Update the error handling to check for error pointers instead of NULL.
+
+Fixes: 4bdca1150792 ("drm/panthor: Add the driver frontend block")
+Signed-off-by: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+---
+ drivers/gpu/drm/panthor/panthor_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
+index 730dd0c69..5e3dc701d 100644
+--- a/drivers/gpu/drm/panthor/panthor_drv.c
++++ b/drivers/gpu/drm/panthor/panthor_drv.c
+@@ -1400,7 +1400,7 @@ static int panthor_probe(struct platform_device *pdev)
+ 
+ 	ptdev = devm_drm_dev_alloc(&pdev->dev, &panthor_drm_driver,
+ 				   struct panthor_device, base);
+-	if (!ptdev)
++	if (IS_ERR(ptdev))
+ 		return -ENOMEM;
+ 
+ 	platform_set_drvdata(pdev, ptdev);
+-- 
+2.39.2
+

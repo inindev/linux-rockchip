@@ -1,7 +1,7 @@
-From a0278713c212b3d5b1797ffeb22f4b481a3c735a Mon Sep 17 00:00:00 2001
+From 71c1ba345e65427f3672b23ca9eeec5db6615a3d Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:18 +0100
-Subject: [PATCH 04/30] drm/panthor: Add the GPU logical block
+Subject: [PATCH 04/71] drm/panthor: Add the GPU logical block
 
 Handles everything that's not related to the FW, the MMU or the
 scheduler. This is the block dealing with the GPU property retrieval,
@@ -43,8 +43,7 @@ Acked-by: Boris Brezillon <boris.brezillon@collabora.com> # MIT+GPL2 relicensing
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-5-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-5-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_gpu.c | 482 ++++++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_gpu.h |  52 +++
@@ -599,5 +598,5 @@ index 000000000..bba7555dd
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

@@ -1,7 +1,7 @@
-From f9fd94626eccc0b7bf147989b4e11fcc5f216c77 Mon Sep 17 00:00:00 2001
+From 4cd370b4e411b6d8a86579455d8ae36578366bc9 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:22 +0100
-Subject: [PATCH 08/30] drm/panthor: Add the FW logical block
+Subject: [PATCH 08/71] drm/panthor: Add the FW logical block
 
 Contains everything that's FW related, that includes the code dealing
 with the microcontroller unit (MCU) that's running the FW, and anything
@@ -48,8 +48,7 @@ Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-9-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-9-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_fw.c | 1362 ++++++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_fw.h |  503 ++++++++++
@@ -1935,5 +1934,5 @@ index 000000000..22448abde
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

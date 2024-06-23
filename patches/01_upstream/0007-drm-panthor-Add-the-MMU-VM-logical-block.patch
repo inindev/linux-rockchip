@@ -1,7 +1,7 @@
-From fdf25254fce94ab22b09f34a06a699d4b3511d3d Mon Sep 17 00:00:00 2001
+From c23815fe21b09eb53ae83b233fdf814274d4e685 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:21 +0100
-Subject: [PATCH 07/30] drm/panthor: Add the MMU/VM logical block
+Subject: [PATCH 07/71] drm/panthor: Add the MMU/VM logical block
 
 MMU and VM management is related and placed in the same source file.
 
@@ -89,8 +89,7 @@ Acked-by: Boris Brezillon <boris.brezillon@collabora.com> # MIT+GPL2 relicensing
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-8-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-8-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_mmu.c | 2768 +++++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_mmu.h |  102 +
@@ -2981,5 +2980,5 @@ index 000000000..f3c1ed19f
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

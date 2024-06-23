@@ -1,7 +1,7 @@
-From 5df564d0b5cc62d2b7eca4803763054aabfe3a07 Mon Sep 17 00:00:00 2001
+From 45cae92c22ffeed851b06b827c53a9da687c25ef Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:24 +0100
-Subject: [PATCH 10/30] drm/panthor: Add the scheduler logical block
+Subject: [PATCH 10/71] drm/panthor: Add the scheduler logical block
 
 This is the piece of software interacting with the FW scheduler, and
 taking care of some scheduling aspects when the FW comes short of slots
@@ -79,8 +79,7 @@ Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-11-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-11-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_sched.c | 3502 +++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_sched.h |   50 +
@@ -3653,5 +3652,5 @@ index 000000000..66438b1f3
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

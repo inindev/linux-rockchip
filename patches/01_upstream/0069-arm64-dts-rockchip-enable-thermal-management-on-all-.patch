@@ -1,0 +1,115 @@
+From 2acb03b1e551e9458f531d322e71d893bdb8c568 Mon Sep 17 00:00:00 2001
+From: Alexey Charkov <alchark@gmail.com>
+Date: Mon, 17 Jun 2024 22:28:52 +0400
+Subject: [PATCH 69/71] arm64: dts: rockchip: enable thermal management on all
+ RK3588 boards
+
+This enables the on-chip thermal monitoring sensor (TSADC) on all
+RK3588(s) boards that don't have it enabled yet. It provides temperature
+monitoring for the SoC and emergency thermal shutdowns, and is thus
+important to have in place before CPU DVFS is enabled, as high CPU
+operating performance points can overheat the chip quickly in the
+absence of thermal management.
+
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+Link: https://lore.kernel.org/r/20240617-rk-dts-additions-v5-2-c1f5f3267f1e@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts              | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts               | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts           | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi           | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts              | 4 ++++
+ 6 files changed, 24 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
+index d9bf67525..681b4fda1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
+@@ -464,3 +464,7 @@ regulator-state-mem {
+ 		};
+ 	};
+ };
++
++&tsadc {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index 7be219024..7c3696a3a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -1131,6 +1131,10 @@ &sata0 {
+ 	status = "okay";
+ };
+ 
++&tsadc {
++	status = "okay";
++};
++
+ &u2phy0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index e82140633..49d3e2663 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -750,6 +750,10 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&tsadc {
++	status = "okay";
++};
++
+ &uart2 {
+ 	pinctrl-0 = <&uart2m0_xfer>;
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts b/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
+index 9090c5c99..d0021524e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
+@@ -648,6 +648,10 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&tsadc {
++	status = "okay";
++};
++
+ &u2phy2 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
+index 6b9206ce4..77bcf0f6b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
+@@ -601,6 +601,10 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&tsadc {
++	status = "okay";
++};
++
+ &uart2 {
+ 	pinctrl-0 = <&uart2m0_xfer>;
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
+index ff476e330..6682bfdd1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
+@@ -699,6 +699,10 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&tsadc {
++	status = "okay";
++};
++
+ &u2phy0 {
+ 	status = "okay";
+ };
+-- 
+2.39.2
+

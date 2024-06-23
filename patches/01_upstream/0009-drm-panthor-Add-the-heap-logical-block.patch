@@ -1,7 +1,7 @@
-From 53654a39123c697224d7a1d0a8e86870e04e0a78 Mon Sep 17 00:00:00 2001
+From b47145e7e60bea1da0e854dd8b7284d93f607c14 Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:23 +0100
-Subject: [PATCH 09/30] drm/panthor: Add the heap logical block
+Subject: [PATCH 09/71] drm/panthor: Add the heap logical block
 
 Tiler heap growing requires some kernel driver involvement: when the
 tiler runs out of heap memory, it will raise an exception which is
@@ -44,8 +44,7 @@ Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-10-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-10-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_heap.c | 597 +++++++++++++++++++++++++
  drivers/gpu/drm/panthor/panthor_heap.h |  39 ++
@@ -702,5 +701,5 @@ index 000000000..25a5f2bba
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 

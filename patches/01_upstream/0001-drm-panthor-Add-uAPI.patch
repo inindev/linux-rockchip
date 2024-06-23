@@ -1,7 +1,7 @@
-From 9d1292e022ba23d15eb70995d5b35266e27ad859 Mon Sep 17 00:00:00 2001
+From 94c982d972b8d5a02a535085c4e09a20eb05738b Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:15 +0100
-Subject: [PATCH 01/30] drm/panthor: Add uAPI
+Subject: [PATCH 01/71] drm/panthor: Add uAPI
 
 Panthor follows the lead of other recently submitted drivers with
 ioctls allowing us to support modern Vulkan features, like sparse memory
@@ -56,8 +56,7 @@ Reviewed-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-2-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-2-boris.brezillon@collabora.com
 ---
  Documentation/gpu/driver-uapi.rst |   5 +
  include/uapi/drm/panthor_drm.h    | 945 ++++++++++++++++++++++++++++++
@@ -1032,5 +1031,5 @@ index 000000000..373df80f4
 +
 +#endif /* _PANTHOR_DRM_H_ */
 -- 
-2.43.0
+2.39.2
 

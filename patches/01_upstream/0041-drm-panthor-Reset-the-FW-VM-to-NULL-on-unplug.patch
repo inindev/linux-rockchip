@@ -1,0 +1,30 @@
+From adef3fd9c4da9094bda09380a5d3e7c787bf13bf Mon Sep 17 00:00:00 2001
+From: Boris Brezillon <boris.brezillon@collabora.com>
+Date: Thu, 2 May 2024 20:38:11 +0200
+Subject: [PATCH 41/71] drm/panthor: Reset the FW VM to NULL on unplug
+
+This way get NULL derefs instead of use-after-free if the FW VM is
+referenced after the device has been unplugged.
+
+Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+Reviewed-by: Steven Price <steven.price@arm.com>
+Acked-by: Liviu Dudau <liviu.dudau@arm.com>
+---
+ drivers/gpu/drm/panthor/panthor_fw.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/gpu/drm/panthor/panthor_fw.c b/drivers/gpu/drm/panthor/panthor_fw.c
+index 394e00bd7..857f3f112 100644
+--- a/drivers/gpu/drm/panthor/panthor_fw.c
++++ b/drivers/gpu/drm/panthor/panthor_fw.c
+@@ -1142,6 +1142,7 @@ void panthor_fw_unplug(struct panthor_device *ptdev)
+ 	 * state to keep the active_refcnt balanced.
+ 	 */
+ 	panthor_vm_put(ptdev->fw->vm);
++	ptdev->fw->vm = NULL;
+ 
+ 	panthor_gpu_power_off(ptdev, L2, ptdev->gpu_info.l2_present, 20000);
+ }
+-- 
+2.39.2
+

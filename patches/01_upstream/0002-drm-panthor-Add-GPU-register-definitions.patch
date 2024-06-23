@@ -1,7 +1,7 @@
-From 569b2f35e1a249ec5634d864b1c43bfeb54e40ef Mon Sep 17 00:00:00 2001
+From 7cdd9c45fd98f5f3b059c5de8c212e3985728d3f Mon Sep 17 00:00:00 2001
 From: Boris Brezillon <boris.brezillon@collabora.com>
 Date: Thu, 29 Feb 2024 17:22:16 +0100
-Subject: [PATCH 02/30] drm/panthor: Add GPU register definitions
+Subject: [PATCH 02/71] drm/panthor: Add GPU register definitions
 
 Those are the registers directly accessible through the MMIO range.
 
@@ -30,8 +30,7 @@ Acked-by: Boris Brezillon <boris.brezillon@collabora.com> # MIT+GPL2 relicensing
 Reviewed-by: Steven Price <steven.price@arm.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20240229162230.2634044-3-boris.brezillon@collabora.com
-Signed-off-by: Sebastian Reichel <sre@kernel.org>
+Link: https://patchwork.freedesktop.org/patch/msgid/20240229162230.2634044-3-boris.brezillon@collabora.com
 ---
  drivers/gpu/drm/panthor/panthor_regs.h | 239 +++++++++++++++++++++++++
  1 file changed, 239 insertions(+)
@@ -283,5 +282,5 @@ index 000000000..b7b3b3add
 +
 +#endif
 -- 
-2.43.0
+2.39.2
 
