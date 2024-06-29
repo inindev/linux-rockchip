@@ -1,0 +1,46 @@
+From 1c281197b874171a48178f59ac54d32111296041 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 15 May 2024 18:30:14 +0200
+Subject: [PATCH 06/15] usb: typec: tcpm: print error on hard reset
+
+A USB-C hard reset involves removing the voltage from VBUS for some
+time. So basically it has the same effect as removing the USB-C plug
+for a short moment. If the machine is powered from the USB-C port and
+does not have a fallback supply (e.g. a battery), this will result in
+a full machine reset due to power loss.
+
+Ideally we want to avoid triggering a hard reset on these boards. A
+non-working USB-C port is probably better than unplanned reboots. But
+boards with a backup supply should do the hard reset to get everything
+working again.
+
+In theory it would be enough to check the self_powered property, but
+it seems the property might not be configured consistently enough in
+system firmwares.
+
+So let's start with just printing an error message when a hard reset is
+triggered on systems we expect to be affected. This at least makes
+debugging issues on affected systems easier without impacting unaffected
+systems too much.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/usb/typec/tcpm/tcpm.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
+index 5d4da962a..1bdf98105 100644
+--- a/drivers/usb/typec/tcpm/tcpm.c
++++ b/drivers/usb/typec/tcpm/tcpm.c
+@@ -5187,6 +5187,8 @@ static void run_state_machine(struct tcpm_port *port)
+ 	case HARD_RESET_SEND:
+ 		if (port->ams != NONE_AMS)
+ 			tcpm_ams_finish(port);
++		if (!port->self_powered && port->port_type == TYPEC_PORT_SNK)
++			dev_err(port->dev, "Initiating hard-reset, which might result in machine power-loss.\n");
+ 		/*
+ 		 * State machine will be directed to HARD_RESET_START,
+ 		 * thus set upcoming_state to INVALID_STATE.
+-- 
+2.39.2
+

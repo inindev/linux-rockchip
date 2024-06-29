@@ -1,7 +1,7 @@
-From 90f1de6f545f51665b4236fb04ba73fa199534b8 Mon Sep 17 00:00:00 2001
+From 6754b3d6007dfa69a62f762363c7b78fdf076031 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 29 May 2024 16:45:53 -0400
-Subject: [PATCH 2/9] arm64: dts: rockchip: enable gpu on the nanopc-t6
+Subject: [PATCH 2/8] arm64: dts: rockchip: enable gpu on the nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---

@@ -1,0 +1,49 @@
+From a5ed5ac9cbb1e74aa6d3a6e57b44f796cbb2eebf Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 2 Jan 2024 09:35:43 +0100
+Subject: [PATCH 03/15] arm64: dts: rockchip: rk3588-evb1: add bluetooth rfkill
+
+Add rfkill support for bluetooth. Bluetooth support itself is still
+missing, but this ensures bluetooth can be powered off properly.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index 143a2a135..b9f95cc46 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -120,6 +120,15 @@ backlight: backlight {
+ 		pwms = <&pwm2 0 25000 0>;
+ 	};
+ 
++	bluetooth-rfkill {
++		compatible = "rfkill-gpio";
++		label = "rfkill-bluetooth";
++		radio-type = "bluetooth";
++		shutdown-gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&bluetooth_pwren>;
++	};
++
+ 	wlan-rfkill {
+ 		compatible = "rfkill-gpio";
+ 		label = "rfkill-pcie-wlan";
+@@ -481,6 +490,12 @@ speaker_amplifier_en: speaker-amplifier-en {
+ 		};
+ 	};
+ 
++	bluetooth {
++		bluetooth_pwren: bluetooth-pwren {
++			rockchip,pins = <3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
+ 	rtl8111 {
+ 		rtl8111_isolate: rtl8111-isolate {
+ 			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>;
+-- 
+2.39.2
+

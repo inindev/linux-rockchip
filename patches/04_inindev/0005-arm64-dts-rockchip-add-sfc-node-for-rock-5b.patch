@@ -1,7 +1,7 @@
-From 1c0b2557875da644fa24d28e2a2d6521d2d364ad Mon Sep 17 00:00:00 2001
+From 11fe2b35bdab3abb3d0654b281def912746c535b Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sat, 24 Jun 2023 01:10:07 +0000
-Subject: [PATCH 5/9] arm64: dts: rockchip: add sfc node for rock-5b
+Subject: [PATCH 5/8] arm64: dts: rockchip: add sfc node for rock-5b
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: John Clark <inindev@gmail.com>
  1 file changed, 39 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index 7d509a5fb..050902c13 100644
+index 51797af6d..02a3550da 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
 @@ -569,6 +569,45 @@ &uart6 {

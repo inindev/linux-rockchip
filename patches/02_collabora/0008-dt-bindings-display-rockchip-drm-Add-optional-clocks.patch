@@ -1,0 +1,36 @@
+From fd212fe6f177af85f8673e5f25894f69ad488dab Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Wed, 27 Mar 2024 20:36:15 +0200
+Subject: [PATCH 08/15] dt-bindings: display: rockchip-drm: Add optional clocks
+ property
+
+Allow using the clock provided by HDMI0 PHY PLL to improve HDMI output
+support on RK3588 SoC.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../bindings/display/rockchip/rockchip-drm.yaml           | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-drm.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-drm.yaml
+index a8d18a37c..9d000760d 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-drm.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-drm.yaml
+@@ -28,6 +28,14 @@ properties:
+       of vop devices. vop definitions as defined in
+       Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
+ 
++  clocks:
++    maxItems: 1
++    description: Optional clock provided by HDMI0 PLL
++
++  clock-names:
++    items:
++      - const: hdmi0_phy_pll
++
+ required:
+   - compatible
+   - ports
+-- 
+2.39.2
+

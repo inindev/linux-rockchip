@@ -1,7 +1,7 @@
-From bbc76386ec1e3631104d907dc02f9840510b589d Mon Sep 17 00:00:00 2001
+From 03a6a6d617f6d271af8b5be419ae45edd459c705 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 29 May 2024 20:05:45 -0400
-Subject: [PATCH 3/9] arm64: dts: rockchip: add the necessary device tree
+Subject: [PATCH 3/8] arm64: dts: rockchip: add the necessary device tree
  changes to enable hdmi0 on the nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>

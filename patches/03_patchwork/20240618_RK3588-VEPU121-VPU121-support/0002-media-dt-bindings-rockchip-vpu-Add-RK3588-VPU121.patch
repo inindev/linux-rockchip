@@ -1,0 +1,35 @@
+From ce3c1adee7dac753c8759aa94e33590180f237a1 Mon Sep 17 00:00:00 2001
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+Date: Tue, 18 Jun 2024 20:18:33 +0200
+Subject: [PATCH v7 2/6] media: dt-bindings: rockchip-vpu: Add RK3588 VPU121
+
+RK3588 has four Hantro H1 VEPUs (encoder-only) modules and one combined
+Hantro H1/G1 VPU (decoder and encoder). These are not described as
+separate IP, since they are sharing an internal cache. This adds the
+RK3588 specific compatible string for the combined VPU, which seems to
+be identical to the version found in the RK3568.
+
+Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ Documentation/devicetree/bindings/media/rockchip-vpu.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/media/rockchip-vpu.yaml b/Documentation/devicetree/bindings/media/rockchip-vpu.yaml
+index c57e1f488..2710bb2fb 100644
+--- a/Documentation/devicetree/bindings/media/rockchip-vpu.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip-vpu.yaml
+@@ -31,6 +31,9 @@ properties:
+       - items:
+           - const: rockchip,rk3228-vpu
+           - const: rockchip,rk3399-vpu
++      - items:
++          - const: rockchip,rk3588-vpu121
++          - const: rockchip,rk3568-vpu
+ 
+   reg:
+     maxItems: 1
+-- 
+2.39.2
+

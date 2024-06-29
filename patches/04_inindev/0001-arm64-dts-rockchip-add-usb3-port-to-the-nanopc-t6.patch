@@ -1,7 +1,7 @@
-From 9fa5cd01c0c93b00020f37bd9c4318017f967926 Mon Sep 17 00:00:00 2001
+From 8ae468ec44b44e0180dc08c33816ea523ea2b900 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 29 May 2024 16:30:56 -0400
-Subject: [PATCH 1/9] arm64: dts: rockchip: add usb3 port to the nanopc-t6
+Subject: [PATCH 1/8] arm64: dts: rockchip: add usb3 port to the nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---

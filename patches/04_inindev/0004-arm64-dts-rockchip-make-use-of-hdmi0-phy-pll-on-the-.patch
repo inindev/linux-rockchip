@@ -1,7 +1,7 @@
-From f15c471741e0ccf90f0630a18ace99f2a10ba3a8 Mon Sep 17 00:00:00 2001
+From 13c3714c4d1c74ef8f768a656a010efbb860c430 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Tue, 28 May 2024 10:37:32 +0000
-Subject: [PATCH 4/9] arm64: dts: rockchip: make use of hdmi0 phy pll on the
+Subject: [PATCH 4/8] arm64: dts: rockchip: make use of hdmi0 phy pll on the
  nanopc-t6
 
 Signed-off-by: John Clark <inindev@gmail.com>

@@ -1,0 +1,43 @@
+From 720139ca1c826dc6d9d15d458c9e95743809c6b7 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sat, 22 Jun 2024 00:57:20 +0300
+Subject: [PATCH 16/16] arm64: dts: rockchip: Drop invalid mic-in-differential
+ on rk3568-rock-3a
+
+The 'mic-in-differential' DT property supported by the RK809/RK817 audio
+codec driver is actually valid if prefixed with 'rockchip,':
+
+  DTC_CHK arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb
+  rk3568-rock-3a.dtb: pmic@20: codec: 'mic-in-differential' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk809.yaml#
+
+However, the board doesn't make use of differential signaling, hence
+drop the incorrect property and the now unnecessary 'codec' node.
+
+Fixes: 22a442e6586c ("arm64: dts: rockchip: add basic dts for the radxa rock3 model a")
+Reported-by: Jonas Karlman <jonas@kwiboo.se>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20240622-rk809-fixes-v2-3-c0db420d3639@collabora.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
+index ebdedea15..59f1403b4 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
+@@ -531,10 +531,6 @@ regulator-state-mem {
+ 				};
+ 			};
+ 		};
+-
+-		codec {
+-			mic-in-differential;
+-		};
+ 	};
+ };
+ 
+-- 
+2.39.2
+

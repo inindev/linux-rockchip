@@ -1,0 +1,149 @@
+From a4122579f8649ee759df9a977fc67148f76db187 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 14 Jul 2023 17:38:24 +0200
+Subject: [PATCH 02/15] arm64: dts: rockchip: rk3588-evb1: add PCIe2 WLAN
+ controller
+
+Enable PCIe bus used by on-board PCIe Broadcom WLAN controller.
+
+The WLAN controller is not detected. There are two reasons for
+that.
+
+First of all it is necessary to keep the HYM8563 clock enabled, but it
+is disabled because the kernel does not know about the dependency and
+disables any clocks it deems unused.
+
+Apart from that it looks like the controller needs a long time to be
+properly initialized. So detection only works when rescanning the bus
+some time after boot. This still needs to be investigated.
+
+Both of these issues should be fixable by implementing a pwrseq driver
+once the following series has landed:
+
+https://lore.kernel.org/all/20240104130123.37115-1-brgl@bgdev.pl/
+
+In addition to the above issues, the mainline brcmfmac driver does
+not yet support the chip version used by AP6275P.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588-evb1-v10.dts     | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index 00f660d50..143a2a135 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -120,6 +120,15 @@ backlight: backlight {
+ 		pwms = <&pwm2 0 25000 0>;
+ 	};
+ 
++	wlan-rfkill {
++		compatible = "rfkill-gpio";
++		label = "rfkill-pcie-wlan";
++		radio-type = "wlan";
++		shutdown-gpios = <&gpio3 RK_PB1 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_pwren>;
++	};
++
+ 	pcie20_avdd0v85: pcie20-avdd0v85-regulator {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "pcie20_avdd0v85";
+@@ -181,6 +190,16 @@ vcc12v_dcin: vcc12v-dcin-regulator {
+ 		regulator-max-microvolt = <12000000>;
+ 	};
+ 
++	vccio_wl: vccio-wl {
++		compatible = "regulator-fixed";
++		regulator-name = "wlan-vddio";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc_1v8_s0>;
++	};
++
+ 	vcc3v3_pcie30: vcc3v3-pcie30-regulator {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc3v3_pcie30";
+@@ -194,6 +213,16 @@ vcc3v3_pcie30: vcc3v3-pcie30-regulator {
+ 		pinctrl-0 = <&vcc3v3_pcie30_en>;
+ 	};
+ 
++	vcc3v3_pciewl_vbat: vcc3v3-pciewl-vbat {
++		compatible = "regulator-fixed";
++		regulator-name = "wlan-vbat";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc_3v3_s0>;
++	};
++
+ 	vcc5v0_host: vcc5v0-host-regulator {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_host";
+@@ -243,6 +272,10 @@ &combphy0_ps {
+ 	status = "okay";
+ };
+ 
++&combphy1_ps {
++	status = "okay";
++};
++
+ &combphy2_psu {
+ 	status = "okay";
+ };
+@@ -408,6 +441,12 @@ rgmii_phy: ethernet-phy@1 {
+ 	};
+ };
+ 
++&pcie2x1l0 {
++	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
++	pinctrl-0 = <&pcie2_0_rst>, <&pcie2_0_wake>, <&pcie2_0_clkreq>, <&wifi_host_wake_irq>;
++	status = "okay";
++};
++
+ &pcie2x1l1 {
+ 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+ 	pinctrl-names = "default";
+@@ -462,6 +501,18 @@ hym8563_int: hym8563-int {
+ 	};
+ 
+ 	pcie2 {
++		pcie2_0_rst: pcie2-0-rst {
++			rockchip,pins = <4 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		pcie2_0_wake: pcie2-0-wake {
++			rockchip,pins = <4 RK_PA4 4 &pcfg_pull_none>;
++		};
++
++		pcie2_0_clkreq: pcie2-0-clkreq {
++			rockchip,pins = <4 RK_PA3 4 &pcfg_pull_none>;
++		};
++
+ 		pcie2_1_rst: pcie2-1-rst {
+ 			rockchip,pins = <4 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+@@ -492,6 +543,16 @@ usbc0_int: usbc0-int {
+ 			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
++
++	wlan {
++		wifi_host_wake_irq: wifi-host-wake-irq {
++			rockchip,pins = <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++
++		wifi_pwren: wifi-pwren {
++			rockchip,pins = <3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
+ };
+ 
+ &pwm2 {
+-- 
+2.39.2
+

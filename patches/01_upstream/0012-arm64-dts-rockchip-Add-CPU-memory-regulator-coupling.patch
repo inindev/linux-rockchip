@@ -1,0 +1,150 @@
+From c730ae00438983b4340128cae41dee484bb380d4 Mon Sep 17 00:00:00 2001
+From: Alexey Charkov <alchark@gmail.com>
+Date: Mon, 17 Jun 2024 22:28:55 +0400
+Subject: [PATCH 12/16] arm64: dts: rockchip: Add CPU/memory regulator coupling
+ for 2 RK3588 boards
+
+RK3588 chips allow for their CPU cores to be powered by a different
+supply vs. their corresponding memory interfaces, and two of the
+boards currently upstream do that (EVB1 and QuartzPro64).
+
+The voltage of the memory interface though has to match that of the
+CPU cores that use it, which downstream kernels achieve by the means
+of a custom cpufreq driver which adjusts both at the same time.
+
+It seems that regulator coupling is a more appropriate generic
+interface for it, so this patch introduces coupling to affected
+device trees to ensure that memory interface voltage is also updated
+whenever cpufreq switches between CPU OPPs.
+
+Note that other boards, such as Radxa Rock 5B, define both the CPU
+and memory interface regulators as aliases to the same DT node, so
+this doesn't apply there.
+
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+Link: https://lore.kernel.org/r/20240617-rk-dts-additions-v5-5-c1f5f3267f1e@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts    | 12 ++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts | 12 ++++++++++++
+ 2 files changed, 24 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index 7c3696a3a..00f660d50 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -878,6 +878,8 @@ regulators {
+ 			vdd_cpu_big1_s0: dcdc-reg1 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big1_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -890,6 +892,8 @@ regulator-state-mem {
+ 			vdd_cpu_big0_s0: dcdc-reg2 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big0_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -902,6 +906,8 @@ regulator-state-mem {
+ 			vdd_cpu_lit_s0: dcdc-reg3 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_lit_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <950000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -926,6 +932,8 @@ regulator-state-mem {
+ 			vdd_cpu_big1_mem_s0: dcdc-reg5 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big1_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -939,6 +947,8 @@ regulator-state-mem {
+ 			vdd_cpu_big0_mem_s0: dcdc-reg6 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big0_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -963,6 +973,8 @@ regulator-state-mem {
+ 			vdd_cpu_lit_mem_s0: dcdc-reg8 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_lit_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <950000>;
+ 				regulator-ramp-delay = <12500>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
+index e80caa36f..e4a20cda6 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
+@@ -833,6 +833,8 @@ vdd_cpu_big1_s0: dcdc-reg1 {
+ 				regulator-name = "vdd_cpu_big1_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big1_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -846,6 +848,8 @@ vdd_cpu_big0_s0: dcdc-reg2 {
+ 				regulator-name = "vdd_cpu_big0_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big0_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -859,6 +863,8 @@ vdd_cpu_lit_s0: dcdc-reg3 {
+ 				regulator-name = "vdd_cpu_lit_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_lit_mem_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <950000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -885,6 +891,8 @@ vdd_cpu_big1_mem_s0: dcdc-reg5 {
+ 				regulator-name = "vdd_cpu_big1_mem_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big1_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -899,6 +907,8 @@ vdd_cpu_big0_mem_s0: dcdc-reg6 {
+ 				regulator-name = "vdd_cpu_big0_mem_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_big0_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <1050000>;
+ 				regulator-ramp-delay = <12500>;
+@@ -925,6 +935,8 @@ vdd_cpu_lit_mem_s0: dcdc-reg8 {
+ 				regulator-name = "vdd_cpu_lit_mem_s0";
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-coupled-with = <&vdd_cpu_lit_s0>;
++				regulator-coupled-max-spread = <10000>;
+ 				regulator-min-microvolt = <675000>;
+ 				regulator-max-microvolt = <950000>;
+ 				regulator-ramp-delay = <12500>;
+-- 
+2.39.2
+
