@@ -1,0 +1,111 @@
+From 4b3f6fab695a86a5fab4a1c3d40e9f23b38606cd Mon Sep 17 00:00:00 2001
+From: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+Date: Wed, 5 Jun 2024 15:28:33 +0200
+Subject: [PATCH 23/59] arm64: dts: rockchip: Add VEPU121 to RK3588
+
+RK3588 has 4 Hantro G1 encoder-only cores. They are all independent IP,
+but can be used as a cluster (i.e. sharing work between the cores).
+These cores are called VEPU121 in the TRM. The TRM describes one more
+VEPU121, but that is combined with a Hantro H1. That one will be handled
+using the VPU binding instead.
+
+Signed-off-by: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 80 +++++++++++++++++++
+ 1 file changed, 80 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index e0d5df62d..ed75029f9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1122,6 +1122,86 @@ power-domain@RK3588_PD_SDMMC {
+ 		};
+ 	};
+ 
++	vepu121_0: video-codec@fdba0000 {
++		compatible = "rockchip,rk3588-vepu121";
++		reg = <0x0 0xfdba0000 0x0 0x800>;
++		interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER0>, <&cru HCLK_JPEG_ENCODER0>;
++		clock-names = "aclk", "hclk";
++		iommus = <&vepu121_0_mmu>;
++		power-domains = <&power RK3588_PD_VDPU>;
++	};
++
++	vepu121_0_mmu: iommu@fdba0800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdba0800 0x0 0x40>;
++		interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER0>, <&cru HCLK_JPEG_ENCODER0>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
++	vepu121_1: video-codec@fdba4000 {
++		compatible = "rockchip,rk3588-vepu121";
++		reg = <0x0 0xfdba4000 0x0 0x800>;
++		interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER1>, <&cru HCLK_JPEG_ENCODER1>;
++		clock-names = "aclk", "hclk";
++		iommus = <&vepu121_1_mmu>;
++		power-domains = <&power RK3588_PD_VDPU>;
++	};
++
++	vepu121_1_mmu: iommu@fdba4800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdba4800 0x0 0x40>;
++		interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER1>, <&cru HCLK_JPEG_ENCODER1>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
++	vepu121_2: video-codec@fdba8000 {
++		compatible = "rockchip,rk3588-vepu121";
++		reg = <0x0 0xfdba8000 0x0 0x800>;
++		interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER2>, <&cru HCLK_JPEG_ENCODER2>;
++		clock-names = "aclk", "hclk";
++		iommus = <&vepu121_2_mmu>;
++		power-domains = <&power RK3588_PD_VDPU>;
++	};
++
++	vepu121_2_mmu: iommu@fdba8800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdba8800 0x0 0x40>;
++		interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER2>, <&cru HCLK_JPEG_ENCODER2>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
++	vepu121_3: video-codec@fdbac000 {
++		compatible = "rockchip,rk3588-vepu121";
++		reg = <0x0 0xfdbac000 0x0 0x800>;
++		interrupts = <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER3>, <&cru HCLK_JPEG_ENCODER3>;
++		clock-names = "aclk", "hclk";
++		iommus = <&vepu121_3_mmu>;
++		power-domains = <&power RK3588_PD_VDPU>;
++	};
++
++	vepu121_3_mmu: iommu@fdbac800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdbac800 0x0 0x40>;
++		interrupts = <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_ENCODER3>, <&cru HCLK_JPEG_ENCODER3>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
+ 	av1d: video-codec@fdc70000 {
+ 		compatible = "rockchip,rk3588-av1-vpu";
+ 		reg = <0x0 0xfdc70000 0x0 0x800>;
+-- 
+2.39.5
+

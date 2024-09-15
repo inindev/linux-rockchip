@@ -1,0 +1,39 @@
+From f150794b5e33522e54c953552a5876aab78d7e0a Mon Sep 17 00:00:00 2001
+From: Shreeya Patel <shreeya.patel@collabora.com>
+Date: Fri, 19 Jul 2024 18:10:29 +0530
+Subject: [PATCH 52/59] MAINTAINERS: Add entry for Synopsys DesignWare HDMI RX
+ Driver
+
+Add an entry for Synopsys DesignWare HDMI Receiver Controller
+Driver.
+
+Signed-off-by: Shreeya Patel <shreeya.patel@collabora.com>
+Reviewed-by: Christopher Obbard <chris.obbard@collabora.com>
+Link: https://lore.kernel.org/r/20240719124032.26852-2-shreeya.patel@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 10430778c..62eb72aa0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22185,6 +22185,14 @@ F:	drivers/net/pcs/pcs-xpcs.c
+ F:	drivers/net/pcs/pcs-xpcs.h
+ F:	include/linux/pcs/pcs-xpcs.h
+ 
++SYNOPSYS DESIGNWARE HDMI RX CONTROLLER DRIVER
++M:	Shreeya Patel <shreeya.patel@collabora.com
++L:	linux-media@vger.kernel.org
++L:	kernel@collabora.com
++S:	Maintained
++F:	Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
++F:	drivers/media/platform/synopsys/hdmirx/*
++
+ SYNOPSYS DESIGNWARE I2C DRIVER
+ M:	Jarkko Nikula <jarkko.nikula@linux.intel.com>
+ R:	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+-- 
+2.39.5
+

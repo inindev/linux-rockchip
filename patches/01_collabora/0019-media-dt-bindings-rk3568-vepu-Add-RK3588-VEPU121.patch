@@ -1,0 +1,33 @@
+From 205e07323880b3d7c79cf4d821030df0b8fad6f0 Mon Sep 17 00:00:00 2001
+From: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+Date: Thu, 18 Apr 2024 16:15:05 +0200
+Subject: [PATCH 19/59] media: dt-bindings: rk3568-vepu: Add RK3588 VEPU121
+
+This encoder-only device is present four times on this SoC, and should
+support everything the rk3568 vepu supports (so JPEG, H.264 and VP8
+encoding). No fallback compatible has been added, since the operating
+systems might already support RK3568 VEPU and want to avoid registering
+four of them separately considering they can be used as a cluster.
+
+Signed-off-by: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../devicetree/bindings/media/rockchip,rk3568-vepu.yaml          | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-vepu.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-vepu.yaml
+index 9d90d8d05..947ad699c 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,rk3568-vepu.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-vepu.yaml
+@@ -17,6 +17,7 @@ properties:
+   compatible:
+     enum:
+       - rockchip,rk3568-vepu
++      - rockchip,rk3588-vepu121
+ 
+   reg:
+     maxItems: 1
+-- 
+2.39.5
+
