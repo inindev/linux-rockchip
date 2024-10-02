@@ -1,4 +1,4 @@
-From a55f54d2e3b1a7c34bc2297037ea8c759b0382ab Mon Sep 17 00:00:00 2001
+From 7a9ff02a9406bb04a426deaf7cfc0b047b6f84fb Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:56:19 -0400
 Subject: [PATCH 29/59] arm64: dts: rockchip: Add rkvdec2 Video Decoder on
@@ -12,7 +12,7 @@ Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
  1 file changed, 48 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 279809f39..8c2f74c10 100644
+index 2a2eb2d25..94756b15b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1223,6 +1223,44 @@ vepu121_3_mmu: iommu@fdbac800 {

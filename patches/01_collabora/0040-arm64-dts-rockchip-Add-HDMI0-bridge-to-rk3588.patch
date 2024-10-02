@@ -1,4 +1,4 @@
-From c33d5f0eea265ea62d0312ed60b7dc1ccdb89bd7 Mon Sep 17 00:00:00 2001
+From bbfd10e0d0245c6e0359ca842d382b3acb594a1c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 15 Jan 2024 22:47:41 +0200
 Subject: [PATCH 40/59] arm64: dts: rockchip: Add HDMI0 bridge to rk3588
@@ -11,7 +11,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 41 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 8c2f74c10..edaa9d838 100644
+index 94756b15b..06aa2345c 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1401,6 +1401,47 @@ i2s9_8ch: i2s@fddfc000 {

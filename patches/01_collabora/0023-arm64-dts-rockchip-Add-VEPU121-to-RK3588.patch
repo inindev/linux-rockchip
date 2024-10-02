@@ -1,4 +1,4 @@
-From 4b3f6fab695a86a5fab4a1c3d40e9f23b38606cd Mon Sep 17 00:00:00 2001
+From 9b5226693ec61c232f6884543efad211fb188515 Mon Sep 17 00:00:00 2001
 From: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 Date: Wed, 5 Jun 2024 15:28:33 +0200
 Subject: [PATCH 23/59] arm64: dts: rockchip: Add VEPU121 to RK3588
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 80 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index e0d5df62d..ed75029f9 100644
+index dc659a148..11045abf6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1122,6 +1122,86 @@ power-domain@RK3588_PD_SDMMC {

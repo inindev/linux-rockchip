@@ -1,4 +1,4 @@
-From f150794b5e33522e54c953552a5876aab78d7e0a Mon Sep 17 00:00:00 2001
+From 992ab3ce46b5bfb77535a6ee9e452f5c2e213771 Mon Sep 17 00:00:00 2001
 From: Shreeya Patel <shreeya.patel@collabora.com>
 Date: Fri, 19 Jul 2024 18:10:29 +0530
 Subject: [PATCH 52/59] MAINTAINERS: Add entry for Synopsys DesignWare HDMI RX
@@ -16,10 +16,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 8 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 10430778c..62eb72aa0 100644
+index cc40a9d9b..2f2ddcaef 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22185,6 +22185,14 @@ F:	drivers/net/pcs/pcs-xpcs.c
+@@ -22186,6 +22186,14 @@ F:	drivers/net/pcs/pcs-xpcs.c
  F:	drivers/net/pcs/pcs-xpcs.h
  F:	include/linux/pcs/pcs-xpcs.h
  
