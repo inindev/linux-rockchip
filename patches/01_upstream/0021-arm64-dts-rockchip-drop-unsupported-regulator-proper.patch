@@ -1,0 +1,33 @@
+From 6ddaeed053bf22954b41a7a574a8dea031b3fedf Mon Sep 17 00:00:00 2001
+From: Heiko Stuebner <heiko@sntech.de>
+Date: Thu, 29 Aug 2024 15:21:00 +0200
+Subject: [PATCH 21/25] arm64: dts: rockchip: drop unsupported
+ regulator-property from NanoPC-T6
+
+vcc3v3-sd-s0-regulator used enable-active-low. According the binding
+of the fixed regulator, that is the assumed mode of operation if
+enable-active-high is not specified. So this is property is not part
+of the binding, therefore remove it.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20240829132100.1723127-4-heiko@sntech.de
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index 94a1c83a3..d035a44e5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -186,7 +186,6 @@ vcc3v3_pcie30: vcc3v3-pcie30-regulator {
+ 
+ 	vcc3v3_sd_s0: vcc3v3-sd-s0-regulator {
+ 		compatible = "regulator-fixed";
+-		enable-active-low;
+ 		gpio = <&gpio4 RK_PA5 GPIO_ACTIVE_LOW>;
+ 		regulator-boot-on;
+ 		regulator-max-microvolt = <3300000>;
+-- 
+2.39.5
+

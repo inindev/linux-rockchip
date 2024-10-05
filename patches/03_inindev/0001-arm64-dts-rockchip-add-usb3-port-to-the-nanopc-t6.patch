@@ -1,0 +1,90 @@
+From c87abda321f4ea36e4f7000f3936ee15acab5fd9 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Sat, 5 Oct 2024 12:02:49 -0400
+Subject: [PATCH 1/5] arm64: dts: rockchip: add usb3 port to the nanopc-t6
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index fc131789b..cffef3e3d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -192,6 +192,18 @@ vcc3v3_sd_s0: vcc3v3-sd-s0-regulator {
+ 		regulator-name = "vcc3v3_sd_s0";
+ 		vin-supply = <&vcc_3v3_s3>;
+ 	};
++
++	vcc5v0_host_30: vcc5v0-host-30 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&vcc5v0_host30_pwren>;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-name = "vcc5v0_host_30";
++		vin-supply = <&vcc5v0_sys>;
++	};
+ };
+ 
+ &combphy0_ps {
+@@ -578,6 +590,10 @@ typec5v_pwren: typec5v-pwren {
+ 		usbc0_int: usbc0-int {
+ 			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
++
++		vcc5v0_host30_pwren: vcc5v0-host30-pwren {
++			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
+ 	};
+ };
+ 
+@@ -973,6 +989,11 @@ &u2phy0_otg {
+ 	status = "okay";
+ };
+ 
++&u2phy1_otg {
++	phy-supply = <&vcc5v0_host_30>;
++	status = "okay";
++};
++
+ &u2phy2_host {
+ 	status = "okay";
+ };
+@@ -981,6 +1002,10 @@ &u2phy3_host {
+ 	status = "okay";
+ };
+ 
++&u2phy1 {
++	status = "okay";
++};
++
+ &u2phy2 {
+ 	status = "okay";
+ };
+@@ -1012,6 +1037,10 @@ usbdp_phy0_typec_sbu: endpoint@1 {
+ 	};
+ };
+ 
++&usbdp_phy1 {
++	status = "okay";
++};
++
+ &usb_host0_ehci {
+ 	status = "okay";
+ };
+@@ -1039,3 +1068,8 @@ &usb_host1_ehci {
+ &usb_host1_ohci {
+ 	status = "okay";
+ };
++
++&usb_host1_xhci {
++	dr_mode = "host";
++	status = "okay";
++};
+-- 
+2.39.5
+

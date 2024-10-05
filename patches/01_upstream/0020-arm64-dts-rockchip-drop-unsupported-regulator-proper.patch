@@ -1,0 +1,31 @@
+From 0db421ff3613a600569ee9866d80e35c154e1005 Mon Sep 17 00:00:00 2001
+From: Heiko Stuebner <heiko@sntech.de>
+Date: Thu, 29 Aug 2024 15:20:59 +0200
+Subject: [PATCH 20/25] arm64: dts: rockchip: drop unsupported regulator
+ property from NanoPC-T6
+
+regulator-init-microvolt is used in the vendor-kernel, but not part
+of the specification.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20240829132100.1723127-3-heiko@sntech.de
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index 066b964a7..94a1c83a3 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -735,7 +735,6 @@ vdd_vdenc_s0: vdd_vdenc_mem_s0: dcdc-reg4 {
+ 				regulator-boot-on;
+ 				regulator-min-microvolt = <550000>;
+ 				regulator-max-microvolt = <950000>;
+-				regulator-init-microvolt = <750000>;
+ 				regulator-ramp-delay = <12500>;
+ 				regulator-name = "vdd_vdenc_s0";
+ 
+-- 
+2.39.5
+
