@@ -1,0 +1,102 @@
+From 27fff0f7fe0e48c7e3ae99754f015f0e9d92a549 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 22 Oct 2024 15:14:27 +0200
+Subject: [PATCH 11/68] regulator: Add (devm_)of_regulator_get()
+
+The Rockchip power-domain controller also plans to make use of
+per-domain regulators similar to the MediaTek power-domain controller.
+Since existing DTs are missing the regulator information, the kernel
+should fallback to the automatically created dummy regulator if
+necessary. Thus the version without the _optional suffix is needed.
+
+The Rockchip driver plans to use the managed version, but to be
+consistent with existing code the unmanaged version is added at the
+same time.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/regulator/devres.c         | 17 +++++++++++++++++
+ drivers/regulator/of_regulator.c   | 21 +++++++++++++++++++++
+ include/linux/regulator/consumer.h |  6 ++++++
+ 3 files changed, 44 insertions(+)
+
+diff --git a/drivers/regulator/devres.c b/drivers/regulator/devres.c
+index 36164aec3..a3a3ccc71 100644
+--- a/drivers/regulator/devres.c
++++ b/drivers/regulator/devres.c
+@@ -771,6 +771,23 @@ static struct regulator *_devm_of_regulator_get(struct device *dev, struct devic
+ 	return regulator;
+ }
+ 
++/**
++ * devm_of_regulator_get - Resource managed of_regulator_get()
++ * @dev: device used for dev_printk() messages and resource lifetime management
++ * @node: device node for regulator "consumer"
++ * @id:  supply name or regulator ID.
++ *
++ * Managed of_regulator_get(). Regulators returned from this
++ * function are automatically regulator_put() on driver detach. See
++ * of_regulator_get() for more information.
++ */
++struct regulator *devm_of_regulator_get(struct device *dev, struct device_node *node,
++						 const char *id)
++{
++	return _devm_of_regulator_get(dev, node, id, NORMAL_GET);
++}
++EXPORT_SYMBOL_GPL(devm_of_regulator_get);
++
+ /**
+  * devm_of_regulator_get_optional - Resource managed of_regulator_get_optional()
+  * @dev: device used for dev_printk() messages and resource lifetime management
+diff --git a/drivers/regulator/of_regulator.c b/drivers/regulator/of_regulator.c
+index 011088c57..32e88cada 100644
+--- a/drivers/regulator/of_regulator.c
++++ b/drivers/regulator/of_regulator.c
+@@ -697,6 +697,27 @@ struct regulator *_of_regulator_get(struct device *dev, struct device_node *node
+ 	return _regulator_get_common(r, dev, id, get_type);
+ }
+ 
++/**
++ * of_regulator_get - get regulator via device tree lookup
++ * @dev: device used for dev_printk() messages
++ * @node: device node for regulator "consumer"
++ * @id: Supply name
++ *
++ * Return: pointer to struct regulator corresponding to the regulator producer,
++ *	   or PTR_ERR() encoded error number.
++ *
++ * This is intended for use by consumers that want to get a regulator
++ * supply directly from a device node. This will _not_ consider supply
++ * aliases. See regulator_dev_lookup().
++ */
++struct regulator *of_regulator_get(struct device *dev,
++					    struct device_node *node,
++					    const char *id)
++{
++	return _of_regulator_get(dev, node, id, NORMAL_GET);
++}
++EXPORT_SYMBOL_GPL(of_regulator_get);
++
+ /**
+  * of_regulator_get_optional - get optional regulator via device tree lookup
+  * @dev: device used for dev_printk() messages
+diff --git a/include/linux/regulator/consumer.h b/include/linux/regulator/consumer.h
+index ffe912f34..56fe2693d 100644
+--- a/include/linux/regulator/consumer.h
++++ b/include/linux/regulator/consumer.h
+@@ -677,6 +677,12 @@ regulator_is_equal(struct regulator *reg1, struct regulator *reg2)
+ #endif
+ 
+ #if IS_ENABLED(CONFIG_OF) && IS_ENABLED(CONFIG_REGULATOR)
++struct regulator *__must_check of_regulator_get(struct device *dev,
++						struct device_node *node,
++						const char *id);
++struct regulator *__must_check devm_of_regulator_get(struct device *dev,
++						     struct device_node *node,
++						     const char *id);
+ struct regulator *__must_check of_regulator_get_optional(struct device *dev,
+ 							 struct device_node *node,
+ 							 const char *id);
+-- 
+2.47.2
+

@@ -1,0 +1,39 @@
+From 845bc15196047e0892f67e6c32187da495fc1524 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 6 Sep 2024 19:15:24 +0200
+Subject: [PATCH 15/68] dt-bindings: power: rockchip: add regulator support
+
+Add optional support for a voltage supply required to enable a
+power domain. The binding follows the way it is handled by the
+Mediatek binding to keep things consistent.
+
+This will initially be used by the RK3588 GPU power domain, which
+fails to be enabled when the GPU regulator is not enabled. It is
+not limited to that platform, since older generations have similar
+requirements. They worked around this by marking the regulators
+as always-on instead of describing the dependency.
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../devicetree/bindings/power/rockchip,power-controller.yaml   | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index 650dc0aae..ebab98987 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -132,6 +132,9 @@ $defs:
+           A number of phandles to clocks that need to be enabled
+           while power domain switches state.
+ 
++      domain-supply:
++        description: domain regulator supply.
++
+       pm_qos:
+         $ref: /schemas/types.yaml#/definitions/phandle-array
+         items:
+-- 
+2.47.2
+

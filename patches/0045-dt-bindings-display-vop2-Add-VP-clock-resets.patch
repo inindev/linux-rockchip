@@ -1,0 +1,89 @@
+From bde88b55bbde6ac109d9100fcaab54608c9fd043 Mon Sep 17 00:00:00 2001
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Date: Fri, 15 Nov 2024 11:20:40 -0500
+Subject: [PATCH 45/68] dt-bindings: display: vop2: Add VP clock resets
+
+Add the documentation for VOP2 video ports reset clocks.
+One reset can be set per video port.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
+ .../display/rockchip/rockchip-vop2.yaml       | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 46d956e63..614478e9e 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -69,6 +69,26 @@ properties:
+       - const: pll_hdmiphy0
+       - const: pll_hdmiphy1
+ 
++  resets:
++    minItems: 5
++    items:
++      - description: AXI clock reset.
++      - description: AHB clock reset.
++      - description: Pixel clock reset for video port 0.
++      - description: Pixel clock reset for video port 1.
++      - description: Pixel clock reset for video port 2.
++      - description: Pixel clock reset for video port 3.
++
++  reset-names:
++    minItems: 5
++    items:
++      - const: aclk
++      - const: hclk
++      - const: dclk_vp0
++      - const: dclk_vp1
++      - const: dclk_vp2
++      - const: dclk_vp3
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -132,6 +152,11 @@ allOf:
+         clock-names:
+           minItems: 7
+ 
++        resets:
++          minItems: 6
++        reset-names:
++          minItems: 6
++
+         ports:
+           required:
+             - port@0
+@@ -156,6 +181,11 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        resets:
++          maxItems: 5
++        reset-names:
++          maxItems: 5
++
+         ports:
+           required:
+             - port@0
+@@ -187,6 +217,16 @@ examples:
+                               "dclk_vp0",
+                               "dclk_vp1",
+                               "dclk_vp2";
++                resets = <&cru SRST_A_VOP>,
++                         <&cru SRST_H_VOP>,
++                         <&cru SRST_VOP0>,
++                         <&cru SRST_VOP1>,
++                         <&cru SRST_VOP2>;
++                reset-names = "aclk",
++                              "hclk",
++                              "dclk_vp0",
++                              "dclk_vp1",
++                              "dclk_vp2";                              
+                 power-domains = <&power RK3568_PD_VO>;
+                 iommus = <&vop_mmu>;
+                 vop_out: ports {
+-- 
+2.47.2
+

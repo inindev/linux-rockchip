@@ -1,0 +1,90 @@
+From a5bb65a85ef99431a5f353e8a4ec97fb3e9a77d2 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 6 Sep 2024 17:44:55 +0200
+Subject: [PATCH 14/68] pmdomain: rockchip: reduce indentation in
+ rockchip_pd_power
+
+Rework the logic, so that the function exits early when the
+power domain state is already correct to reduce code indentation.
+
+No functional change intended.
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Adrian Larumbe <adrian.larumbe@collabora.com> # On Rock 5B
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/pmdomain/rockchip/pm-domains.c | 49 +++++++++++++-------------
+ 1 file changed, 25 insertions(+), 24 deletions(-)
+
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 8f440f288..f4e555dac 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -582,39 +582,40 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
+ 
+ 	guard(mutex)(&pmu->mutex);
+ 
+-	if (rockchip_pmu_domain_is_on(pd) != power_on) {
+-		ret = clk_bulk_enable(pd->num_clks, pd->clks);
+-		if (ret < 0) {
+-			dev_err(pmu->dev, "failed to enable clocks\n");
+-			return ret;
+-		}
++	if (rockchip_pmu_domain_is_on(pd) == power_on)
++		return 0;
+ 
+-		rockchip_pmu_ungate_clk(pd, true);
++	ret = clk_bulk_enable(pd->num_clks, pd->clks);
++	if (ret < 0) {
++		dev_err(pmu->dev, "failed to enable clocks\n");
++		return ret;
++	}
+ 
+-		if (!power_on) {
+-			rockchip_pmu_save_qos(pd);
++	rockchip_pmu_ungate_clk(pd, true);
+ 
+-			/* if powering down, idle request to NIU first */
+-			rockchip_pmu_set_idle_request(pd, true);
+-		}
++	if (!power_on) {
++		rockchip_pmu_save_qos(pd);
+ 
+-		ret = rockchip_do_pmu_set_power_domain(pd, power_on);
+-		if (ret < 0) {
+-			clk_bulk_disable(pd->num_clks, pd->clks);
+-			return ret;
+-		}
++		/* if powering down, idle request to NIU first */
++		rockchip_pmu_set_idle_request(pd, true);
++	}
+ 
+-		if (power_on) {
+-			/* if powering up, leave idle mode */
+-			rockchip_pmu_set_idle_request(pd, false);
++	ret = rockchip_do_pmu_set_power_domain(pd, power_on);
++	if (ret < 0) {
++		clk_bulk_disable(pd->num_clks, pd->clks);
++		return ret;
++	}
+ 
+-			rockchip_pmu_restore_qos(pd);
+-		}
++	if (power_on) {
++		/* if powering up, leave idle mode */
++		rockchip_pmu_set_idle_request(pd, false);
+ 
+-		rockchip_pmu_ungate_clk(pd, false);
+-		clk_bulk_disable(pd->num_clks, pd->clks);
++		rockchip_pmu_restore_qos(pd);
+ 	}
+ 
++	rockchip_pmu_ungate_clk(pd, false);
++	clk_bulk_disable(pd->num_clks, pd->clks);
++
+ 	return 0;
+ }
+ 
+-- 
+2.47.2
+

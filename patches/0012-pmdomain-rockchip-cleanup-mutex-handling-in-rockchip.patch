@@ -1,0 +1,46 @@
+From cf646f85b81ff2d5ab10e9ea4e4fd95ead266747 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 6 Sep 2024 17:03:53 +0200
+Subject: [PATCH 12/68] pmdomain: rockchip: cleanup mutex handling in
+ rockchip_pd_power
+
+Use the cleanup infrastructure to handle the mutex, which
+slightly improve code readability for this function.
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Adrian Larumbe <adrian.larumbe@collabora.com> # On Rock 5B
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/pmdomain/rockchip/pm-domains.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index cb0f93800..a161ee13c 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -574,13 +574,12 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
+ 	struct rockchip_pmu *pmu = pd->pmu;
+ 	int ret;
+ 
+-	mutex_lock(&pmu->mutex);
++	guard(mutex)(&pmu->mutex);
+ 
+ 	if (rockchip_pmu_domain_is_on(pd) != power_on) {
+ 		ret = clk_bulk_enable(pd->num_clks, pd->clks);
+ 		if (ret < 0) {
+ 			dev_err(pmu->dev, "failed to enable clocks\n");
+-			mutex_unlock(&pmu->mutex);
+ 			return ret;
+ 		}
+ 
+@@ -606,7 +605,6 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
+ 		clk_bulk_disable(pd->num_clks, pd->clks);
+ 	}
+ 
+-	mutex_unlock(&pmu->mutex);
+ 	return 0;
+ }
+ 
+-- 
+2.47.2
+

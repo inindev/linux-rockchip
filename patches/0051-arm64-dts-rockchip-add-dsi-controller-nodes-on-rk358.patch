@@ -1,0 +1,86 @@
+From 2cb73decf9f6be904f3192c56519ec1dd0442fb3 Mon Sep 17 00:00:00 2001
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Date: Wed, 6 Nov 2024 13:37:57 +0100
+Subject: [PATCH 51/68] arm64: dts: rockchip: add dsi controller nodes on
+ rk3588
+
+The RK3588 comes with two DSI2 controllers based on a new Synopsis IP.
+Add the necessary nodes for them.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Link: https://lore.kernel.org/r/20241106123758.423584-3-heiko@sntech.de
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 23b8a8f07..530514218 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1431,6 +1431,62 @@ i2s9_8ch: i2s@fddfc000 {
+ 		status = "disabled";
+ 	};
+ 
++	dsi0: dsi@fde20000 {
++		compatible = "rockchip,rk3588-mipi-dsi2";
++		reg = <0x0 0xfde20000 0x0 0x10000>;
++		interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru PCLK_DSIHOST0>, <&cru CLK_DSIHOST0>;
++		clock-names = "pclk", "sys";
++		resets = <&cru SRST_P_DSIHOST0>;
++		reset-names = "apb";
++		power-domains = <&power RK3588_PD_VOP>;
++		phys = <&mipidcphy0>;
++		phy-names = "dcphy";
++		rockchip,grf = <&vop_grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			dsi0_in: port@0 {
++				reg = <0>;
++			};
++
++			dsi0_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	dsi1: dsi@fde30000 {
++		compatible = "rockchip,rk3588-mipi-dsi2";
++		reg = <0x0 0xfde30000 0x0 0x10000>;
++		interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru PCLK_DSIHOST1>, <&cru CLK_DSIHOST1>;
++		clock-names = "pclk", "sys";
++		resets = <&cru SRST_P_DSIHOST1>;
++		reset-names = "apb";
++		power-domains = <&power RK3588_PD_VOP>;
++		phys = <&mipidcphy1>;
++		phy-names = "dcphy";
++		rockchip,grf = <&vop_grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			dsi1_in: port@0 {
++				reg = <0>;
++			};
++
++			dsi1_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	hdmi0: hdmi@fde80000 {
+ 		compatible = "rockchip,rk3588-dw-hdmi-qp";
+ 		reg = <0x0 0xfde80000 0x0 0x20000>;
+-- 
+2.47.2
+
