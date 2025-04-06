@@ -1,0 +1,45 @@
+From 8f86f454a45066fc8adbed137976f15a277e11d7 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 2 Jan 2024 09:39:11 +0100
+Subject: [PATCH 06/42] arm64: dts: rockchip: rk3588-evb1: improve PCIe
+ ethernet pin muxing
+
+Also describe clkreq and wake signals in the PCIe pinmux used
+by the onboard LAN card.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index 7a872fb80..c082a83ac 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -543,7 +543,7 @@ wifi: wifi@0,0 {
+ &pcie2x1l1 {
+ 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_1_rst>, <&rtl8111_isolate>;
++	pinctrl-0 = <&pcie2_1_rst>, <&pcie2_1_wake>, <&pcie2_1_clkreq>, <&rtl8111_isolate>;
+ 	status = "okay";
+ };
+ 
+@@ -619,6 +619,14 @@ pcie2_0_clkreq: pcie2-0-clkreq {
+ 		pcie2_1_rst: pcie2-1-rst {
+ 			rockchip,pins = <4 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
++
++		pcie2_1_wake: pcie2-1-wake {
++			rockchip,pins = <4 RK_PA1 4 &pcfg_pull_none>;
++		};
++
++		pcie2_1_clkreq: pcie2-1-clkreq {
++			rockchip,pins = <4 RK_PA0 4 &pcfg_pull_none>;
++		};
+ 	};
+ 
+ 	pcie3 {
+-- 
+2.47.2
+
