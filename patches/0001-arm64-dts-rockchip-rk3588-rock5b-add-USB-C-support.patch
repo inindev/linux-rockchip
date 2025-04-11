@@ -1,7 +1,7 @@
-From 997fd9e70c644953aeade32519dc0b1c731c9bd3 Mon Sep 17 00:00:00 2001
+From b9b6b60581d040e15d6a4a60dd8fab058e32af85 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 25 Jul 2023 18:35:56 +0200
-Subject: [PATCH 01/42] arm64: dts: rockchip: rk3588-rock5b: add USB-C support
+Subject: [PATCH 01/58] arm64: dts: rockchip: rk3588-rock5b: add USB-C support
 
 Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
 This describes the OHCI, EHCI and XHCI USB parts, but not yet the

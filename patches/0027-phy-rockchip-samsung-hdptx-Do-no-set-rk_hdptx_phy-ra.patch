@@ -1,7 +1,7 @@
-From 9fa86eb1b4257cc3181efca57f46408f41c4a29d Mon Sep 17 00:00:00 2001
+From 546a15ad4ccf17b992d6f2fcd5b82da6ad8ac791 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:38 +0200
-Subject: [PATCH 27/42] phy: rockchip: samsung-hdptx: Do no set
+Subject: [PATCH 27/58] phy: rockchip: samsung-hdptx: Do no set
  rk_hdptx_phy->rate in case of errors
 
 Ensure rk_hdptx_ropll_tmds_cmn_config() updates hdptx->rate only after

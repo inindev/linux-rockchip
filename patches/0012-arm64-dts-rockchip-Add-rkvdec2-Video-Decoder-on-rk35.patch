@@ -1,7 +1,7 @@
-From af44b5f403555ec478e2f574998cdbd4c533168a Mon Sep 17 00:00:00 2001
+From 3e6fe9d3711bfe1b68d40edff8d9c3860f680264 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:56:19 -0400
-Subject: [PATCH 12/42] arm64: dts: rockchip: Add rkvdec2 Video Decoder on
+Subject: [PATCH 12/58] arm64: dts: rockchip: Add rkvdec2 Video Decoder on
  rk3588(s)
 
 Add the rkvdec2 Video Decoder to the RK3588s devicetree.

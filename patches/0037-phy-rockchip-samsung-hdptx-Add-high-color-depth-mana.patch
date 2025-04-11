@@ -1,7 +1,7 @@
-From 4931e908f46a4f109e87d956f1362241118c1c92 Mon Sep 17 00:00:00 2001
+From c6413b109367f7b28c5482d4c18ca3e212dbd0a9 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:48 +0200
-Subject: [PATCH 37/42] phy: rockchip: samsung-hdptx: Add high color depth
+Subject: [PATCH 37/58] phy: rockchip: samsung-hdptx: Add high color depth
  management
 
 Add support for 8-bit, 10-bit, 12-bit and 16-bit color depth setup.

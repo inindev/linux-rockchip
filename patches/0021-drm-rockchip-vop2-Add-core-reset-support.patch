@@ -1,7 +1,7 @@
-From 979689ef385db6689f8ad86ab530c41afb7ee731 Mon Sep 17 00:00:00 2001
+From 8f78653f9b6cf2c8f169466b4ea6daf6738f88a7 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 14 Nov 2024 17:36:18 +0100
-Subject: [PATCH 21/42] drm/rockchip: vop2: Add core reset support
+Subject: [PATCH 21/58] drm/rockchip: vop2: Add core reset support
 
 A previous from Detlev Casanova adds reset handling for the
 video ports. This also resets the AHB and AXI interface when

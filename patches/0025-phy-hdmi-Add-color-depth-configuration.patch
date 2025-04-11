@@ -1,7 +1,7 @@
-From e23d66ddcf2720d4d34bd81d185d6f03bdcfb4e7 Mon Sep 17 00:00:00 2001
+From f66428f95c75ac0e5e853f4b2e70612f10bdb91e Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:36 +0200
-Subject: [PATCH 25/42] phy: hdmi: Add color depth configuration
+Subject: [PATCH 25/58] phy: hdmi: Add color depth configuration
 
 Extend the HDMI configuration options to allow managing bits per color
 channel.  This is required by some PHY drivers such as

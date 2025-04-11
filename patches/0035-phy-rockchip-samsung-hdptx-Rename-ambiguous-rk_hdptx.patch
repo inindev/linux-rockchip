@@ -1,7 +1,7 @@
-From 6049d72f990d90480eb6a737e5dc0f9c2ec56d49 Mon Sep 17 00:00:00 2001
+From 33c0c6c0035bbfbc44afcb699b6365e179dfaa0b Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:46 +0200
-Subject: [PATCH 35/42] phy: rockchip: samsung-hdptx: Rename ambiguous
+Subject: [PATCH 35/58] phy: rockchip: samsung-hdptx: Rename ambiguous
  rk_hdptx_phy->rate
 
 The main purpose of the ->rate member of struct rk_hdptx_phy is to

@@ -1,7 +1,7 @@
-From 0a746c43fce03d50de9cf046f4f9dc97c20cc4a0 Mon Sep 17 00:00:00 2001
+From 9cb46d853206cd1182f7fc054d3bb6445b6b3c0a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:45 +0200
-Subject: [PATCH 34/42] phy: rockchip: samsung-hdptx: Restrict altering TMDS
+Subject: [PATCH 34/58] phy: rockchip: samsung-hdptx: Restrict altering TMDS
  char rate via CCF
 
 Although, in theory, the clock provider functionality could be enabled

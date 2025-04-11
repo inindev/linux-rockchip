@@ -1,7 +1,7 @@
-From 0754bc7ae9b8812b4e433151206d49dba4d9f37d Mon Sep 17 00:00:00 2001
+From 4afb99259b1440de8f16ccfaa41e4ddd48da64db Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 8 Jul 2024 13:31:54 +0200
-Subject: [PATCH 13/42] arm64: defconfig: enable Rockchip RK3588 video decoder
+Subject: [PATCH 13/58] arm64: defconfig: enable Rockchip RK3588 video decoder
 
 Enable driver for the Rockchip RK3588 video decoder, which will
 also be used by the RK3566/RK3568 in the future.

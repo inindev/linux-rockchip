@@ -1,7 +1,7 @@
-From d7a8870d2ce7963aff4dcb729c08bd83a288f823 Mon Sep 17 00:00:00 2001
+From 2c23287df594b902f1b8d7628f3264b7f8be83f8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:47 +0200
-Subject: [PATCH 36/42] phy: rockchip: samsung-hdptx: Optimize internal rate
+Subject: [PATCH 36/58] phy: rockchip: samsung-hdptx: Optimize internal rate
  handling
 
 Drop the rate parameter from a bunch of internal helpers and, instead,

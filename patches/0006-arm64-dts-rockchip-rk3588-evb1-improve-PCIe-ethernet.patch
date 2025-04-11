@@ -1,7 +1,7 @@
-From 8f86f454a45066fc8adbed137976f15a277e11d7 Mon Sep 17 00:00:00 2001
+From 34e28b531e611dbd1b7b0cafa4290979f241b9fe Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:39:11 +0100
-Subject: [PATCH 06/42] arm64: dts: rockchip: rk3588-evb1: improve PCIe
+Subject: [PATCH 06/58] arm64: dts: rockchip: rk3588-evb1: improve PCIe
  ethernet pin muxing
 
 Also describe clkreq and wake signals in the PCIe pinmux used

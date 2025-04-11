@@ -1,7 +1,7 @@
-From 545dad8eb7e09cc523cf96a454d95e168a68672e Mon Sep 17 00:00:00 2001
+From ac38386d0fd6ad319fbd5e367b4c68695a4ae22a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:42 +0200
-Subject: [PATCH 31/42] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit
+Subject: [PATCH 31/58] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit
  conversion overhead
 
 The ropll_tmds_cfg table used to identify the configuration params for

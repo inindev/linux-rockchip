@@ -1,7 +1,7 @@
-From 0bc0adea2f5522058304b2cb37d64d0ca1c75dc2 Mon Sep 17 00:00:00 2001
+From 55a50e0d5f51793bc90dc0ff186b324ce3910121 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:53:40 -0400
-Subject: [PATCH 11/42] media: dt-bindings: rockchip: Document RK3588 Video
+Subject: [PATCH 11/58] media: dt-bindings: rockchip: Document RK3588 Video
  Decoder bindings
 
 Document the Rockchip RK3588 Video Decoder bindings.
