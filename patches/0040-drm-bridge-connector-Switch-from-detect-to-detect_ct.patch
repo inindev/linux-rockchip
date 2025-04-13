@@ -1,7 +1,7 @@
-From b9dd5328c4453f8ebd5c5c4f79a46f0f04550aac Mon Sep 17 00:00:00 2001
+From 8bf26d19e1661393d8fb4d667eb7c26383bd11b0 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 23:04:23 +0200
-Subject: [PATCH 40/58] drm/bridge-connector: Switch from ->detect() to
+Subject: [PATCH 40/57] drm/bridge-connector: Switch from ->detect() to
  ->detect_ctx()
 
 In preparation to provide scrambling support to the HDMI Connector
@@ -130,5 +130,5 @@ index 30c736fc0..2ea1c6662 100644
  	.enable_hpd = drm_bridge_connector_enable_hpd,
  	.disable_hpd = drm_bridge_connector_disable_hpd,
 -- 
-2.47.2
+2.39.5
 

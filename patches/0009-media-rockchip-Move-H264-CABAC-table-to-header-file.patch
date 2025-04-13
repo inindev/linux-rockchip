@@ -1,7 +1,7 @@
-From a2660de41ee0bcffb2a1d6bcaa9846d39bbf549f Mon Sep 17 00:00:00 2001
+From 4784e9d774bcb224a3248555ed77827c825854ec Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Tue, 18 Jun 2024 12:41:51 -0400
-Subject: [PATCH 09/58] media: rockchip: Move H264 CABAC table to header file
+Subject: [PATCH 09/57] media: rockchip: Move H264 CABAC table to header file
 
 The table will be shared with the rkvdec2 driver in following commits.
 
@@ -1052,5 +1052,5 @@ index 000000000..3324c4cb6
 +
 +#endif /* RKVDEC_H264_CABAC_H_ */
 -- 
-2.47.2
+2.39.5
 

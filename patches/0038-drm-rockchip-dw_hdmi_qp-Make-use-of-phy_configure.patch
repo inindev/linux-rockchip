@@ -1,7 +1,7 @@
-From c9c6b543ad3bdb99671229a73584d718f4ca3303 Mon Sep 17 00:00:00 2001
+From f5f9468eee38360647718dd9a04d2739178aad8f Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:02:57 +0200
-Subject: [PATCH 38/58] drm/rockchip: dw_hdmi_qp: Make use of phy_configure()
+Subject: [PATCH 38/57] drm/rockchip: dw_hdmi_qp: Make use of phy_configure()
 
 Stop relying on phy_set_bus_width() workaround to setup the TMDS
 character rate and, instead, use the proper HDMI PHY configuration API
@@ -19,7 +19,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 11 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 3d1dddb34..926c62e59 100644
+index 7d531b6f4..1b1a864e3 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -13,6 +13,7 @@
@@ -30,7 +30,7 @@ index 3d1dddb34..926c62e59 100644
  #include <linux/regmap.h>
  #include <linux/workqueue.h>
  
-@@ -112,24 +113,9 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
+@@ -113,24 +114,9 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
  static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
  {
  	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
@@ -55,7 +55,7 @@ index 3d1dddb34..926c62e59 100644
  }
  
  static int
-@@ -137,12 +123,21 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+@@ -138,12 +124,21 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
  					 struct drm_crtc_state *crtc_state,
  					 struct drm_connector_state *conn_state)
  {
@@ -79,5 +79,5 @@ index 3d1dddb34..926c62e59 100644
  
  static const struct
 -- 
-2.47.2
+2.39.5
 

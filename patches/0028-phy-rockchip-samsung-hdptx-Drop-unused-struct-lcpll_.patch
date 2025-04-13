@@ -1,7 +1,7 @@
-From 06ab3ac0e2eddc64b0de7980e0e93d8a7411d110 Mon Sep 17 00:00:00 2001
+From 08c5c493fddbd2f276f9c6cf895d8f1bbc6eacc9 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:39 +0200
-Subject: [PATCH 28/58] phy: rockchip: samsung-hdptx: Drop unused struct
+Subject: [PATCH 28/57] phy: rockchip: samsung-hdptx: Drop unused struct
  lcpll_config
 
 This is just a leftover from downstream support for HDMI 2.1.
@@ -58,5 +58,5 @@ index d0989dc5a..70621687b 100644
  	u32 bit_rate;
  	u8 pms_mdiv;
 -- 
-2.47.2
+2.39.5
 

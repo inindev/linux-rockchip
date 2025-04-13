@@ -1,7 +1,7 @@
-From 79f02d8f36052269d8a57f91dfb6efd23c1ac1e1 Mon Sep 17 00:00:00 2001
+From cf5f2da926db057566442128e3dbbf124dbd46e8 Mon Sep 17 00:00:00 2001
 From: Kever Yang <kever.yang@rock-chips.com>
 Date: Fri, 21 Feb 2025 18:43:57 +0800
-Subject: [PATCH 23/58] arm64: dts: rockchip: Add rk3576 pcie nodes
+Subject: [PATCH 23/57] arm64: dts: rockchip: Add rk3576 pcie nodes
 
 rk3576 has two pcie controllers, both are pcie2x1 work with
 naneng-combphy.
@@ -134,5 +134,5 @@ index ebb5fc8bb..007c047bd 100644
  			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
  			reg = <0x0 0x2a220000 0x0 0x10000>;
 -- 
-2.47.2
+2.39.5
 

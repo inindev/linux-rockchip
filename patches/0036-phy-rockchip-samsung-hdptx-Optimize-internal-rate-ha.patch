@@ -1,7 +1,7 @@
-From 2c23287df594b902f1b8d7628f3264b7f8be83f8 Mon Sep 17 00:00:00 2001
+From cebac056ee8d9af9a60d8348f9e715aa02415107 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:47 +0200
-Subject: [PATCH 36/58] phy: rockchip: samsung-hdptx: Optimize internal rate
+Subject: [PATCH 36/57] phy: rockchip: samsung-hdptx: Optimize internal rate
  handling
 
 Drop the rate parameter from a bunch of internal helpers and, instead,
@@ -149,5 +149,5 @@ index a19a89233..d09e1f7b2 100644
  
  static const struct clk_ops hdptx_phy_clk_ops = {
 -- 
-2.47.2
+2.39.5
 

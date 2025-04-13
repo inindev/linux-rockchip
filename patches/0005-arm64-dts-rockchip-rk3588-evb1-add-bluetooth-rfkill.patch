@@ -1,7 +1,7 @@
-From dcb2e4ca97c574606b90d9cf52307a9fbd6073e6 Mon Sep 17 00:00:00 2001
+From 1174cec7ce076d25fd20c91f8ba64f909b551d46 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:35:43 +0100
-Subject: [PATCH 05/58] arm64: dts: rockchip: rk3588-evb1: add bluetooth rfkill
+Subject: [PATCH 05/57] arm64: dts: rockchip: rk3588-evb1: add bluetooth rfkill
 
 Add rfkill support for bluetooth. Bluetooth support itself is still
 missing, but this ensures bluetooth can be powered off properly.
@@ -45,5 +45,5 @@ index 8e912da29..7a872fb80 100644
  		rtl8111_isolate: rtl8111-isolate {
  			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>;
 -- 
-2.47.2
+2.39.5
 

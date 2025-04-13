@@ -1,7 +1,7 @@
-From 7e44321ed6b4eab274846c2fd8c5f027fce71bea Mon Sep 17 00:00:00 2001
+From f80a18b166393a4f36c27f4d8f78f9a9240277c7 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:35 +0800
-Subject: [PATCH 54/58] arm64: dts: rockchip: Add DP1 for rk3588
+Subject: [PATCH 53/57] arm64: dts: rockchip: Add DP1 for rk3588
 
 The DP1 is compliant with the DisplayPort Specification
 Version 1.4, and share the USBDP combo PHY1 with USB 3.1
@@ -56,5 +56,5 @@ index 099edb3fd..fcee37620 100644
  		compatible = "rockchip,rk3588-dw-hdmi-qp";
  		reg = <0x0 0xfdea0000 0x0 0x20000>;
 -- 
-2.47.2
+2.39.5
 

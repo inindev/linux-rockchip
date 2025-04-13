@@ -1,7 +1,7 @@
-From 6280b67015e7f6505bb3f4a853bf79980a5b3186 Mon Sep 17 00:00:00 2001
+From a7e4f5d4439110804c0481964e0af0be5a19607e Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:44 +0200
-Subject: [PATCH 33/58] phy: rockchip: samsung-hdptx: Provide config params
+Subject: [PATCH 33/57] phy: rockchip: samsung-hdptx: Provide config params
  validation support
 
 Implement the phy_ops.validate() callback to allow checking the PHY
@@ -43,5 +43,5 @@ index 62de40515..80dd89686 100644
  };
  
 -- 
-2.47.2
+2.39.5
 

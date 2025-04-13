@@ -1,7 +1,7 @@
-From 8fae5cd000692f6515990ab75a5839f9355e99f6 Mon Sep 17 00:00:00 2001
+From e4624f19f85efe9f71c2bcff9930026c7ebde0b7 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 18:09:57 +0200
-Subject: [PATCH 04/58] clk: composite: replace open-coded abs_diff()
+Subject: [PATCH 04/57] clk: composite: replace open-coded abs_diff()
 
 Replace the open coded abs_diff() with the existing helper function.
 
@@ -36,5 +36,5 @@ index 66759fe28..478a4e594 100644
  			if (!rate_diff || !req->best_parent_hw
  				       || best_rate_diff > rate_diff) {
 -- 
-2.47.2
+2.39.5
 

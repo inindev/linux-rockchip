@@ -1,7 +1,7 @@
-From 1a0a8ca66a573207561b07e37179477687e254b9 Mon Sep 17 00:00:00 2001
+From 1df4cdc08a56ac5c49c7a92ed771a2ebb33ff1ad Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:35 +0800
-Subject: [PATCH 42/58] drm/dp: Pull drm_dp_link_power_up/down from Tegra to
+Subject: [PATCH 42/57] drm/dp: Pull drm_dp_link_power_up/down from Tegra to
  common drm_dp_helper
 
 The helper functions drm_dp_link_power_up/down were moved to Tegra
@@ -229,5 +229,5 @@ index 5ae424195..f9dabce48 100644
  int drm_dp_dpcd_write_payload(struct drm_dp_aux *aux,
  			      int vcpid, u8 start_time_slot, u8 time_slot_count);
 -- 
-2.47.2
+2.39.5
 

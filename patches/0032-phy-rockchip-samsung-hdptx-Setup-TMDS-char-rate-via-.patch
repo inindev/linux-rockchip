@@ -1,7 +1,7 @@
-From 977eae205b3401e16c49c4ccb48cc8060e2adf82 Mon Sep 17 00:00:00 2001
+From 72768f7570cf684d10b41450235f9aeaf3750ce3 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:43 +0200
-Subject: [PATCH 32/58] phy: rockchip: samsung-hdptx: Setup TMDS char rate via
+Subject: [PATCH 32/57] phy: rockchip: samsung-hdptx: Setup TMDS char rate via
  phy_configure_opts_hdmi
 
 The current workaround to setup the TMDS character rate relies on the
@@ -132,5 +132,5 @@ index e4f6b1d6d..62de40515 100644
  	}
  
 -- 
-2.47.2
+2.39.5
 

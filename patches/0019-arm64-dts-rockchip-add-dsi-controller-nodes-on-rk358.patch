@@ -1,7 +1,7 @@
-From b0c7cb2c57a527f0a1437ab0f44bbcaeefabfdb6 Mon Sep 17 00:00:00 2001
+From 1a63071273976b3b6eca93e1d2cdd7afdbbec090 Mon Sep 17 00:00:00 2001
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 Date: Wed, 6 Nov 2024 13:37:57 +0100
-Subject: [PATCH 19/58] arm64: dts: rockchip: add dsi controller nodes on
+Subject: [PATCH 19/57] arm64: dts: rockchip: add dsi controller nodes on
  rk3588
 
 The RK3588 comes with two DSI2 controllers based on a new Synopsis IP.
@@ -82,5 +82,5 @@ index 79ed577fa..bb77d5987 100644
  		compatible = "rockchip,rk3588-dw-hdmi-qp";
  		reg = <0x0 0xfde80000 0x0 0x20000>;
 -- 
-2.47.2
+2.39.5
 

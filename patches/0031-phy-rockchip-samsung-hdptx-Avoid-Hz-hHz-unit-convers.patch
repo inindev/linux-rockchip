@@ -1,7 +1,7 @@
-From ac38386d0fd6ad319fbd5e367b4c68695a4ae22a Mon Sep 17 00:00:00 2001
+From f865a319c0404835b9391f8ddab4d7586a2dae43 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:42 +0200
-Subject: [PATCH 31/58] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit
+Subject: [PATCH 31/57] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit
  conversion overhead
 
 The ropll_tmds_cfg table used to identify the configuration params for
@@ -238,5 +238,5 @@ index 2c0ae2442..e4f6b1d6d 100644
  
  static const struct clk_ops hdptx_phy_clk_ops = {
 -- 
-2.47.2
+2.39.5
 

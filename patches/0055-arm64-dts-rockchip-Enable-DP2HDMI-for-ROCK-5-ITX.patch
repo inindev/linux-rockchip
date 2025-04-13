@@ -1,7 +1,7 @@
-From 411f59fa34209a7e386980a2298e7ceba0a3004a Mon Sep 17 00:00:00 2001
+From 06edb47ae6717abbe796457972b924ff697334c9 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:37 +0800
-Subject: [PATCH 56/58] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
+Subject: [PATCH 55/57] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
 
 The HDMI0(Port next to Headphone Jack) is drived by DP1 on rk3588
 via RA620(a dp2hdmi converter).
@@ -109,5 +109,5 @@ index 7de17117d..903ad42f9 100644
 +	};
 +};
 -- 
-2.47.2
+2.39.5
 

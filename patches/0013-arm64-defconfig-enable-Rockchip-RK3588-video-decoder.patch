@@ -1,7 +1,7 @@
-From 4afb99259b1440de8f16ccfaa41e4ddd48da64db Mon Sep 17 00:00:00 2001
+From 187748f49c8879aaad54163bb842877dd2284c9c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 8 Jul 2024 13:31:54 +0200
-Subject: [PATCH 13/58] arm64: defconfig: enable Rockchip RK3588 video decoder
+Subject: [PATCH 13/57] arm64: defconfig: enable Rockchip RK3588 video decoder
 
 Enable driver for the Rockchip RK3588 video decoder, which will
 also be used by the RK3566/RK3568 in the future.
@@ -24,5 +24,5 @@ index 5bb8f0942..b1e07cffd 100644
  CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
  CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
 -- 
-2.47.2
+2.39.5
 

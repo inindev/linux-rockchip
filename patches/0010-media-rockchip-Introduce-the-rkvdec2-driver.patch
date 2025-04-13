@@ -1,7 +1,7 @@
-From c3335baba17dbd3f65f819a9306b8d2b9dcd7576 Mon Sep 17 00:00:00 2001
+From 394c842585fa94ed697996477fc8c1ed12fff520 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:52:12 -0400
-Subject: [PATCH 10/58] media: rockchip: Introduce the rkvdec2 driver
+Subject: [PATCH 10/57] media: rockchip: Introduce the rkvdec2 driver
 
 This driver supports the second generation of the Rockchip Video
 decoder, also known as vdpu34x.
@@ -2612,5 +2612,5 @@ index 000000000..861305177
 +
 +#endif /* RKVDEC_H_ */
 -- 
-2.47.2
+2.39.5
 

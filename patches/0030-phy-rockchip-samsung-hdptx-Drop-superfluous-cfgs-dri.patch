@@ -1,7 +1,7 @@
-From da6c8b190a6edd4b0eeb16048264ccafc0062f8b Mon Sep 17 00:00:00 2001
+From dfe7ee22a56d5cd6859307677e7ed18b0c4d4812 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:41 +0200
-Subject: [PATCH 30/58] phy: rockchip: samsung-hdptx: Drop superfluous cfgs
+Subject: [PATCH 30/57] phy: rockchip: samsung-hdptx: Drop superfluous cfgs
  driver data
 
 The ->cfgs member has been introduced via commit f08d1c085638 ("phy:
@@ -62,5 +62,5 @@ index c9f79c4e6..2c0ae2442 100644
  			break;
  		}
 -- 
-2.47.2
+2.39.5
 

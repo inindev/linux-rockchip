@@ -1,7 +1,7 @@
-From bbb50a5ed699245ab13e7a07cdeb619bf561c996 Mon Sep 17 00:00:00 2001
+From 8236a7ad4895cfe4dd47cc45cc81c27cea5c9b15 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 13 Sep 2024 17:30:35 +0300
-Subject: [PATCH 41/58] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and
+Subject: [PATCH 41/57] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and
  scrambling support
 
 Enable use of HDMI 2.0 display modes, e.g. 4K@60Hz, by permitting TMDS
@@ -317,5 +317,5 @@ index 6166f197e..74859365b 100644
  
  	regs = devm_platform_ioremap_resource(pdev, 0);
 -- 
-2.47.2
+2.39.5
 

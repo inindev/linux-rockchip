@@ -1,7 +1,7 @@
-From 4eb22bfa087a2b660c8dd538c040c54752239c9b Mon Sep 17 00:00:00 2001
+From ee9b83e09621a4ec23d4a597d8d412b323dae1e9 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:30 +0800
-Subject: [PATCH 49/58] drm/bridge: synopsys: Add DW DPTX Controller support
+Subject: [PATCH 48/57] drm/bridge: synopsys: Add DW DPTX Controller support
  library
 
 The DW DP TX Controller is compliant with the DisplayPort Specification
@@ -2147,5 +2147,5 @@ index 000000000..d05df49fd
 +			 const struct dw_dp_plat_data *plat_data);
 +#endif /* __DW_DP__ */
 -- 
-2.47.2
+2.39.5
 

@@ -1,7 +1,7 @@
-From f9b28f56c8e604c670a45d1fd5e086d460172e43 Mon Sep 17 00:00:00 2001
+From 2f8a7df65fd2524136688d5fa866b7c3fae11922 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:37 +0800
-Subject: [PATCH 44/58] drm/bridge: anx6345: Switch to common helpers to power
+Subject: [PATCH 44/57] drm/bridge: anx6345: Switch to common helpers to power
  up/down dp link
 
 Use the common dp link power up/down helpers to avoid duplicating code.
@@ -56,5 +56,5 @@ index 83d711ee3..f4fffe4bb 100644
  	/* Possibly enable downspread on the sink */
  	err = regmap_write(anx6345->map[I2C_IDX_DPTX],
 -- 
-2.47.2
+2.39.5
 
