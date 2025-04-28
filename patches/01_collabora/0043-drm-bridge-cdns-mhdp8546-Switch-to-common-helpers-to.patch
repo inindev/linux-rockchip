@@ -1,7 +1,7 @@
-From 25846e740e7d76a8b13a52bf00f7ee5dcac409f1 Mon Sep 17 00:00:00 2001
+From 90ce821a1132f177d99af5800b2d5192877541fb Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:36 +0800
-Subject: [PATCH 43/57] drm/bridge: cdns-mhdp8546: Switch to common helpers to
+Subject: [PATCH 43/56] drm/bridge: cdns-mhdp8546: Switch to common helpers to
  power up/down dp link
 
 Use the common dp link power up/down helpers to avoid duplicating code.

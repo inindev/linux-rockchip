@@ -1,7 +1,7 @@
-From b33721646bc93188d8a64f12bbc27bb085a9f043 Mon Sep 17 00:00:00 2001
+From 9802fbb135be8950b8628ade17b55b200d6f3c53 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:40 +0200
-Subject: [PATCH 29/57] phy: rockchip: samsung-hdptx: Drop unused phy_cfg
+Subject: [PATCH 29/56] phy: rockchip: samsung-hdptx: Drop unused phy_cfg
  driver data
 
 There is no usage of phy_cfg in the upstream driver data, nor in the

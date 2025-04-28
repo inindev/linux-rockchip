@@ -1,7 +1,7 @@
-From b2cb85ae7895d508280c0cc130bf6792191fbb6a Mon Sep 17 00:00:00 2001
+From 21c48b7e5a5dfe3b55c65f71b5dd6d6cc598b5a3 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Thu, 27 Jun 2024 09:42:12 -0400
-Subject: [PATCH 08/57] media: v4l2-ctrls-core: Set frame_mbs_only_flag by
+Subject: [PATCH 08/56] media: v4l2-ctrls-core: Set frame_mbs_only_flag by
  default in h264 SPS
 
 This flag is needed for drivers that have a minimum height lower

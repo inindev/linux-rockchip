@@ -1,7 +1,7 @@
-From 0b156a88f778212f12da0328c9a093f15a1b3fc3 Mon Sep 17 00:00:00 2001
+From 8bb7966e82ba8ffe794ea42148f7817740f3b7be Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:34 +0800
-Subject: [PATCH 52/57] arm64: dts: rockchip: Add DP0 for rk3588
+Subject: [PATCH 52/56] arm64: dts: rockchip: Add DP0 for rk3588
 
 The DP0 is compliant with the DisplayPort Specification
 Version 1.4, and share the USBDP combo PHY0 with USB 3.1

@@ -1,7 +1,7 @@
-From b76e65bbe3c2a9037c7f53e9d4b959ac195bfe9e Mon Sep 17 00:00:00 2001
+From decd8c371740e9a769d1b9fb80832481dbf31b82 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:38 +0800
-Subject: [PATCH 45/57] drm/bridge: anx78xx: Switch to common helpers to power
+Subject: [PATCH 45/56] drm/bridge: anx78xx: Switch to common helpers to power
  up/down dp link
 
 Use the common dp link power up/down helpers to avoid duplicating code.

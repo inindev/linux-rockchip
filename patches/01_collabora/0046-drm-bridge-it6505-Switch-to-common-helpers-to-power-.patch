@@ -1,7 +1,7 @@
-From 532cc19f62f2af6fc274ade292d1c2c165682575 Mon Sep 17 00:00:00 2001
+From 8450448df2138ee388e245040ffa9f6fbb9d5834 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:39 +0800
-Subject: [PATCH 46/57] drm/bridge: it6505: Switch to common helpers to power
+Subject: [PATCH 46/56] drm/bridge: it6505: Switch to common helpers to power
  up/down dp link
 
 Use the common dp link power up/down helpers to avoid duplicating code.

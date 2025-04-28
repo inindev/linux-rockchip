@@ -1,7 +1,7 @@
-From dea749bea0c690df2ad023b1abacff8b2f8ca3d9 Mon Sep 17 00:00:00 2001
+From 8eb096e0b38f2e5133ae82d05ca981b90468a798 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:37 +0200
-Subject: [PATCH 26/57] phy: rockchip: samsung-hdptx: Fix clock ratio setup
+Subject: [PATCH 26/56] phy: rockchip: samsung-hdptx: Fix clock ratio setup
 
 The switch from 1/10 to 1/40 clock ratio must happen when exceeding the
 340 MHz rate limit of HDMI 1.4, i.e. when entering the HDMI 2.0 domain,

@@ -1,7 +1,7 @@
-From 1df4cdc08a56ac5c49c7a92ed771a2ebb33ff1ad Mon Sep 17 00:00:00 2001
+From 5c154b665eb4885650ca25e7cfb5ff48b631a7a6 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:35 +0800
-Subject: [PATCH 42/57] drm/dp: Pull drm_dp_link_power_up/down from Tegra to
+Subject: [PATCH 42/56] drm/dp: Pull drm_dp_link_power_up/down from Tegra to
  common drm_dp_helper
 
 The helper functions drm_dp_link_power_up/down were moved to Tegra

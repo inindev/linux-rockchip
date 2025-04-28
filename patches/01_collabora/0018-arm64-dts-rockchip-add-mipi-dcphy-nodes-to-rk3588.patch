@@ -1,7 +1,7 @@
-From 8202d9408e868f35e94474ea3f1d4bd56dd53a6c Mon Sep 17 00:00:00 2001
+From 0a3313a0c3aba4038d1c2949d6405815a8328596 Mon Sep 17 00:00:00 2001
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 Date: Wed, 6 Nov 2024 13:37:56 +0100
-Subject: [PATCH 18/57] arm64: dts: rockchip: add mipi dcphy nodes to rk3588
+Subject: [PATCH 18/56] arm64: dts: rockchip: add mipi dcphy nodes to rk3588
 
 Add the two MIPI-DC-phy nodes to the RK3588, that will be used by the
 DSI2 controllers and hopefully in some future also for camera input.

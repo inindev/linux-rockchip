@@ -1,7 +1,7 @@
-From dd68ef8340a972a8927d210b9afd0dd3bdbd40bf Mon Sep 17 00:00:00 2001
+From 7b6a2818a7a895b85cb9f69b96ef0abb72e6ad7f Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 18 Apr 2025 20:59:28 -0400
-Subject: [PATCH 3/3] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port
+Subject: [PATCH 4/6] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port
  functionality
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -49,7 +49,7 @@ Signed-off-by: John Clark <inindev@gmail.com>
  1 file changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-index cecfb788b..8f2bd3078 100644
+index cecfb788b..a2ec1b2bd 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
 @@ -174,8 +174,6 @@ vbus5v0_typec: regulator-vbus5v0-typec {
@@ -101,7 +101,7 @@ index cecfb788b..8f2bd3078 100644
 +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
  			source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
 +			try-power-role = "source";
-+			typec-power-opmode = "3.0A";
++			typec-power-opmode = "1.5A";
  
  			ports {
  				#address-cells = <1>;

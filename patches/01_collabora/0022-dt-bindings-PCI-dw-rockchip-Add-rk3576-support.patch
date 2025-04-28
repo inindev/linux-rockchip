@@ -1,7 +1,7 @@
-From c5d8d5a379a8ff6d2caeeeb223c5e1551024ae1c Mon Sep 17 00:00:00 2001
+From dd3d4c72c809ec4cea1af6f9b457a3922c113038 Mon Sep 17 00:00:00 2001
 From: Kever Yang <kever.yang@rock-chips.com>
 Date: Fri, 21 Feb 2025 18:43:56 +0800
-Subject: [PATCH 22/57] dt-bindings: PCI: dw: rockchip: Add rk3576 support
+Subject: [PATCH 22/56] dt-bindings: PCI: dw: rockchip: Add rk3576 support
 
 RK3576 is using DWC PCIe controller, with a msi interrupt line going
 directly to GIC instead of using GIC ITS.
