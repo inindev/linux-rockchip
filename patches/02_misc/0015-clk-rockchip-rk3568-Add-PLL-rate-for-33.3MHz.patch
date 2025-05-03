@@ -1,0 +1,30 @@
+From c69ea2f6b2b47fd83bc1c30c242f104909319e6b Mon Sep 17 00:00:00 2001
+From: Vasily Khoruzhick <anarsoul@gmail.com>
+Date: Tue, 18 Mar 2025 11:18:51 -0700
+Subject: [PATCH 15/26] clk: rockchip: rk3568: Add PLL rate for 33.3MHz
+
+Add PLL rate for 33.3 MHz to allow BTT HDMI5 screen to run at its native
+mode of 800x480
+
+Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
+Link: https://lore.kernel.org/r/20250318181930.1178256-1-anarsoul@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/clk/rockchip/clk-rk3568.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/clk/rockchip/clk-rk3568.c b/drivers/clk/rockchip/clk-rk3568.c
+index 7d9279291..ed2fb08bd 100644
+--- a/drivers/clk/rockchip/clk-rk3568.c
++++ b/drivers/clk/rockchip/clk-rk3568.c
+@@ -89,6 +89,7 @@ static struct rockchip_pll_rate_table rk3568_pll_rates[] = {
+ 	RK3036_PLL_RATE(96000000, 1, 96, 6, 4, 1, 0),
+ 	RK3036_PLL_RATE(78750000, 4, 315, 6, 4, 1, 0),
+ 	RK3036_PLL_RATE(74250000, 2, 99, 4, 4, 1, 0),
++	RK3036_PLL_RATE(33300000, 4, 111, 5, 4, 1, 0),
+ 	{ /* sentinel */ },
+ };
+ 
+-- 
+2.39.5
+

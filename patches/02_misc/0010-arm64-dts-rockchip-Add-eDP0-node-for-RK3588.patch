@@ -1,0 +1,56 @@
+From 77a1fd5c25fe7cd53c7ec5de70693906b3c22364 Mon Sep 17 00:00:00 2001
+From: Damon Ding <damon.ding@rock-chips.com>
+Date: Mon, 10 Mar 2025 18:41:13 +0800
+Subject: [PATCH 10/26] arm64: dts: rockchip: Add eDP0 node for RK3588
+
+Add support for the eDP0 output on RK3588 SoC.
+
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Link: https://lore.kernel.org/r/20250310104114.2608063-13-damon.ding@rock-chips.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index fcd3f4407..ae5588088 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1533,6 +1533,34 @@ hdmi0_out: port@1 {
+ 		};
+ 	};
+ 
++	edp0: edp@fdec0000 {
++		compatible = "rockchip,rk3588-edp";
++		reg = <0x0 0xfdec0000 0x0 0x1000>;
++		clocks = <&cru CLK_EDP0_24M>, <&cru PCLK_EDP0>;
++		clock-names = "dp", "pclk";
++		interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH 0>;
++		phys = <&hdptxphy0>;
++		phy-names = "dp";
++		power-domains = <&power RK3588_PD_VO1>;
++		resets = <&cru SRST_EDP0_24M>, <&cru SRST_P_EDP0>;
++		reset-names = "dp", "apb";
++		rockchip,grf = <&vo1_grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			edp0_in: port@0 {
++				reg = <0>;
++			};
++
++			edp0_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	qos_gpu_m0: qos@fdf35000 {
+ 		compatible = "rockchip,rk3588-qos", "syscon";
+ 		reg = <0x0 0xfdf35000 0x0 0x20>;
+-- 
+2.39.5
+

@@ -1,7 +1,7 @@
-From b8d2a29085b0784ba852cca65d478619cd441125 Mon Sep 17 00:00:00 2001
+From d13ea495637812a9de602d8acae4dac666ba1573 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:42 -0500
-Subject: [PATCH 17/56] arm64: dts: rockchip: Add VOP clock resets for rk3588s
+Subject: [PATCH 17/53] arm64: dts: rockchip: Add VOP clock resets for rk3588s
 
 This adds the needed clock resets for all rk3588(s) based SOCs.
 

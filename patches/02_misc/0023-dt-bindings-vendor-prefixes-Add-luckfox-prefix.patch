@@ -1,0 +1,29 @@
+From 1b4093b5ef96b3d1fbda4398d632c9af1ea8bce9 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Fri, 2 May 2025 16:16:55 -0400
+Subject: [PATCH 23/26] dt-bindings: vendor-prefixes: Add luckfox prefix
+
+Add vendor prefix for Shenzhen Luckfox Technology Co., Ltd., which
+produces development boards like the Luckfox Omni3576.
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b2..9391e0c31 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -892,6 +892,8 @@ patternProperties:
+     description: Liebherr-Werk Nenzing GmbH
+   "^lxa,.*":
+     description: Linux Automation GmbH
++  "^luckfox,.*":
++    description: Shenzhen Luckfox Technology Co., Ltd.
+   "^m5stack,.*":
+     description: M5Stack
+   "^macnica,.*":
+-- 
+2.39.5
+

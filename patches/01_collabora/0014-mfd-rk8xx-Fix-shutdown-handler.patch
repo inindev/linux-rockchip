@@ -1,7 +1,7 @@
-From 510460393ecebf50ded46962570a9fb7b2a36b05 Mon Sep 17 00:00:00 2001
+From d449a0ce81da01271d6d15589aa37bb28a3a6618 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 25 Jul 2024 18:12:24 +0200
-Subject: [PATCH 14/56] mfd: rk8xx: Fix shutdown handler
+Subject: [PATCH 14/53] mfd: rk8xx: Fix shutdown handler
 
 When I converted rk808 to device managed resources I converted the rk808
 specific pm_power_off handler to devm_register_sys_off_handler() using

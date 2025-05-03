@@ -1,0 +1,44 @@
+From bc95e1a33bd78371f0a0001110c43faf8bf0f0de Mon Sep 17 00:00:00 2001
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Date: Wed, 23 Apr 2025 09:22:39 +0800
+Subject: [PATCH 17/26] arm64: dts: rockchip: Add pcie1 slot for rk3576 evb1
+ board
+
+PCIe1 and usb_drd1_dwc3 is sharing the same PHY on RK3576 platform.
+For pcie1 slot and USB interface, there is a swich IC labelled as
+Dial_Switch_1 on evb1 board. If we need to make pcie1 slot work for this
+board, we should first disable usb_drd1_dwc3 and then set Dial_Switch_1
+to low state.
+
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+Link: https://lore.kernel.org/r/1745371359-30443-1-git-send-email-shawn.lin@rock-chips.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index ac397ac00..0902d694c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -691,6 +691,17 @@ rgmii_phy1: phy@1 {
+ 	};
+ };
+ 
++&pcie1 {
++	reset-gpios = <&gpio4 RK_PC4 GPIO_ACTIVE_HIGH>;
++	vpcie3v3-supply = <&vcc3v3_pcie1>;
++
++	/*
++	 * Disable usb_drd1_dwc3 if enabling pcie1 and set Dial_Switch_1
++	 * to low state according to the schematic of page 17.
++	 */
++	status = "disabled";
++};
++
+ &pinctrl {
+ 	usb {
+ 		usb_host_pwren: usb-host-pwren {
+-- 
+2.39.5
+

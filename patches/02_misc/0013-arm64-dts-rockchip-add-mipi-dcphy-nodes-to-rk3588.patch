@@ -1,0 +1,80 @@
+From 448f6fb2c87ec2784e043ea57ef0714be92e2449 Mon Sep 17 00:00:00 2001
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Date: Wed, 26 Feb 2025 15:09:40 +0100
+Subject: [PATCH 13/26] arm64: dts: rockchip: add mipi dcphy nodes to rk3588
+
+Add the two MIPI-DC-phy nodes to the RK3588, that will be used by the
+DSI2 controllers and hopefully in some future also for camera input.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # RK3588 EVB1
+Link: https://lore.kernel.org/r/20250226140942.3825223-2-heiko@sntech.de
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 42 +++++++++++++++++++
+ 1 file changed, 42 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index ae5588088..ee1260061 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -589,6 +589,16 @@ sys_grf: syscon@fd58c000 {
+ 		reg = <0x0 0xfd58c000 0x0 0x1000>;
+ 	};
+ 
++	mipidcphy0_grf: syscon@fd5e8000 {
++		compatible = "rockchip,rk3588-dcphy-grf", "syscon";
++		reg = <0x0 0xfd5e8000 0x0 0x4000>;
++	};
++
++	mipidcphy1_grf: syscon@fd5ec000 {
++		compatible = "rockchip,rk3588-dcphy-grf", "syscon";
++		reg = <0x0 0xfd5ec000 0x0 0x4000>;
++	};
++
+ 	vop_grf: syscon@fd5a4000 {
+ 		compatible = "rockchip,rk3588-vop-grf", "syscon";
+ 		reg = <0x0 0xfd5a4000 0x0 0x2000>;
+@@ -3042,6 +3052,38 @@ usbdp_phy0: phy@fed80000 {
+ 		status = "disabled";
+ 	};
+ 
++	mipidcphy0: phy@feda0000 {
++		compatible = "rockchip,rk3588-mipi-dcphy";
++		reg = <0x0 0xfeda0000 0x0 0x10000>;
++		rockchip,grf = <&mipidcphy0_grf>;
++		clocks = <&cru PCLK_MIPI_DCPHY0>,
++			 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
++		clock-names = "pclk", "ref";
++		resets = <&cru SRST_M_MIPI_DCPHY0>,
++			 <&cru SRST_P_MIPI_DCPHY0>,
++			 <&cru SRST_P_MIPI_DCPHY0_GRF>,
++			 <&cru SRST_S_MIPI_DCPHY0>;
++		reset-names = "m_phy", "apb", "grf", "s_phy";
++		#phy-cells = <1>;
++		status = "disabled";
++	};
++
++	mipidcphy1: phy@fedb0000 {
++		compatible = "rockchip,rk3588-mipi-dcphy";
++		reg = <0x0 0xfedb0000 0x0 0x10000>;
++		rockchip,grf = <&mipidcphy1_grf>;
++		clocks = <&cru PCLK_MIPI_DCPHY1>,
++			 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
++		clock-names = "pclk", "ref";
++		resets = <&cru SRST_M_MIPI_DCPHY1>,
++			 <&cru SRST_P_MIPI_DCPHY1>,
++			 <&cru SRST_P_MIPI_DCPHY1_GRF>,
++			 <&cru SRST_S_MIPI_DCPHY1>;
++		reset-names = "m_phy", "apb", "grf", "s_phy";
++		#phy-cells = <1>;
++		status = "disabled";
++	};
++
+ 	combphy0_ps: phy@fee00000 {
+ 		compatible = "rockchip,rk3588-naneng-combphy";
+ 		reg = <0x0 0xfee00000 0x0 0x100>;
+-- 
+2.39.5
+

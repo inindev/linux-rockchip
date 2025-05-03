@@ -1,0 +1,82 @@
+From bf421218b807774d543deafb1616637ba64a0fc3 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Thu, 3 Apr 2025 11:37:36 +0800
+Subject: [PATCH 51/53] arm64: dts: rockchip: Enable DisplayPort for rk3588s
+ Cool Pi 4B
+
+Enable the Mini DisplayPort on this board.
+
+Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
+but it will trigger a dtc warning like "graph node unit address error,
+expected "a"" if we use it directly after endpoint, so we use "a"
+instead here.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20250403033748.245007-9-andyshrk@163.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+index 8b717c401..5393c6cc4 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+@@ -39,6 +39,18 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+ 
++	dp-con {
++		compatible = "dp-connector";
++		label = "DP OUT";
++		type = "mini";
++
++		port {
++			dp_con_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
++			};
++		};
++	};
++
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+ 		type = "d";
+@@ -215,6 +227,24 @@ &cpu_b2 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
+ };
+ 
++&dp0 {
++	status = "okay";
++	pinctrl-0 = <&dp0m0_pins>;
++	pinctrl-names = "default";
++};
++
++&dp0_in {
++	dp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp0>;
++	};
++};
++
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&dp_con_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	status = "okay";
+@@ -889,3 +919,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi0_in_vp0>;
+ 	};
+ };
++
++&vp2 {
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
++	};
++};
+-- 
+2.39.5
+
