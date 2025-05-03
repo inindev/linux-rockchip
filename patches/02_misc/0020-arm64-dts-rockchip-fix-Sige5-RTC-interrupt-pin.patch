@@ -1,7 +1,7 @@
-From ae3a0e68a80a40b461e7b2d8153cc754d5d81d4a Mon Sep 17 00:00:00 2001
+From 2078c3cc8ed023f17fbfbf870f80aebe62c21f72 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 29 Apr 2025 18:51:55 +0200
-Subject: [PATCH 20/26] arm64: dts: rockchip: fix Sige5 RTC interrupt pin
+Subject: [PATCH 20/27] arm64: dts: rockchip: fix Sige5 RTC interrupt pin
 
 Someone made a typo when they added the RTC to the Sige5 DTS, which
 resulted in it using interrupts from GPIO0 B0 instead of GPIO0 A0. The

@@ -1,7 +1,7 @@
-From 8cd92f5591a7ce1ef897df29286545a69df8e450 Mon Sep 17 00:00:00 2001
+From 374dcdf983d352852a02e72f760ed43ce929af84 Mon Sep 17 00:00:00 2001
 From: Yao Zi <ziyao@disroot.org>
 Date: Wed, 26 Mar 2025 11:35:56 +0000
-Subject: [PATCH 09/26] clk: rockchip: Drop empty init callback for rk3588 PLL
+Subject: [PATCH 09/27] clk: rockchip: Drop empty init callback for rk3588 PLL
  type
 
 Unlike PLLs in previous geneation of SoCs, PLLs in RK3588 type don't

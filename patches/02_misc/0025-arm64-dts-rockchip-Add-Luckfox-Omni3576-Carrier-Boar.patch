@@ -1,7 +1,7 @@
-From 1688e75598c2ecf0fc1dbc1078fc7fe0dfc9c071 Mon Sep 17 00:00:00 2001
+From d0a265d20893d714aab62fe44c94108a3eeb140c Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:15 -0400
-Subject: [PATCH 25/26] arm64: dts: rockchip: Add Luckfox Omni3576 Carrier
+Subject: [PATCH 25/27] arm64: dts: rockchip: Add Luckfox Omni3576 Carrier
  Board with Core3576 Module
 
 Add device tree for the Luckfox Omni3576 Carrier Board, powered by the

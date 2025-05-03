@@ -1,7 +1,7 @@
-From bc95e1a33bd78371f0a0001110c43faf8bf0f0de Mon Sep 17 00:00:00 2001
+From 3b5227bac937f4a21d0cfd70640c11d396588296 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 23 Apr 2025 09:22:39 +0800
-Subject: [PATCH 17/26] arm64: dts: rockchip: Add pcie1 slot for rk3576 evb1
+Subject: [PATCH 17/27] arm64: dts: rockchip: Add pcie1 slot for rk3576 evb1
  board
 
 PCIe1 and usb_drd1_dwc3 is sharing the same PHY on RK3576 platform.
