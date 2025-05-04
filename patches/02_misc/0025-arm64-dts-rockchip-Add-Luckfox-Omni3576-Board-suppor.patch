@@ -1,29 +1,25 @@
-From d0a265d20893d714aab62fe44c94108a3eeb140c Mon Sep 17 00:00:00 2001
+From c491e78b4bc7b893cfeeb731d681a1fa200d98c2 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:15 -0400
-Subject: [PATCH 25/27] arm64: dts: rockchip: Add Luckfox Omni3576 Carrier
- Board with Core3576 Module
+Subject: [PATCH 25/27] arm64: dts: rockchip: Add Luckfox Omni3576 Board
+ support
 
-Add device tree for the Luckfox Omni3576 Carrier Board, powered by the
-Rockchip RK3576 SoC, with four Cortex-A72 cores, four Cortex-A53 cores,
-and a Mali-G52 MC3 GPU. The board includes the Core3576 Module and supports
-a wide range of peripherals, with this initial implementation enabling
-essential functionality for booting Linux and basic connectivity.
+Add device tree for the Luckfox Omni3576 Carrier Board with Core3576
+Module, powered by the Rockchip RK3576 SoC with four Cortex-A72 cores,
+four Cortex-A53 cores, and a Mali-G52 MC3 GPU. This initial
+implementation enables essential functionality for booting Linux and
+basic connectivity.
 
-Supported and tested features in this device tree:
+Supported and tested features:
  - UART for serial console
  - SD card for storage
+ - PCIe with NVMe SSD (detected, mounted, and fully functional)
  - Gigabit Ethernet 0 with RGMII PHY
- - USB host and OTG ports
- - PCIe interface
+ - USB 2.0 host ports
  - RK806 PMIC for power management
- - RTC and power key
- - GPIO-controlled LED
-
-Disabled features:
- - HDMI: Disabled due to driver maturity issues.
- - Ethernet 1: Disabled as it does not come up, possibly due to PHY
-               configuration or driver issues.
+ - RTC with timekeeping and wake-up
+ - GPIO-controlled LED with heartbeat trigger
+ - eMMC (enabled, not populated on tested board)
 
 The device tree provides a foundation for further peripheral support, such
 as WiFi, MIPI-DSI, HDMI, and Ethernet 1, in future updates.
@@ -51,7 +47,7 @@ index 3e8771ef6..340e9e105 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 new file mode 100644
-index 000000000..0bdb24b93
+index 000000000..73351ba78
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 @@ -0,0 +1,779 @@
@@ -262,8 +258,8 @@ index 000000000..0bdb24b93
 +
 +&gmac0 {
 +	clock_in_out = "output";
-+	phy-mode = "rgmii-rxid";
 +	phy-handle = <&rgmii_phy0>;
++	phy-mode = "rgmii-rxid";
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&eth0m0_miim
 +		     &eth0m0_tx_bus2
@@ -293,7 +289,7 @@ index 000000000..0bdb24b93
 +	snps,reset-active-low;
 +	snps,reset-delays-us = <0 20000 100000>;
 +	tx_delay = <0x20>;
-+	status = "disabled";
++	status = "okay";
 +};
 +
 +&gpu {
@@ -302,7 +298,7 @@ index 000000000..0bdb24b93
 +};
 +
 +&hdmi {
-+	status = "disabled";
++	status = "okay";
 +};
 +
 +&hdmi_in {
