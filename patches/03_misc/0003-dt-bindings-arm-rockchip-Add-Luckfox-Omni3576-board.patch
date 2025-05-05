@@ -1,7 +1,7 @@
-From bb04ced156ea9ec238b69f009143172b8a806108 Mon Sep 17 00:00:00 2001
+From 6fd0ff419d93891e995d1ce8824400587e7a6369 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:17:34 -0400
-Subject: [PATCH 24/27] dt-bindings: arm: rockchip: Add Luckfox Omni3576 board
+Subject: [PATCH 3/6] dt-bindings: arm: rockchip: Add Luckfox Omni3576 board
 
 Add device tree binding for the Luckfox Omni3576 Carrier Board with
 Core3576 Module, based on the Rockchip RK3576 SoC.

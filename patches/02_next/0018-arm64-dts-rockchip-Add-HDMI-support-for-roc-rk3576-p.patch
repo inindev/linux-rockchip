@@ -1,7 +1,7 @@
-From 657c832aadb6fc5c47360e61b02f2d5548d0e6b9 Mon Sep 17 00:00:00 2001
+From 129634859e5258f7424ecdd489988fca2ff2ade2 Mon Sep 17 00:00:00 2001
 From: Heiko Stuebner <heiko@sntech.de>
 Date: Mon, 14 Apr 2025 20:37:45 +0200
-Subject: [PATCH 18/27] arm64: dts: rockchip: Add HDMI support for
+Subject: [PATCH 18/22] arm64: dts: rockchip: Add HDMI support for
  roc-rk3576-pc
 
 Enable HDMI and VOP nodes for the roc-rk3576-pc board.

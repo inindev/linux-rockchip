@@ -1,7 +1,7 @@
-From c455890c2bd319e0606261eba342dbec110b95f2 Mon Sep 17 00:00:00 2001
+From c2fa6e5f944183410395c208ff83e383b9b5e991 Mon Sep 17 00:00:00 2001
 From: Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
 Date: Tue, 25 Mar 2025 20:51:47 +0100
-Subject: [PATCH 05/27] arm64: dts: rockchip: enable HDMI sound on FriendlyElec
+Subject: [PATCH 05/22] arm64: dts: rockchip: enable HDMI sound on FriendlyElec
  NanoPC-T6
 
 We have both video outputs showing pixels, time to play some noise.

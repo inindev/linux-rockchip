@@ -1,7 +1,7 @@
-From 89f0e499d174501f4841e8f9706511319aa91e65 Mon Sep 17 00:00:00 2001
+From 7d4ac573b3e2bb5571a8b3aad532ded459056a61 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 5 Mar 2025 21:16:26 +0800
-Subject: [PATCH 03/27] arm64: dts: rockchip: Enable ufshc on rk3576 evb1 board
+Subject: [PATCH 03/22] arm64: dts: rockchip: Enable ufshc on rk3576 evb1 board
 
 RK3576 evb1 board supports UFS, so enable it.
 

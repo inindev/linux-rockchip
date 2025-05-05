@@ -1,8 +1,7 @@
-From a4733fcbcb23a035c0fb94a474d307815d953104 Mon Sep 17 00:00:00 2001
+From da21edfc79a4116044e14d429694c0622037a0ee Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:15 -0400
-Subject: [PATCH 25/27] arm64: dts: rockchip: Add Luckfox Omni3576 Board
- support
+Subject: [PATCH 4/6] arm64: dts: rockchip: Add Luckfox Omni3576 Board support
 
 Add device tree for the Luckfox Omni3576 Carrier Board with Core3576
 Module, powered by the Rockchip RK3576 SoC with four Cortex-A72 cores,
@@ -29,8 +28,10 @@ Tested on Linux 6.15-rc4
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3576-luckfox-omni3576.dts  | 786 ++++++++++++++++++
- 2 files changed, 787 insertions(+)
+ .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 681 ++++++++++++++++++
+ .../dts/rockchip/rk3576-luckfox-omni3576.dts  |  53 ++
+ 3 files changed, 735 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 
 diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
@@ -45,12 +46,12 @@ index 3e8771ef6..340e9e105 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-roc-pc.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-rock-4d.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
 new file mode 100644
-index 000000000..8859d4dad
+index 000000000..4a97289aa
 --- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
-@@ -0,0 +1,786 @@
++++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+@@ -0,0 +1,681 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
@@ -66,15 +67,8 @@ index 000000000..8859d4dad
 +#include "rk3576.dtsi"
 +
 +/ {
-+	model = "Luckfox Omni3576";
-+	compatible = "luckfox,omni3576", "rockchip,rk3576";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+	};
++	model = "Luckfox Core3576";
++	compatible = "luckfox,core3576","rockchip,rk3576";
 +
 +	chosen {
 +		stdout-path = "serial0:1500000n8";
@@ -89,19 +83,6 @@ index 000000000..8859d4dad
 +			hdmi_con_in: endpoint {
 +				remote-endpoint = <&hdmi_out_con>;
 +			};
-+		};
-+	};
-+
-+	leds: leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_green_pin>;
-+
-+		green_led: green-led {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
 +		};
 +	};
 +
@@ -252,36 +233,6 @@ index 000000000..8859d4dad
 +
 +&cpu_b3 {
 +	cpu-supply = <&vdd_cpu_big_s0>;
-+};
-+
-+&gmac0 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy0>;
-+	phy-mode = "rgmii-rxid";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&eth0m0_miim
-+		     &eth0m0_tx_bus2
-+		     &eth0m0_rx_bus2
-+		     &eth0m0_rgmii_clk
-+		     &eth0m0_rgmii_bus
-+		     &ethm0_clk0_25m_out>;
-+	tx_delay = <0x20>;
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy1>;
-+	phy-mode = "rgmii-rxid";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&eth1m0_miim
-+		     &eth1m0_tx_bus2
-+		     &eth1m0_rx_bus2
-+		     &eth1m0_rgmii_clk
-+		     &eth1m0_rgmii_bus
-+		     &ethm0_clk1_25m_out>;
-+	tx_delay = <0x20>;
-+	status = "okay";
 +};
 +
 +&gpu {
@@ -680,32 +631,6 @@ index 000000000..8859d4dad
 +	};
 +};
 +
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac0_rst>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PB3 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+		clocks = <&cru REFCLKO25M_GMAC1_OUT>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rst>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
 +&pcie0 {
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pcie_reset>;
@@ -715,16 +640,6 @@ index 000000000..8859d4dad
 +};
 +
 +&pinctrl {
-+	gmac {
-+		gmac0_rst: gmac0-rst {
-+			rockchip,pins = <2 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		gmac1_rst: gmac1-rst {
-+			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
 +	hdmi {
 +		hdmi_con_en: hdmi-con-en {
 +			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
@@ -734,12 +649,6 @@ index 000000000..8859d4dad
 +	hym8563 {
 +		hym8563_int: hym8563-int {
 +			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	leds {
-+		led_green_pin: led-green-pin {
-+			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +	};
 +
@@ -785,19 +694,6 @@ index 000000000..8859d4dad
 +	status = "okay";
 +};
 +
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	max-frequency = <200000000>;
-+	no-sdio;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3_s3>;
-+	vqmmc-supply = <&vccio_sd_s0>;
-+	status = "okay";
-+};
-+
 +&uart0 {
 +	status = "okay";
 +};
@@ -836,6 +732,65 @@ index 000000000..8859d4dad
 +		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
 +		remote-endpoint = <&hdmi_in_vp0>;
 +	};
++};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
+new file mode 100644
+index 000000000..70d9ec50f
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
+@@ -0,0 +1,53 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
++ *
++ */
++
++/dts-v1/;
++
++#include "rk3576-luckfox-core3576.dtsi"
++
++/ {
++	model = "Luckfox Omni3576";
++	compatible = "luckfox,omni3576", "rockchip,rk3576";
++
++	aliases {
++		mmc0 = &sdhci;
++		mmc1 = &sdmmc;
++	};
++
++	leds: leds {
++		compatible = "gpio-leds";
++		pinctrl-names = "default";
++		pinctrl-0 = <&led_green_pin>;
++
++		green_led: green-led {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_HEARTBEAT;
++			gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++		};
++	};
++};
++
++&pinctrl {
++	leds {
++		led_green_pin: led-green-pin {
++			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&sdmmc {
++	bus-width = <4>;
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	disable-wp;
++	max-frequency = <200000000>;
++	no-sdio;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc_3v3_s3>;
++	vqmmc-supply = <&vccio_sd_s0>;
++	status = "okay";
 +};
 -- 
 2.39.5

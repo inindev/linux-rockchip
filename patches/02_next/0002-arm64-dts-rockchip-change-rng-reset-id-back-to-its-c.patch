@@ -1,7 +1,7 @@
-From 31d5ee7a4b2c687177789fad127666b85c59d944 Mon Sep 17 00:00:00 2001
+From 28d05409a0e8f9b6fa8ceb1a5c6b1727599571e9 Mon Sep 17 00:00:00 2001
 From: Heiko Stuebner <heiko@sntech.de>
 Date: Sun, 16 Feb 2025 16:27:42 +0100
-Subject: [PATCH 02/27] arm64: dts: rockchip: change rng reset id back to its
+Subject: [PATCH 02/22] arm64: dts: rockchip: change rng reset id back to its
  constant value
 
 With the binding header now providing the SCMI_SRST_H_TRNG_NS constant,

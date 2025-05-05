@@ -1,7 +1,7 @@
-From 04c22e4e78a197c3638c14c2e142498d3cd3780b Mon Sep 17 00:00:00 2001
+From 69bad77b4f21e921cee8f8c0aa89230154db8dab Mon Sep 17 00:00:00 2001
 From: Dragan Simic <dsimic@manjaro.org>
 Date: Mon, 24 Mar 2025 12:00:43 +0100
-Subject: [PATCH 01/27] arm64: dts: rockchip: Remove overdrive-mode OPPs from
+Subject: [PATCH 01/22] arm64: dts: rockchip: Remove overdrive-mode OPPs from
  RK3588J SoC dtsi
 
 The differences in the vendor-approved CPU and GPU OPPs for the standard

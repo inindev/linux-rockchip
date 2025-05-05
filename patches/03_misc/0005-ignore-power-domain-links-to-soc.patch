@@ -1,7 +1,7 @@
-From 3fda8e33db3cc39a008de843b06f7866d200cbca Mon Sep 17 00:00:00 2001
+From 694d8453619cf42ff55f2885d388f3714e56c339 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 30 Apr 2025 09:01:09 -0400
-Subject: [PATCH 26/27] driver core: ignore power domain links to soc
+Subject: [PATCH 5/6] ignore power domain links to soc
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
