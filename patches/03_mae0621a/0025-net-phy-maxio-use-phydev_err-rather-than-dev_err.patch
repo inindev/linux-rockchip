@@ -1,0 +1,43 @@
+From 80ed4076b9af8917c54411b5e35661c84d1f228e Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 19:09:16 -0500
+Subject: [PATCH 25/29] net: phy: maxio: use phydev_err() rather than dev_err()
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 4bf07b1a0..7549a29e6 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -69,7 +69,6 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 
+ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ {
+-	struct device *dev = &phydev->mdio.dev;
+ 	u16 val;
+ 	int ret;
+ 
+@@ -102,7 +101,7 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 
+ 	ret = phy_read_paged(phydev, 0xd96, 0x0);
+ 	if (ret < 0) {
+-		dev_err(dev, "Failed to update the TX delay register\n");
++		phydev_err(phydev, "Failed to update the TX delay register\n");
+ 		return ret;
+ 	}
+ 
+@@ -110,7 +109,7 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 
+ 	ret = phy_write_paged(phydev, 0xd96, 0x0, val | ret);
+ 	if (ret < 0) {
+-		dev_err(dev, "Failed to update the TX delay register\n");
++		phydev_err(phydev, "Failed to update the TX delay register\n");
+ 		return ret;
+ 	}
+ 
+-- 
+2.39.5
+

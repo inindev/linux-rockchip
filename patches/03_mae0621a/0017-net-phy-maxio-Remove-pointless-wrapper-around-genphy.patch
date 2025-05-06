@@ -1,0 +1,39 @@
+From ec8078fed847b1b0ea713215b786c2fd61f3b901 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:47:29 -0500
+Subject: [PATCH 17/29] net: phy: maxio: Remove pointless wrapper around
+ genphy_suspend
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index d1b2238c5..826a59f5f 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -138,11 +138,6 @@ static int maxio_mae0621a_resume(struct phy_device *phydev)
+ 	return genphy_soft_reset(phydev);
+ }
+ 
+-static int maxio_mae0621a_suspend(struct phy_device *phydev)
+-{
+-	return genphy_suspend(phydev);
+-}
+-
+ static int maxio_mae0621a_probe(struct phy_device *phydev)
+ {
+ 	int ret = maxio_mae0621a_clk_init(phydev);
+@@ -160,7 +155,7 @@ static struct phy_driver maxio_nc_drvs[] = {
+ 		.config_init	= maxio_mae0621a_config_init,
+ 		.config_aneg	= genphy_config_aneg,
+ 		.read_status	= genphy_read_status,
+-		.suspend		= maxio_mae0621a_suspend,
++		.suspend	= genphy_suspend,
+ 		.resume			= maxio_mae0621a_resume,
+ 		.read_page	= maxio_read_page,
+ 		.write_page	= maxio_write_page,
+-- 
+2.39.5
+

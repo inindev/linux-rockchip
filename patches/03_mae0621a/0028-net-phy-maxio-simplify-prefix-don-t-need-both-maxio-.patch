@@ -1,0 +1,190 @@
+From 359de9b35c6d6367da250029396a4a14fbec9e0f Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 19:09:16 -0500
+Subject: [PATCH 28/29] net: phy: maxio: simplify prefix, don't need both maxio
+ and mae0621a
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 74 ++++++++++++++++++++---------------------
+ 1 file changed, 37 insertions(+), 37 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index de1193787..56015d679 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -11,26 +11,26 @@
+ #include <linux/module.h>
+ #include <linux/phy.h>
+ 
+-#define MAXIO_PAGE_SELECT		0x1f
+-#define MAXIO_MAE0621A_INER		0x12
+-#define MAXIO_MAE0621A_INER_LINK_STATUS	BIT(4)
+-#define MAXIO_MAE0621A_INSR		0x1d
+-#define MAXIO_MAE0621A_TX_DELAY		(BIT(6) | BIT(7))
+-#define MAXIO_MAE0621A_RX_DELAY		(BIT(4) | BIT(5))
+-#define MAXIO_MAE0621A_CLK_MODE_REG     0x02
+-#define MAXIO_MAE0621A_WORK_STATUS_REG  0x1d
+-
+-static int maxio_read_page(struct phy_device *phydev)
++#define MAE0621A_PAGE_SELECT		0x1f
++#define MAE0621A_INER			0x12
++#define MAE0621A_INER_LINK_STATUS	BIT(4)
++#define MAE0621A_INSR			0x1d
++#define MAE0621A_TX_DELAY		(BIT(6) | BIT(7))
++#define MAE0621A_RX_DELAY		(BIT(4) | BIT(5))
++#define MAE0621A_CLK_MODE_REG		0x02
++#define MAE0621A_WORK_STATUS_REG	0x1d
++
++static int mae0621a_read_page(struct phy_device *phydev)
+ {
+-	return __phy_read(phydev, MAXIO_PAGE_SELECT);
++	return __phy_read(phydev, MAE0621A_PAGE_SELECT);
+ }
+ 
+-static int maxio_write_page(struct phy_device *phydev, int page)
++static int mae0621a_write_page(struct phy_device *phydev, int page)
+ {
+-	return __phy_write(phydev, MAXIO_PAGE_SELECT, page);
++	return __phy_write(phydev, MAE0621A_PAGE_SELECT, page);
+ }
+ 
+-static int maxio_mae0621a_clk_init(struct phy_device *phydev)
++static int mae0621a_clk_init(struct phy_device *phydev)
+ {
+ 	int workmode, clkmode;
+ 	int ret;
+@@ -40,11 +40,11 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 		return ret;
+ 
+ 	workmode = phy_read_paged(phydev, 0xa43,
+-				  MAXIO_MAE0621A_WORK_STATUS_REG);
++				  MAE0621A_WORK_STATUS_REG);
+ 	if (workmode < 0)
+ 		return workmode;
+ 
+-	clkmode = phy_read_paged(phydev, 0xd92, MAXIO_MAE0621A_CLK_MODE_REG);
++	clkmode = phy_read_paged(phydev, 0xd92, MAE0621A_CLK_MODE_REG);
+ 	if (clkmode < 0)
+ 		return clkmode;
+ 
+@@ -52,12 +52,12 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 		if (0 == (clkmode & BIT(8))) {
+ 			/* oscillator */
+ 			ret = phy_write_paged(phydev, 0xd92,
+-					      MAXIO_MAE0621A_CLK_MODE_REG,
++					      MAE0621A_CLK_MODE_REG,
+ 					      clkmode | BIT(8));
+ 		} else {
+ 			/* crystal */
+ 			ret = phy_write_paged(phydev, 0xd92,
+-					      MAXIO_MAE0621A_CLK_MODE_REG,
++					      MAE0621A_CLK_MODE_REG,
+ 					      clkmode & ~BIT(8));
+ 		}
+ 	}
+@@ -65,12 +65,12 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 	return ret;
+ }
+ 
+-static int maxio_mae0621a_config_init(struct phy_device *phydev)
++static int mae0621a_config_init(struct phy_device *phydev)
+ {
+ 	u16 val;
+ 	int ret;
+ 
+-	maxio_mae0621a_clk_init(phydev);
++	mae0621a_clk_init(phydev);
+ 
+ 	phy_disable_eee(phydev);
+ 
+@@ -85,13 +85,13 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 		val = 0x0;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+-		val = MAXIO_MAE0621A_TX_DELAY | MAXIO_MAE0621A_RX_DELAY;
++		val = MAE0621A_TX_DELAY | MAE0621A_RX_DELAY;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII_RXID:
+-		val = MAXIO_MAE0621A_RX_DELAY;
++		val = MAE0621A_RX_DELAY;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII_TXID:
+-		val = MAXIO_MAE0621A_TX_DELAY;
++		val = MAE0621A_TX_DELAY;
+ 		break;
+ 	default: /* the rest of the modes imply leaving delays as is. */
+ 		goto delay_skip;
+@@ -103,7 +103,7 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 		return ret;
+ 	}
+ 
+-	ret &= ~(MAXIO_MAE0621A_TX_DELAY | MAXIO_MAE0621A_RX_DELAY);
++	ret &= ~(MAE0621A_TX_DELAY | MAE0621A_RX_DELAY);
+ 
+ 	ret = phy_write_paged(phydev, 0xd96, 0x0, val | ret);
+ 	if (ret < 0) {
+@@ -119,7 +119,7 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 	return 0;
+ }
+ 
+-static int maxio_mae0621a_resume(struct phy_device *phydev)
++static int mae0621a_resume(struct phy_device *phydev)
+ {
+ 	int ret;
+ 
+@@ -130,39 +130,39 @@ static int maxio_mae0621a_resume(struct phy_device *phydev)
+ 	return genphy_soft_reset(phydev);
+ }
+ 
+-static int maxio_mae0621a_probe(struct phy_device *phydev)
++static int mae0621a_probe(struct phy_device *phydev)
+ {
+ 	int ret;
+ 
+-	ret = maxio_mae0621a_clk_init(phydev);
++	ret = mae0621a_clk_init(phydev);
+ 	mdelay(100);
+ 	return ret;
+ }
+ 
+-static struct phy_driver maxio_nc_drvs[] = {
++static struct phy_driver mae0621_drvs[] = {
+ 	{
+ 		PHY_ID_MATCH_EXACT(0x7b744411),
+ 		.name		= "MAE0621A Gigabit Ethernet",
+ 		.features	= PHY_GBIT_FEATURES,
+-		.probe		= maxio_mae0621a_probe,
+-		.config_init	= maxio_mae0621a_config_init,
++		.probe		= mae0621a_probe,
++		.config_init	= mae0621a_config_init,
+ 		.config_aneg	= genphy_config_aneg,
+ 		.read_status	= genphy_read_status,
+ 		.suspend	= genphy_suspend,
+-		.resume		= maxio_mae0621a_resume,
+-		.read_page	= maxio_read_page,
+-		.write_page	= maxio_write_page,
++		.resume		= mae0621a_resume,
++		.read_page	= mae0621a_read_page,
++		.write_page	= mae0621a_write_page,
+ 	},
+ };
+-module_phy_driver(maxio_nc_drvs);
++module_phy_driver(mae0621_drvs);
+ 
+-static const struct mdio_device_id __maybe_unused maxio_tbl[] = {
++static const struct mdio_device_id __maybe_unused mae0621a_tbl[] = {
+ 	{ PHY_ID_MATCH_EXACT(0x7b744411) },
+ 	{ }
+ };
+ 
+-MODULE_DEVICE_TABLE(mdio, maxio_tbl);
++MODULE_DEVICE_TABLE(mdio, mae0621a_tbl);
+ 
+-MODULE_DESCRIPTION("Maxio PHY driver");
++MODULE_DESCRIPTION("MAE0621A PHY driver");
+ MODULE_AUTHOR("Zhao Yang");
+ MODULE_LICENSE("GPL");
+-- 
+2.39.5
+

@@ -1,7 +1,7 @@
-From d3dfb8b38bf1a63000d1b85c98c6b646480d860c Mon Sep 17 00:00:00 2001
+From 08333d9208d3caa73b7aaa64bb1594c5eef37549 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Thu, 24 Apr 2025 20:52:23 +0200
-Subject: [PATCH 21/22] arm64: dts: rockchip: add SATA nodes to RK3576
+Subject: [PATCH 21/28] arm64: dts: rockchip: add SATA nodes to RK3576
 
 The Rockchip RK3576 features two SATA nodes. The first, sata0, is behind
 combphy0, which muxes between pcie0 and sata0.

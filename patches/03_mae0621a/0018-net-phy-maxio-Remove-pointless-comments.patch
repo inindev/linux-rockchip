@@ -1,0 +1,36 @@
+From ff10047b9a3f1163e422b5601de10c039354baf4 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:47:29 -0500
+Subject: [PATCH 18/29] net: phy: maxio: Remove pointless comments
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 826a59f5f..21e2c3609 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -44,18 +44,15 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	//get workmode
+ 	workmode = phy_read_paged(phydev, 0xa43,
+ 				  MAXIO_MAE0621A_WORK_STATUS_REG);
+ 	if (workmode < 0)
+ 		return workmode;
+ 
+-	//get clkmode
+ 	clkmode = phy_read_paged(phydev, 0xd92, MAXIO_MAE0621A_CLK_MODE_REG);
+ 	if (clkmode < 0)
+ 		return clkmode;
+ 
+-	//abnormal
+ 	if (0 == (workmode&BIT(5))) {
+ 		if (0 == (clkmode&BIT(8))) {
+ 			//oscillator
+-- 
+2.39.5
+

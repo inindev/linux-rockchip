@@ -1,0 +1,42 @@
+From 3e27c5274261e3b474e1104c0f4b2014aff1b8a0 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:01:02 -0500
+Subject: [PATCH 06/29] net: phy: maxio: Remove pointless wrapper around
+ genphy_config_aneg
+
+Just call it directly.
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 2b3873ee2..e30a7a4f2 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -94,12 +94,6 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 	return 0;
+ }
+ 
+-static int maxio_mae0621a_config_aneg(struct phy_device *phydev)
+-{
+-	return genphy_config_aneg(phydev);
+-}
+-
+-
+ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+@@ -195,7 +189,7 @@ static struct phy_driver maxio_nc_drvs[] = {
+ 		.features		= PHY_GBIT_FEATURES,
+ 		.probe			= maxio_mae0621a_probe,
+ 		.config_init	= maxio_mae0621a_config_init,
+-		.config_aneg	= maxio_mae0621a_config_aneg,
++		.config_aneg	= genphy_config_aneg,
+ 		.read_status	= maxio_mae0621a_status,
+ 		.suspend		= maxio_mae0621a_suspend,
+ 		.resume			= maxio_mae0621a_resume,
+-- 
+2.39.5
+

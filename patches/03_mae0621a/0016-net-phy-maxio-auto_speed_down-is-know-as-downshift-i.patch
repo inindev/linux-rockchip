@@ -1,0 +1,27 @@
+From 5e897f01371ed58d7fba9ddcb3796010d904d842 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:47:29 -0500
+Subject: [PATCH 16/29] net: phy: maxio: auto_speed_down is know as downshift
+ in Linux
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 361b19b64..d1b2238c5 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -83,7 +83,7 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 
+ 	phy_disable_eee(phydev);
+ 
+-	//enable auto_speed_down
++	/* enable downshift */
+ 	ret = phy_write_paged(phydev, 0xd8f, 0x0, 0x300 );
+ 	if (ret < 0)
+ 		return ret;
+-- 
+2.39.5
+

@@ -1,0 +1,25 @@
+From fe780cae1d79789c33d1ae91ff7018b0aefd682e Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 19:09:16 -0500
+Subject: [PATCH 26/29] net: phy: maxio: checkpatch: Remove filename from file
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 7549a29e6..bf5a73730 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * drivers/net/phy/maxio.c
+- *
+  * Driver for maxio PHYs
+  *
+  * Author: zhao yang <yang_zhao@maxio-tech.com>
+-- 
+2.39.5
+

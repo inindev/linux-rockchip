@@ -1,0 +1,31 @@
+From 0ed210f1b274ed57cd6b50963cc545e2281b1d42 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:33:00 -0500
+Subject: [PATCH 12/29] net: phy: maxio: Kill the printk()s
+
+Maybe they could be phy_dbg(), but we don't know enough about these
+registers to be able to interpret there values.
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 37d02702c..9fe8857bd 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -58,10 +58,8 @@ static int maxio_mae0621a_clk_init(struct phy_device *phydev)
+ 			phy_write_paged(phydev, 0xd92,
+ 					MAXIO_MAE0621A_CLK_MODE_REG,
+ 					clkmode | BIT(8));
+-			printk("****maxio_mae0621a_clk_init**clkmode**0x210a: 0x%x\n", phydev->phy_id);
+ 		} else {
+ 			//crystal
+-			printk("****maxio_mae0621a_clk_init**clkmode**0x200a: 0x%x\n", phydev->phy_id);
+ 			phy_write_paged(phydev, 0xd92,
+ 					MAXIO_MAE0621A_CLK_MODE_REG,
+ 					clkmode &(~ BIT(8)));
+-- 
+2.39.5
+

@@ -1,7 +1,7 @@
-From 0cc485032a86fd66e2cdeb2f28ecc3f4211b5c65 Mon Sep 17 00:00:00 2001
+From eb925304fe583ffbd2dcddc980924e2abfab08d5 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Tue, 8 Apr 2025 10:31:15 +0800
-Subject: [PATCH 07/22] arm64: dts: rockchip: Rename vcc3v3_pcie0 to
+Subject: [PATCH 07/28] arm64: dts: rockchip: Rename vcc3v3_pcie0 to
  vcc3v3_pcie1 for rk3576-evb1-v10
 
 It's for pcie1, correct the name.

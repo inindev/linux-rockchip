@@ -1,25 +1,31 @@
-From 6fd0ff419d93891e995d1ce8824400587e7a6369 Mon Sep 17 00:00:00 2001
+From 9eb89b034fa1a70696a6b9fb6a8c8ed068af53b4 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:17:34 -0400
-Subject: [PATCH 3/6] dt-bindings: arm: rockchip: Add Luckfox Omni3576 board
+Subject: [PATCH 3/6] dt-bindings: arm: rockchip: Add Luckfox Omni3576 and
+ Core3576 bindings
 
 Add device tree binding for the Luckfox Omni3576 Carrier Board with
 Core3576 Module, based on the Rockchip RK3576 SoC.
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 650fb833d..0c72b9e86 100644
+index 650fb833d..e27686da7 100644
 --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
 +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -715,6 +715,11 @@ properties:
+@@ -715,6 +715,16 @@ properties:
            - const: lckfb,tspi-rk3566
            - const: rockchip,rk3566
  
-+      - description: Luckfox Omni3576 Carrier Board with Core3576 Module
++      - description: Luckfox Core3576 Module
++        items:
++          - const: luckfox,core3576
++          - const: rockchip,rk3576
++
++      - description: Luckfox Omni3576 Carrier Board
 +        items:
 +          - const: luckfox,omni3576
 +          - const: rockchip,rk3576

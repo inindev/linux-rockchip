@@ -1,4 +1,4 @@
-From e08d74b7e5ce9ade52049107cfe534fb18b42540 Mon Sep 17 00:00:00 2001
+From 9dc4c226f4a595b7851928e5ad06634a93d14cf8 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:55 -0400
 Subject: [PATCH 2/6] dt-bindings: vendor-prefixes: Add luckfox prefix

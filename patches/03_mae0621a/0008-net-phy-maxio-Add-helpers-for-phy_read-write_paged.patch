@@ -1,0 +1,45 @@
+From 6df6444fefeb249a0a189f1de3a418b2bfcada76 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:01:02 -0500
+Subject: [PATCH 08/29] net: phy: maxio: Add helpers for phy_read|write_paged
+
+These two helpers allow phy_read_paged() and phy_write_page() to be
+used.
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 1aaa9fbf1..ed8d59123 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -25,6 +25,15 @@
+ #define MAXIO_MAE0621A_CLK_MODE_REG      0x02
+ #define MAXIO_MAE0621A_WORK_STATUS_REG   0x1d
+ 
++static int maxio_read_page(struct phy_device *phydev)
++{
++	return __phy_read(phydev, MAXIO_PAGE_SELECT);
++}
++
++static int maxio_write_page(struct phy_device *phydev, int page)
++{
++	return __phy_write(phydev, MAXIO_PAGE_SELECT, page);
++}
+ 
+ static int maxio_read_paged(struct phy_device *phydev, int page, u32 regnum)
+ {
+@@ -188,6 +197,8 @@ static struct phy_driver maxio_nc_drvs[] = {
+ 		.read_status	= genphy_read_status,
+ 		.suspend		= maxio_mae0621a_suspend,
+ 		.resume			= maxio_mae0621a_resume,
++		.read_page	= maxio_read_page,
++		.write_page	= maxio_write_page,
+ 	},
+ };
+ module_phy_driver(maxio_nc_drvs);
+-- 
+2.39.5
+

@@ -1,0 +1,22 @@
+From 56409152d0bf50f6ab0ad2b6c6df84475cbe1332 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 17:53:56 -0500
+Subject: [PATCH 03/29] net: phy: maxio: Add missing SPDX line
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 125358d83..5d3d2f029 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -1,3 +1,4 @@
++// SPDX-License-Identifier: GPL-2.0+
+ /*
+  * drivers/net/phy/maxio.c
+  *
+-- 
+2.39.5
+

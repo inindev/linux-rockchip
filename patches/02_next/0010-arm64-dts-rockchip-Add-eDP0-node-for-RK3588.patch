@@ -1,7 +1,7 @@
-From 7e9e55aa079f6726391ebb5b7760f641ec36f571 Mon Sep 17 00:00:00 2001
+From 721e6461765701c480656c61a855c88faf47614f Mon Sep 17 00:00:00 2001
 From: Damon Ding <damon.ding@rock-chips.com>
 Date: Mon, 10 Mar 2025 18:41:13 +0800
-Subject: [PATCH 10/22] arm64: dts: rockchip: Add eDP0 node for RK3588
+Subject: [PATCH 10/28] arm64: dts: rockchip: Add eDP0 node for RK3588
 
 Add support for the eDP0 output on RK3588 SoC.
 

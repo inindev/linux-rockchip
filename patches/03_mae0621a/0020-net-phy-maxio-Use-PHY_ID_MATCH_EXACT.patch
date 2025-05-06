@@ -1,0 +1,27 @@
+From 9e80b556243dbf2d06be3ff6cea2178ccfd3c076 Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:47:29 -0500
+Subject: [PATCH 20/29] net: phy: maxio: Use PHY_ID_MATCH_EXACT
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 31789b756..c8ef72f7a 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -147,8 +147,7 @@ static int maxio_mae0621a_probe(struct phy_device *phydev)
+ 
+ static struct phy_driver maxio_nc_drvs[] = {
+ 	{
+-		.phy_id		= 0x7b744411,
+-		.phy_id_mask	= 0x7fffffff,
++		PHY_ID_MATCH_EXACT(0x7b744411),
+ 		.name		= "MAE0621A Gigabit Ethernet",
+ 		.features	= PHY_GBIT_FEATURES,
+ 		.probe		= maxio_mae0621a_probe,
+-- 
+2.39.5
+

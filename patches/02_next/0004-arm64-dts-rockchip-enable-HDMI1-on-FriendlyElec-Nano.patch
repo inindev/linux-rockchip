@@ -1,7 +1,7 @@
-From ef5453ca669b1960da4368190703c563d0755a62 Mon Sep 17 00:00:00 2001
+From b4a8d393c92ded2f63c1018b07e595ca368cfb3d Mon Sep 17 00:00:00 2001
 From: Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
 Date: Tue, 25 Mar 2025 20:51:46 +0100
-Subject: [PATCH 04/22] arm64: dts: rockchip: enable HDMI1 on FriendlyElec
+Subject: [PATCH 04/28] arm64: dts: rockchip: enable HDMI1 on FriendlyElec
  NanoPC-T6
 
 Time to get second video output working.

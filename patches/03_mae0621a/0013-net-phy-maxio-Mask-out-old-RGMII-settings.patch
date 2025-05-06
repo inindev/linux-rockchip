@@ -1,0 +1,29 @@
+From 186cb6c3e9d93f07c982ab37a391e1a0b94c91fd Mon Sep 17 00:00:00 2001
+From: Andrew Lunn <andrew@lunn.ch>
+Date: Mon, 5 May 2025 18:33:00 -0500
+Subject: [PATCH 13/29] net: phy: maxio: Mask out old RGMII settings
+
+The bits need to be cleared otherwise the old settings will get
+mixed with the new.
+
+Signed-off-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/maxio.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/net/phy/maxio.c b/drivers/net/phy/maxio.c
+index 9fe8857bd..f1f1e789d 100755
+--- a/drivers/net/phy/maxio.c
++++ b/drivers/net/phy/maxio.c
+@@ -106,6 +106,8 @@ static int maxio_mae0621a_config_init(struct phy_device *phydev)
+ 		return ret;
+ 	}
+ 
++	ret &= ~(MAXIO_MAE0621A_TX_DELAY | MAXIO_MAE0621A_RX_DELAY);
++
+ 	ret = phy_write_paged(phydev, 0xd96, 0x0, val|ret );
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to update the TX delay register\n");
+-- 
+2.39.5
+
