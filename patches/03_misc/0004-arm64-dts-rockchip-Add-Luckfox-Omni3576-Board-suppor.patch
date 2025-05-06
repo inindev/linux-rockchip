@@ -1,4 +1,4 @@
-From da21edfc79a4116044e14d429694c0622037a0ee Mon Sep 17 00:00:00 2001
+From 26c5f52de5165cca859503ac60a4cc76bf37b0c5 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:15 -0400
 Subject: [PATCH 4/6] arm64: dts: rockchip: Add Luckfox Omni3576 Board support
@@ -28,9 +28,9 @@ Tested on Linux 6.15-rc4
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 681 ++++++++++++++++++
+ .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 679 ++++++++++++++++++
  .../dts/rockchip/rk3576-luckfox-omni3576.dts  |  53 ++
- 3 files changed, 735 insertions(+)
+ 3 files changed, 733 insertions(+)
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 
@@ -48,10 +48,10 @@ index 3e8771ef6..340e9e105 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
 new file mode 100644
-index 000000000..4a97289aa
+index 000000000..92eb452ba
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
-@@ -0,0 +1,681 @@
+@@ -0,0 +1,679 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
@@ -150,6 +150,28 @@ index 000000000..4a97289aa
 +		vin-supply = <&vcc_5v0_device>;
 +	};
 +
++	vcc_5v0_device: regulator-vcc-5v0-device {
++		compatible = "regulator-fixed";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-name = "vcc_5v0_device";
++		vin-supply = <&vcc_5v0_dcin>;
++	};
++
++	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&hdmi_con_en>;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-name = "vcc_5v0_hdmi";
++		vin-supply = <&vcc_5v0_sys>;
++	};
++
 +	vcc_5v0_host: regulator-vcc-5v0-host {
 +		compatible = "regulator-fixed";
 +		enable-active-high;
@@ -170,28 +192,6 @@ index 000000000..4a97289aa
 +		regulator-max-microvolt = <5000000>;
 +		regulator-name = "vcc_5v0_sys";
 +		vin-supply = <&vcc_5v0_dcin>;
-+	};
-+
-+	vcc_5v0_device: regulator-vcc-5v0-device {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc_5v0_device";
-+		vin-supply = <&vcc_5v0_dcin>;
-+	};
-+
-+	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc_5v0_hdmi";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hdmi_con_en>;
-+		vin-supply = <&vcc_5v0_sys>;
 +	};
 +};
 +
@@ -257,7 +257,6 @@ index 000000000..4a97289aa
 +};
 +
 +&hdptxphy {
-+	phy-supply = <&vdda0v75_hdmi_s0>;
 +	status = "okay";
 +};
 +
@@ -719,7 +718,6 @@ index 000000000..4a97289aa
 +};
 +
 +&vop {
-+	vop-supply = <&vdd_logic_s0>;
 +	status = "okay";
 +};
 +

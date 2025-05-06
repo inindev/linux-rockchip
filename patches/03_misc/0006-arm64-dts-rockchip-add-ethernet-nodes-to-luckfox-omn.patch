@@ -1,4 +1,4 @@
-From 1eb76cef618a3277a7554b72bfb3c06dd4a2580a Mon Sep 17 00:00:00 2001
+From e6134f16beb36c573dbc98df39141ad58076e193 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Mon, 5 May 2025 16:39:42 -0400
 Subject: [PATCH 6/6] arm64: dts: rockchip: add ethernet nodes to luckfox
@@ -6,17 +6,25 @@ Subject: [PATCH 6/6] arm64: dts: rockchip: add ethernet nodes to luckfox
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- .../dts/rockchip/rk3576-luckfox-omni3576.dts  | 68 +++++++++++++++++++
- 1 file changed, 68 insertions(+)
+ .../dts/rockchip/rk3576-luckfox-omni3576.dts  | 76 +++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
-index 70d9ec50f..c6ed06948 100644
+index 70d9ec50f..05da63353 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
-@@ -51,3 +51,71 @@ &sdmmc {
+@@ -51,3 +51,79 @@ &sdmmc {
  	vqmmc-supply = <&vccio_sd_s0>;
  	status = "okay";
  };
++
++
++/ {
++	aliases {
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
++	};
++};
 +
 +&gmac0 {
 +	clock_in_out = "output";
