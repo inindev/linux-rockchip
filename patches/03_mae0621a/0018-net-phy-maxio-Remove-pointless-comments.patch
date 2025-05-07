@@ -1,7 +1,7 @@
 From ff10047b9a3f1163e422b5601de10c039354baf4 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 18/29] net: phy: maxio: Remove pointless comments
+Subject: [PATCH 18/30] net: phy: maxio: Remove pointless comments
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

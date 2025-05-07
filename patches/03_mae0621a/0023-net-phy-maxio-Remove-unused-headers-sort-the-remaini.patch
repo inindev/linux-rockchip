@@ -1,7 +1,7 @@
 From d2bcc2d2ba34417b2cf72a8fc9c01add34a54d10 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 23/29] net: phy: maxio: Remove unused headers, sort the
+Subject: [PATCH 23/30] net: phy: maxio: Remove unused headers, sort the
  remaining
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>

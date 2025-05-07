@@ -1,7 +1,7 @@
 From 20a854f3e81d26b6f40b3b16e6277563cc14200f Mon Sep 17 00:00:00 2001
 From: Ido Schimmel <idosch@nvidia.com>
 Date: Wed, 30 Apr 2025 13:02:40 +0300
-Subject: [PATCH 02/29] net: phy: maxio: Fix disable EEE
+Subject: [PATCH 02/30] net: phy: maxio: Fix disable EEE
 
 phydev->eee_broken_modes has been replaced by a helper.
 

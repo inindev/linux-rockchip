@@ -1,7 +1,7 @@
 From 21c9cc104d706fb5ecd129ea0c6c2d8460ea713d Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 19:09:16 -0500
-Subject: [PATCH 24/29] net: phy: maxio: Fix return type for phy_read_paged()
+Subject: [PATCH 24/30] net: phy: maxio: Fix return type for phy_read_paged()
 
 All the read functions return an int, so they can be negative error
 codes. So using a u32 is wrong.

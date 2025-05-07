@@ -1,7 +1,7 @@
 From ec8078fed847b1b0ea713215b786c2fd61f3b901 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 17/29] net: phy: maxio: Remove pointless wrapper around
+Subject: [PATCH 17/30] net: phy: maxio: Remove pointless wrapper around
  genphy_suspend
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>

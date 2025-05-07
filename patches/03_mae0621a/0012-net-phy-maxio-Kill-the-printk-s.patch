@@ -1,7 +1,7 @@
 From 0ed210f1b274ed57cd6b50963cc545e2281b1d42 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:33:00 -0500
-Subject: [PATCH 12/29] net: phy: maxio: Kill the printk()s
+Subject: [PATCH 12/30] net: phy: maxio: Kill the printk()s
 
 Maybe they could be phy_dbg(), but we don't know enough about these
 registers to be able to interpret there values.

@@ -1,7 +1,7 @@
 From 9cef404bad9406852622968bd48af462787f36cb Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:01:02 -0500
-Subject: [PATCH 05/29] net: phy: maxio: Leave core to disable EEE
+Subject: [PATCH 05/30] net: phy: maxio: Leave core to disable EEE
 
 Calling phy_disable_eee() should be enough to cause phylib to disable
 advertisement of EEE. Delete the code writing to the EEE registers.

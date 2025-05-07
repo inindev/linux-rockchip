@@ -1,7 +1,7 @@
 From 80ed4076b9af8917c54411b5e35661c84d1f228e Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 19:09:16 -0500
-Subject: [PATCH 25/29] net: phy: maxio: use phydev_err() rather than dev_err()
+Subject: [PATCH 25/30] net: phy: maxio: use phydev_err() rather than dev_err()
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

@@ -1,7 +1,7 @@
 From 97582ffcbb2807fa73ea27a8c6146d4eeb5d6d2f Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:01:02 -0500
-Subject: [PATCH 09/29] net: phy: maxio: Use genphy_soft_reset
+Subject: [PATCH 09/30] net: phy: maxio: Use genphy_soft_reset
 
 Replace the open coded software reset with the helper, which waits for
 the reset bit to self clear.

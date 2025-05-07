@@ -1,7 +1,7 @@
 From 16013ff37d07e26919816215d87f97e24ab5c490 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:39:12 -0500
-Subject: [PATCH 14/29] net: phy: maxio: Delete broken message about strapping
+Subject: [PATCH 14/30] net: phy: maxio: Delete broken message about strapping
 
 phy_write() success is success, nothing more. It is not possible to
 tell from the return value if it did not change anything. So delete

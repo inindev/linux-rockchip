@@ -1,7 +1,7 @@
 From 22b7af96f0319ef66e925fa681c84d520e5f84f8 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 17:34:35 -0500
-Subject: [PATCH 01/29] net: phy: maxio: Import vendor driver for MAE0621A
+Subject: [PATCH 01/30] net: phy: maxio: Import vendor driver for MAE0621A
 
 Does not build yet...
 

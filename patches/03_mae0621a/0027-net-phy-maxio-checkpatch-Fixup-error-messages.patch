@@ -1,7 +1,7 @@
 From 531c4b10675bc2afd16a809f4eaa57983af971ff Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 19:09:16 -0500
-Subject: [PATCH 27/29] net: phy: maxio: checkpatch: Fixup error messages
+Subject: [PATCH 27/30] net: phy: maxio: checkpatch: Fixup error messages
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

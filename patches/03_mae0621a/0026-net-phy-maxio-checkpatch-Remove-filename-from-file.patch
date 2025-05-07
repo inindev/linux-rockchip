@@ -1,7 +1,7 @@
 From fe780cae1d79789c33d1ae91ff7018b0aefd682e Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 19:09:16 -0500
-Subject: [PATCH 26/29] net: phy: maxio: checkpatch: Remove filename from file
+Subject: [PATCH 26/30] net: phy: maxio: checkpatch: Remove filename from file
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

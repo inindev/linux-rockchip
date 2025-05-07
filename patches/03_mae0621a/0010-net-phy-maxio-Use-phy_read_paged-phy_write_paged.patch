@@ -1,7 +1,7 @@
 From f3f8cf415de8374102dd1f88276f124a0ff46800 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:01:02 -0500
-Subject: [PATCH 10/29] net: phy: maxio: Use phy_read_paged()/phy_write_paged()
+Subject: [PATCH 10/30] net: phy: maxio: Use phy_read_paged()/phy_write_paged()
 
 Use the core helpers to do paged access. The page is then kept at 0 by
 default. Remove the local helpers which are now redundant.

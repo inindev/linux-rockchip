@@ -1,7 +1,7 @@
 From b6a1452bb235ac27f5e9219fc3bd2ba37131a825 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 22/29] net: phy: maxio: Use C comment style, not C++
+Subject: [PATCH 22/30] net: phy: maxio: Use C comment style, not C++
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

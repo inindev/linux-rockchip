@@ -1,7 +1,7 @@
 From 56409152d0bf50f6ab0ad2b6c6df84475cbe1332 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 17:53:56 -0500
-Subject: [PATCH 03/29] net: phy: maxio: Add missing SPDX line
+Subject: [PATCH 03/30] net: phy: maxio: Add missing SPDX line
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

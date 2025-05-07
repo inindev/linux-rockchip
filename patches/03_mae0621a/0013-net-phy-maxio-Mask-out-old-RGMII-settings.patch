@@ -1,7 +1,7 @@
 From 186cb6c3e9d93f07c982ab37a391e1a0b94c91fd Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:33:00 -0500
-Subject: [PATCH 13/29] net: phy: maxio: Mask out old RGMII settings
+Subject: [PATCH 13/30] net: phy: maxio: Mask out old RGMII settings
 
 The bits need to be cleared otherwise the old settings will get
 mixed with the new.

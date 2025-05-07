@@ -1,7 +1,7 @@
 From af28b827a9577674fd1aef2110338bdc1d1783c0 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:39:12 -0500
-Subject: [PATCH 15/29] net: phy: maxio: Consistently check return codes
+Subject: [PATCH 15/30] net: phy: maxio: Consistently check return codes
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---

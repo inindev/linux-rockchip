@@ -1,7 +1,7 @@
 From 88334290145aa8b78fba4e4bd96f3e154e481217 Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 21/29] net: phy: maxio: Add missing device table to module
+Subject: [PATCH 21/30] net: phy: maxio: Add missing device table to module
  loading works
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>

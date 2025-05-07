@@ -1,7 +1,7 @@
 From bf1023ec4009e388beffc2fc217bf4ec3615cdba Mon Sep 17 00:00:00 2001
 From: Andrew Lunn <andrew@lunn.ch>
 Date: Mon, 5 May 2025 18:47:29 -0500
-Subject: [PATCH 19/29] net: phy: maxio: Whitespace cleanup
+Subject: [PATCH 19/30] net: phy: maxio: Whitespace cleanup
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---
