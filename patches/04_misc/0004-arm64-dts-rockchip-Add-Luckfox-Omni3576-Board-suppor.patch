@@ -1,7 +1,10 @@
-From 48ae9cf75690769dc6cd38000491b9d9322a9fa0 Mon Sep 17 00:00:00 2001
+From 00914b2f3ccdacd8165468b4cdf8894b66d974b3 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:15 -0400
 Subject: [PATCH 4/6] arm64: dts: rockchip: Add Luckfox Omni3576 Board support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
 Add device tree for the Luckfox Omni3576 Carrier Board with Core3576
 Module, powered by the Rockchip RK3576 SoC with four Cortex-A72 cores,
@@ -24,12 +27,15 @@ as WiFi, MIPI-DSI, HDMI, and Ethernet, in future updates.
 
 Tested on Linux 6.15-rc4
 
+Based on the Luckfox SDK, which derives from Rockchip’s SDK examples, with
+relevant changes to align with upstream Linux.
+
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 683 ++++++++++++++++++
- .../dts/rockchip/rk3576-luckfox-omni3576.dts  |  53 ++
- 3 files changed, 737 insertions(+)
+ .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 749 ++++++++++++++++++
+ .../dts/rockchip/rk3576-luckfox-omni3576.dts  |  51 ++
+ 3 files changed, 801 insertions(+)
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 
@@ -47,14 +53,14 @@ index 3e8771ef6..340e9e105 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
 new file mode 100644
-index 000000000..86f903107
+index 000000000..9187012d6
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
-@@ -0,0 +1,683 @@
+@@ -0,0 +1,749 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
-+ *
++ * Copyright (c) 2025 John Clark <inindev@gmail.com>
 + */
 +
 +/dts-v1/;
@@ -66,8 +72,12 @@ index 000000000..86f903107
 +#include "rk3576.dtsi"
 +
 +/ {
-+	model = "Luckfox Core3576";
++	model = "Luckfox Core3576 Module";
 +	compatible = "luckfox,core3576","rockchip,rk3576";
++
++	aliases {
++		mmc0 = &sdhci;
++	};
 +
 +	chosen {
 +		stdout-path = "serial0:1500000n8";
@@ -85,13 +95,20 @@ index 000000000..86f903107
 +		};
 +	};
 +
-+	vcc_5v0_dcin: regulator-vcc-5v0-dcin {
++	vbus_5v0_typec: regulator-vbus-5v0-typec {
 +		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
++		enable-active-high;
++		gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb_otg0_pwr_en>;
 +		regulator-min-microvolt = <5000000>;
 +		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc_5v0_dcin";
++		regulator-name = "vbus5v0_typec";
++		vin-supply = <&vcc_5v0_device>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
 +	};
 +
 +	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
@@ -102,6 +119,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <1100000>;
 +		regulator-name = "vcc_1v1_nldo_s3";
 +		vin-supply = <&vcc_5v0_sys>;
++
++		regulator-state-mem {
++			regulator-on-in-suspend;
++		};
 +	};
 +
 +	vcc_2v0_pldo_s3: regulator-vcc-2v0-pldo-s3 {
@@ -112,6 +133,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <2000000>;
 +		regulator-name = "vcc_2v0_pldo_s3";
 +		vin-supply = <&vcc_5v0_sys>;
++
++		regulator-state-mem {
++			regulator-on-in-suspend;
++		};
 +	};
 +
 +	vcc_3v3_pcie: regulator-vcc-3v3-pcie {
@@ -125,6 +150,10 @@ index 000000000..86f903107
 +		regulator-name = "vcc_3v3_pcie";
 +		startup-delay-us = <1000>;
 +		vin-supply = <&vcc_5v0_sys>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
 +	};
 +
 +	vcc_3v3_rtc_s5: regulator-vcc-3v3-rtc-s5 {
@@ -135,18 +164,23 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <3300000>;
 +		regulator-name = "vcc_3v3_rtc_s5";
 +		vin-supply = <&vcc_5v0_sys>;
++
++		regulator-state-mem {
++			regulator-on-in-suspend;
++		};
 +	};
 +
-+	vbus_5v0_typec: regulator-vbus-5v0-typec {
++	vcc_5v0_dcin: regulator-vcc-5v0-dcin {
 +		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_otg0_pwr_en>;
++		regulator-always-on;
++		regulator-boot-on;
 +		regulator-min-microvolt = <5000000>;
 +		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vbus5v0_typec";
-+		vin-supply = <&vcc_5v0_device>;
++		regulator-name = "vcc_5v0_dcin";
++
++		regulator-state-mem {
++			regulator-on-in-suspend;
++		};
 +	};
 +
 +	vcc_5v0_device: regulator-vcc-5v0-device {
@@ -157,6 +191,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <5000000>;
 +		regulator-name = "vcc_5v0_device";
 +		vin-supply = <&vcc_5v0_dcin>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
 +	};
 +
 +	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
@@ -169,6 +207,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <5000000>;
 +		regulator-name = "vcc_5v0_hdmi";
 +		vin-supply = <&vcc_5v0_sys>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
 +	};
 +
 +	vcc_5v0_host: regulator-vcc-5v0-host {
@@ -181,6 +223,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <5000000>;
 +		regulator-name = "vcc_5v0_host";
 +		vin-supply = <&vcc_5v0_device>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
 +	};
 +
 +	vcc_5v0_sys: regulator-vcc-5v0-sys {
@@ -191,6 +237,10 @@ index 000000000..86f903107
 +		regulator-max-microvolt = <5000000>;
 +		regulator-name = "vcc_5v0_sys";
 +		vin-supply = <&vcc_5v0_dcin>;
++
++		regulator-state-mem {
++			regulator-on-in-suspend;
++		};
 +	};
 +};
 +
@@ -200,22 +250,6 @@ index 000000000..86f903107
 +
 +&combphy1_psu {
 +	status = "okay";
-+};
-+
-+&cpu_l0 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l1 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l2 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l3 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
 +};
 +
 +&cpu_b0 {
@@ -232,6 +266,22 @@ index 000000000..86f903107
 +
 +&cpu_b3 {
 +	cpu-supply = <&vdd_cpu_big_s0>;
++};
++
++&cpu_l0 {
++	cpu-supply = <&vdd_cpu_lit_s0>;
++};
++
++&cpu_l1 {
++	cpu-supply = <&vdd_cpu_lit_s0>;
++};
++
++&cpu_l2 {
++	cpu-supply = <&vdd_cpu_lit_s0>;
++};
++
++&cpu_l3 {
++	cpu-supply = <&vdd_cpu_lit_s0>;
 +};
 +
 +&gpu {
@@ -380,6 +430,7 @@ index 000000000..86f903107
 +				regulator-ramp-delay = <12500>;
 +				regulator-name = "vdd_cpu_big_s0";
 +				regulator-enable-ramp-delay = <400>;
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -392,6 +443,7 @@ index 000000000..86f903107
 +				regulator-ramp-delay = <12500>;
 +				regulator-name = "vdd_npu_s0";
 +				regulator-enable-ramp-delay = <400>;
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -404,6 +456,7 @@ index 000000000..86f903107
 +				regulator-max-microvolt = <950000>;
 +				regulator-ramp-delay = <12500>;
 +				regulator-name = "vdd_cpu_lit_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +					regulator-suspend-microvolt = <750000>;
@@ -416,6 +469,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <3300000>;
 +				regulator-max-microvolt = <3300000>;
 +				regulator-name = "vcc_3v3_s3";
++
 +				regulator-state-mem {
 +					regulator-on-in-suspend;
 +					regulator-suspend-microvolt = <3300000>;
@@ -429,6 +483,7 @@ index 000000000..86f903107
 +				regulator-ramp-delay = <12500>;
 +				regulator-name = "vdd_gpu_s0";
 +				regulator-enable-ramp-delay = <400>;
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +					regulator-suspend-microvolt = <850000>;
@@ -439,6 +494,7 @@ index 000000000..86f903107
 +				regulator-always-on;
 +				regulator-boot-on;
 +				regulator-name = "vddq_ddr_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -450,6 +506,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <550000>;
 +				regulator-max-microvolt = <800000>;
 +				regulator-name = "vdd_logic_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -461,6 +518,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <1800000>;
 +				regulator-name = "vcc_1v8_s3";
++
 +				regulator-state-mem {
 +					regulator-on-in-suspend;
 +					regulator-suspend-microvolt = <1800000>;
@@ -471,6 +529,7 @@ index 000000000..86f903107
 +				regulator-always-on;
 +				regulator-boot-on;
 +				regulator-name = "vdd2_ddr_s3";
++
 +				regulator-state-mem {
 +					regulator-on-in-suspend;
 +				};
@@ -482,6 +541,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <550000>;
 +				regulator-max-microvolt = <1200000>;
 +				regulator-name = "vdd_ddr_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -493,6 +553,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <1800000>;
 +				regulator-name = "vcca_1v8_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -504,6 +565,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <1800000>;
 +				regulator-name = "vcca1v8_pldo2_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -515,6 +577,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1200000>;
 +				regulator-max-microvolt = <1200000>;
 +				regulator-name = "vdda_1v2_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -526,6 +589,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <3300000>;
 +				regulator-max-microvolt = <3300000>;
 +				regulator-name = "vcca_3v3_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -537,6 +601,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <3300000>;
 +				regulator-name = "vccio_sd_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -548,6 +613,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <1800000>;
 +				regulator-name = "vcca1v8_pldo6_s3";
++
 +				regulator-state-mem {
 +					regulator-on-in-suspend;
 +					regulator-suspend-microvolt = <1800000>;
@@ -560,6 +626,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <750000>;
 +				regulator-max-microvolt = <750000>;
 +				regulator-name = "vdd_0v75_s3";
++
 +				regulator-state-mem {
 +					regulator-on-in-suspend;
 +					regulator-suspend-microvolt = <750000>;
@@ -572,6 +639,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <850000>;
 +				regulator-max-microvolt = <850000>;
 +				regulator-name = "vdda_ddr_pll_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -583,6 +651,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <837500>;
 +				regulator-max-microvolt = <837500>;
 +				regulator-name = "vdda0v75_hdmi_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -594,6 +663,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <850000>;
 +				regulator-max-microvolt = <850000>;
 +				regulator-name = "vdda_0v85_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -605,6 +675,7 @@ index 000000000..86f903107
 +				regulator-min-microvolt = <750000>;
 +				regulator-max-microvolt = <750000>;
 +				regulator-name = "vdda_0v75_s0";
++
 +				regulator-state-mem {
 +					regulator-off-in-suspend;
 +				};
@@ -687,12 +758,13 @@ index 000000000..86f903107
 +&sdhci {
 +	bus-width = <8>;
 +	full-pwr-cycle-in-suspend;
-+	max-frequency = <200000000>;
 +	mmc-hs400-1_8v;
 +	mmc-hs400-enhanced-strobe;
 +	no-sd;
 +	no-sdio;
 +	non-removable;
++	vmmc-supply = <&vcc_3v3_s3>;
++	vqmmc-supply = <&vccio_sd_s0>;
 +	status = "okay";
 +};
 +
@@ -736,14 +808,14 @@ index 000000000..86f903107
 +};
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
 new file mode 100644
-index 000000000..70d9ec50f
+index 000000000..6c75959ad
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
-@@ -0,0 +1,53 @@
+@@ -0,0 +1,51 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
-+ *
++ * Copyright (c) 2025 John Clark <inindev@gmail.com>
 + */
 +
 +/dts-v1/;
@@ -751,11 +823,10 @@ index 000000000..70d9ec50f
 +#include "rk3576-luckfox-core3576.dtsi"
 +
 +/ {
-+	model = "Luckfox Omni3576";
-+	compatible = "luckfox,omni3576", "rockchip,rk3576";
++	model = "Luckfox Omni3576 Carrier Board";
++	compatible = "luckfox,omni3576", "luckfox,core3576", "rockchip,rk3576";
 +
 +	aliases {
-+		mmc0 = &sdhci;
 +		mmc1 = &sdmmc;
 +	};
 +
@@ -786,7 +857,6 @@ index 000000000..70d9ec50f
 +	cap-mmc-highspeed;
 +	cap-sd-highspeed;
 +	disable-wp;
-+	max-frequency = <200000000>;
 +	no-sdio;
 +	sd-uhs-sdr104;
 +	vmmc-supply = <&vcc_3v3_s3>;

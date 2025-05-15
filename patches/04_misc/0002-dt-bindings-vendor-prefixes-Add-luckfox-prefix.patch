@@ -1,4 +1,4 @@
-From 9dc4c226f4a595b7851928e5ad06634a93d14cf8 Mon Sep 17 00:00:00 2001
+From 471a2b39ea9315f443007803e8758ca27548e93c Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:55 -0400
 Subject: [PATCH 2/6] dt-bindings: vendor-prefixes: Add luckfox prefix
@@ -7,23 +7,25 @@ Add vendor prefix for Shenzhen Luckfox Technology Co., Ltd., which
 produces development boards like the Luckfox Omni3576.
 
 Signed-off-by: John Clark <inindev@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 86f6a19b2..9391e0c31 100644
+index 86f6a19b2..4fc73fbd5 100644
 --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
 +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -892,6 +892,8 @@ patternProperties:
-     description: Liebherr-Werk Nenzing GmbH
-   "^lxa,.*":
-     description: Linux Automation GmbH
+@@ -884,6 +884,8 @@ patternProperties:
+     description: Nanjing Loongmasses Ltd.
+   "^lsi,.*":
+     description: LSI Corp. (LSI Logic)
 +  "^luckfox,.*":
 +    description: Shenzhen Luckfox Technology Co., Ltd.
-   "^m5stack,.*":
-     description: M5Stack
-   "^macnica,.*":
+   "^lunzn,.*":
+     description: Shenzhen Lunzn Technology Co., Ltd.
+   "^luxul,.*":
 -- 
 2.39.5
 
