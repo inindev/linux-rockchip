@@ -1,7 +1,7 @@
 From 471a2b39ea9315f443007803e8758ca27548e93c Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:16:55 -0400
-Subject: [PATCH 2/6] dt-bindings: vendor-prefixes: Add luckfox prefix
+Subject: [PATCH 2/7] dt-bindings: vendor-prefixes: Add luckfox prefix
 
 Add vendor prefix for Shenzhen Luckfox Technology Co., Ltd., which
 produces development boards like the Luckfox Omni3576.
