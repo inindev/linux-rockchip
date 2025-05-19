@@ -1,4 +1,4 @@
-From cd8dc2c9f57f6293144e8753979997ae77ab0f09 Mon Sep 17 00:00:00 2001
+From ce90b6b4220db7af167d43fb66ac803e6fa9c5cd Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:40 +0200
 Subject: [PATCH 26/53] phy: rockchip: samsung-hdptx: Drop unused phy_cfg
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 70621687b..c9f79c4e6 100644
+index 44869116a..05a034b30 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -397,7 +397,6 @@ struct rk_hdptx_phy {

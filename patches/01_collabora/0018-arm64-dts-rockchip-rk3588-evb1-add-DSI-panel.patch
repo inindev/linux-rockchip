@@ -1,4 +1,4 @@
-From 5ca466b7f03eb445b0007fb5c7a4238e04e2f5ef Mon Sep 17 00:00:00 2001
+From 7170a74751e3de36c918440f1b5a043dac8d01f8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 8 Nov 2024 17:35:44 +0100
 Subject: [PATCH 18/53] arm64: dts: rockchip: rk3588-evb1: add DSI panel

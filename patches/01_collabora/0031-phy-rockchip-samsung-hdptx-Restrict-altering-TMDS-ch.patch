@@ -1,4 +1,4 @@
-From 574668e8e07017da1fbf7a2c7e98fc4a79ceec0c Mon Sep 17 00:00:00 2001
+From 562676538a959b07748b1eb2471e3876bde8e1db Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:45 +0200
 Subject: [PATCH 31/53] phy: rockchip: samsung-hdptx: Restrict altering TMDS
@@ -40,7 +40,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 40 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 80dd89686..2feb46f6d 100644
+index dd3028257..68e5a3ac1 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -402,6 +402,7 @@ struct rk_hdptx_phy {
@@ -51,7 +51,7 @@ index 80dd89686..2feb46f6d 100644
  
  	atomic_t usage_count;
  
-@@ -1758,10 +1759,12 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1760,10 +1761,12 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  
  	if (mode != PHY_MODE_DP) {
  		ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi);
@@ -66,7 +66,7 @@ index 80dd89686..2feb46f6d 100644
  		return ret;
  	}
  
-@@ -1848,20 +1851,31 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+@@ -1850,20 +1853,31 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
  static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  					unsigned long *parent_rate)
  {
@@ -108,7 +108,7 @@ index 80dd89686..2feb46f6d 100644
  }
  
  static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -1869,6 +1883,20 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1871,6 +1885,20 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
  {
  	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
  

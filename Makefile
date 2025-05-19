@@ -2,8 +2,8 @@
 # Copyright (C) 2025, John Clark <inindev@gmail.com>
 #
 
-LINUX_VER  = 6.15-rc6
-LINUX_SHA256 = 3e5926d08f8120938aef396d14645549255fa2736f289d27a47bc3a0295a8cce
+LINUX_VER  = 6.15-rc7
+LINUX_SHA256 = 09696d62fb75955ad30ca2c25d5ee23c622144ed6a0ecf705aca526cf00f0157
 
 
 LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
@@ -73,7 +73,7 @@ downloads/$(LINUX_FILE):
 
 check_prereqs:
 	@missing=""; \
-	for pkg in screen bc build-essential debhelper flex bison pahole python3 rsync libncurses-dev libelf-dev libssl-dev lz4 zstd; do \
+	for pkg in screen bc build-essential debhelper flex bison pahole python3 rsync libdw-dev libelf-dev libncurses-dev libssl-dev lz4 zstd; do \
 	    dpkg -l "$$pkg" 2>/dev/null | grep -q "ii  $$pkg" || missing="$$missing $$pkg"; \
 	done; \
 	if [ -n "$$missing" ]; then \

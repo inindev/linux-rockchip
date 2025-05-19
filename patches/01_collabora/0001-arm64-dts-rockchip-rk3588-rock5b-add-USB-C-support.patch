@@ -1,4 +1,4 @@
-From 913743dda35248c2115446730c92686fe506f70b Mon Sep 17 00:00:00 2001
+From 8e3c2b3af1437d8b67e0d340fda3959954a554c8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 25 Jul 2023 18:35:56 +0200
 Subject: [PATCH 01/53] arm64: dts: rockchip: rk3588-rock5b: add USB-C support

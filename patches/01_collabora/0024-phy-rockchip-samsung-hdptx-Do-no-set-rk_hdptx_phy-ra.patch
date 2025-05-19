@@ -1,4 +1,4 @@
-From 02b7ad41d73d91c8cf55de9fbdc76a45257b3667 Mon Sep 17 00:00:00 2001
+From 3dbaee7327f2e0ec79a8ec20418e44496ac3a9be Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:38 +0200
 Subject: [PATCH 24/53] phy: rockchip: samsung-hdptx: Do no set
@@ -16,10 +16,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 34a7ef209..d0989dc5a 100644
+index 6cfed3fcd..61db514ce 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1006,9 +1006,7 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
+@@ -1008,9 +1008,7 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
  {
  	const struct ropll_config *cfg = NULL;
  	struct ropll_config rc = {0};
@@ -30,7 +30,7 @@ index 34a7ef209..d0989dc5a 100644
  
  	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
  		if (rate == ropll_tmds_cfg[i].bit_rate) {
-@@ -1063,7 +1061,11 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
+@@ -1065,7 +1063,11 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
  	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_CLK_EN_MASK,
  			   FIELD_PREP(PLL_PCG_CLK_EN_MASK, 0x1));
  

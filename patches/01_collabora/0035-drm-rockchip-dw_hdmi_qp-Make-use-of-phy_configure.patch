@@ -1,4 +1,4 @@
-From 7cc85321a3d0d9a3dabd254f8881d9922a13b76b Mon Sep 17 00:00:00 2001
+From dd13c413861bad1bbf708127b627268f382d6855 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:02:57 +0200
 Subject: [PATCH 35/53] drm/rockchip: dw_hdmi_qp: Make use of phy_configure()

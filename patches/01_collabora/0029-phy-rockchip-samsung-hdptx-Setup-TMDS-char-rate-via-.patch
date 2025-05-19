@@ -1,4 +1,4 @@
-From 5082a74aba8080d91f858eb80d50eeba09844667 Mon Sep 17 00:00:00 2001
+From 166c63ad48a38cd56af08f041212426d3f46221c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:43 +0200
 Subject: [PATCH 29/53] phy: rockchip: samsung-hdptx: Setup TMDS char rate via
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 47 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index e4f6b1d6d..62de40515 100644
+index 0ec9044d9..d4449770f 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -394,6 +394,7 @@ struct rk_hdptx_phy {
@@ -34,7 +34,7 @@ index e4f6b1d6d..62de40515 100644
  	struct clk_bulk_data *clks;
  	int nr_clks;
  	struct reset_control_bulk_data rsts[RST_MAX];
-@@ -1412,20 +1413,24 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1414,20 +1415,24 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  {
  	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
  	enum phy_mode mode = phy_get_mode(phy);
@@ -69,7 +69,7 @@ index e4f6b1d6d..62de40515 100644
  	if (ret)
  		return ret;
  
-@@ -1456,7 +1461,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1458,7 +1463,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
  			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
  
@@ -78,7 +78,7 @@ index e4f6b1d6d..62de40515 100644
  		if (ret)
  			rk_hdptx_phy_consumer_put(hdptx, true);
  	}
-@@ -1471,8 +1476,27 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+@@ -1473,8 +1478,27 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
  	return rk_hdptx_phy_consumer_put(hdptx, false);
  }
  
@@ -108,7 +108,7 @@ index e4f6b1d6d..62de40515 100644
  {
  	int i;
  
-@@ -1732,12 +1756,18 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1734,12 +1758,18 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  	enum phy_mode mode = phy_get_mode(phy);
  	int ret;
  

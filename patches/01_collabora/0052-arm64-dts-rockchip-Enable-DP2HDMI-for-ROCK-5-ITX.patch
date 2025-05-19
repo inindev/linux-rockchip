@@ -1,4 +1,4 @@
-From 5ee1a808515097b6440bcf2e7dce1aedc6a07ad4 Mon Sep 17 00:00:00 2001
+From 83b37a95ce21e2f1bbebb751ab629ff2e2f99aa7 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:37 +0800
 Subject: [PATCH 52/53] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX

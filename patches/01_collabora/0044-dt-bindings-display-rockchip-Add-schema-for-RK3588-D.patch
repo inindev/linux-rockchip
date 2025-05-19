@@ -1,4 +1,4 @@
-From 7177559fd3fdfd8de97128ce57242fb598a1625e Mon Sep 17 00:00:00 2001
+From 2b864d51421fa6b5766e5d952428ca484f587560 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:29 +0800
 Subject: [PATCH 44/53] dt-bindings: display: rockchip: Add schema for RK3588

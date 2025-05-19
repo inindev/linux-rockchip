@@ -1,7 +1,7 @@
-From fd26b02caa40d2115ee2b564bae1771702bf734e Mon Sep 17 00:00:00 2001
+From 8c735987f01ad424ca4dc8e1bae474629f73d081 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 2 May 2025 13:03:09 +0200
-Subject: [PATCH 27/28] clk: rockchip: introduce GRF gates
+Subject: [PATCH 25/26] clk: rockchip: introduce GRF gates
 
 Some rockchip SoCs, namely the RK3576, have bits in a General Register
 File (GRF) that act just like clock gates. The downstream vendor kernel

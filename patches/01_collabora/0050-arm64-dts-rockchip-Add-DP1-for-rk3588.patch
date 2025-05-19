@@ -1,4 +1,4 @@
-From 4e1b65e7d6df8594f2e28f2e259d42e75150bda6 Mon Sep 17 00:00:00 2001
+From 2259fcc1b1d8e942dac5d5d206e45a5d806298c1 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:35 +0800
 Subject: [PATCH 50/53] arm64: dts: rockchip: Add DP1 for rk3588

@@ -1,7 +1,7 @@
-From e6cef1e2b8510d48f4829ac8b6387a0c190069c0 Mon Sep 17 00:00:00 2001
+From 5208a50005706aab63f0ab505d24cb6296e9f647 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 2 May 2025 13:03:10 +0200
-Subject: [PATCH 28/28] clk: rockchip: add GATE_GRFs for SAI MCLKOUT to rk3576
+Subject: [PATCH 26/26] clk: rockchip: add GATE_GRFs for SAI MCLKOUT to rk3576
 
 The Rockchip RK3576 gates the SAI MCLKOUT clocks behind some IOC GRF
 writes.

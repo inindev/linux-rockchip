@@ -1,4 +1,4 @@
-From 0d3c136e26f8ac8b0eb6a86f7fe002c59b165d96 Mon Sep 17 00:00:00 2001
+From fbc0140b0123034113576463e6e2c4347804423d Mon Sep 17 00:00:00 2001
 From: "Carsten Haitzler (Rasterman)" <raster@rasterman.com>
 Date: Tue, 6 Feb 2024 10:12:54 +0000
 Subject: [PATCH 07/53] arm64: dts: rockchip: Slow down EMMC a bit to keep IO

@@ -1,4 +1,4 @@
-From ac92a9d4e03be603263dc6318cb913b284f65561 Mon Sep 17 00:00:00 2001
+From 5d420433adc31401114f1957257d77942a636a0a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:47 +0200
 Subject: [PATCH 33/53] phy: rockchip: samsung-hdptx: Optimize internal rate
@@ -17,10 +17,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 23 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index a19a89233..d09e1f7b2 100644
+index 188dc1f25..2603e0e5e 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -968,31 +968,34 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned long long rate,
+@@ -970,31 +970,34 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned long long rate,
  	return true;
  }
  
@@ -64,7 +64,7 @@ index a19a89233..d09e1f7b2 100644
  
  	rk_hdptx_pre_power_up(hdptx);
  
-@@ -1030,19 +1033,18 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
+@@ -1032,19 +1035,18 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
  
  	ret = rk_hdptx_post_enable_pll(hdptx);
  	if (!ret)
@@ -87,7 +87,7 @@ index a19a89233..d09e1f7b2 100644
  		/* For 1/40 bitrate clk */
  		rk_hdptx_multi_reg_write(hdptx, rk_hdtpx_tmds_lntop_highbr_seq);
  	} else {
-@@ -1094,8 +1096,7 @@ static void rk_hdptx_dp_reset(struct rk_hdptx_phy *hdptx)
+@@ -1096,8 +1098,7 @@ static void rk_hdptx_dp_reset(struct rk_hdptx_phy *hdptx)
  		     HDPTX_I_BGR_EN << 16 | FIELD_PREP(HDPTX_I_BGR_EN, 0x0));
  }
  
@@ -97,7 +97,7 @@ index a19a89233..d09e1f7b2 100644
  {
  	enum phy_mode mode = phy_get_mode(hdptx->phy);
  	u32 status;
-@@ -1114,11 +1115,9 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx,
+@@ -1116,11 +1117,9 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx,
  	if (mode == PHY_MODE_DP) {
  		rk_hdptx_dp_reset(hdptx);
  	} else {
@@ -112,7 +112,7 @@ index a19a89233..d09e1f7b2 100644
  	}
  
  	return 0;
-@@ -1431,7 +1430,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1433,7 +1432,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  		dev_dbg(hdptx->dev, "%s rate=%llu\n", __func__, hdptx->hdmi_cfg.tmds_char_rate);
  	}
  
@@ -121,7 +121,7 @@ index a19a89233..d09e1f7b2 100644
  	if (ret)
  		return ret;
  
-@@ -1462,7 +1461,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1464,7 +1463,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
  			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
  
@@ -130,7 +130,7 @@ index a19a89233..d09e1f7b2 100644
  		if (ret)
  			rk_hdptx_phy_consumer_put(hdptx, true);
  	}
-@@ -1830,7 +1829,7 @@ static int rk_hdptx_phy_clk_prepare(struct clk_hw *hw)
+@@ -1832,7 +1831,7 @@ static int rk_hdptx_phy_clk_prepare(struct clk_hw *hw)
  {
  	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
  
@@ -139,7 +139,7 @@ index a19a89233..d09e1f7b2 100644
  }
  
  static void rk_hdptx_phy_clk_unprepare(struct clk_hw *hw)
-@@ -1897,7 +1896,7 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1899,7 +1898,7 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
  	 * while the latter being executed only once, i.e. when clock remains
  	 * in the prepared state during rate changes.
  	 */

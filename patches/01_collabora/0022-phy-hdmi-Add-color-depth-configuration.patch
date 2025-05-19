@@ -1,4 +1,4 @@
-From f5e6667ad3d1634e221dd44c60216219aa9a08f5 Mon Sep 17 00:00:00 2001
+From 877ae9e52d8e4ef69749583a6632d6ea36244060 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:36 +0200
 Subject: [PATCH 22/53] phy: hdmi: Add color depth configuration

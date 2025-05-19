@@ -1,4 +1,4 @@
-From b8db66e072f8f7cebae9360049052d86fda01e68 Mon Sep 17 00:00:00 2001
+From 956e53c15e10277e2f8b01a38a710e288ccd3112 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:53:40 -0400
 Subject: [PATCH 11/53] media: dt-bindings: rockchip: Document RK3588 Video

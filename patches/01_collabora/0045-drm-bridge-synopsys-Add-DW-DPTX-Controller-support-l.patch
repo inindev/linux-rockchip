@@ -1,4 +1,4 @@
-From bc005fab9c0c6da2069d7da97a4f140d1b003d12 Mon Sep 17 00:00:00 2001
+From 6c8e653a75d92b334dce25a38f51c38e7397eb26 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:30 +0800
 Subject: [PATCH 45/53] drm/bridge: synopsys: Add DW DPTX Controller support

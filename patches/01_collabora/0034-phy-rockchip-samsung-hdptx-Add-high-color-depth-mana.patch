@@ -1,4 +1,4 @@
-From d1fdb6a25a326a5b60d36af8e13698c424c62946 Mon Sep 17 00:00:00 2001
+From 01c5d640119285b20ee4903ef103d1ba610cb5b7 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:48 +0200
 Subject: [PATCH 34/53] phy: rockchip: samsung-hdptx: Add high color depth
@@ -16,10 +16,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index d09e1f7b2..fc289ed8d 100644
+index 2603e0e5e..bee0cd42c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1028,6 +1028,9 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -1030,6 +1030,9 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
  	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_POSTDIV_SEL_MASK,
  			   FIELD_PREP(PLL_PCG_POSTDIV_SEL_MASK, cfg->pms_sdiv));
  
@@ -29,7 +29,7 @@ index d09e1f7b2..fc289ed8d 100644
  	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_CLK_EN_MASK,
  			   FIELD_PREP(PLL_PCG_CLK_EN_MASK, 0x1));
  
-@@ -1427,7 +1430,8 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1429,7 +1432,8 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  			hdptx->hdmi_cfg.tmds_char_rate *= 100;
  		}
  
@@ -39,7 +39,7 @@ index d09e1f7b2..fc289ed8d 100644
  	}
  
  	ret = rk_hdptx_phy_consumer_get(hdptx);
-@@ -1492,6 +1496,19 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+@@ -1494,6 +1498,19 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
  	    !rk_hdptx_phy_clk_pll_calc(hdmi->tmds_char_rate, NULL))
  		return -EINVAL;
  
@@ -59,7 +59,7 @@ index d09e1f7b2..fc289ed8d 100644
  	return 0;
  }
  
-@@ -1764,6 +1781,9 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1766,6 +1783,9 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  			hdptx->hdmi_cfg = opts->hdmi;
  			hdptx->restrict_rate_change = true;
  		}
@@ -69,7 +69,7 @@ index d09e1f7b2..fc289ed8d 100644
  		return ret;
  	}
  
-@@ -1972,6 +1992,7 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
+@@ -1974,6 +1994,7 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
  		return -ENOMEM;
  
  	hdptx->dev = dev;

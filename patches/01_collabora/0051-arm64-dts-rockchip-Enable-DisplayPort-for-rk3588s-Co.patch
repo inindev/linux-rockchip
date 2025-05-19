@@ -1,4 +1,4 @@
-From bf421218b807774d543deafb1616637ba64a0fc3 Mon Sep 17 00:00:00 2001
+From 60cf077d0f743599db442bbf91377f37150a161f Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:36 +0800
 Subject: [PATCH 51/53] arm64: dts: rockchip: Enable DisplayPort for rk3588s

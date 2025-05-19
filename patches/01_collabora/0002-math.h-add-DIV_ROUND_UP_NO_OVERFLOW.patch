@@ -1,4 +1,4 @@
-From eb8aef729aa18f25ef868606207cc5a234100aff Mon Sep 17 00:00:00 2001
+From 83cf8555adc4a38aa5f94f09afb3d58e230daff2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:09:35 +0200
 Subject: [PATCH 02/53] math.h: add DIV_ROUND_UP_NO_OVERFLOW

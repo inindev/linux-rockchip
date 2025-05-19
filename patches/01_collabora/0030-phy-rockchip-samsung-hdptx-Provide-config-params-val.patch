@@ -1,4 +1,4 @@
-From 0a704f2c8f13bcc5fbc2c070800319752f6ccde7 Mon Sep 17 00:00:00 2001
+From 6cee95ce733e01a4e5cdba23e6147b833158ee9f Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:44 +0200
 Subject: [PATCH 30/53] phy: rockchip: samsung-hdptx: Provide config params
@@ -16,10 +16,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 12 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 62de40515..80dd89686 100644
+index d4449770f..dd3028257 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1799,10 +1799,22 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1801,10 +1801,22 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  	return 0;
  }
  

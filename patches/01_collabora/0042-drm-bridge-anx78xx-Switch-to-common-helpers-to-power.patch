@@ -1,4 +1,4 @@
-From 77a7321bff0768a3f93cc8665dd8b8667d301d59 Mon Sep 17 00:00:00 2001
+From 09b7a551418bdd95266080c7bb80fe32388e2a13 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:38 +0800
 Subject: [PATCH 42/53] drm/bridge: anx78xx: Switch to common helpers to power

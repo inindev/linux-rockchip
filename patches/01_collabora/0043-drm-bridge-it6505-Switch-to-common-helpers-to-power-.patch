@@ -1,4 +1,4 @@
-From 5d84e106e7c77e3cdceae198e23ec63c176eeaff Mon Sep 17 00:00:00 2001
+From 2c35501ca56d7377f74cd39c3f382bca82874c78 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:39 +0800
 Subject: [PATCH 43/53] drm/bridge: it6505: Switch to common helpers to power

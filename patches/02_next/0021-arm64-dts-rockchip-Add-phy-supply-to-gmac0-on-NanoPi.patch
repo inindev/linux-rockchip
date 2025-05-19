@@ -1,7 +1,7 @@
-From 2e6407180e5af878ad4d1631c1c369415c8398c4 Mon Sep 17 00:00:00 2001
+From 4c28687079d0b7940876ecc07f7491282f7c9d5d Mon Sep 17 00:00:00 2001
 From: Diederik de Haas <didi.debian@cknow.org>
 Date: Sat, 3 May 2025 17:22:18 +0200
-Subject: [PATCH 23/28] arm64: dts: rockchip: Add phy-supply to gmac0 on NanoPi
+Subject: [PATCH 21/26] arm64: dts: rockchip: Add phy-supply to gmac0 on NanoPi
  R5S
 
 According to paragraph "7.16. Power" of the RTL8211F-CG datasheet, gmac0

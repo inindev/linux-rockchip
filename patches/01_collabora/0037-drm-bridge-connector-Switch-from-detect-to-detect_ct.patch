@@ -1,4 +1,4 @@
-From 47a2214ce33af9e47889a61948c4ebbc74148c7d Mon Sep 17 00:00:00 2001
+From 3575eae475f761407566cbda1ab493df91e7cbad Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 23:04:23 +0200
 Subject: [PATCH 37/53] drm/bridge-connector: Switch from ->detect() to

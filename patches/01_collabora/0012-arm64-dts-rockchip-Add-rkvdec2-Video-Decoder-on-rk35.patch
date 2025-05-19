@@ -1,4 +1,4 @@
-From 8c2cae38b83a5caf8336ae27ec778046b4269b06 Mon Sep 17 00:00:00 2001
+From 81057cbf1e05bfcc5381e50b938aa3f8747b8e51 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 14 Jun 2024 19:56:19 -0400
 Subject: [PATCH 12/53] arm64: dts: rockchip: Add rkvdec2 Video Decoder on

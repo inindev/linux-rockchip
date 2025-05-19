@@ -1,4 +1,4 @@
-From 5c6db0f4358969d29d4bb46af4351a363156d2e5 Mon Sep 17 00:00:00 2001
+From 14e85468b270972dbfda0b5932c7808a1012e6c4 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:32 +0800
 Subject: [PATCH 47/53] dt-bindings: display: simple-bridge: Add ra620

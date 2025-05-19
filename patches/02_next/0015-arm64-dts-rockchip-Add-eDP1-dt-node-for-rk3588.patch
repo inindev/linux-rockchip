@@ -1,7 +1,7 @@
-From 8a91b819ab9332203485346a7014edf8dfbee622 Mon Sep 17 00:00:00 2001
+From 1621a33668aee3406affec1712def8b1d8ed40d0 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andyshrk@163.com>
 Date: Sat, 26 Apr 2025 15:15:40 +0800
-Subject: [PATCH 16/28] arm64: dts: rockchip: Add eDP1 dt node for rk3588
+Subject: [PATCH 15/26] arm64: dts: rockchip: Add eDP1 dt node for rk3588
 
 Add eDP1 dt node for RK3588 SoC
 

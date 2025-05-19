@@ -1,4 +1,4 @@
-From 1bee86c0c5138a60fd87d377b177031d361fba80 Mon Sep 17 00:00:00 2001
+From 8aba47ede5716bbdbe8c1a351dd093407a1a55e4 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:36 +0800
 Subject: [PATCH 40/53] drm/bridge: cdns-mhdp8546: Switch to common helpers to

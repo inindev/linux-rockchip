@@ -1,4 +1,4 @@
-From d8d0762bf4d940fb4762f5b346fa02ce2b28476b Mon Sep 17 00:00:00 2001
+From 0148bd4e6f8192b4df2d115494d3417efee7d033 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:41 +0200
 Subject: [PATCH 27/53] phy: rockchip: samsung-hdptx: Drop superfluous cfgs
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 5 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index c9f79c4e6..2c0ae2442 100644
+index 05a034b30..d112f1f9b 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -392,10 +392,7 @@ struct rk_hdptx_phy {
@@ -34,7 +34,7 @@ index c9f79c4e6..2c0ae2442 100644
  	struct phy *phy;
  	struct clk_bulk_data *clks;
  	int nr_clks;
-@@ -1894,6 +1891,7 @@ static int rk_hdptx_phy_runtime_resume(struct device *dev)
+@@ -1896,6 +1893,7 @@ static int rk_hdptx_phy_runtime_resume(struct device *dev)
  
  static int rk_hdptx_phy_probe(struct platform_device *pdev)
  {
@@ -42,7 +42,7 @@ index c9f79c4e6..2c0ae2442 100644
  	struct phy_provider *phy_provider;
  	struct device *dev = &pdev->dev;
  	struct rk_hdptx_phy *hdptx;
-@@ -1912,14 +1910,14 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
+@@ -1914,14 +1912,14 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
  		return dev_err_probe(dev, PTR_ERR(regs),
  				     "Failed to ioremap resource\n");
  

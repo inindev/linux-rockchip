@@ -1,4 +1,4 @@
-From d449a0ce81da01271d6d15589aa37bb28a3a6618 Mon Sep 17 00:00:00 2001
+From 788f9b2c3967d3f169dc346e9ff7c7204f5afe37 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 25 Jul 2024 18:12:24 +0200
 Subject: [PATCH 14/53] mfd: rk8xx: Fix shutdown handler

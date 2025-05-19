@@ -1,4 +1,4 @@
-From 8cafc3394d5aa6caa481bde5cd6cd9a1852ffbe7 Mon Sep 17 00:00:00 2001
+From 52b3a569431571317f146070d644656baaebbd83 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:34 +0800
 Subject: [PATCH 49/53] arm64: dts: rockchip: Add DP0 for rk3588

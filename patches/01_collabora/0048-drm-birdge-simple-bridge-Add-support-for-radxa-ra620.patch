@@ -1,4 +1,4 @@
-From fc4d206e7c023fc1b6ab199f8e5fd270da08b4be Mon Sep 17 00:00:00 2001
+From 20d6d073d25d71b50e7e6290846fe5bc3a4b8ebb Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:33 +0800
 Subject: [PATCH 48/53] drm/birdge: simple-bridge: Add support for radxa ra620

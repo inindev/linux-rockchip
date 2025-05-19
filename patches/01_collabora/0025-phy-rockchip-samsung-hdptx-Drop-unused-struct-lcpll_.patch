@@ -1,4 +1,4 @@
-From 94b221d47dd60cd8075bbf82b82605eb5aeb5089 Mon Sep 17 00:00:00 2001
+From 331ffc7e557e6322a8cfff50b825f78d34dd50b6 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:39 +0200
 Subject: [PATCH 25/53] phy: rockchip: samsung-hdptx: Drop unused struct
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 31 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index d0989dc5a..70621687b 100644
+index 61db514ce..44869116a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -329,37 +329,6 @@ enum dp_link_rate {

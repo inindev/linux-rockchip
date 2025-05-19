@@ -1,4 +1,4 @@
-From e6f59869b5b3b22052aaca442f422f7e5433c68a Mon Sep 17 00:00:00 2001
+From ffe1475d2cfc35028ec2cdfa5a702547b68befb5 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Thu, 27 Jun 2024 09:42:12 -0400
 Subject: [PATCH 08/53] media: v4l2-ctrls-core: Set frame_mbs_only_flag by

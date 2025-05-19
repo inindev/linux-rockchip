@@ -1,4 +1,4 @@
-From f43fdf5c825ce4e014a05d9114052fcec16518bc Mon Sep 17 00:00:00 2001
+From c54a25b581f340600fae5978c5cbfb517a985138 Mon Sep 17 00:00:00 2001
 From: Sandor Yu <Sandor.yu@nxp.com>
 Date: Tue, 18 Mar 2025 14:35:35 +0200
 Subject: [PATCH 21/53] phy: Add HDMI configuration options

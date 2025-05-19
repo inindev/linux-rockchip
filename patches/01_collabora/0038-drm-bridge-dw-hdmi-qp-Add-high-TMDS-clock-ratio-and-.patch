@@ -1,4 +1,4 @@
-From a587aef5f121dc2f8375318d1dc861e2185731e5 Mon Sep 17 00:00:00 2001
+From b74ad886f169637d55e7a676de8ceeae81039664 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 13 Sep 2024 17:30:35 +0300
 Subject: [PATCH 38/53] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and

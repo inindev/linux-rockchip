@@ -1,7 +1,7 @@
-From 4d5681dc5d106ef7b4ddafe79fe7db32d7e61d2d Mon Sep 17 00:00:00 2001
+From 7878bed41fcec0dc70b9ff9e0ea4675bfc7ac18e Mon Sep 17 00:00:00 2001
 From: Chukun Pan <amadeus@jmu.edu.cn>
 Date: Tue, 1 Apr 2025 17:00:09 +0800
-Subject: [PATCH 08/28] arm64: dts: rockchip: Move SHMEM memory to reserved
+Subject: [PATCH 07/26] arm64: dts: rockchip: Move SHMEM memory to reserved
  memory on rk3588
 
 0x0 to 0xf0000000 are SDRAM memory areas where 0x10f000 is located.

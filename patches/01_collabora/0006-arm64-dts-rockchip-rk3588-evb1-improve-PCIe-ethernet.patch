@@ -1,4 +1,4 @@
-From 0056de7a66d737c1e2833a877cf1967678cba2a9 Mon Sep 17 00:00:00 2001
+From e34dce416203010038822ddff65bee980644fb09 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:39:11 +0100
 Subject: [PATCH 06/53] arm64: dts: rockchip: rk3588-evb1: improve PCIe

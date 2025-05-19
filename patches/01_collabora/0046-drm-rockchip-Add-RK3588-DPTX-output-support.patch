@@ -1,4 +1,4 @@
-From 5d40fd709fd7d772795301794b2b8c84caf27110 Mon Sep 17 00:00:00 2001
+From b627921ff6859577aae5ad5dd70b4fde4c56af58 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Thu, 3 Apr 2025 11:37:31 +0800
 Subject: [PATCH 46/53] drm/rockchip: Add RK3588 DPTX output support

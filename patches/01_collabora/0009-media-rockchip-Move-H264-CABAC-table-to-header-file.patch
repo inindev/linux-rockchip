@@ -1,4 +1,4 @@
-From 163bd6cb22ba69e0823c6049859d0d64c0245aea Mon Sep 17 00:00:00 2001
+From 550e5aef1b5b8385ba55168f63d6cbbb46b48a84 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Tue, 18 Jun 2024 12:41:51 -0400
 Subject: [PATCH 09/53] media: rockchip: Move H264 CABAC table to header file

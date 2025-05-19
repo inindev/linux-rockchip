@@ -1,4 +1,4 @@
-From 29b4640132ddb402b758e4a0b37d6300a37ab78e Mon Sep 17 00:00:00 2001
+From a466bb60278b359e81d05d16402822d1b9fe5a74 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Tue, 18 Mar 2025 14:34:35 +0800
 Subject: [PATCH 39/53] drm/dp: Pull drm_dp_link_power_up/down from Tegra to

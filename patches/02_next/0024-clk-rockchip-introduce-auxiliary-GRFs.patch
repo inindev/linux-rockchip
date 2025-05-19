@@ -1,7 +1,7 @@
-From cbd18e724e113b37d384e9d4698934a65dfba91b Mon Sep 17 00:00:00 2001
+From 303fb41b5d81d4c61a2ecccf14373d2b467c577b Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 2 May 2025 13:03:08 +0200
-Subject: [PATCH 26/28] clk: rockchip: introduce auxiliary GRFs
+Subject: [PATCH 24/26] clk: rockchip: introduce auxiliary GRFs
 
 The MUXGRF clock branch type depends on having access to some sort of
 GRF as a regmap to be registered. So far, we could easily get away with

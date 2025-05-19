@@ -1,4 +1,4 @@
-From b4e554e1f810f33e27955f794f1c0e9e4c363de0 Mon Sep 17 00:00:00 2001
+From 2cf4836d277ad935fe9cdf9011432ce47b05beb4 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:40 -0500
 Subject: [PATCH 15/53] dt-bindings: display: vop2: Add VP clock resets

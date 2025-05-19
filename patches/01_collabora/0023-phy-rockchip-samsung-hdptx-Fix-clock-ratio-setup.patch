@@ -1,4 +1,4 @@
-From 9109b6b88a2a6c6822a4b80d50fb0695f01f6cf2 Mon Sep 17 00:00:00 2001
+From 0626d896ccce711ff086adb8bfbbe6628b132f23 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 18 Mar 2025 14:35:37 +0200
 Subject: [PATCH 23/53] phy: rockchip: samsung-hdptx: Fix clock ratio setup
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index fe7c05748..34a7ef209 100644
+index 77236f012..6cfed3fcd 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -320,6 +320,7 @@
@@ -32,7 +32,7 @@ index fe7c05748..34a7ef209 100644
  #define HDMI20_MAX_RATE			600000000
  
  enum dp_link_rate {
-@@ -1072,7 +1073,7 @@ static int rk_hdptx_ropll_tmds_mode_config(struct rk_hdptx_phy *hdptx,
+@@ -1074,7 +1075,7 @@ static int rk_hdptx_ropll_tmds_mode_config(struct rk_hdptx_phy *hdptx,
  
  	regmap_write(hdptx->regmap, LNTOP_REG(0200), 0x06);
  

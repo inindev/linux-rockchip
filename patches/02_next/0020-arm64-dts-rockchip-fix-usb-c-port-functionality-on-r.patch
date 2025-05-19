@@ -1,7 +1,7 @@
-From da6ef64d0a458181a7c367c91e0b070a800a1c01 Mon Sep 17 00:00:00 2001
+From 09046966361d0d7c131478f61357b86c856ef8f1 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Tue, 22 Apr 2025 17:03:45 -0400
-Subject: [PATCH 22/28] arm64: dts: rockchip: fix usb-c port functionality on
+Subject: [PATCH 20/26] arm64: dts: rockchip: fix usb-c port functionality on
  rk3588-nanopc-t6
 
 The USB-C port on the NanoPC-T6 was not providing VBUS (vbus5v0_typec
