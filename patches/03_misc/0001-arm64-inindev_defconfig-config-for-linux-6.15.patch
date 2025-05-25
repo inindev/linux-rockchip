@@ -1,20 +1,20 @@
-From 606ed507541f16237017543c5d4bfbe46e57753c Mon Sep 17 00:00:00 2001
+From 5339845b57e00ca36f19646adefdff903b151bb7 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 16 Mar 2025 15:32:30 -0400
 Subject: [PATCH 1/7] arm64: inindev_defconfig: config for linux 6.15
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- arch/arm64/configs/inindev_defconfig | 1133 ++++++++++++++++++++++++++
- 1 file changed, 1133 insertions(+)
+ arch/arm64/configs/inindev_defconfig | 1144 ++++++++++++++++++++++++++
+ 1 file changed, 1144 insertions(+)
  create mode 100644 arch/arm64/configs/inindev_defconfig
 
 diff --git a/arch/arm64/configs/inindev_defconfig b/arch/arm64/configs/inindev_defconfig
 new file mode 100644
-index 000000000..309b509a4
+index 000000000..4e65c169b
 --- /dev/null
 +++ b/arch/arm64/configs/inindev_defconfig
-@@ -0,0 +1,1133 @@
+@@ -0,0 +1,1144 @@
 +CONFIG_SYSVIPC=y
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ_IDLE=y
@@ -897,11 +897,22 @@ index 000000000..309b509a4
 +CONFIG_LEDS_SYSCON=y
 +CONFIG_LEDS_QCOM_LPG=m
 +CONFIG_LEDS_TRIGGER_TIMER=y
++CONFIG_LEDS_TRIGGER_ONESHOT=y
 +CONFIG_LEDS_TRIGGER_DISK=y
++CONFIG_LEDS_TRIGGER_MTD=y
 +CONFIG_LEDS_TRIGGER_HEARTBEAT=y
++CONFIG_LEDS_TRIGGER_BACKLIGHT=y
 +CONFIG_LEDS_TRIGGER_CPU=y
++CONFIG_LEDS_TRIGGER_ACTIVITY=y
++CONFIG_LEDS_TRIGGER_GPIO=y
 +CONFIG_LEDS_TRIGGER_DEFAULT_ON=y
++CONFIG_LEDS_TRIGGER_TRANSIENT=y
++CONFIG_LEDS_TRIGGER_CAMERA=y
 +CONFIG_LEDS_TRIGGER_PANIC=y
++CONFIG_LEDS_TRIGGER_NETDEV=y
++CONFIG_LEDS_TRIGGER_PATTERN=y
++CONFIG_LEDS_TRIGGER_TTY=y
++CONFIG_LEDS_TRIGGER_INPUT_EVENTS=y
 +CONFIG_EDAC=y
 +CONFIG_EDAC_GHES=y
 +CONFIG_RTC_CLASS=y
