@@ -1,7 +1,7 @@
-From f105594f8f63e6bf2d5953f669150e4123800351 Mon Sep 17 00:00:00 2001
+From 112e61b0eef7e5637f3c3cd858d4b3378da0b81f Mon Sep 17 00:00:00 2001
 From: Vasily Khoruzhick <anarsoul@gmail.com>
 Date: Tue, 18 Mar 2025 11:18:51 -0700
-Subject: [PATCH 14/26] clk: rockchip: rk3568: Add PLL rate for 33.3MHz
+Subject: [PATCH 13/25] clk: rockchip: rk3568: Add PLL rate for 33.3MHz
 
 Add PLL rate for 33.3 MHz to allow BTT HDMI5 screen to run at its native
 mode of 800x480

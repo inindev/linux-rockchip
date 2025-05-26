@@ -1,7 +1,7 @@
-From c07ee9cee3e7712adcdc636337bfa1c4b4515f42 Mon Sep 17 00:00:00 2001
+From 0427ac4198ba7a426152973f84d54cd53b055def Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Wed, 30 Apr 2025 18:16:36 +0200
-Subject: [PATCH 22/26] arm64: dts: rockchip: add RK3576 RNG node
+Subject: [PATCH 21/25] arm64: dts: rockchip: add RK3576 RNG node
 
 The RK3576 has a hardware random number generator IP built into the SoC.
 

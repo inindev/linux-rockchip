@@ -1,7 +1,7 @@
-From ee9958b57ea437f7d2a2a0b126714d3e9002dda2 Mon Sep 17 00:00:00 2001
+From e3c65bb72ce846c6cdc284c9b37aa388127a14f7 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 14 Apr 2025 20:37:38 +0200
-Subject: [PATCH 18/26] arm64: dts: rockchip: enable pcie on Sige5
+Subject: [PATCH 17/25] arm64: dts: rockchip: enable pcie on Sige5
 
 The ArmSoM Sige5 board exposes PCIe controller 0 on its M.2 slot on the
 bottom of the board. Enable the necessary nodes for it, and also add the

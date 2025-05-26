@@ -1,7 +1,7 @@
-From 9dbe750a2dec914240963329bab543010aa6890d Mon Sep 17 00:00:00 2001
+From d4af3a92a6fd7d9b1b01d27caf8a8e69c4982c7b Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 2 May 2025 13:03:07 +0200
-Subject: [PATCH 23/26] dt-bindings: clock: rk3576: add IOC gated clocks
+Subject: [PATCH 22/25] dt-bindings: clock: rk3576: add IOC gated clocks
 
 Certain clocks on the RK3576 are additionally essentially "gated" behind
 some bit toggles in the IOC GRF range. Downstream ungates these by
