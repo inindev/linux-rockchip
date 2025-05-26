@@ -82,15 +82,27 @@ check_prereqs:
 	    exit 1; \
 	fi
 
-ifeq (,$(STY)$(TMUX))
-	$(error Please start a screen or tmux session)
-endif
-
 clean:
 	@echo "$(h1)Cleaning...$(rst)"
 	@echo "Removing kernel-$(LINUX_VER)..."
 	@rm -rf "kernel-$(LINUX_VER)"
 
+# require linux
+UNAME_S := $(shell uname -s)
+ifneq ($(UNAME_S),Linux)
+    $(error This project requires a Linux system, but '$(UNAME_S)' was detected)
+endif
+
+# require arm64
+UNAME_M := $(shell uname -m)
+ifneq ($(UNAME_M),aarch64)
+    $(error This project requires an ARM64 architecture, but '$(UNAME_M)' was detected)
+endif
+
+# reqire tmux
+ifeq (,$(STY)$(TMUX))
+    $(error Please start a screen or tmux session)
+endif
 
 # colors
 rst := [m
