@@ -1,7 +1,7 @@
 From 8c73ae4590c2e8cd89fddb9cc7075ccbcdcd48c5 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Fri, 2 May 2025 16:17:34 -0400
-Subject: [PATCH 3/7] dt-bindings: arm: rockchip: Add Luckfox Omni3576 and
+Subject: [PATCH 3/8] dt-bindings: arm: rockchip: Add Luckfox Omni3576 and
  Core3576 bindings
 
 Add device tree binding for Luckfox Core3576 Module based boards,

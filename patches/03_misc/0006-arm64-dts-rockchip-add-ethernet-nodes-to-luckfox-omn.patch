@@ -1,7 +1,7 @@
 From 0b9c41eac5d3e21b46cc81e06a602b12ea294110 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Mon, 5 May 2025 16:39:42 -0400
-Subject: [PATCH 6/7] arm64: dts: rockchip: add ethernet nodes to luckfox
+Subject: [PATCH 6/8] arm64: dts: rockchip: add ethernet nodes to luckfox
  omni3576
 
 Signed-off-by: John Clark <inindev@gmail.com>
