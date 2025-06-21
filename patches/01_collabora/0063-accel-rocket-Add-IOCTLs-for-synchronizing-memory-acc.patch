@@ -1,0 +1,220 @@
+From 5dec141122a8e6b919557ca945caa6b832bb5533 Mon Sep 17 00:00:00 2001
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Fri, 6 Jun 2025 08:28:25 +0200
+Subject: [PATCH 63/82] accel/rocket: Add IOCTLs for synchronizing memory
+ accesses
+
+The NPU cores have their own access to the memory bus, and this isn't
+cache coherent with the CPUs.
+
+Add IOCTLs so userspace can mark when the caches need to be flushed, and
+also when a writer job needs to be waited for before the buffer can be
+accessed from the CPU.
+
+Initially based on the same IOCTLs from the Etnaviv driver.
+
+v2:
+- Don't break UABI by reordering the IOCTL IDs (Jeff Hugo)
+
+v3:
+- Check that padding fields in IOCTLs are zero (Jeff Hugo)
+
+v6:
+- Fix conversion logic to make sure we use DMA_BIDIRECTIONAL when needed
+  (Lucas Stach)
+
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Reviewed-by: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+---
+ drivers/accel/rocket/rocket_drv.c |  2 +
+ drivers/accel/rocket/rocket_gem.c | 82 +++++++++++++++++++++++++++++++
+ drivers/accel/rocket/rocket_gem.h |  5 ++
+ include/uapi/drm/rocket_accel.h   | 37 ++++++++++++++
+ 4 files changed, 126 insertions(+)
+
+diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+index 4ab78193c..eb9284ee2 100644
+--- a/drivers/accel/rocket/rocket_drv.c
++++ b/drivers/accel/rocket/rocket_drv.c
+@@ -62,6 +62,8 @@ static const struct drm_ioctl_desc rocket_drm_driver_ioctls[] = {
+ 
+ 	ROCKET_IOCTL(CREATE_BO, create_bo),
+ 	ROCKET_IOCTL(SUBMIT, submit),
++	ROCKET_IOCTL(PREP_BO, prep_bo),
++	ROCKET_IOCTL(FINI_BO, fini_bo),
+ };
+ 
+ DEFINE_DRM_ACCEL_FOPS(rocket_accel_driver_fops);
+diff --git a/drivers/accel/rocket/rocket_gem.c b/drivers/accel/rocket/rocket_gem.c
+index 87ccc44ab..ba3183c79 100644
+--- a/drivers/accel/rocket/rocket_gem.c
++++ b/drivers/accel/rocket/rocket_gem.c
+@@ -113,3 +113,85 @@ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *
+ 
+ 	return ret;
+ }
++
++static inline enum dma_data_direction rocket_op_to_dma_dir(u32 op)
++{
++	op &= ROCKET_PREP_READ | ROCKET_PREP_WRITE;
++
++	if (op == ROCKET_PREP_READ)
++		return DMA_FROM_DEVICE;
++	else if (op == ROCKET_PREP_WRITE)
++		return DMA_TO_DEVICE;
++	else
++		return DMA_BIDIRECTIONAL;
++}
++
++int rocket_ioctl_prep_bo(struct drm_device *dev, void *data, struct drm_file *file)
++{
++	struct drm_rocket_prep_bo *args = data;
++	unsigned long timeout = drm_timeout_abs_to_jiffies(args->timeout_ns);
++	struct rocket_device *rdev = to_rocket_device(dev);
++	struct drm_gem_object *gem_obj;
++	struct drm_gem_shmem_object *shmem_obj;
++	bool write = !!(args->op & ROCKET_PREP_WRITE);
++	long ret = 0;
++
++	if (args->op & ~(ROCKET_PREP_READ | ROCKET_PREP_WRITE))
++		return -EINVAL;
++
++	gem_obj = drm_gem_object_lookup(file, args->handle);
++	if (!gem_obj)
++		return -ENOENT;
++
++	ret = dma_resv_wait_timeout(gem_obj->resv, dma_resv_usage_rw(write),
++				    true, timeout);
++	if (!ret)
++		ret = timeout ? -ETIMEDOUT : -EBUSY;
++
++	shmem_obj = &to_rocket_bo(gem_obj)->base;
++
++	for (unsigned int core = 1; core < rdev->num_cores; core++) {
++		dma_sync_sgtable_for_cpu(rdev->cores[core].dev, shmem_obj->sgt,
++					 rocket_op_to_dma_dir(args->op));
++	}
++
++	to_rocket_bo(gem_obj)->last_cpu_prep_op = args->op;
++
++	drm_gem_object_put(gem_obj);
++
++	return ret;
++}
++
++int rocket_ioctl_fini_bo(struct drm_device *dev, void *data, struct drm_file *file)
++{
++	struct rocket_device *rdev = to_rocket_device(dev);
++	struct drm_rocket_fini_bo *args = data;
++	struct drm_gem_shmem_object *shmem_obj;
++	struct rocket_gem_object *rkt_obj;
++	struct drm_gem_object *gem_obj;
++
++	if (args->reserved != 0) {
++		drm_dbg(dev, "Reserved field in drm_rocket_fini_bo struct should be 0.\n");
++		return -EINVAL;
++	}
++
++	gem_obj = drm_gem_object_lookup(file, args->handle);
++	if (!gem_obj)
++		return -ENOENT;
++
++	rkt_obj = to_rocket_bo(gem_obj);
++	shmem_obj = &rkt_obj->base;
++
++	WARN_ON(rkt_obj->last_cpu_prep_op == 0);
++
++	for (unsigned int core = 1; core < rdev->num_cores; core++) {
++		dma_sync_sgtable_for_device(rdev->cores[core].dev, shmem_obj->sgt,
++					    rocket_op_to_dma_dir(rkt_obj->last_cpu_prep_op));
++	}
++
++	rkt_obj->last_cpu_prep_op = 0;
++
++	drm_gem_object_put(gem_obj);
++
++	return 0;
++}
+diff --git a/drivers/accel/rocket/rocket_gem.h b/drivers/accel/rocket/rocket_gem.h
+index e8a4d6213..a52a63cd7 100644
+--- a/drivers/accel/rocket/rocket_gem.h
++++ b/drivers/accel/rocket/rocket_gem.h
+@@ -12,12 +12,17 @@ struct rocket_gem_object {
+ 	struct iommu_domain *domain;
+ 	size_t size;
+ 	u32 offset;
++	u32 last_cpu_prep_op;
+ };
+ 
+ struct drm_gem_object *rocket_gem_create_object(struct drm_device *dev, size_t size);
+ 
+ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *file);
+ 
++int rocket_ioctl_prep_bo(struct drm_device *dev, void *data, struct drm_file *file);
++
++int rocket_ioctl_fini_bo(struct drm_device *dev, void *data, struct drm_file *file);
++
+ static inline
+ struct  rocket_gem_object *to_rocket_bo(struct drm_gem_object *obj)
+ {
+diff --git a/include/uapi/drm/rocket_accel.h b/include/uapi/drm/rocket_accel.h
+index cb1b5934c..b5c80dd76 100644
+--- a/include/uapi/drm/rocket_accel.h
++++ b/include/uapi/drm/rocket_accel.h
+@@ -13,9 +13,13 @@ extern "C" {
+ 
+ #define DRM_ROCKET_CREATE_BO			0x00
+ #define DRM_ROCKET_SUBMIT			0x01
++#define DRM_ROCKET_PREP_BO			0x02
++#define DRM_ROCKET_FINI_BO			0x03
+ 
+ #define DRM_IOCTL_ROCKET_CREATE_BO		DRM_IOWR(DRM_COMMAND_BASE + DRM_ROCKET_CREATE_BO, struct drm_rocket_create_bo)
+ #define DRM_IOCTL_ROCKET_SUBMIT			DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_SUBMIT, struct drm_rocket_submit)
++#define DRM_IOCTL_ROCKET_PREP_BO		DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_PREP_BO, struct drm_rocket_prep_bo)
++#define DRM_IOCTL_ROCKET_FINI_BO		DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_FINI_BO, struct drm_rocket_fini_bo)
+ 
+ /**
+  * struct drm_rocket_create_bo - ioctl argument for creating Rocket BOs.
+@@ -39,6 +43,39 @@ struct drm_rocket_create_bo {
+ 	__u64 offset;
+ };
+ 
++#define ROCKET_PREP_READ        0x01
++#define ROCKET_PREP_WRITE       0x02
++
++/**
++ * struct drm_rocket_prep_bo - ioctl argument for starting CPU ownership of the BO.
++ *
++ * Takes care of waiting for any NPU jobs that might still use the NPU and performs cache
++ * synchronization.
++ */
++struct drm_rocket_prep_bo {
++	/** Input: GEM handle of the buffer object. */
++	__u32 handle;
++
++	/** Input: mask of ROCKET_PREP_x, direction of the access. */
++	__u32 op;
++
++	/** Input: Amount of time to wait for NPU jobs. */
++	__s64 timeout_ns;
++};
++
++/**
++ * struct drm_rocket_fini_bo - ioctl argument for finishing CPU ownership of the BO.
++ *
++ * Synchronize caches for NPU access.
++ */
++struct drm_rocket_fini_bo {
++	/** Input: GEM handle of the buffer object. */
++	__u32 handle;
++
++	/** Reserved, must be zero. */
++	__u32 reserved;
++};
++
+ /**
+  * struct drm_rocket_task - A task to be run on the NPU
+  *
+-- 
+2.39.5
+

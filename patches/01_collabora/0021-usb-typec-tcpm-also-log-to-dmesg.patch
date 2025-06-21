@@ -1,0 +1,28 @@
+From 35a9c582c43b9540813a44e729cb0ca851751b86 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 4 Apr 2025 20:04:49 +0200
+Subject: [PATCH 21/82] usb: typec: tcpm: also log to dmesg
+
+Also log to normal dmesg to assist debugging hard reset issues.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/usb/typec/tcpm/tcpm.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
+index 1a1f9e1f8..6651b342c 100644
+--- a/drivers/usb/typec/tcpm/tcpm.c
++++ b/drivers/usb/typec/tcpm/tcpm.c
+@@ -723,6 +723,8 @@ static void _tcpm_log(struct tcpm_port *port, const char *fmt, va_list args)
+ 
+ 	vsnprintf(tmpbuffer, sizeof(tmpbuffer), fmt, args);
+ 
++	dev_dbg(port->dev, "%s\n", tmpbuffer);
++
+ 	if (tcpm_log_full(port)) {
+ 		port->logbuffer_head = max(port->logbuffer_head - 1, 0);
+ 		strcpy(tmpbuffer, "overflow");
+-- 
+2.39.5
+

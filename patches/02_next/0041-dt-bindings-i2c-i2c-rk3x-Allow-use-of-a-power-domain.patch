@@ -1,0 +1,35 @@
+From 41081d40678bfb4b8a2ef50d39aaf70a7dc95c84 Mon Sep 17 00:00:00 2001
+From: Jonas Karlman <jonas@kwiboo.se>
+Date: Sun, 18 May 2025 22:06:54 +0000
+Subject: [PATCH 41/47] dt-bindings: i2c: i2c-rk3x: Allow use of a power-domain
+
+The I2C controllers in most Rockchip SoCs are part or power domains that
+are always powered on, i.e. PD_BUS or PD_PMU.
+
+On RK3528 the I2C controllers are spread out among the PD_RKVENC, PD_VO
+and PD_VPU power domains.
+
+Add support to describe power-domains for the I2C controllers.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml b/Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml
+index 2f1e97969..4ac5a40a3 100644
+--- a/Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml
++++ b/Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml
+@@ -105,6 +105,9 @@ properties:
+       (t(f) in the I2C specification). If not specified we will use the SCL
+       value since they are the same in nearly all cases.
+ 
++  power-domains:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+-- 
+2.39.5
+

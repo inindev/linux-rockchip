@@ -1,0 +1,127 @@
+From a9c7d1619eb1e63203a3d89e4b53d4804fb5b526 Mon Sep 17 00:00:00 2001
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 10 Jun 2025 14:32:40 +0200
+Subject: [PATCH 74/82] dt-bindings: thermal: rockchip: document otp thermal
+ trim
+
+Several Rockchip SoCs, such as the RK3576, can store calibration trim
+data for thermal sensors in OTP cells. This capability should be
+documented.
+
+Such a rockchip thermal sensor may reference cell handles that store
+both a chip-wide trim for all the sensors, as well as cell handles
+for each individual sensor channel pointing to that specific sensor's
+trim value.
+
+Additionally, the thermal sensor may optionally reference cells which
+store the base in terms of degrees celsius and decicelsius that the trim
+is relative to.
+
+Each SoC that implements this appears to have a slightly different
+combination of chip-wide trim, base, base fractional part and
+per-channel trim, so which ones do which is documented in the bindings.
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Link: https://lore.kernel.org/r/20250610-rk3576-tsadc-upstream-v6-4-b6e9efbf1015@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ .../bindings/thermal/rockchip-thermal.yaml    | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index 49ceed68c..573f447cc 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -40,6 +40,17 @@ properties:
+       - const: tsadc
+       - const: apb_pclk
+ 
++  nvmem-cells:
++    items:
++      - description: cell handle to where the trim's base temperature is stored
++      - description:
++          cell handle to where the trim's tenths of Celsius base value is stored
++
++  nvmem-cell-names:
++    items:
++      - const: trim_base
++      - const: trim_base_frac
++
+   resets:
+     minItems: 1
+     maxItems: 3
+@@ -51,6 +62,12 @@ properties:
+       - const: tsadc
+       - const: tsadc-phy
+ 
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
+   "#thermal-sensor-cells":
+     const: 1
+ 
+@@ -72,6 +89,27 @@ properties:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     enum: [0, 1]
+ 
++patternProperties:
++  "@[0-9a-f]+$":
++    type: object
++    properties:
++      reg:
++        maxItems: 1
++        description: sensor ID, a.k.a. channel number
++
++      nvmem-cells:
++        items:
++          - description: handle of cell containing calibration data
++
++      nvmem-cell-names:
++        items:
++          - const: trim
++
++    required:
++      - reg
++
++    unevaluatedProperties: false
++
+ required:
+   - compatible
+   - reg
+@@ -80,6 +118,29 @@ required:
+   - clock-names
+   - resets
+ 
++allOf:
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: rockchip,rk3568-tsadc
++    then:
++      properties:
++        nvmem-cells: false
++        nvmem-cell-names: false
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - rockchip,rk3568-tsadc
++                - rockchip,rk3576-tsadc
++    then:
++      patternProperties:
++        "@[0-9a-f]+$": false
++
+ unevaluatedProperties: false
+ 
+ examples:
+-- 
+2.39.5
+

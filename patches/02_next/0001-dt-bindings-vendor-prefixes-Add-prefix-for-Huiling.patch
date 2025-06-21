@@ -1,0 +1,31 @@
+From 3c32f5548c3000024d6f433e45352c682cfaad15 Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Tue, 3 Jun 2025 14:39:27 -0500
+Subject: [PATCH 01/47] dt-bindings: vendor-prefixes: Add prefix for Huiling
+
+Shenzhen Huiling Information Technology Co. Ltd. specializes in the
+research and manufacturing of display and touch screens for industrial
+usage. https://en.szhuiling.com/
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5d2a7a8d3..7a264a372 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -672,6 +672,8 @@ patternProperties:
+     description: Huawei Technologies Co., Ltd.
+   "^hugsun,.*":
+     description: Shenzhen Hugsun Technology Co. Ltd.
++  "^huiling,.*":
++    description: Shenzhen Huiling Information Technology Co., Ltd.
+   "^hwacom,.*":
+     description: HwaCom Systems Inc.
+   "^hxt,.*":
+-- 
+2.39.5
+

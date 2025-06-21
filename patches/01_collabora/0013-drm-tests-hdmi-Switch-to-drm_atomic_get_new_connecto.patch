@@ -1,0 +1,84 @@
+From 8a7cedc0dd37db2028346822fffa8d1c4848c996 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:21 +0300
+Subject: [PATCH 13/82] drm/tests: hdmi: Switch to
+ drm_atomic_get_new_connector_state() where possible
+
+Replace the calls to drm_atomic_get_connector_state() with
+drm_atomic_get_new_connector_state() for cases which do not require
+allocating the connector state, e.g. after drm_atomic_check_only() when
+the intent is to only read the new connector state.
+
+The rational is to avoid the need to handle the potential EDEADLK error
+returned by the former helper, which would require restarting the entire
+atomic sequence.
+
+Acked-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-13-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index e3e2878d2..168fe2552 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -416,7 +416,7 @@ static void drm_test_check_broadcast_rgb_auto_cea_mode(struct kunit *test)
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_EXPECT_TRUE(test, conn_state->hdmi.is_limited_range);
+@@ -476,7 +476,7 @@ static void drm_test_check_broadcast_rgb_auto_cea_mode_vic_1(struct kunit *test)
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_EXPECT_FALSE(test, conn_state->hdmi.is_limited_range);
+@@ -535,7 +535,7 @@ static void drm_test_check_broadcast_rgb_full_cea_mode(struct kunit *test)
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_ASSERT_EQ(test,
+@@ -597,7 +597,7 @@ static void drm_test_check_broadcast_rgb_full_cea_mode_vic_1(struct kunit *test)
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_ASSERT_EQ(test,
+@@ -660,7 +660,7 @@ static void drm_test_check_broadcast_rgb_limited_cea_mode(struct kunit *test)
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_ASSERT_EQ(test,
+@@ -722,7 +722,7 @@ static void drm_test_check_broadcast_rgb_limited_cea_mode_vic_1(struct kunit *te
+ 	ret = drm_atomic_check_only(state);
+ 	KUNIT_ASSERT_EQ(test, ret, 0);
+ 
+-	conn_state = drm_atomic_get_connector_state(state, conn);
++	conn_state = drm_atomic_get_new_connector_state(state, conn);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
+ 
+ 	KUNIT_ASSERT_EQ(test,
+-- 
+2.39.5
+

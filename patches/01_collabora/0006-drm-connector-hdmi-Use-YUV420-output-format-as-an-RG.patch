@@ -1,0 +1,51 @@
+From f5f809ac6f31e50763a0d9b6d525c346bb6719c9 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:14 +0300
+Subject: [PATCH 06/82] drm/connector: hdmi: Use YUV420 output format as an RGB
+ fallback
+
+Try to make use of YUV420 when computing the best output format and
+RGB cannot be supported for any of the available color depths.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-6-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ .../gpu/drm/display/drm_hdmi_state_helper.c    | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 9e0a46807..132d30c96 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -648,12 +648,22 @@ hdmi_compute_config(const struct drm_connector *connector,
+ 				       8, connector->max_bpc);
+ 	int ret;
+ 
+-	/*
+-	 * TODO: Add support for YCbCr420 output for HDMI 2.0 capable
+-	 * devices, for modes that only support YCbCr420.
+-	 */
+ 	ret = hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+ 				      HDMI_COLORSPACE_RGB);
++	if (ret) {
++		if (connector->ycbcr_420_allowed) {
++			ret = hdmi_compute_format_bpc(connector, conn_state,
++						      mode, max_bpc,
++						      HDMI_COLORSPACE_YUV420);
++			if (ret)
++				drm_dbg_kms(connector->dev,
++					    "YUV420 output format doesn't work.\n");
++		} else {
++			drm_dbg_kms(connector->dev,
++				    "YUV420 output format not allowed for connector.\n");
++			ret = -EINVAL;
++		}
++	}
+ 
+ 	return ret;
+ }
+-- 
+2.39.5
+

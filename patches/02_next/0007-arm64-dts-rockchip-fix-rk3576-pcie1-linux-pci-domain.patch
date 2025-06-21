@@ -1,0 +1,35 @@
+From 6fb0285430d5cb8261d33561edbf35f4f14968b0 Mon Sep 17 00:00:00 2001
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Date: Tue, 3 Jun 2025 10:35:40 +0800
+Subject: [PATCH 07/47] arm64: dts: rockchip: fix rk3576 pcie1 linux,pci-domain
+
+pcie0 already used 0 as its pci-domain, so pcie1 will fail to
+allocate the same pci-domain if both of them are used.
+
+rk-pcie 2a210000.pcie: PCIe Link up, LTSSM is 0x130011
+rk-pcie 2a210000.pcie: PCIe Gen.2 x1 link up
+rk-pcie 2a210000.pcie: Scanning root bridge failed
+rk-pcie 2a210000.pcie: failed to initialize host
+
+Fixes: d4b9fc2af45d ("arm64: dts: rockchip: Add rk3576 pcie nodes")
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 4f1c45339..d89d43ec6 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -759,7 +759,7 @@ pcie1: pcie@22400000 {
+ 					<0 0 0 2 &pcie1_intc 1>,
+ 					<0 0 0 3 &pcie1_intc 2>,
+ 					<0 0 0 4 &pcie1_intc 3>;
+-			linux,pci-domain = <0>;
++			linux,pci-domain = <1>;
+ 			max-link-speed = <2>;
+ 			num-ib-windows = <8>;
+ 			num-viewport = <8>;
+-- 
+2.39.5
+

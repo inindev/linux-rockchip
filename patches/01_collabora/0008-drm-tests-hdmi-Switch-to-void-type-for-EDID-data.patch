@@ -1,0 +1,43 @@
+From a9a9412007fd0fbafe31c03cee00f30dff2e493c Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:16 +0300
+Subject: [PATCH 08/82] drm/tests: hdmi: Switch to 'void *' type for EDID data
+
+Replace 'const char *' with 'const void *' type for current_edid member
+in struct drm_atomic_helper_connector_hdmi_priv, as well as for the edid
+parameter of set_connector_edid() function.
+
+Suggested-by: Jani Nikula <jani.nikula@linux.intel.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-8-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index c8dc6fa0f..00576f747 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -33,7 +33,7 @@ struct drm_atomic_helper_connector_hdmi_priv {
+ 	struct drm_encoder encoder;
+ 	struct drm_connector connector;
+ 
+-	const char *current_edid;
++	const void *current_edid;
+ 	size_t current_edid_len;
+ };
+ 
+@@ -56,7 +56,7 @@ static struct drm_display_mode *find_preferred_mode(struct drm_connector *connec
+ }
+ 
+ static int set_connector_edid(struct kunit *test, struct drm_connector *connector,
+-			      const char *edid, size_t edid_len)
++			      const void *edid, size_t edid_len)
+ {
+ 	struct drm_atomic_helper_connector_hdmi_priv *priv =
+ 		connector_to_priv(connector);
+-- 
+2.39.5
+

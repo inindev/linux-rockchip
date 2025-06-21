@@ -1,0 +1,36 @@
+From 61d61a5247abb53183f23a020ef0179d9f048547 Mon Sep 17 00:00:00 2001
+From: Jonas Karlman <jonas@kwiboo.se>
+Date: Sun, 18 May 2025 22:06:50 +0000
+Subject: [PATCH 38/47] dt-bindings: rockchip: pmu: Add compatible for RK3528
+
+Add the compatible for the pmu mfd on RK3528 SoC.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip/pmu.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml b/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
+index 46c1af851..55b2200d6 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
+@@ -25,6 +25,7 @@ select:
+           - rockchip,rk3288-pmu
+           - rockchip,rk3368-pmu
+           - rockchip,rk3399-pmu
++          - rockchip,rk3528-pmu
+           - rockchip,rk3562-pmu
+           - rockchip,rk3568-pmu
+           - rockchip,rk3576-pmu
+@@ -44,6 +45,7 @@ properties:
+           - rockchip,rk3288-pmu
+           - rockchip,rk3368-pmu
+           - rockchip,rk3399-pmu
++          - rockchip,rk3528-pmu
+           - rockchip,rk3562-pmu
+           - rockchip,rk3568-pmu
+           - rockchip,rk3576-pmu
+-- 
+2.39.5
+

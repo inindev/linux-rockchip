@@ -1,0 +1,29 @@
+From 3f289668e55bc03e28b5f2d6b2587344d85f90f2 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 10 Apr 2025 22:44:33 +0200
+Subject: [PATCH 56/82] arm64: defconfig: Enable Rockchip RK3588 DisplayPort
+ Controller
+
+Enable support for the RK3588 DisplayPort Controller, which is
+mainly used for USB-C DisplayPort Alternate Mode.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index b773ecfc1..0fbb0b424 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -895,6 +895,7 @@ CONFIG_DRM_ROCKCHIP=m
+ CONFIG_ROCKCHIP_VOP2=y
+ CONFIG_ROCKCHIP_ANALOGIX_DP=y
+ CONFIG_ROCKCHIP_CDN_DP=y
++CONFIG_ROCKCHIP_DW_DP=y
+ CONFIG_ROCKCHIP_DW_HDMI=y
+ CONFIG_ROCKCHIP_DW_HDMI_QP=y
+ CONFIG_ROCKCHIP_DW_MIPI_DSI=y
+-- 
+2.39.5
+

@@ -1,0 +1,37 @@
+From 2d76dcb03c4bba65c577df8d59630a3f4210345d Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:20 +0300
+Subject: [PATCH 12/82] drm/tests: hdmi: Setup ycbcr_420_allowed before
+ initializing connector
+
+Initializing HDMI connector via drmm_connector_hdmi_init() requires its
+->ycbcr_420_allowed flag to be adjusted according to the supported
+formats passed as function argument, prior to the actual invocation.
+
+In order to allow providing test coverage for YUV420 modes, ensure the
+flag is properly setup.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-12-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index 64037110b..e3e2878d2 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -183,6 +183,8 @@ __connector_hdmi_init(struct kunit *test,
+ 	enc->possible_crtcs = drm_crtc_mask(priv->crtc);
+ 
+ 	conn = &priv->connector;
++	conn->ycbcr_420_allowed = !!(formats & BIT(HDMI_COLORSPACE_YUV420));
++
+ 	ret = drmm_connector_hdmi_init(drm, conn,
+ 				       "Vendor", "Product",
+ 				       &dummy_connector_funcs,
+-- 
+2.39.5
+

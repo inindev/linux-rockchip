@@ -1,0 +1,120 @@
+From cd230a54e62362d82d367642131c96230927a941 Mon Sep 17 00:00:00 2001
+From: Chris Morgan <macromorgan@hotmail.com>
+Date: Tue, 3 Jun 2025 14:39:30 -0500
+Subject: [PATCH 04/47] arm64: dts: rockchip: Add DSI panel support for
+ gameforce-ace
+
+Enable the DSI controller, DSI DCPHY, and Huiling hl055fhav028c
+1080x1920 panel for the Gameforce Ace.
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+---
+ .../dts/rockchip/rk3588s-gameforce-ace.dts    | 66 +++++++++++++++++++
+ 1 file changed, 66 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
+index 873a2bd6a..bb7c1b732 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
+@@ -7,6 +7,7 @@
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/pwm/pwm.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include <dt-bindings/thermal/thermal.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588s.dtsi"
+@@ -456,6 +457,42 @@ &cpu_b3 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
+ };
+ 
++&dsi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	panel@0 {
++		compatible = "huiling,hl055fhav028c", "himax,hx8399c";
++		reg = <0>;
++		backlight = <&backlight>;
++		iovcc-supply = <&vcc3v3_lcd0_n>;
++		pinctrl-0 = <&lcd_rst>;
++		pinctrl-names = "default";
++		reset-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_LOW>;
++		rotation = <90>;
++		vcc-supply = <&vcc3v3_lcd0_n>;
++
++		port {
++			mipi_panel_in: endpoint {
++				remote-endpoint = <&dsi0_out_panel>;
++			};
++		};
++	};
++};
++
++&dsi0_in {
++	dsi0_in_vp3: endpoint {
++		remote-endpoint = <&vp3_out_dsi0>;
++	};
++};
++
++&dsi0_out {
++	dsi0_out_panel: endpoint {
++		remote-endpoint = <&mipi_panel_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	status = "okay";
+@@ -633,6 +670,10 @@ &i2s0_sdi0
+ 	status = "okay";
+ };
+ 
++&mipidcphy0 {
++	status = "okay";
++};
++
+ &package_thermal {
+ 	polling-delay = <1000>;
+ 
+@@ -769,6 +810,13 @@ lcd_bl_en: lcd-bl-en {
+ 		};
+ 	};
+ 
++	lcd_rst {
++		lcd_rst: lcd-rst {
++			rockchip,pins =
++				<1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	pcie-pins {
+ 		pcie_rst: pcie-rst {
+ 			rockchip,pins =
+@@ -1239,3 +1287,21 @@ bluetooth {
+ 		shutdown-gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
+ 	};
+ };
++
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vp3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	vp3_out_dsi0: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
++		reg = <ROCKCHIP_VOP2_EP_MIPI0>;
++		remote-endpoint = <&dsi0_in_vp3>;
++	};
++};
+-- 
+2.39.5
+

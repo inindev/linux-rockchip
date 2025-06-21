@@ -1,0 +1,100 @@
+From 380f2f2f3905081dd3f09f12643c9d01e329981b Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:17 +0300
+Subject: [PATCH 09/82] drm/tests: hdmi: Add macro to simplify EDID setup
+
+Factor out the HDMI connector initialization from
+drm_kunit_helper_connector_hdmi_init_funcs() into a common
+__connector_hdmi_init() function, while extending its functionality to
+allow setting custom (i.e. non-default) EDID data.
+
+Introduce a macro as a wrapper over the new helper to allow dropping the
+open coded EDID setup from all test cases.
+
+The actual conversion will be handled separately; for now just apply it
+to drm_kunit_helper_connector_hdmi_init() helper.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-9-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ .../drm/tests/drm_hdmi_state_helper_test.c    | 46 +++++++++++--------
+ 1 file changed, 28 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index 00576f747..beee73e7a 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -140,10 +140,11 @@ static const struct drm_connector_funcs dummy_connector_funcs = {
+ 
+ static
+ struct drm_atomic_helper_connector_hdmi_priv *
+-drm_kunit_helper_connector_hdmi_init_funcs(struct kunit *test,
+-					   unsigned int formats,
+-					   unsigned int max_bpc,
+-					   const struct drm_connector_hdmi_funcs *hdmi_funcs)
++__connector_hdmi_init(struct kunit *test,
++		      unsigned int formats,
++		      unsigned int max_bpc,
++		      const struct drm_connector_hdmi_funcs *hdmi_funcs,
++		      const void *edid_data, size_t edid_len)
+ {
+ 	struct drm_atomic_helper_connector_hdmi_priv *priv;
+ 	struct drm_connector *conn;
+@@ -197,29 +198,38 @@ drm_kunit_helper_connector_hdmi_init_funcs(struct kunit *test,
+ 
+ 	drm_mode_config_reset(drm);
+ 
++	if (edid_data && edid_len) {
++		ret = set_connector_edid(test, &priv->connector, edid_data, edid_len);
++		KUNIT_ASSERT_GT(test, ret, 0);
++	}
++
+ 	return priv;
+ }
+ 
++static
++struct drm_atomic_helper_connector_hdmi_priv *
++drm_kunit_helper_connector_hdmi_init_funcs(struct kunit *test,
++					   unsigned int formats,
++					   unsigned int max_bpc,
++					   const struct drm_connector_hdmi_funcs *hdmi_funcs)
++{
++	return __connector_hdmi_init(test, formats, max_bpc, hdmi_funcs, NULL, 0);
++}
++
++#define drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test, formats, max_bpc, funcs, edid) \
++	__connector_hdmi_init(test, formats, max_bpc, funcs, edid, ARRAY_SIZE(edid))
++
+ static
+ struct drm_atomic_helper_connector_hdmi_priv *
+ drm_kunit_helper_connector_hdmi_init(struct kunit *test,
+ 				     unsigned int formats,
+ 				     unsigned int max_bpc)
+ {
+-	struct drm_atomic_helper_connector_hdmi_priv *priv;
+-	int ret;
+-
+-	priv = drm_kunit_helper_connector_hdmi_init_funcs(test,
+-							  formats, max_bpc,
+-							  &dummy_connector_hdmi_funcs);
+-	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
+-
+-	ret = set_connector_edid(test, &priv->connector,
+-				 test_edid_hdmi_1080p_rgb_max_200mhz,
+-				 ARRAY_SIZE(test_edid_hdmi_1080p_rgb_max_200mhz));
+-	KUNIT_ASSERT_GT(test, ret, 0);
+-
+-	return priv;
++	return drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
++				formats,
++				max_bpc,
++				&dummy_connector_hdmi_funcs,
++				test_edid_hdmi_1080p_rgb_max_200mhz);
+ }
+ 
+ /*
+-- 
+2.39.5
+

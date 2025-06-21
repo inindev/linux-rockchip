@@ -1,0 +1,30 @@
+From c767c93a416fb3bc4173691add30efa9b495df6b Mon Sep 17 00:00:00 2001
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 10 Jun 2025 14:32:38 +0200
+Subject: [PATCH 72/82] dt-bindings: rockchip-thermal: Add RK3576 compatible
+
+Add a new compatible for the thermal sensor device on the RK3576 SoC.
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Link: https://lore.kernel.org/r/20250610-rk3576-tsadc-upstream-v6-2-b6e9efbf1015@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index b717ea826..49ceed68c 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -21,6 +21,7 @@ properties:
+       - rockchip,rk3368-tsadc
+       - rockchip,rk3399-tsadc
+       - rockchip,rk3568-tsadc
++      - rockchip,rk3576-tsadc
+       - rockchip,rk3588-tsadc
+       - rockchip,rv1108-tsadc
+ 
+-- 
+2.39.5
+

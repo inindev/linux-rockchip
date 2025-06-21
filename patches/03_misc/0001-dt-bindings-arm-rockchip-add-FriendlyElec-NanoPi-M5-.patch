@@ -1,0 +1,33 @@
+From 3aeba5279080a681c1e54880f4d5a9df3d196f86 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Mon, 16 Jun 2025 16:43:51 -0400
+Subject: [PATCH 1/6] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5
+ board
+
+Add device tree documentation for rk3576-nanopi-m5
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 58b9312c6..28db6bd6a 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -300,6 +300,12 @@ properties:
+               - friendlyarm,nanopi-r4s-enterprise
+           - const: rockchip,rk3399
+ 
++      - description: FriendlyElec NanoPi M5 series boards
++        items:
++          - enum:
++              - friendlyarm,nanopi-m5
++          - const: rockchip,rk3576
++
+       - description: FriendlyElec NanoPi R5 series boards
+         items:
+           - enum:
+-- 
+2.39.5
+

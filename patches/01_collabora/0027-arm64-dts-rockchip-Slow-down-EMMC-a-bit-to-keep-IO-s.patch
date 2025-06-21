@@ -1,0 +1,35 @@
+From cc9fd1e264c6883db9fda5fde0b321271892f387 Mon Sep 17 00:00:00 2001
+From: "Carsten Haitzler (Rasterman)" <raster@rasterman.com>
+Date: Tue, 6 Feb 2024 10:12:54 +0000
+Subject: [PATCH 27/82] arm64: dts: rockchip: Slow down EMMC a bit to keep IO
+ stable
+
+This drops to hs200 mode and 150Mhz as this is actually stable across
+eMMC modules. There exist some that are incompatible at higher rates
+with the rk3588 and to avoid your filesystem corrupting due to IO
+errors, be more conservative and reduce the max. speed.
+
+Signed-off-by: Carsten Haitzler <raster@rasterman.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+index 6052787d2..7d30335d2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+@@ -497,8 +497,8 @@ &sdhci {
+ 	no-sdio;
+ 	no-sd;
+ 	non-removable;
+-	mmc-hs400-1_8v;
+-	mmc-hs400-enhanced-strobe;
++	max-frequency = <150000000>;
++	mmc-hs200-1_8v;
+ 	status = "okay";
+ };
+ 
+-- 
+2.39.5
+

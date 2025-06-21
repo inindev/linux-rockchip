@@ -1,0 +1,33 @@
+From b93d72449866a3cdbfbb0018dd6f7368df382ddf Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:11 +0300
+Subject: [PATCH 03/82] drm/connector: hdmi: Improve debug message for
+ supported format
+
+Add the missing 'bpc' string to the debug message indicating the
+supported format identified within hdmi_try_format_bpc() helper.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-3-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index eb284032e..a0cb3163f 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -596,7 +596,7 @@ hdmi_try_format_bpc(const struct drm_connector *connector,
+ 		return false;
+ 	}
+ 
+-	drm_dbg_kms(dev, "%s output format supported with %u (TMDS char rate: %llu Hz)\n",
++	drm_dbg_kms(dev, "%s output format supported with %u bpc (TMDS char rate: %llu Hz)\n",
+ 		    drm_hdmi_connector_get_output_format_name(fmt),
+ 		    bpc, conn_state->hdmi.tmds_char_rate);
+ 
+-- 
+2.39.5
+

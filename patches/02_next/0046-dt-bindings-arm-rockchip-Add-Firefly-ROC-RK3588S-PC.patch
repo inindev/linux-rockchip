@@ -1,0 +1,35 @@
+From a66b540e68ab63f89e624a6e93734fbe186c3ff4 Mon Sep 17 00:00:00 2001
+From: Hsun Lai <i@chainsx.cn>
+Date: Mon, 9 Jun 2025 19:30:43 +0800
+Subject: [PATCH 46/47] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
+
+This documents Firefly ROC-RK3588S-PC which is a SBC based on RK3588S SoC.
+
+Link: https://wiki.t-firefly.com/en/Station-M3/index.html
+
+Signed-off-by: Hsun Lai <i@chainsx.cn>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 59b69c474..58b9312c6 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -258,6 +258,11 @@ properties:
+           - const: firefly,rk3566-roc-pc
+           - const: rockchip,rk3566
+ 
++      - description: Firefly Station M3
++        items:
++          - const: firefly,rk3588s-roc-pc
++          - const: rockchip,rk3588s
++
+       - description: Firefly Station P2
+         items:
+           - const: firefly,rk3568-roc-pc
+-- 
+2.39.5
+

@@ -1,0 +1,42 @@
+From 7fd9ed426047e88214964a52d5f588708a087fd1 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 27 May 2025 15:11:19 +0300
+Subject: [PATCH 11/82] drm/tests: hdmi: Drop unused
+ drm_kunit_helper_connector_hdmi_init_funcs()
+
+After updating the code to make use of the new EDID setup helper,
+drm_kunit_helper_connector_hdmi_init_funcs() became unused, hence drop
+it.
+
+Acked-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250527-hdmi-conn-yuv-v5-11-74c9c4a8ac0c@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index b8f4dc677..64037110b 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -206,16 +206,6 @@ __connector_hdmi_init(struct kunit *test,
+ 	return priv;
+ }
+ 
+-static
+-struct drm_atomic_helper_connector_hdmi_priv *
+-drm_kunit_helper_connector_hdmi_init_funcs(struct kunit *test,
+-					   unsigned int formats,
+-					   unsigned int max_bpc,
+-					   const struct drm_connector_hdmi_funcs *hdmi_funcs)
+-{
+-	return __connector_hdmi_init(test, formats, max_bpc, hdmi_funcs, NULL, 0);
+-}
+-
+ #define drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test, formats, max_bpc, funcs, edid) \
+ 	__connector_hdmi_init(test, formats, max_bpc, funcs, edid, ARRAY_SIZE(edid))
+ 
+-- 
+2.39.5
+
