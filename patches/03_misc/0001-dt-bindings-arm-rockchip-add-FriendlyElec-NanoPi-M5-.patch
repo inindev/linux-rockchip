@@ -1,4 +1,4 @@
-From 3aeba5279080a681c1e54880f4d5a9df3d196f86 Mon Sep 17 00:00:00 2001
+From 01bb5f2734f667667f47ceea9becd7a7b2d4eeb6 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Mon, 16 Jun 2025 16:43:51 -0400
 Subject: [PATCH 1/6] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5
@@ -7,6 +7,7 @@ Subject: [PATCH 1/6] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5
 Add device tree documentation for rk3576-nanopi-m5
 
 Signed-off-by: John Clark <inindev@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
  Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++++
  1 file changed, 6 insertions(+)

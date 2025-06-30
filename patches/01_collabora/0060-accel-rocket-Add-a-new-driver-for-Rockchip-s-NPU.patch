@@ -1,4 +1,4 @@
-From faefde7caf5bcaf16164b0981c49de0ee674e74d Mon Sep 17 00:00:00 2001
+From 0d581b1e82f54ac55510555b9156862e6a9ba9ec Mon Sep 17 00:00:00 2001
 From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 Date: Fri, 6 Jun 2025 08:28:22 +0200
 Subject: [PATCH 60/82] accel/rocket: Add a new driver for Rockchip's NPU
@@ -109,10 +109,10 @@ index 000000000..300eb3aea
 +* RK3588
 \ No newline at end of file
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 0c1d245bf..114880a83 100644
+index 4bac4ea21..6c21e5afd 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -7392,6 +7392,16 @@ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+@@ -7391,6 +7391,16 @@ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
  F:	drivers/accel/ivpu/
  F:	include/uapi/drm/ivpu_accel.h
  
