@@ -1,0 +1,36 @@
+From 7c6a927ef903dfc1ab8a73095456d99697260075 Mon Sep 17 00:00:00 2001
+From: Jonas Karlman <jonas@kwiboo.se>
+Date: Sun, 18 May 2025 22:06:53 +0000
+Subject: [PATCH 35/42] dt-bindings: gpio: rockchip: Allow use of a
+ power-domain
+
+The GPIO controllers in most Rockchip SoCs are part or power domains
+that are always powered on, i.e. PD_BUS or PD_PMU.
+
+On RK3528 the GPIO controllers are spread out among the PD_RKVENC, PD_VO
+and PD_VPU power domains.
+
+Add support to describe power-domains for the GPIO controllers.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml b/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
+index d76987ce8..bdd83f426 100644
+--- a/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
++++ b/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
+@@ -41,6 +41,9 @@ properties:
+   "#interrupt-cells":
+     const: 2
+ 
++  power-domains:
++    maxItems: 1
++
+ patternProperties:
+   "^.+-hog(-[0-9]+)?$":
+     type: object
+-- 
+2.39.5
+

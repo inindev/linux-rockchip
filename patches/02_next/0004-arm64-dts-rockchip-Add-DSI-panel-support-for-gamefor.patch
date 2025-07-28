@@ -1,7 +1,7 @@
-From cd230a54e62362d82d367642131c96230927a941 Mon Sep 17 00:00:00 2001
+From a3f5b8e58102e921f33a933e73c93eb6e727572b Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Tue, 3 Jun 2025 14:39:30 -0500
-Subject: [PATCH 04/47] arm64: dts: rockchip: Add DSI panel support for
+Subject: [PATCH 04/42] arm64: dts: rockchip: Add DSI panel support for
  gameforce-ace
 
 Enable the DSI controller, DSI DCPHY, and Huiling hl055fhav028c

@@ -1,0 +1,38 @@
+From a1fa614e09d2585bc223aaca5a891d569e08c41c Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Thu, 15 May 2025 20:27:12 -0400
+Subject: [PATCH 23/42] dt-bindings: arm: rockchip: Add Luckfox Omni3576 and
+ Core3576 bindings
+
+Add device tree binding for Luckfox Core3576 Module based boards,
+specifically the Luckfox Omni3576, with compatibility for the Rockchip
+RK3576 SoC.
+
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 3bdc9bd3f..59b69c474 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -715,6 +715,13 @@ properties:
+           - const: lckfb,tspi-rk3566
+           - const: rockchip,rk3566
+ 
++      - description: Luckfox Core3576 Module based boards
++        items:
++          - enum:
++              - luckfox,omni3576
++          - const: luckfox,core3576
++          - const: rockchip,rk3576
++
+       - description: Lunzn FastRhino R66S / R68S
+         items:
+           - enum:
+-- 
+2.39.5
+

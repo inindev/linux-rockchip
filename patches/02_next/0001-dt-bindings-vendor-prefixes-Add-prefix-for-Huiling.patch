@@ -1,7 +1,7 @@
-From 3c32f5548c3000024d6f433e45352c682cfaad15 Mon Sep 17 00:00:00 2001
+From 0a93d12a4173dcc171c90299debe53593b82e7f2 Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Tue, 3 Jun 2025 14:39:27 -0500
-Subject: [PATCH 01/47] dt-bindings: vendor-prefixes: Add prefix for Huiling
+Subject: [PATCH 01/42] dt-bindings: vendor-prefixes: Add prefix for Huiling
 
 Shenzhen Huiling Information Technology Co. Ltd. specializes in the
 research and manufacturing of display and touch screens for industrial

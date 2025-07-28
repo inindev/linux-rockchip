@@ -1,7 +1,7 @@
-From 3af59b4b6db9a192d5f39455d1f25aabcfbee1b4 Mon Sep 17 00:00:00 2001
+From 251c5d3c416bd8e697b88718f62a4012b5e1ee77 Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Tue, 3 Jun 2025 14:39:28 -0500
-Subject: [PATCH 02/47] dt-bindings: display: himax-hx8394: Add Huiling
+Subject: [PATCH 02/42] dt-bindings: display: himax-hx8394: Add Huiling
  hl055fhav028c
 
 Add compatible string for the Huiling hl055fhav028c. This panel is

@@ -1,7 +1,7 @@
-From 06b96a93c84f0652bffec202148525e3fe06d510 Mon Sep 17 00:00:00 2001
+From 8b56600724c53f8d2e2528bacd3ba976ded2d3e0 Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Tue, 3 Jun 2025 14:39:29 -0500
-Subject: [PATCH 03/47] drm/panel: himax-hx8394: Add Support for Huiling
+Subject: [PATCH 03/42] drm/panel: himax-hx8394: Add Support for Huiling
  hl055fhav028c
 
 Add support for the Huiling hl055fhav028c panel as used on the

@@ -1,7 +1,7 @@
-From 8d7bb0120cab33d8d534d68dbb818980517b0fea Mon Sep 17 00:00:00 2001
+From 1e96db548fd4443f4f8d466165595ac5326a8bb5 Mon Sep 17 00:00:00 2001
 From: Quentin Schulz <quentin.schulz@cherry.de>
 Date: Wed, 4 Jun 2025 18:18:08 +0200
-Subject: [PATCH 05/47] arm64: dts: rockchip: support Ethernet Switch adapter
+Subject: [PATCH 05/42] arm64: dts: rockchip: support Ethernet Switch adapter
  for RK3588 Jaguar
 
 This adds support for the Ethernet Switch adapter connected to the

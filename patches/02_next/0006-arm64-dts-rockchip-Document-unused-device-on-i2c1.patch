@@ -1,7 +1,7 @@
-From 5e4ba1db4f53163acce102d90ed09991d569c673 Mon Sep 17 00:00:00 2001
+From 7185a42b39947ce41054a8898725519ce20f32b1 Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Tue, 3 Jun 2025 21:41:19 -0500
-Subject: [PATCH 06/47] arm64: dts: rockchip: Document unused device on i2c1
+Subject: [PATCH 06/42] arm64: dts: rockchip: Document unused device on i2c1
 
 Update the i2c1 bus noting that the unknown/unused device at 0x3c is an
 iSmartWare SW2001 "encryption IC".
