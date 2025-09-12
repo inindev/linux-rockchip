@@ -1,0 +1,41 @@
+From 6230f2a519f9129bd9162d6ee0fe3893b9a14085 Mon Sep 17 00:00:00 2001
+From: Mehdi Djait <mehdi.djait@bootlin.com>
+Date: Mon, 1 Sep 2025 23:40:14 +0200
+Subject: [PATCH 105/123] arm64: dts: rockchip: add the vip node to px30
+
+Add the device tree node for the PX30 Video Input Processor (VIP).
+
+Signed-off-by: Mehdi Djait <mehdi.djait@bootlin.com>
+[added cosmetic changes]
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/px30.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/px30.dtsi b/arch/arm64/boot/dts/rockchip/px30.dtsi
+index 46f64cd33..ef52879d6 100644
+--- a/arch/arm64/boot/dts/rockchip/px30.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30.dtsi
+@@ -1280,6 +1280,18 @@ isp_mmu: iommu@ff4a8000 {
+ 		#iommu-cells = <0>;
+ 	};
+ 
++	cif: video-capture@ff490000 {
++		compatible = "rockchip,px30-vip";
++		reg = <0x0 0xff490000 0x0 0x200>;
++		interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru ACLK_CIF>, <&cru HCLK_CIF>, <&cru PCLK_CIF>;
++		clock-names = "aclk", "hclk", "pclk";
++		power-domains = <&power PX30_PD_VI>;
++		resets = <&cru SRST_CIF_A>, <&cru SRST_CIF_H>, <&cru SRST_CIF_PCLKIN>;
++		reset-names = "axi", "ahb", "pclkin";
++		status = "disabled";
++	};
++
+ 	qos_gmac: qos@ff518000 {
+ 		compatible = "rockchip,px30-qos", "syscon";
+ 		reg = <0x0 0xff518000 0x0 0x20>;
+-- 
+2.47.3
+

@@ -1,0 +1,34 @@
+From f0a6705e0ef89757adfe324431757dfe36439654 Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Wed, 3 Sep 2025 21:49:56 +0200
+Subject: [PATCH 116/123] .gitlab-ci: enable imx415 image sensor driver
+
+---
+ drivers/media/platform/rockchip/rkcsi/rkcsi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+index e5fd16b4c..19ad03eee 100644
+--- a/drivers/media/platform/rockchip/rkcsi/rkcsi.c
++++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+@@ -668,7 +668,7 @@ static int rkcsi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(csi_dev->base_addr))
+ 		return PTR_ERR(csi_dev->base_addr);
+ 
+-	irq = platform_get_irq_byname(pdev, "intr1");
++	irq = platform_get_irq_byname(pdev, "irq1");
+ 	if (irq > 0) {
+ 		ret = devm_request_irq(dev, irq, rkcsi_isr, 0,
+ 				       dev_driver_string(dev), dev);
+@@ -679,7 +679,7 @@ static int rkcsi_probe(struct platform_device *pdev)
+ 		dev_err(&pdev->dev, "No found irq csi-intr1\n");
+ 	}
+ 
+-	irq = platform_get_irq_byname(pdev, "intr2");
++	irq = platform_get_irq_byname(pdev, "irq2");
+ 	if (irq > 0) {
+ 		ret = devm_request_irq(dev, irq, rkcsi_isr, 0,
+ 				       dev_driver_string(dev), dev);
+-- 
+2.47.3
+

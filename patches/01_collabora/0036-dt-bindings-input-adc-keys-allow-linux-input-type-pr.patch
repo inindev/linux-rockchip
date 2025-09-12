@@ -1,0 +1,37 @@
+From 3f727402456a02cd5e51ffecc0407a3654bd40ac Mon Sep 17 00:00:00 2001
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 30 Jun 2025 12:19:24 +0200
+Subject: [PATCH 036/123] dt-bindings: input: adc-keys: allow linux,input-type
+ property
+
+adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
+property. This makes it impossible to model devices that have ADC inputs
+that should generate switch events.
+
+Add the property to the binding with the same default as gpio-keys.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20250630-rock4d-audio-v1-1-0b3c8e8fda9c@collabora.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ Documentation/devicetree/bindings/input/adc-keys.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/input/adc-keys.yaml b/Documentation/devicetree/bindings/input/adc-keys.yaml
+index 7aa078dea..e372ebc23 100644
+--- a/Documentation/devicetree/bindings/input/adc-keys.yaml
++++ b/Documentation/devicetree/bindings/input/adc-keys.yaml
+@@ -42,6 +42,9 @@ patternProperties:
+ 
+       linux,code: true
+ 
++      linux,input-type:
++        default: 1  # EV_KEY
++
+       press-threshold-microvolt:
+         description:
+           Voltage above or equal to which this key is considered pressed. No
+-- 
+2.47.3
+

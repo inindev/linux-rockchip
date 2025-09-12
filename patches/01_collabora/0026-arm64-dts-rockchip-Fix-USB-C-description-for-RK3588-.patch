@@ -1,0 +1,96 @@
+From b9d79e68586ea6d9ae9b3186415cfd1641ab6272 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 29 Jul 2025 18:21:03 +0200
+Subject: [PATCH 026/123] arm64: dts: rockchip: Fix USB-C description for
+ RK3588 EVB1
+
+Fix the USB-C connector description, so that it follows the binding:
+
+port@0 is the high-speed lanes
+port@1 is the super-speed lanes
+port@2 is the SBU lanes
+
+Right now the high-speed and super-speed links are swapped and
+for the high-speed lanes the link points to the controller instead
+of the PHY. I'm still investigating if this should be changed.
+
+This also updates the port naming, so that it describes the hardware
+instead of how the drivers are using the information. These are
+effectively the same, but the DT should describe hardware and not
+software.
+
+Fixes: b37146b5a555 ("arm64: dts: rockchip: add USB3 to rk3588-evb1")
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588-evb1-v10.dts     | 24 +++++++++----------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+index a7775d15b..8a4364c4d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
+@@ -497,24 +497,24 @@ ports {
+ 				port@0 {
+ 					reg = <0>;
+ 
+-					usbc0_orien_sw: endpoint {
+-						remote-endpoint = <&usbdp_phy0_orientation_switch>;
++					usbc0_hs: endpoint {
++						remote-endpoint = <&usb_host0_xhci_to_usbc0>;
+ 					};
+ 				};
+ 
+ 				port@1 {
+ 					reg = <1>;
+ 
+-					usbc0_role_sw: endpoint {
+-						remote-endpoint = <&dwc3_0_role_switch>;
++					usbc0_ss: endpoint {
++						remote-endpoint = <&usbdp_phy0_ss>;
+ 					};
+ 				};
+ 
+ 				port@2 {
+ 					reg = <2>;
+ 
+-					dp_altmode_mux: endpoint {
+-						remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
++					usbc0_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy0_sbu>;
+ 					};
+ 				};
+ 			};
+@@ -1482,14 +1482,14 @@ port {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		usbdp_phy0_orientation_switch: endpoint@0 {
++		usbdp_phy0_ss: endpoint@0 {
+ 			reg = <0>;
+-			remote-endpoint = <&usbc0_orien_sw>;
++			remote-endpoint = <&usbc0_ss>;
+ 		};
+ 
+-		usbdp_phy0_dp_altmode_mux: endpoint@1 {
++		usbdp_phy0_sbu: endpoint@1 {
+ 			reg = <1>;
+-			remote-endpoint = <&dp_altmode_mux>;
++			remote-endpoint = <&usbc0_sbu>;
+ 		};
+ 	};
+ };
+@@ -1514,9 +1514,9 @@ port {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		dwc3_0_role_switch: endpoint@0 {
++		usb_host0_xhci_to_usbc0: endpoint@0 {
+ 			reg = <0>;
+-			remote-endpoint = <&usbc0_role_sw>;
++			remote-endpoint = <&usbc0_hs>;
+ 		};
+ 	};
+ };
+-- 
+2.47.3
+

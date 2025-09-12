@@ -1,0 +1,89 @@
+From 8048ffaafaef3920363a61e1f6c538f7b9837e86 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 10 Jul 2025 00:01:13 +0300
+Subject: [PATCH 047/123] drm/bridge: dw-hdmi-qp: Fixup timer base setup
+
+Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
+value as initially found in vendor driver code supporting the RK3588
+SoC.  As a matter of fact the value matches the rate of the HDMI TX
+reference clock, which is roughly 428.57 MHz.
+
+However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, and
+the incorrect register configuration breaks CEC functionality.
+
+Set the timer base according to the actual reference clock rate that
+shall be provided by the platform driver.
+
+While at it, also drop the unnecessary empty lines in
+dw_hdmi_qp_init_hw().
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Link: https://lore.kernel.org/r/20250710-rk3588-hdmi-cec-v2-2-f5884be34bc1@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 ++++++++---
+ include/drm/bridge/dw_hdmi_qp.h              |  1 +
+ 2 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 8be73f71e..9115a7644 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -161,6 +161,7 @@ struct dw_hdmi_qp {
+ 		void *data;
+ 	} phy;
+ 
++	unsigned long ref_clk_rate;
+ 	struct regmap *regm;
+ 
+ 	unsigned long tmds_char_rate;
+@@ -1222,13 +1223,11 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
+ {
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_0_INT_MASK_N);
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_1_INT_MASK_N);
+-	dw_hdmi_qp_write(hdmi, 428571429, TIMER_BASE_CONFIG0);
++	dw_hdmi_qp_write(hdmi, hdmi->ref_clk_rate, TIMER_BASE_CONFIG0);
+ 
+ 	/* Software reset */
+ 	dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+-
+ 	dw_hdmi_qp_write(hdmi, 0x085c085c, I2CM_FM_SCL_CONFIG0);
+-
+ 	dw_hdmi_qp_mod(hdmi, 0, I2CM_FM_EN, I2CM_INTERFACE_CONTROL0);
+ 
+ 	/* Clear DONE and ERROR interrupts */
+@@ -1254,6 +1253,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 		return ERR_PTR(-ENODEV);
+ 	}
+ 
++	if (!plat_data->ref_clk_rate) {
++		dev_err(dev, "Missing ref_clk rate\n");
++		return ERR_PTR(-ENODEV);
++	}
++
+ 	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi_qp, bridge,
+ 				     &dw_hdmi_qp_bridge_funcs);
+ 	if (IS_ERR(hdmi))
+@@ -1273,6 +1277,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 
+ 	hdmi->phy.ops = plat_data->phy_ops;
+ 	hdmi->phy.data = plat_data->phy_data;
++	hdmi->ref_clk_rate = plat_data->ref_clk_rate;
+ 
+ 	dw_hdmi_qp_init_hw(hdmi);
+ 
+diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
+index b4a9b7397..76ecf3130 100644
+--- a/include/drm/bridge/dw_hdmi_qp.h
++++ b/include/drm/bridge/dw_hdmi_qp.h
+@@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {
+ 	void *phy_data;
+ 	int main_irq;
+ 	int cec_irq;
++	unsigned long ref_clk_rate;
+ };
+ 
+ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+-- 
+2.47.3
+

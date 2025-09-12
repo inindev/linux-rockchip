@@ -1,0 +1,76 @@
+From c55c9a4eee7674faa53dbbecc174c48016f615fa Mon Sep 17 00:00:00 2001
+From: Alexey Charkov <alchark@gmail.com>
+Date: Wed, 13 Aug 2025 00:30:25 +0400
+Subject: [PATCH 120/123] arm64: dts: rockchip: Add Bluetooth on
+ rk3576-evb1-v10
+
+Add device tree nodes to enable Bluetooth in the Ampak AP6275P module
+found on Rockchip RK3576 EVB1 and connected over a UART link.
+
+Note that this doesn't enable the out-of-band PCM connection. It's
+routed to SAI2 M0 pins in case anyone wishes to add it.
+
+Tested-by: Pavel Zhovner <pavel@flipperdevices.com>
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+Link: https://lore.kernel.org/r/20250813-evb1-rtcwifibt-v1-3-d13c83422971@gmail.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3576-evb1-v10.dts     | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index 100ca2e23..d3e70a646 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -766,6 +766,20 @@ &pcie1 {
+ };
+ 
+ &pinctrl {
++	bluetooth {
++		bt_reg_on: bt-reg-on {
++			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++
++		bt_wake_host: bt-wake-host {
++			rockchip,pins = <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++
++		host_wake_bt: host-wake-bt {
++			rockchip,pins = <1 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -843,6 +857,27 @@ &uart0 {
+ 	status = "okay";
+ };
+ 
++&uart4 {
++	pinctrl-0 = <&uart4m1_xfer &uart4m1_ctsn &uart4m1_rtsn>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm43438-bt";
++		clocks = <&hym8563>;
++		clock-names = "lpo";
++		device-wakeup-gpios = <&gpio1 RK_PD4 GPIO_ACTIVE_HIGH>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PB1 IRQ_TYPE_LEVEL_HIGH>;
++		pinctrl-0 = <&bt_reg_on &bt_wake_host &host_wake_bt>;
++		pinctrl-names = "default";
++		shutdown-gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
++		vbat-supply = <&vcc_3v3_s3>;
++		vddio-supply = <&vcc_1v8_s3>;
++	};
++};
++
+ &ufshc {
+ 	status = "okay";
+ };
+-- 
+2.47.3
+

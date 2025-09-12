@@ -1,0 +1,45 @@
+From 60cab481f44eea3873880e9cf29f4dabad8f0aad Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 19 Aug 2025 18:01:37 +0200
+Subject: [PATCH 044/123] dt-bindings: thermal: rockchip: tighten grf
+ requirements
+
+Instead of having an optional rockchip,grf property, forbid using it on
+platforms without registers in a GRF being needed for thermal monitoring
+and make it mandatory on the platforms actually needing it. Note that
+this just documents the current status.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../bindings/thermal/rockchip-thermal.yaml        | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index 573f447cc..9fa5c4c49 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -119,6 +119,21 @@ required:
+   - resets
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,px30-tsadc
++              - rockchip,rk3366-tsadc
++              - rockchip,rk3399-tsadc
++              - rockchip,rk3568-tsadc
++    then:
++      required:
++        - rockchip,grf
++    else:
++      properties:
++        rockchip,grf: false
+   - if:
+       not:
+         properties:
+-- 
+2.47.3
+

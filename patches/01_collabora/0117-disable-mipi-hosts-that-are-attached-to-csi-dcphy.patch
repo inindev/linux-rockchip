@@ -1,0 +1,58 @@
+From 9fb99c9287adba8a380ad7d085c93f2aae16fe1a Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Tue, 2 Sep 2025 01:24:33 +0200
+Subject: [PATCH 117/123] disable mipi hosts that are attached to csi dcphy
+
+While the DSI part of the MIPI Combo DCPHYs is supported, the CSI
+side should probably not be used right now.
+
+TODO: figure out the best approach to deal with this situation.
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 6fef5f16e..37fe4c406 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1303,17 +1303,21 @@ vicap_dvp: port@0 {
+ 			vicap_mipi0: port@1 {
+ 				reg = <1>;
+ 
++/*
+ 				vicap_mipi0_input: endpoint {
+ 					remote-endpoint = <&csi0_output>;
+ 				};
++*/
+ 			};
+ 
+ 			vicap_mipi1: port@2 {
+ 				reg = <2>;
+ 
++/*
+ 				vicap_mipi1_input: endpoint {
+ 					remote-endpoint = <&csi1_output>;
+ 				};
++*/
+ 			};
+ 
+ 			vicap_mipi2: port@3 {
+@@ -1362,6 +1366,7 @@ vicap_mmu: iommu@fdce0800 {
+ 		status = "disabled";
+ 	};
+ 
++/*
+ 	csi0: csi@fdd10000 {
+ 		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
+ 		reg = <0x0 0xfdd10000 0x0 0x10000>;
+@@ -1421,6 +1426,7 @@ csi1_output: endpoint {
+ 			};
+ 		};
+ 	};
++*/
+ 
+ 	csi2: csi@fdd30000 {
+ 		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
+-- 
+2.47.3
+

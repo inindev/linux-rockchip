@@ -1,0 +1,69 @@
+From a943350ab87bdc54fd8c2c9634d1000eb05fd46f Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@wolfvision.net>
+Date: Mon, 1 Sep 2025 23:40:15 +0200
+Subject: [PATCH 107/123] arm64: dts: rockchip: add mipi csi-2 receiver node to
+ rk356x
+
+Add the device tree node for the RK356x MIPI CSI-2 Receiver.
+
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index e0e4dc85a..4c3dbcabd 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -564,6 +564,36 @@ gpu: gpu@fde60000 {
+ 		status = "disabled";
+ 	};
+ 
++	csi: csi@fdfb0000 {
++		compatible = "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdfb0000 0x0 0x10000>;
++		interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI2HOST1>;
++		phys = <&csi_dphy>;
++		power-domains = <&power RK3568_PD_VI>;
++		resets = <&cru SRST_P_CSI2HOST1>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi_in: port@0 {
++				reg = <0>;
++			};
++
++			csi_out: port@1 {
++				reg = <1>;
++
++				csi_output: endpoint {
++					remote-endpoint = <&vicap_mipi_input>;
++				};
++			};
++		};
++	};
++
+ 	vicap: video-capture@fdfe0000 {
+ 		compatible = "rockchip,rk3568-vicap";
+ 		reg = <0x0 0xfdfe0000 0x0 0x200>;
+@@ -592,6 +622,10 @@ vicap_dvp: port@0 {
+ 
+ 			vicap_mipi: port@1 {
+ 				reg = <1>;
++
++				vicap_mipi_input: endpoint {
++					remote-endpoint = <&csi_output>;
++				};
+ 			};
+ 		};
+ 	};
+-- 
+2.47.3
+

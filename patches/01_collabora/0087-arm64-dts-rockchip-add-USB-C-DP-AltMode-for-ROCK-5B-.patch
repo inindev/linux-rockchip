@@ -1,0 +1,154 @@
+From 1aaeaf05179c6cd8f0720bcedd2e2c38a1a4b5fc Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 28 Jul 2025 16:58:21 +0200
+Subject: [PATCH 087/123] arm64: dts: rockchip: add USB-C DP AltMode for ROCK
+ 5B family
+
+Enable support for USB-C DP AltMode to the ROCK 5B/5B+/5T.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 80 ++++++++++++++++---
+ 1 file changed, 69 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index 6d665d9ce..ba957deed 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -177,6 +177,22 @@ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
+ };
+ 
++&dp0 {
++	status = "okay";
++};
++
++&dp0_in {
++	dp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp0>;
++	};
++};
++
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&usbdp_phy0_dp_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	status = "okay";
+@@ -335,21 +351,21 @@ ports {
+ 				port@0 {
+ 					reg = <0>;
+ 					usbc0_hs: endpoint {
+-						remote-endpoint = <&usb_host0_xhci_to_usbc0>;
++						remote-endpoint = <&usb_host0_xhci_hs>;
+ 					};
+ 				};
+ 
+ 				port@1 {
+ 					reg = <1>;
+ 					usbc0_ss: endpoint {
+-						remote-endpoint = <&usbdp_phy0_ss>;
++						remote-endpoint = <&usbdp_phy0_ss_out>;
+ 					};
+ 				};
+ 
+ 				port@2 {
+ 					reg = <2>;
+ 					usbc0_sbu: endpoint {
+-						remote-endpoint = <&usbdp_phy0_sbu>;
++						remote-endpoint = <&usbdp_phy0_dp_out>;
+ 					};
+ 				};
+ 			};
+@@ -942,18 +958,41 @@ &usbdp_phy0 {
+ 	orientation-switch;
+ 	status = "okay";
+ 
+-	port {
++	ports {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		usbdp_phy0_ss: endpoint@0 {
++
++		port@0 {
+ 			reg = <0>;
+-			remote-endpoint = <&usbc0_ss>;
++
++			usbdp_phy0_ss_out: endpoint {
++				remote-endpoint = <&usbc0_ss>;
++			};
+ 		};
+ 
+-		usbdp_phy0_sbu: endpoint@1 {
++		port@1 {
+ 			reg = <1>;
+-			remote-endpoint = <&usbc0_sbu>;
++
++			usbdp_phy0_ss_in: endpoint {
++				remote-endpoint = <&usb_host0_xhci_ss>;
++			};
++		};
++
++		port@2 {
++			reg = <2>;
++
++			usbdp_phy0_dp_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
++			};
++		};
++
++		port@3 {
++			reg = <3>;
++
++			usbdp_phy0_dp_out: endpoint {
++				remote-endpoint = <&usbc0_sbu>;
++			};
+ 		};
+ 	};
+ };
+@@ -974,12 +1013,24 @@ &usb_host0_xhci {
+ 	usb-role-switch;
+ 	status = "okay";
+ 
+-	port {
++	ports {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		usb_host0_xhci_to_usbc0: endpoint {
+-			remote-endpoint = <&usbc0_hs>;
++		port@0 {
++			reg = <0>;
++
++			usb_host0_xhci_hs: endpoint {
++				remote-endpoint = <&usbc0_hs>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			usb_host0_xhci_ss: endpoint {
++				remote-endpoint = <&usbdp_phy0_ss_in>;
++			};
+ 		};
+ 	};
+ };
+@@ -1018,3 +1069,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+ 		remote-endpoint = <&hdmi1_in_vp1>;
+ 	};
+ };
++
++&vp2 {
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
++	};
++};
+-- 
+2.47.3
+

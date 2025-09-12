@@ -1,0 +1,54 @@
+From 1aa95962d7486c79aa56249d11e9f2740930872c Mon Sep 17 00:00:00 2001
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 9 Sep 2025 13:11:21 +0200
+Subject: [PATCH 122/123] pmdomain: rockchip: Fix regulator dependency with
+ GENPD_FLAG_NO_STAY_ON
+
+The deferred regulator retrieval for Rockchip PM domains are causing some
+weird dependencies. More precisely, if the power-domain is powered-on from
+the HW perspective, its corresponding regulator must not be powered-off via
+regulator_init_complete(), which is a late_initcall_sync.
+
+Even on platforms that don't have the domain-supply regulator specified for
+the power-domain provider, may suffer from these problems.
+
+More precisely, things just happen to work before, because
+genpd_power_off_unused() (also a late_initcall_sync) managed to power-off
+the PM domain before regulator_init_complete() powered-off the regulator.
+
+Ideally this fragile dependency must be fixed properly for the Rockchip PM
+domains, but until then, let's fallback to the previous behaviour by using
+the GENPD_FLAG_NO_STAY_ON flag.
+
+Link: https://lore.kernel.org/all/20250902-rk3576-lockup-regression-v1-1-c4a0c9daeb00@collabora.com/
+Reported-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
+Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20250909111130.132976-3-ulf.hansson@linaro.org
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/pmdomain/rockchip/pm-domains.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 242570c50..1955c6d45 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -865,7 +865,7 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
+ 	pd->genpd.power_on = rockchip_pd_power_on;
+ 	pd->genpd.attach_dev = rockchip_pd_attach_dev;
+ 	pd->genpd.detach_dev = rockchip_pd_detach_dev;
+-	pd->genpd.flags = GENPD_FLAG_PM_CLK;
++	pd->genpd.flags = GENPD_FLAG_PM_CLK | GENPD_FLAG_NO_STAY_ON;
+ 	if (pd_info->active_wakeup)
+ 		pd->genpd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+ 	pm_genpd_init(&pd->genpd, NULL,
+-- 
+2.47.3
+

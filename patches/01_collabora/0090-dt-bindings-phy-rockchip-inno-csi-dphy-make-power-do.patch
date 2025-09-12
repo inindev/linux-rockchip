@@ -1,0 +1,34 @@
+From 43b58edbe8307be714f622fc6c9ba4e1f856f2bf Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 1 Sep 2025 23:40:12 +0200
+Subject: [PATCH 090/123] dt-bindings: phy: rockchip-inno-csi-dphy: make
+ power-domains non-required
+
+There are variants of the Rockchip Innosilicon CSI DPHY (e.g., the RK3568
+variant) that are powered on by default as they are part of the ALIVE power
+domain.
+Remove 'power-domains' from the required properties in order to avoid false
+negatives.
+
+Fixes: 22c8e0a69b7f ("dt-bindings: phy: add compatible for rk356x to rockchip-inno-csi-dphy")
+Cc: stable@kernel.org
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ .../devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml          | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+index 5ac994b3c..42da616ae 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+@@ -57,7 +57,6 @@ required:
+   - clocks
+   - clock-names
+   - '#phy-cells'
+-  - power-domains
+   - resets
+   - reset-names
+   - rockchip,grf
+-- 
+2.47.3
+

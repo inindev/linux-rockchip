@@ -1,0 +1,29 @@
+From 8717320b12b700c72252662723c1b239beb63bb2 Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 1 Sep 2025 23:40:12 +0200
+Subject: [PATCH 089/123] dt-bindings: soc: rockchip: add rk3588 csidphy grf
+ syscon
+
+Add CSIDPHY GRF syscon compatible for the Rockchip RK3588.
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 1ab0b092e..b6e04e649 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -47,6 +47,7 @@ properties:
+               - rockchip,rk3576-vop-grf
+               - rockchip,rk3588-bigcore0-grf
+               - rockchip,rk3588-bigcore1-grf
++              - rockchip,rk3588-csidphy-grf
+               - rockchip,rk3588-dcphy-grf
+               - rockchip,rk3588-hdptxphy-grf
+               - rockchip,rk3588-ioc
+-- 
+2.47.3
+
