@@ -1,7 +1,7 @@
-From 7c65f492616c3f946082618f4fde77190ebbd342 Mon Sep 17 00:00:00 2001
+From 01cd43829f8b9f8a0b85488dab04ba0b30c3a554 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 099/123] media: rockchip: rkcif: add support for mipi csi-2
+Subject: [PATCH 099/121] media: rockchip: rkcif: add support for mipi csi-2
  capture
 
 The RK3568 Video Capture (VICAP) unit features a MIPI CSI-2 capture

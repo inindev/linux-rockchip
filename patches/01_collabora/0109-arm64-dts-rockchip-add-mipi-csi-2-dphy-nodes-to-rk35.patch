@@ -1,7 +1,7 @@
-From 0a83f64a1d149542467efc3469672c6713d44b92 Mon Sep 17 00:00:00 2001
+From f5ee0ee1f1e2c0c42c58b254af2dc342665239b0 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 109/123] arm64: dts: rockchip: add mipi csi-2 dphy nodes to
+Subject: [PATCH 109/121] arm64: dts: rockchip: add mipi csi-2 dphy nodes to
  rk3588
 
 The Rockchip RK3588 features two MIPI CSI-2 DPHYs. Add the device

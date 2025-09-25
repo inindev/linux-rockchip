@@ -1,7 +1,7 @@
-From 04e189f22fe57ebcd39bd618f86b6da0f15a941c Mon Sep 17 00:00:00 2001
+From cf286bea3d804ee418977dcbc56b34005aba9ce3 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 111/123] arm64: dts: rockchip: add vicap node to rk3588
+Subject: [PATCH 111/121] arm64: dts: rockchip: add vicap node to rk3588
 
 Add the device tree node for the RK3588 Video Capture (VICAP) unit.
 

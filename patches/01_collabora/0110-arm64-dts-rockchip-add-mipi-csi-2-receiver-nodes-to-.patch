@@ -1,7 +1,7 @@
-From 21bd255d5683ecf2c4f1e85d3565207a1355952d Mon Sep 17 00:00:00 2001
+From 0903573115caa17033e899ee9c5c2b170631a59f Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 110/123] arm64: dts: rockchip: add mipi csi-2 receiver nodes
+Subject: [PATCH 110/121] arm64: dts: rockchip: add mipi csi-2 receiver nodes
  to rk3588
 
 Add the device tree nodes for the six MIPI CSI-2 Receiver units

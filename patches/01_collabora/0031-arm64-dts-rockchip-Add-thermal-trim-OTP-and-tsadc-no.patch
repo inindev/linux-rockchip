@@ -1,7 +1,7 @@
-From ee750f908c3c8555cefc05e72364f3905a2cc009 Mon Sep 17 00:00:00 2001
+From 42152242ffa37a336bdd7e47832295a051537799 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 14:32:43 +0200
-Subject: [PATCH 031/123] arm64: dts: rockchip: Add thermal trim OTP and tsadc
+Subject: [PATCH 031/121] arm64: dts: rockchip: Add thermal trim OTP and tsadc
  nodes
 
 Thanks to Heiko's work getting OTP working on the RK3576, we can specify

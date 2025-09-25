@@ -1,7 +1,7 @@
-From 93265d14ebbd792ddd687c861d11016b7af019b2 Mon Sep 17 00:00:00 2001
+From 0272467d4ed32aeaf5164f13139f3c3bf0a2b6c0 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 14:32:42 +0200
-Subject: [PATCH 030/123] arm64: dts: rockchip: Add thermal nodes to RK3576
+Subject: [PATCH 030/121] arm64: dts: rockchip: Add thermal nodes to RK3576
 
 Add the TSADC node to the RK3576. Additionally, add everything the TSADC
 needs to function, i.e. thermal zones, their trip points and maps, as

@@ -1,7 +1,7 @@
-From 069d0582c26260adddcb4eb77fe6b781afb018da Mon Sep 17 00:00:00 2001
+From de67b6a3f7052197307956e82de501c49d3a6a3c Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 094/123] media: dt-bindings: add rockchip rk3568 vicap
+Subject: [PATCH 094/121] media: dt-bindings: add rockchip rk3568 vicap
 
 Add documentation for the Rockchip RK3568 Video Capture (VICAP) unit.
 
@@ -191,10 +191,10 @@ index 000000000..99861d236
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 326a9b995..479f9f664 100644
+index 9d59fda4f..c2af738c5 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -21806,6 +21806,7 @@ L:	linux-media@vger.kernel.org
+@@ -21810,6 +21810,7 @@ L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/admin-guide/media/rkcif*
  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml

@@ -1,7 +1,7 @@
-From 0d0ec7238cc243bcdc6b1b051b529591893c4ce2 Mon Sep 17 00:00:00 2001
+From df5e72c78ceecd82a02932c7f7ad4d881d3aa0d0 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:26 +0200
-Subject: [PATCH 038/123] arm64: dts: rockchip: add analog audio to ROCK 4D
+Subject: [PATCH 038/121] arm64: dts: rockchip: add analog audio to ROCK 4D
 
 The RADXA ROCK 4D, like many other Rockchip-based boards, uses an ES8388
 analog audio codec. On the production version of the board, the codec's

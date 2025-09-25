@@ -1,7 +1,7 @@
-From cc465bb7d01c6070370068af3c70c4e01a2ed095 Mon Sep 17 00:00:00 2001
+From e823c15a5a3d5c2728b4e3332a33761d241445ea Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:09 +0200
-Subject: [PATCH 032/123] phy: rockchip: inno-usb2: add soft vbusvalid control
+Subject: [PATCH 032/121] phy: rockchip: inno-usb2: add soft vbusvalid control
 
 With USB type C connectors, the vbus detect pin of the OTG controller
 attached to it is pulled high by a USB Type C controller chip such as

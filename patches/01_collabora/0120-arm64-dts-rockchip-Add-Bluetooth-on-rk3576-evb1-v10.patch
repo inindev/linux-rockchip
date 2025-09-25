@@ -1,7 +1,7 @@
-From c55c9a4eee7674faa53dbbecc174c48016f615fa Mon Sep 17 00:00:00 2001
+From d048242656afee4052c3b78335299f23b1be0cf5 Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Wed, 13 Aug 2025 00:30:25 +0400
-Subject: [PATCH 120/123] arm64: dts: rockchip: Add Bluetooth on
+Subject: [PATCH 120/121] arm64: dts: rockchip: Add Bluetooth on
  rk3576-evb1-v10
 
 Add device tree nodes to enable Bluetooth in the Ampak AP6275P module

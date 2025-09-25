@@ -1,7 +1,7 @@
-From 90868f67282f4f9e16894d809cbe8d57d3ff92fd Mon Sep 17 00:00:00 2001
+From d433f0d31c0df4a1a0538d48f6396fbfd8137bd5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:35:43 +0100
-Subject: [PATCH 005/123] arm64: dts: rockchip: rk3588-evb1: add bluetooth
+Subject: [PATCH 005/121] arm64: dts: rockchip: rk3588-evb1: add bluetooth
  rfkill
 
 Add rfkill support for bluetooth. Bluetooth support itself is still

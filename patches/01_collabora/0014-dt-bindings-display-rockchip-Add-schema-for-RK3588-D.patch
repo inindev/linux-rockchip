@@ -1,7 +1,7 @@
-From cab591bb945a9474c4ce718e2f8033ccc5537061 Mon Sep 17 00:00:00 2001
+From 801e62ee3db809f09ed062df53c8ce3573a222f3 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:26 +0800
-Subject: [PATCH 014/123] dt-bindings: display: rockchip: Add schema for RK3588
+Subject: [PATCH 014/121] dt-bindings: display: rockchip: Add schema for RK3588
  DPTX Controller
 
 The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX

@@ -1,7 +1,7 @@
-From 0f9e824db73a5a1c2156619806db3bb757387c48 Mon Sep 17 00:00:00 2001
+From 77b93140d90dbfdb55cfb66ae84f0f92c3800efe Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 103/123] phy: rockchip: phy-rockchip-inno-csidphy: add support
+Subject: [PATCH 103/121] phy: rockchip: phy-rockchip-inno-csidphy: add support
  for rk3588 variant
 
 The Rockchip RK3588 MIPI CSI-2 DPHY can be supported using the existing

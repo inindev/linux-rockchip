@@ -1,7 +1,7 @@
-From 88d857be4076f8be4595428887930f009dad3adc Mon Sep 17 00:00:00 2001
+From 475e155dc2f96c77766d68dcba9a546286bbd5cd Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:30 +0800
-Subject: [PATCH 018/123] dt-bindings: display: simple-bridge: Add ra620
+Subject: [PATCH 018/121] dt-bindings: display: simple-bridge: Add ra620
  compatible
 
 RA620 is a DP to HDMI bridge converter from RADXA, which first

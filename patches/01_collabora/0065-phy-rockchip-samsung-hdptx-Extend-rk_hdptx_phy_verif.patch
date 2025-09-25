@@ -1,7 +1,7 @@
-From 810eb4b8f7702587e5beb8efb9bdda3562b23b76 Mon Sep 17 00:00:00 2001
+From a012076e1c441e59e86ee6709bfed824e6669a56 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 8 Jul 2025 12:19:37 +0300
-Subject: [PATCH 065/123] phy: rockchip: samsung-hdptx: Extend
+Subject: [PATCH 065/121] phy: rockchip: samsung-hdptx: Extend
  rk_hdptx_phy_verify_hdmi_config() helper
 
 In order to facilitate introduction of HDMI 2.1 FRL support and to avoid

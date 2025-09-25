@@ -1,7 +1,7 @@
-From 3b24ec4514f524441ef1c56869cd43011e6fd1ee Mon Sep 17 00:00:00 2001
+From de5148ea644e1784d88b2bc04b20d03fae6b9b40 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 28 May 2025 13:21:49 +0300
-Subject: [PATCH 057/123] phy: rockchip: samsung-hdptx: Use usleep_range()
+Subject: [PATCH 057/121] phy: rockchip: samsung-hdptx: Use usleep_range()
  instead of udelay()
 
 rk_hdptx_dp_reset() is allowed to sleep, hence replace the busy waiting

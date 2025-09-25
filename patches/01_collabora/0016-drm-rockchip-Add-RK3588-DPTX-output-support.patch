@@ -1,7 +1,7 @@
-From e5191a71c86b7899cdce7ee88cf58f8c46e9db84 Mon Sep 17 00:00:00 2001
+From e26560fd1de0a0fd2a9c3b4a4897841b33e34850 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:28 +0800
-Subject: [PATCH 016/123] drm/rockchip: Add RK3588 DPTX output support
+Subject: [PATCH 016/121] drm/rockchip: Add RK3588 DPTX output support
 
 Add driver extension for Synopsys DesignWare DPTX IP used
 on Rockchip RK3588 SoC.

@@ -1,7 +1,7 @@
-From c557f1dbb27c6d79a1e47318254d6a93ef0b961b Mon Sep 17 00:00:00 2001
+From b6e3f32e006e0b9801bf6ad00181ad5397113fce Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 098/123] media: rockchip: add driver for mipi csi-2 receiver
+Subject: [PATCH 098/121] media: rockchip: add driver for mipi csi-2 receiver
 
 The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
 input port and one output port. It receives the data with the help
@@ -25,10 +25,10 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcsi/rkcsi.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 7c9d84b0b..91c9f65cd 100644
+index b0658f93c..a28f11ca9 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -21841,6 +21841,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+@@ -21845,6 +21845,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml

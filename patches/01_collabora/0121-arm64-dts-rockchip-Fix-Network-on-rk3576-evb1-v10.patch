@@ -1,7 +1,7 @@
-From 020560b9d35fd25e45196c16b11481d702cd2b72 Mon Sep 17 00:00:00 2001
+From 5cf08c0e583cfde95a618f62ed7991c0c1a6f70d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 9 Sep 2025 15:09:05 +0200
-Subject: [PATCH 123/123] arm64: dts: rockchip: Fix Network on rk3576-evb1-v10
+Subject: [PATCH 121/121] arm64: dts: rockchip: Fix Network on rk3576-evb1-v10
 
 The RK3576 EVB1 has a RTL8211F PHY for each GMAC interface with
 a dedicated reset line and the 25MHz clock provided by the SoC.

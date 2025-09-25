@@ -1,7 +1,7 @@
-From d098e1412a9c8591d539f0525fd3281ac0389af0 Mon Sep 17 00:00:00 2001
+From aa45bbf610fbc9bdbeb6ae3fa69a42fabaa62b44 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 19 Aug 2025 17:51:12 +0200
-Subject: [PATCH 043/123] thermal: rockchip: simplify GRF logic
+Subject: [PATCH 043/121] thermal: rockchip: simplify GRF logic
 
 Drop the GRF optional check and make the GRF mandatory on all
 platforms having one. The upstream kernel never has been used

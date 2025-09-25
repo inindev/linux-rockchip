@@ -1,7 +1,7 @@
-From f0a6705e0ef89757adfe324431757dfe36439654 Mon Sep 17 00:00:00 2001
+From c16d5cd4a48a9d32703f69142c6ff752eb1d6731 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Wed, 3 Sep 2025 21:49:56 +0200
-Subject: [PATCH 116/123] .gitlab-ci: enable imx415 image sensor driver
+Subject: [PATCH 116/121] .gitlab-ci: enable imx415 image sensor driver
 
 ---
  drivers/media/platform/rockchip/rkcsi/rkcsi.c | 4 ++--

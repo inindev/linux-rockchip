@@ -1,7 +1,7 @@
-From c4bfaab67ddeec257904197ee2e1a86b93b0a2ea Mon Sep 17 00:00:00 2001
+From ce1e601e698ccf14652c7c1ac9c4c3de62f1f50a Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 30 May 2025 15:38:08 +0200
-Subject: [PATCH 028/123] PM / devfreq: rockchip-dfi: double count on RK3588
+Subject: [PATCH 028/121] PM / devfreq: rockchip-dfi: double count on RK3588
 
 On RK3588 with LPDDR4X memory, the cycle count as returned by
 

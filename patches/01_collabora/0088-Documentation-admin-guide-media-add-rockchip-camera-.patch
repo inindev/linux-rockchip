@@ -1,7 +1,7 @@
-From 65017e978b693aaed2107074c5638f58a9af20b8 Mon Sep 17 00:00:00 2001
+From c6b6b7b5e0d83e95fca012ec0996786f937b64c0 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
-Subject: [PATCH 088/123] Documentation: admin-guide: media: add rockchip
+Subject: [PATCH 088/121] Documentation: admin-guide: media: add rockchip
  camera interface
 
 Add a document that describes the different variants of the Rockchip
@@ -149,10 +149,10 @@ index 3bac5165b..694fad685 100644
  	raspberrypi-rp1-cfe
  	saa7134
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 234566f99..22c83e451 100644
+index 9327f8afd..e1c4fc7ca 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -21799,6 +21799,13 @@ S:	Maintained
+@@ -21803,6 +21803,13 @@ S:	Maintained
  F:	Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
  F:	drivers/net/can/rockchip/
  

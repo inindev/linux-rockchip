@@ -1,7 +1,7 @@
-From 8048ffaafaef3920363a61e1f6c538f7b9837e86 Mon Sep 17 00:00:00 2001
+From e200d3586c7ddb00c65c1bae33b79ac002b19346 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 10 Jul 2025 00:01:13 +0300
-Subject: [PATCH 047/123] drm/bridge: dw-hdmi-qp: Fixup timer base setup
+Subject: [PATCH 047/121] drm/bridge: dw-hdmi-qp: Fixup timer base setup
 
 Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
 value as initially found in vendor driver code supporting the RK3588

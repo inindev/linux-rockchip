@@ -1,7 +1,7 @@
-From a788aea3ad9f9b7b572681f35469a29e88387742 Mon Sep 17 00:00:00 2001
+From 55934da2ac4a94ccab3893421f33e3185efc470f Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 093/123] media: dt-bindings: add rockchip px30 vip
+Subject: [PATCH 093/121] media: dt-bindings: add rockchip px30 vip
 
 Add documentation for the Rockchip PX30 Video Input Processor (VIP).
 
@@ -145,10 +145,10 @@ index 000000000..9f7ab6965
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 22c83e451..326a9b995 100644
+index e1c4fc7ca..9d59fda4f 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -21805,6 +21805,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+@@ -21809,6 +21809,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/admin-guide/media/rkcif*

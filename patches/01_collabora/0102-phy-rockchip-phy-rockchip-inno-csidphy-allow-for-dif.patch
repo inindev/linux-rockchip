@@ -1,7 +1,7 @@
-From db65a0456bff864d370424f4b234f23d28134867 Mon Sep 17 00:00:00 2001
+From 5c926b4e70f14eb7e280ad11b3ae382deb091a87 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 102/123] phy: rockchip: phy-rockchip-inno-csidphy: allow for
+Subject: [PATCH 102/121] phy: rockchip: phy-rockchip-inno-csidphy: allow for
  different reset lines
 
 The RK3588 MIPI CSI-2 DPHY variant requires two reset lines. Add support

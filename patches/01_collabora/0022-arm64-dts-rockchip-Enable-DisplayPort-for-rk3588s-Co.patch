@@ -1,7 +1,7 @@
-From 6ec88a3f6e3a0d68734e223fecba236b0672c44d Mon Sep 17 00:00:00 2001
+From 79a112a81822336cc5573236dce4b705915b0d8a Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:34 +0800
-Subject: [PATCH 022/123] arm64: dts: rockchip: Enable DisplayPort for rk3588s
+Subject: [PATCH 022/121] arm64: dts: rockchip: Enable DisplayPort for rk3588s
  Cool Pi 4B
 
 Enable the Mini DisplayPort on this board.

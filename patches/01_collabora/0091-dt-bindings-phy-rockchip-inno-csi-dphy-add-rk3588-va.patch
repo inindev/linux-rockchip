@@ -1,7 +1,7 @@
-From be35406b4c2e7ad3804f84e6996f9efd5299cbbf Mon Sep 17 00:00:00 2001
+From cdf659d3b7f53adf9ae434954a806f81c76427c8 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 091/123] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588
+Subject: [PATCH 091/121] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588
  variant
 
 The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.

@@ -1,7 +1,7 @@
-From 19a8a7baf45cab2c9e46f2870fcd2ae51df0769b Mon Sep 17 00:00:00 2001
+From 72c421784d2ebc39e178ff53979d9757d32663a8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:50:25 +0300
-Subject: [PATCH 079/123] drm/rockchip: dw_hdmi_qp: Fixup usage of enable_gpio
+Subject: [PATCH 079/121] drm/rockchip: dw_hdmi_qp: Fixup usage of enable_gpio
  member in main struct
 
 The name of the enable_gpio member in struct rockchip_hdmi_qp is too

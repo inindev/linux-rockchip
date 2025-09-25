@@ -1,7 +1,7 @@
-From 8bfe004cdc02185e094443e40d8db9c92762d3fc Mon Sep 17 00:00:00 2001
+From a06bee0b3f37be468fd760b5232aa5a06f6c00a2 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Fri, 30 May 2025 15:38:09 +0200
-Subject: [PATCH 029/123] PM / devfreq: rockchip-dfi: add support for LPDDR5
+Subject: [PATCH 029/121] PM / devfreq: rockchip-dfi: add support for LPDDR5
 
 The Rockchip RK3588 SoC can also support LPDDR5 memory. This type of
 memory needs some special case handling in the rockchip-dfi driver.

@@ -1,7 +1,7 @@
-From 8cdbe946e9c03c444d5e0d91536668d5b6fff906 Mon Sep 17 00:00:00 2001
+From ba7beaa56107b59ce7661d85011edff7f3e98438 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Jun 2025 19:49:57 +0200
-Subject: [PATCH 035/123] arm64: dts: rockchip: Enable RK3576 watchdog
+Subject: [PATCH 035/121] arm64: dts: rockchip: Enable RK3576 watchdog
 
 The RK3576 watchdog does not need any board specific resources, so
 let's enable it by default just like we do for RK3588.

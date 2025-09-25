@@ -1,7 +1,7 @@
-From 7b07150d8d5e38a22178590605acb3b436e65f55 Mon Sep 17 00:00:00 2001
+From cab9b0d42faf3210e62a376cfd659487d38a5cb6 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 097/123] media: rockchip: add a driver for the rockchip camera
+Subject: [PATCH 097/121] media: rockchip: add a driver for the rockchip camera
  interface
 
 The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
@@ -71,10 +71,10 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcif/rkcif-stream.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 10b98852a..7c9d84b0b 100644
+index f93448f16..b0658f93c 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -21808,6 +21808,7 @@ F:	Documentation/admin-guide/media/rkcif*
+@@ -21812,6 +21812,7 @@ F:	Documentation/admin-guide/media/rkcif*
  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
  F:	Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml

@@ -1,7 +1,7 @@
-From 8b9be1582f755925461f106aa6433eb4ccbf8ccc Mon Sep 17 00:00:00 2001
+From 2b55a84d786e5d462c250b3ff36c7810f47d8dc5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 21 Jul 2025 13:45:28 +0300
-Subject: [PATCH 071/123] drm/rockchip: dw_hdmi_qp: Add high color depth
+Subject: [PATCH 071/121] drm/rockchip: dw_hdmi_qp: Add high color depth
  support
 
 Since both RK3576 and RK3588 SoCs are capable of handling 10 bpc color

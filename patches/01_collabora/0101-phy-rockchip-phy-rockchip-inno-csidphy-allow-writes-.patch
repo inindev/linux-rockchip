@@ -1,7 +1,7 @@
-From 2bfea5790d1e04219f2d880270a6eee6af725e2e Mon Sep 17 00:00:00 2001
+From d8e8e961c9ef08671bfe50d83d2d564ae09bfa9f Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 101/123] phy: rockchip: phy-rockchip-inno-csidphy: allow
+Subject: [PATCH 101/121] phy: rockchip: phy-rockchip-inno-csidphy: allow
  writes to grf register 0
 
 The driver for the Rockchip MIPI CSI-2 DPHY uses GRF register offset

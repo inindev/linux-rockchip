@@ -1,7 +1,7 @@
-From 350c4fc904e8d80d130cd9adf27896ce29076259 Mon Sep 17 00:00:00 2001
+From 01f0ef056e494312b2a4f5944aac4e0cd865bda3 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:29 +0800
-Subject: [PATCH 017/123] MAINTAINERS: Add entry for DW DPTX Controller bridge
+Subject: [PATCH 017/121] MAINTAINERS: Add entry for DW DPTX Controller bridge
 
 Add an entry for the DW DPTX Controller bridge driver.
 
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 8 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index cd7ff55b5..234566f99 100644
+index 520fb4e37..9327f8afd 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -7989,6 +7989,14 @@ S:	Maintained
+@@ -7987,6 +7987,14 @@ S:	Maintained
  F:	Documentation/devicetree/bindings/display/panel/synaptics,r63353.yaml
  F:	drivers/gpu/drm/panel/panel-synaptics-r63353.c
  

@@ -1,7 +1,7 @@
-From e89b295d6c1ec5c4ec20174e74b5c108987e825a Mon Sep 17 00:00:00 2001
+From 96409b07e135e0491d66fd78e84208bf73d035a1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 1 Jul 2025 22:58:37 +0200
-Subject: [PATCH 001/123] usb: typec: fusb302: also log to dmesg
+Subject: [PATCH 001/121] usb: typec: fusb302: also log to dmesg
 
 Also log to normal dmesg to assist debugging hard reset issues.
 

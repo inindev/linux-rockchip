@@ -1,7 +1,7 @@
-From 6230f2a519f9129bd9162d6ee0fe3893b9a14085 Mon Sep 17 00:00:00 2001
+From 04600330148590a125200aa87ed30f53287d8342 Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 105/123] arm64: dts: rockchip: add the vip node to px30
+Subject: [PATCH 105/121] arm64: dts: rockchip: add the vip node to px30
 
 Add the device tree node for the PX30 Video Input Processor (VIP).
 

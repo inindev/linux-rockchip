@@ -1,7 +1,7 @@
-From 5a7e41b4940997a7e88ee4d4ae6e4dca43b7ed0e Mon Sep 17 00:00:00 2001
+From e00213efb36fcbaf3f79cb91df6f485b917be594 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:40 -0500
-Subject: [PATCH 009/123] dt-bindings: display: vop2: Add VP clock resets
+Subject: [PATCH 009/121] dt-bindings: display: vop2: Add VP clock resets
 
 Add the documentation for VOP2 video ports reset clocks.
 One reset can be set per video port.

@@ -1,7 +1,7 @@
-From 121a3a741f7217b18998996fcfabe97c1063a30d Mon Sep 17 00:00:00 2001
+From 42ff84eaa46f959e9667e0b8857f877944989548 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Jun 2025 12:03:11 +0300
-Subject: [PATCH 059/123] phy: rockchip: samsung-hdptx: Consistently use
+Subject: [PATCH 059/121] phy: rockchip: samsung-hdptx: Consistently use
  [rk_]hdptx_[tmds_] prefixes
 
 Fix the naming inconsistencies for some of the functions and global

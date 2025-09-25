@@ -1,7 +1,7 @@
-From d48b1e793158a88af3dd9d47bb9765b14db02c55 Mon Sep 17 00:00:00 2001
+From 0ce5a15004995b28ea1fa35b5dd23f25c9f51a39 Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Wed, 13 Aug 2025 00:30:23 +0400
-Subject: [PATCH 118/123] arm64: dts: rockchip: Add RTC on rk3576-evb1-v10
+Subject: [PATCH 118/121] arm64: dts: rockchip: Add RTC on rk3576-evb1-v10
 
 Add the I2C connected RTC chip to the Rockchip RK3576 EVB1 board.
 

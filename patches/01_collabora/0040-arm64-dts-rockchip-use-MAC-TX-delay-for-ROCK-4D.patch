@@ -1,7 +1,7 @@
-From 3a50a9f8b04ace176f9c9030f77d9d77d641bd6d Mon Sep 17 00:00:00 2001
+From f347267147fe9a1ffae262de3f6d3f581a7eca38 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 8 Jul 2025 19:36:31 +0200
-Subject: [PATCH 040/123] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
+Subject: [PATCH 040/121] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
 
 According to the Ethernet controller device tree binding "rgmii-id"
 means, that the PCB does not have extra long lines to add the required

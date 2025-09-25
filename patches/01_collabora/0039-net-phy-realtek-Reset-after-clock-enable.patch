@@ -1,7 +1,7 @@
-From 10581f136a64c70e691f0bb7873e6ca2c0ac5a7b Mon Sep 17 00:00:00 2001
+From d3e937665ead32412aa31f3f335f36f51c9400b5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
-Subject: [PATCH 039/123] net: phy: realtek: Reset after clock enable
+Subject: [PATCH 039/121] net: phy: realtek: Reset after clock enable
 
 On Radxa ROCK 4D boards we are seeing some issues with PHY detection and
 stability (e.g. link loss or not capable of transceiving packages) after

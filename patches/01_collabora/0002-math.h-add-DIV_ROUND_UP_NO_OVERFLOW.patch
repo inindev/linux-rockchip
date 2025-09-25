@@ -1,7 +1,7 @@
-From 23cc3e7a1109741492c6219b13296c275b77fa38 Mon Sep 17 00:00:00 2001
+From b8b1d5ed46797bb8bc6d5b2c2f40844e7c01d848 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:09:35 +0200
-Subject: [PATCH 002/123] math.h: add DIV_ROUND_UP_NO_OVERFLOW
+Subject: [PATCH 002/121] math.h: add DIV_ROUND_UP_NO_OVERFLOW
 
 Add a new DIV_ROUND_UP helper, which cannot overflow when
 big numbers are being used.

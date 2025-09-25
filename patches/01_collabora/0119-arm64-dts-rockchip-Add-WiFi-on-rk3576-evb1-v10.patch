@@ -1,7 +1,7 @@
-From 45f2789b86e36fbba2bbb8ba507e75e041a2990e Mon Sep 17 00:00:00 2001
+From 2e772b25f6526a25cf4dec86e83867f2b9056669 Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Wed, 13 Aug 2025 00:30:24 +0400
-Subject: [PATCH 119/123] arm64: dts: rockchip: Add WiFi on rk3576-evb1-v10
+Subject: [PATCH 119/121] arm64: dts: rockchip: Add WiFi on rk3576-evb1-v10
 
 Add device tree nodes to enable the onboard Ampak AP6275P WiFi chip
 connected over a PCIe link on Rockchip RK3576 EVB1.

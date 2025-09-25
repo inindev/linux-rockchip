@@ -1,7 +1,7 @@
-From 8717320b12b700c72252662723c1b239beb63bb2 Mon Sep 17 00:00:00 2001
+From 33c3f96cdcc5e5ea5f3c3e81c3ab365361b19a28 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
-Subject: [PATCH 089/123] dt-bindings: soc: rockchip: add rk3588 csidphy grf
+Subject: [PATCH 089/121] dt-bindings: soc: rockchip: add rk3588 csidphy grf
  syscon
 
 Add CSIDPHY GRF syscon compatible for the Rockchip RK3588.

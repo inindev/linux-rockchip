@@ -1,7 +1,7 @@
-From b3b79ca82c27b81d59c91742a3d9821ee89fb097 Mon Sep 17 00:00:00 2001
+From d579dac8a4261e5a16c33e3800daf38c2a0c3fd5 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:16 +0200
-Subject: [PATCH 114/123] arm64: dts: rockchip: add radxa camera 4k on rock 5b+
+Subject: [PATCH 114/121] arm64: dts: rockchip: add radxa camera 4k on rock 5b+
  cam1
 
 Add device tree overlay for the Radxa Camera 4K (featuring the

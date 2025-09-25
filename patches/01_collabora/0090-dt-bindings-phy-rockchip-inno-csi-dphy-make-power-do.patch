@@ -1,7 +1,7 @@
-From 43b58edbe8307be714f622fc6c9ba4e1f856f2bf Mon Sep 17 00:00:00 2001
+From 316fa876c7d924779587e410187c033dfeac8697 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
-Subject: [PATCH 090/123] dt-bindings: phy: rockchip-inno-csi-dphy: make
+Subject: [PATCH 090/121] dt-bindings: phy: rockchip-inno-csi-dphy: make
  power-domains non-required
 
 There are variants of the Rockchip Innosilicon CSI DPHY (e.g., the RK3568

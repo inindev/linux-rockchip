@@ -1,7 +1,7 @@
-From c1cc9ddb6f9caf67e23b5bb373c90932f2807693 Mon Sep 17 00:00:00 2001
+From c2b678e37335cd86af6e2ab2a53003e6bccb7b6b Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Fri, 18 Apr 2025 09:45:59 +0800
-Subject: [PATCH 045/123] PCI: dw-rockchip: Add system PM support
+Subject: [PATCH 045/121] PCI: dw-rockchip: Add system PM support
 
 This patch adds system PM support for Rockchip platforms by adding
 .pme_turn_off and .get_ltssm hook and tries to reuse possible existing

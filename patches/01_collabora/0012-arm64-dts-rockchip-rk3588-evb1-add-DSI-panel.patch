@@ -1,7 +1,7 @@
-From d299efbe41dc6e72366f9b96610502e9a21e9f02 Mon Sep 17 00:00:00 2001
+From 05debc3685c50bb80b72a96fcb47617562ef167a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 8 Nov 2024 17:35:44 +0100
-Subject: [PATCH 012/123] arm64: dts: rockchip: rk3588-evb1: add DSI panel
+Subject: [PATCH 012/121] arm64: dts: rockchip: rk3588-evb1: add DSI panel
 
 The RK3588 EVB1 comes with a W552793DBA-V10 Touchscreen/Display
 combination. It contains a Wanchanglong W552793BAA panel and a

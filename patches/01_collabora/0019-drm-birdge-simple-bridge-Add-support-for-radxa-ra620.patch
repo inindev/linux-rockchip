@@ -1,7 +1,7 @@
-From a333203aed1914630e4e8d693875de761cb7951c Mon Sep 17 00:00:00 2001
+From b49c0609cb2f44480346b296d3cf2e49ad538e5c Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Mon, 28 Jul 2025 16:28:31 +0800
-Subject: [PATCH 019/123] drm/birdge: simple-bridge: Add support for radxa
+Subject: [PATCH 019/121] drm/birdge: simple-bridge: Add support for radxa
  ra620
 
 The RA620 is an active DP to HDMI converter chip, basically
