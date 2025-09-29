@@ -1,7 +1,7 @@
-From 1e881dcf10034886af5419078e1192534f7031fb Mon Sep 17 00:00:00 2001
+From 373cc3e210df32889088d53095e08be39ff762e9 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 16 Mar 2025 15:32:30 -0400
-Subject: [PATCH 3/3] arm64: inindev_defconfig: config for linux 6.17
+Subject: [PATCH 4/4] arm64: inindev_defconfig: config for linux 6.17
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
