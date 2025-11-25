@@ -1,4 +1,4 @@
-From 15ab6b0d902a425bc3900a0d9e65b966f78ce553 Mon Sep 17 00:00:00 2001
+From 991371fdf5f3e94b486f70a3391a4b4a34cc4f1c Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Mon, 5 May 2025 16:39:42 -0400
 Subject: [PATCH 2/4] arm64: dts: rockchip: add ethernet nodes to luckfox

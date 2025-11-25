@@ -1,4 +1,4 @@
-From b56c3189025eb3b428ee634a590ec91abbf8a531 Mon Sep 17 00:00:00 2001
+From 80f86b8de3ddf80989d012cc7479a13d670d59a6 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sat, 17 May 2025 18:02:15 -0400
 Subject: [PATCH 1/4] net: phy: maxio: mae0621a driver
@@ -12,10 +12,10 @@ Signed-off-by: John Clark <inindev@gmail.com>
  create mode 100644 drivers/net/phy/maxio.c
 
 diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 392749aae..a7d95546b 100644
+index 98700d069..6e5714e45 100644
 --- a/drivers/net/phy/Kconfig
 +++ b/drivers/net/phy/Kconfig
-@@ -271,6 +271,11 @@ config MARVELL_88X2222_PHY
+@@ -276,6 +276,11 @@ config MARVELL_88X2222_PHY
  	  Support for the Marvell 88X2222 Dual-port Multi-speed Ethernet
  	  Transceiver.
  
@@ -28,7 +28,7 @@ index 392749aae..a7d95546b 100644
  	tristate "Maxlinear Ethernet PHYs"
  	select POLYNOMIAL if HWMON
 diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index b4795aaf9..d9454b6af 100644
+index 76e0db40f..3265c58f9 100644
 --- a/drivers/net/phy/Makefile
 +++ b/drivers/net/phy/Makefile
 @@ -68,6 +68,7 @@ obj-$(CONFIG_MARVELL_10G_PHY)	+= marvell10g.o

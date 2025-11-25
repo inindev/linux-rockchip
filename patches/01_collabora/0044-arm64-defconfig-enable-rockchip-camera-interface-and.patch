@@ -1,0 +1,31 @@
+From 782a0195d10535a5d99f9b0e824a94e191eb5b63 Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 1 Sep 2025 23:40:14 +0200
+Subject: [PATCH 044/108] arm64: defconfig: enable rockchip camera interface
+ and mipi csi-2 receiver
+
+The Rockchip Camera Interface (CIF) and the Rockchip MIPI CSI-2 Receiver
+are featured in many Rockchip SoCs in different variations.
+Enable the drivers for them in the default configuration.
+
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index bdb549d73..13b198949 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -883,6 +883,8 @@ CONFIG_VIDEO_RENESAS_FCP=m
+ CONFIG_VIDEO_RENESAS_FDP1=m
+ CONFIG_VIDEO_RENESAS_VSP1=m
+ CONFIG_VIDEO_RCAR_DRIF=m
++CONFIG_VIDEO_ROCKCHIP_CIF=m
++CONFIG_VIDEO_ROCKCHIP_CSI=m
+ CONFIG_VIDEO_ROCKCHIP_RGA=m
+ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
+ CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+-- 
+2.47.3
+
