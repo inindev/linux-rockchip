@@ -1,4 +1,4 @@
-From bf99fdaf6cf4f7067708ecbdd04eb786784e05a6 Mon Sep 17 00:00:00 2001
+From 1d45f4fcc36bd11fc122ba96550be246d957fb6d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:13:50 +0200
 Subject: [PATCH 002/108] clk: divider: Fix divisor masking on 64 bit platforms

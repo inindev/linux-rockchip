@@ -1,4 +1,4 @@
-From 4a0229941cf16dab3d772e6c1fb27c9075ae05d5 Mon Sep 17 00:00:00 2001
+From 97f9fb7a49c702bf68b301cd5c89e179b2db1a5a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 6 Oct 2025 18:59:35 +0200
 Subject: [PATCH 099/108] mmc: sdhci-of-dwcmshc: Add command queue support for
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 89 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 5b61401a7..bc6c03794 100644
+index 4e256673a..348ab1bb9 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
 @@ -24,6 +24,7 @@
@@ -48,7 +48,7 @@ index 5b61401a7..bc6c03794 100644
  	int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
  	void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
  };
-@@ -561,6 +565,68 @@ static void dwcmshc_cqhci_dumpregs(struct mmc_host *mmc)
+@@ -574,6 +578,68 @@ static void dwcmshc_cqhci_dumpregs(struct mmc_host *mmc)
  	sdhci_dumpregs(mmc_priv(mmc));
  }
  
@@ -117,7 +117,7 @@ index 5b61401a7..bc6c03794 100644
  static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock)
  {
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -679,6 +745,10 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+@@ -692,6 +758,10 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
  	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
  	struct rk35xx_priv *priv = dwc_priv->priv;
@@ -128,7 +128,7 @@ index 5b61401a7..bc6c03794 100644
  
  	if (mask & SDHCI_RESET_ALL && priv->reset) {
  		reset_control_assert(priv->reset);
-@@ -687,6 +757,9 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+@@ -700,6 +770,9 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
  	}
  
  	sdhci_reset(host, mask);
@@ -138,7 +138,7 @@ index 5b61401a7..bc6c03794 100644
  }
  
  static int dwcmshc_rk35xx_init(struct device *dev, struct sdhci_host *host,
-@@ -1188,6 +1261,15 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_bf3_pdata = {
+@@ -1193,6 +1266,15 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_bf3_pdata = {
  };
  #endif
  
@@ -154,7 +154,7 @@ index 5b61401a7..bc6c03794 100644
  static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
  	.pdata = {
  		.ops = &sdhci_dwcmshc_rk35xx_ops,
-@@ -1196,6 +1278,7 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
+@@ -1201,6 +1283,7 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
  		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
  			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
  	},
@@ -162,7 +162,7 @@ index 5b61401a7..bc6c03794 100644
  	.init = dwcmshc_rk35xx_init,
  	.postinit = dwcmshc_rk35xx_postinit,
  };
-@@ -1245,7 +1328,7 @@ static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
+@@ -1250,7 +1333,7 @@ static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
  	.set_tran_desc	= dwcmshc_set_tran_desc,
  };
  
@@ -171,7 +171,7 @@ index 5b61401a7..bc6c03794 100644
  {
  	struct cqhci_host *cq_host;
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -1275,7 +1358,10 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
+@@ -1280,7 +1363,10 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
  	}
  
  	cq_host->mmio = host->ioaddr + priv->vendor_specific_area2;
@@ -183,7 +183,7 @@ index 5b61401a7..bc6c03794 100644
  
  	/* Enable using of 128-bit task descriptors */
  	dma64 = host->flags & SDHCI_USE_64_BIT_DMA;
-@@ -1443,7 +1529,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+@@ -1448,7 +1534,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
  		priv->vendor_specific_area2 =
  			sdhci_readw(host, DWCMSHC_P_VENDOR_AREA2);
  

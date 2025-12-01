@@ -1,4 +1,4 @@
-From 709d72f72a811e1671e4c249f5f0ce74078acf95 Mon Sep 17 00:00:00 2001
+From 81aaa5c239b3010566eb9a308fb382daf15edc5b Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:25 +0200
 Subject: [PATCH 020/108] Input: adc-keys - support types that aren't just

@@ -1,4 +1,4 @@
-From 692048e8ac8270a24e686d089a2420bc04ce8ccc Mon Sep 17 00:00:00 2001
+From dcd850f9fc201263092f58c6f8c9f25c53d6df63 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:18 +0530
 Subject: [PATCH 106/108] PCI: qcom: Check for the presence of a device instead

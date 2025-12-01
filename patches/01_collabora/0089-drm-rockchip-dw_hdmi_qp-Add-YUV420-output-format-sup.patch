@@ -1,4 +1,4 @@
-From 9b70eb17f95cbd0f1612c4ac374b2b19d7791705 Mon Sep 17 00:00:00 2001
+From 429fa3c7925a4349a521ce9e1c5cfee76f4f0190 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:09:35 +0200
 Subject: [PATCH 089/108] drm/rockchip: dw_hdmi_qp: Add YUV420 output format

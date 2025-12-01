@@ -1,4 +1,4 @@
-From 529363f0e768db0171af81ad58feaf9f51a410a1 Mon Sep 17 00:00:00 2001
+From c1e9e646d96478ca6d78ec8995d271ef0d4a11cb Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:31:51 +0300
 Subject: [PATCH 092/108] arm64: dts: rockchip: Add tmds-enable-gpios to

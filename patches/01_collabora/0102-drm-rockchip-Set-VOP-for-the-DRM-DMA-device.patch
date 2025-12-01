@@ -1,4 +1,4 @@
-From b7a4f9a7a9079d0d363021a4fdfc6f19abbab6b9 Mon Sep 17 00:00:00 2001
+From cea0fb8c1f435ac397b321932039efb6a4c4ae70 Mon Sep 17 00:00:00 2001
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 Date: Wed, 22 Oct 2025 13:51:03 +0300
 Subject: [PATCH 102/108] drm/rockchip: Set VOP for the DRM DMA device

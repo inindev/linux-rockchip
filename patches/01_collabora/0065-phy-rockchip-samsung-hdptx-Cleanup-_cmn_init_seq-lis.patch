@@ -1,4 +1,4 @@
-From 443d77d8ca54d978e799acbeb18260450e52acb7 Mon Sep 17 00:00:00 2001
+From a4abf0e9e1eb84ef8827bd77fd94a2152700cfc5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 5 Jun 2025 21:31:22 +0300
 Subject: [PATCH 065/108] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq

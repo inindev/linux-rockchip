@@ -1,4 +1,4 @@
-From a6676f58284f9adc11183fb22e1e846fc2c364af Mon Sep 17 00:00:00 2001
+From 6171e1df52102a54e0c4e9c987e7a38949185082 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 8 Jul 2025 20:12:00 +0300
 Subject: [PATCH 093/108] arm64: dts: rockchip: Assign ACLK_VOP to 750 MHz on

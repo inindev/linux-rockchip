@@ -1,4 +1,4 @@
-From e06604042f0201107ca4268b5775bd1a7846475c Mon Sep 17 00:00:00 2001
+From 71671a3cfc1695505d03d285e791b7d655e483b8 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 040/108] media: rockchip: add a driver for the rockchip camera
@@ -71,10 +71,10 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcif/rkcif-stream.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 0fb1ef796..b0f574ba0 100644
+index 376d102b4..a015ad3fe 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22254,6 +22254,7 @@ F:	Documentation/admin-guide/media/rkcif*
+@@ -22255,6 +22255,7 @@ F:	Documentation/admin-guide/media/rkcif*
  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
  F:	Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml

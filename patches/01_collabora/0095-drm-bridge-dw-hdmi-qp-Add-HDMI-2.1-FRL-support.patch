@@ -1,4 +1,4 @@
-From db2eed90a4742e2875632e4225f339ee43018533 Mon Sep 17 00:00:00 2001
+From 69db5199d835caaaabbe3b88a090e9236529e8a6 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 3 Jul 2025 12:42:38 +0300
 Subject: [PATCH 095/108] drm/bridge: dw-hdmi-qp: Add HDMI 2.1 FRL support

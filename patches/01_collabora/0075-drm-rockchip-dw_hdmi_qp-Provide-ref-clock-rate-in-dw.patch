@@ -1,4 +1,4 @@
-From 74fe3903c654d7ce9b722fac610aeaacb5b76087 Mon Sep 17 00:00:00 2001
+From 5056271a992a07da6093f64e0c55dbebd89fb03c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 30 Jun 2025 22:18:14 +0300
 Subject: [PATCH 075/108] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in

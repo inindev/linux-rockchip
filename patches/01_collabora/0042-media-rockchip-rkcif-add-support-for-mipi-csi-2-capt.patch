@@ -1,4 +1,4 @@
-From 869de8cc69a4aa7b4048e040a8ab8fc6fd019569 Mon Sep 17 00:00:00 2001
+From f419cee2713ca99d2bbdbb7ebf085e5403702297 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
 Subject: [PATCH 042/108] media: rockchip: rkcif: add support for mipi csi-2

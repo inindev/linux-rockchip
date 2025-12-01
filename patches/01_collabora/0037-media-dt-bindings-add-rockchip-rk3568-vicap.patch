@@ -1,4 +1,4 @@
-From 1bd040d4ba84ee5503ba49f2d4e9d5a116feab77 Mon Sep 17 00:00:00 2001
+From 5bacd7d5e2e65ff594a4c7d276d6cd8448de6d7a Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 037/108] media: dt-bindings: add rockchip rk3568 vicap
@@ -191,10 +191,10 @@ index 000000000..99861d236
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index ebdf96f7e..16623a82e 100644
+index ae73065a6..71bd23ea1 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22252,6 +22252,7 @@ L:	linux-media@vger.kernel.org
+@@ -22253,6 +22253,7 @@ L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/admin-guide/media/rkcif*
  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml

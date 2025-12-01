@@ -1,4 +1,4 @@
-From 6702df65ea19c551dc88721d079398b02b6f85d5 Mon Sep 17 00:00:00 2001
+From 66b6bbc2c8664286b2900ef191268f616763220b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 041/108] media: rockchip: add driver for mipi csi-2 receiver
@@ -25,10 +25,10 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcsi/rkcsi.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index b0f574ba0..174905bc5 100644
+index a015ad3fe..a192c3252 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22287,6 +22287,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+@@ -22288,6 +22288,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml

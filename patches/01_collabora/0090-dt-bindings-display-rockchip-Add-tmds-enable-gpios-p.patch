@@ -1,4 +1,4 @@
-From 281c7ac7c3378482f56a0787398815dd9822fcd9 Mon Sep 17 00:00:00 2001
+From c8333477d102980a37dec31dc12fbf709637f15a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:15:40 +0300
 Subject: [PATCH 090/108] dt-bindings: display: rockchip: Add tmds-enable-gpios

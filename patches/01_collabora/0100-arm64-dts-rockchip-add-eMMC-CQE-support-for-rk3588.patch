@@ -1,4 +1,4 @@
-From ffef772771a0bc42efdf52534827c5d845b64e5d Mon Sep 17 00:00:00 2001
+From 464546604b79a40d7da6f4f8d12646dcf8f1649e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Sun, 12 Oct 2025 23:00:19 +0200
 Subject: [PATCH 100/108] arm64: dts: rockchip: add eMMC CQE support for rk3588

@@ -1,4 +1,4 @@
-From 568a508f1e07c1e46b8a47f8f25617e84439968f Mon Sep 17 00:00:00 2001
+From b1b7180ae02358f77c565c26d4c7f52a23efeb42 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 5 Nov 2025 18:44:09 +0100
 Subject: [PATCH 104/108] arm64: dts: rockchip: Enable ALDPS on both network

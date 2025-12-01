@@ -1,4 +1,4 @@
-From 1633ea758f6ccf5f7daf782357edd6f975500cce Mon Sep 17 00:00:00 2001
+From d71723ffa53f5dd32dee358570a2539d3f60523c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 30 Jun 2025 22:58:06 +0300
 Subject: [PATCH 072/108] drm/bridge: dw-hdmi-qp: Fixup timer base setup

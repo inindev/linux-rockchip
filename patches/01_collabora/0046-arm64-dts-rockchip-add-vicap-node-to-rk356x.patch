@@ -1,4 +1,4 @@
-From 367f00bf90d75b52c6680d21e98ee1b178a044dd Mon Sep 17 00:00:00 2001
+From 72a8e52e224ce5afe0fad987eccd4dc452b5c011 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
 Subject: [PATCH 046/108] arm64: dts: rockchip: add vicap node to rk356x

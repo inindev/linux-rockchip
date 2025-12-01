@@ -1,4 +1,4 @@
-From 137c753d8f9d146f04103bce11ebe86c94c48ac7 Mon Sep 17 00:00:00 2001
+From 3385a43e16f4e2af5564a41371472ca35a6e2df5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 7 Jul 2025 23:23:52 +0300
 Subject: [PATCH 068/108] phy: rockchip: samsung-hdptx: Switch to driver

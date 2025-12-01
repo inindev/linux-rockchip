@@ -1,4 +1,4 @@
-From f891b93cff354fb4101b898f6bbb6e41d97426c3 Mon Sep 17 00:00:00 2001
+From 2ee8165a2d30f3cdf4e401a44b3c4cc132a115d8 Mon Sep 17 00:00:00 2001
 From: Niklas Cassel <cassel@kernel.org>
 Date: Thu, 16 Oct 2025 11:04:22 +0200
 Subject: [PATCH 101/108] PCI: dw-rockchip: Disable L1 substates

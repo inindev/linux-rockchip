@@ -1,4 +1,4 @@
-From b26f2c9b1698ab22d7cf46599703a7e2721c450c Mon Sep 17 00:00:00 2001
+From 79604235afe94ed90ea980b80220a135aae45532 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
 Subject: [PATCH 048/108] arm64: dts: rockchip: enable vicap dvp on wolfvision

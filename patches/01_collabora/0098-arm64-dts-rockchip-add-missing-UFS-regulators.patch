@@ -1,4 +1,4 @@
-From 41f80cf4c2d8a30b582ddec5ee3f61b70d330401 Mon Sep 17 00:00:00 2001
+From 6b53141987a5700c19d04e24b2dc62cefe35cab2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 8 Oct 2025 18:15:24 +0200
 Subject: [PATCH 098/108] arm64: dts: rockchip: add missing UFS regulators

@@ -1,4 +1,4 @@
-From 93a0131919f166cf0bb7e4513fc9626e77e8884d Mon Sep 17 00:00:00 2001
+From a1ead2b26586447195e38729393d04d232d2b979 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 5 Jun 2025 22:33:29 +0300
 Subject: [PATCH 059/108] phy: rockchip: samsung-hdptx: Prevent Inter-Pair Skew

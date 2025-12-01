@@ -1,4 +1,4 @@
-From 0e25a877e8d2f39dcc06bc5f13083e173971e398 Mon Sep 17 00:00:00 2001
+From b7972220dff52ec46487ab945a58476b20b5487c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 21 Jul 2025 13:45:28 +0300
 Subject: [PATCH 081/108] drm/rockchip: dw_hdmi_qp: Add high color depth

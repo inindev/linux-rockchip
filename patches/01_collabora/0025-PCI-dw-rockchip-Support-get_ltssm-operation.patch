@@ -1,4 +1,4 @@
-From b229d526058b475d19d6b6ad60059d2818f12f55 Mon Sep 17 00:00:00 2001
+From d0f877324eee57824e0f433819d4954b15230563 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:58:18 +0200
 Subject: [PATCH 025/108] PCI: dw-rockchip: Support get_ltssm operation

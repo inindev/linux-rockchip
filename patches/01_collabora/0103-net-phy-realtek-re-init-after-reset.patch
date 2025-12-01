@@ -1,4 +1,4 @@
-From d3efdace8530c369a64981ceb34b15c78bae4b5c Mon Sep 17 00:00:00 2001
+From f178d9479397a6175ce507db7b10d851afa9763e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 6 Nov 2025 16:21:05 +0100
 Subject: [PATCH 103/108] net: phy: realtek: re-init after reset

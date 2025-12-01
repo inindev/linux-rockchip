@@ -1,4 +1,4 @@
-From 3673f9d568a722a162d36edb33b44bd95392efc5 Mon Sep 17 00:00:00 2001
+From ee2269f1f362e5847db829ecb040d1081b606d56 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:54:37 +0200
 Subject: [PATCH 024/108] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm

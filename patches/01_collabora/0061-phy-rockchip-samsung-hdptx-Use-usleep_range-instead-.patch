@@ -1,4 +1,4 @@
-From e91896a6297ce42f5d3502dd0f14a74d8f1e858c Mon Sep 17 00:00:00 2001
+From 1944d65803af8c6d73a460497d218b30f524f756 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 28 May 2025 13:21:49 +0300
 Subject: [PATCH 061/108] phy: rockchip: samsung-hdptx: Use usleep_range()

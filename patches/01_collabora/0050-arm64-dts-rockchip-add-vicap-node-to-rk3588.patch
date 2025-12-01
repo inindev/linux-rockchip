@@ -1,4 +1,4 @@
-From 61a4bb551e527622065ab61fc58b4ec2d3b16d74 Mon Sep 17 00:00:00 2001
+From 39ff8cf3d51b9fa5b39af93efd5093429724b068 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
 Subject: [PATCH 050/108] arm64: dts: rockchip: add vicap node to rk3588

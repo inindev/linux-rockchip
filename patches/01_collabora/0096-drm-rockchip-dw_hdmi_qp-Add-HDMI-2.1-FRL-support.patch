@@ -1,4 +1,4 @@
-From 6fe645b45e4722d97f92a3239e7c25c204e77abf Mon Sep 17 00:00:00 2001
+From 79ab14e6d60de7994a99889b1baf6aceb22ef066 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 3 Jul 2025 12:44:04 +0300
 Subject: [PATCH 096/108] drm/rockchip: dw_hdmi_qp: Add HDMI 2.1 FRL support

@@ -1,4 +1,4 @@
-From b7aad1cd7a32d65d91c23869d5130efb1d4f2b67 Mon Sep 17 00:00:00 2001
+From f21815677b53318d137a6fde08ab570940056333 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 5 Jun 2025 20:09:27 +0300
 Subject: [PATCH 058/108] phy: rockchip: samsung-hdptx: Reduce ROPLL loop

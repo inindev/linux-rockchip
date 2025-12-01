@@ -1,4 +1,4 @@
-From b81688cb5c207863509271927b071f048191a0c2 Mon Sep 17 00:00:00 2001
+From 8c3a12039746b1b488c002652cf0f8ffc295785d Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 9 Jul 2025 22:25:43 +0300
 Subject: [PATCH 073/108] drm/rockchip: dw_hdmi_qp: Improve error handling with

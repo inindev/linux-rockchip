@@ -1,4 +1,4 @@
-From 584b4ce983100743b29a5c16f112bb00c679bb69 Mon Sep 17 00:00:00 2001
+From 6e13276ffaff7e5e9ce9bff12a513834108e0ade Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:19 +0530
 Subject: [PATCH 107/108] PCI: dwc: Check for the device presence during

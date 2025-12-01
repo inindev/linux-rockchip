@@ -1,4 +1,4 @@
-From 9e746d2967e8a2752619aa02752e51cb50eef2a0 Mon Sep 17 00:00:00 2001
+From a8a4f92f924776b33020ac3abdf0d7a3fb9ba1dd Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Jun 2025 20:41:01 +0300
 Subject: [PATCH 071/108] drm/bridge: dw-hdmi-qp: Add CEC support

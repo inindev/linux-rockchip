@@ -1,4 +1,4 @@
-From fffc9408a64eaf53d1e14b7d0195a74517c0b0da Mon Sep 17 00:00:00 2001
+From e95d360d4c9433cd6dd8a2155f1a7ed29fb0f3a7 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
 Subject: [PATCH 051/108] arm64: dts: rockchip: use correct pinctrl for i2c3 on

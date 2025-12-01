@@ -1,4 +1,4 @@
-From 25eff980e7854a73a0d53a3fe99e5decf7954b5f Mon Sep 17 00:00:00 2001
+From 652a9dd71d3110b58b40f178979f00504530acc7 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 23 Sep 2025 18:01:04 +0200
 Subject: [PATCH 056/108] drm/bridge: dw-hdmi-qp: Fix spurious IRQ on resume

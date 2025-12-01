@@ -1,4 +1,4 @@
-From 2bf3aefeac4da851742d5acd58a63d645e7a7e3f Mon Sep 17 00:00:00 2001
+From 89ad1c88cf708c7f61344d2216034c8a5064359a Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Tue, 2 Sep 2025 01:24:33 +0200
 Subject: [PATCH 055/108] disable mipi hosts that are attached to csi dcphy

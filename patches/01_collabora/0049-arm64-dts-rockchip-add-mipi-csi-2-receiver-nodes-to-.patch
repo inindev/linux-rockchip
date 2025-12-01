@@ -1,4 +1,4 @@
-From f5fda4cd1ebfe6da0fa765174720b3aab5ec3e0a Mon Sep 17 00:00:00 2001
+From 8dbd397bea0b54bcc86b02cc3ec4c8e08bc7283b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
 Subject: [PATCH 049/108] arm64: dts: rockchip: add mipi csi-2 receiver nodes

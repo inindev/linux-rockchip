@@ -1,4 +1,4 @@
-From 810b500d99146956f938a42ee2d8c584f0a21c45 Mon Sep 17 00:00:00 2001
+From 8594c9042795f3b29fd39d72a3189615d6db5ddb Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 1 Aug 2025 17:10:15 +0300
 Subject: [PATCH 067/108] phy: rockchip: samsung-hdptx: Drop hw_rate driver

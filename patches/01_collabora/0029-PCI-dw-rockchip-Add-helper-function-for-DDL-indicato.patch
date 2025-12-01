@@ -1,4 +1,4 @@
-From 5ab889c58cb453573a4f9bfa1b2d03d164dbfb97 Mon Sep 17 00:00:00 2001
+From 5651b3fcc842ba484559f1ba519348a30014e902 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:30:11 +0200
 Subject: [PATCH 029/108] PCI: dw-rockchip: Add helper function for DDL

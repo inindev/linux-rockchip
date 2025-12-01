@@ -1,4 +1,4 @@
-From 2fa041d2221db4d6676651783e7db081ac0b0c8a Mon Sep 17 00:00:00 2001
+From ac69d42a7cc8dd35e9fa59ac6f1fab022693b7e5 Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 036/108] media: dt-bindings: add rockchip px30 vip
@@ -145,10 +145,10 @@ index 000000000..9f7ab6965
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 815ae7094..ebdf96f7e 100644
+index b33146257..ae73065a6 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22251,6 +22251,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+@@ -22252,6 +22252,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/admin-guide/media/rkcif*

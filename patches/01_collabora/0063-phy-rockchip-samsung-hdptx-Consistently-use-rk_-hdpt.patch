@@ -1,4 +1,4 @@
-From e09039420e80994987586b2968084b8242c9a2fa Mon Sep 17 00:00:00 2001
+From 86ad5ae60a3b13de36f439ddb026a7229dba9507 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Jun 2025 12:03:11 +0300
 Subject: [PATCH 063/108] phy: rockchip: samsung-hdptx: Consistently use

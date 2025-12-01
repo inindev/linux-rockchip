@@ -1,4 +1,4 @@
-From 9577db930bdce28916f07f1716fef4b49db9c2ed Mon Sep 17 00:00:00 2001
+From 23116ca3b2f00bb57ad00153dacfc73823480c3f Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:17 +0530
 Subject: [PATCH 105/108] PCI: host-common: Add an API to check for any device

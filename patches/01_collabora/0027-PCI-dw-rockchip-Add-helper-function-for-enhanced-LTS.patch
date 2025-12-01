@@ -1,4 +1,4 @@
-From 944ebdf40da36eb148461b433f4434a6ac78e6ae Mon Sep 17 00:00:00 2001
+From 8ab6b0514f695d1aab6ca204e94acb32316abea8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:21:02 +0200
 Subject: [PATCH 027/108] PCI: dw-rockchip: Add helper function for enhanced

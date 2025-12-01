@@ -1,4 +1,4 @@
-From 6641f822d463de6c69942dc3d4a6f678e86b384f Mon Sep 17 00:00:00 2001
+From 7434eb874de454ab8ddd9f254b0e48def0e61d7a Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 038/108] media: dt-bindings: add rockchip rk3568 mipi csi-2
@@ -165,10 +165,10 @@ index 000000000..8cbab93b4
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 16623a82e..0f1fce512 100644
+index 71bd23ea1..4cacf5650 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22280,6 +22280,12 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
+@@ -22281,6 +22281,12 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
  F:	drivers/media/platform/rockchip/rkisp1
  F:	include/uapi/linux/rkisp1-config.h
  

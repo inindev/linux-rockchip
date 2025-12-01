@@ -1,4 +1,4 @@
-From af7ca2684ef7b0268e52fb4787b870afa8876edd Mon Sep 17 00:00:00 2001
+From ff9fcc18bd6f3d1b725963a63bae5c05b2b5d5ca Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 18 Jul 2025 21:49:57 +0300
 Subject: [PATCH 078/108] drm/bridge: dw-hdmi-qp: Handle platform supported

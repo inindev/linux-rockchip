@@ -1,4 +1,4 @@
-From c59ec057857354653c119f93a3386e596fc8747e Mon Sep 17 00:00:00 2001
+From 6f3325f0e45f20a56284250bc54226e1adc09a9b Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:24 +0200
 Subject: [PATCH 019/108] dt-bindings: input: adc-keys: allow linux,input-type

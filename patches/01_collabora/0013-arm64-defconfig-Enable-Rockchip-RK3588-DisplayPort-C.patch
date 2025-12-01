@@ -1,4 +1,4 @@
-From 74311a23a8f2c71473928cd49f240a314bf4182a Mon Sep 17 00:00:00 2001
+From b6c90df5cc3cbdfc26d219e3d7c5fd8878e4f5f1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 10 Apr 2025 22:44:33 +0200
 Subject: [PATCH 013/108] arm64: defconfig: Enable Rockchip RK3588 DisplayPort

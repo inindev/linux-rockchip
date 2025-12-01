@@ -1,4 +1,4 @@
-From 410b23957620a7648f2e319590055f5a9692bebb Mon Sep 17 00:00:00 2001
+From 91580e0a028ea095a19c8c319514529adf82da06 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
 Subject: [PATCH 034/108] Documentation: admin-guide: media: add rockchip
@@ -149,10 +149,10 @@ index 3bac5165b..694fad685 100644
  	raspberrypi-rp1-cfe
  	saa7134
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 6df89b14b..815ae7094 100644
+index e8f06145f..b33146257 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22245,6 +22245,13 @@ S:	Maintained
+@@ -22246,6 +22246,13 @@ S:	Maintained
  F:	Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
  F:	drivers/net/can/rockchip/
  

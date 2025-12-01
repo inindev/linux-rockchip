@@ -1,4 +1,4 @@
-From 456203edcd689a2bb8d479586602a8fcac8f5c94 Mon Sep 17 00:00:00 2001
+From 2534de13fb1753f8905ed922ffaa204d08de4d18 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:11 +0200
 Subject: [PATCH 018/108] phy: rockchip: usbdp: reset USB3 and reinit on

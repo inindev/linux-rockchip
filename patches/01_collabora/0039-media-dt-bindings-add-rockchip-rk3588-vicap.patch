@@ -1,4 +1,4 @@
-From bb21ebf2d6641cf99ecbde2d4c008855398c04df Mon Sep 17 00:00:00 2001
+From 6be770885fee58347872da1cfa87da81e5e79b3f Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 039/108] media: dt-bindings: add rockchip rk3588 vicap
@@ -255,10 +255,10 @@ index 000000000..0911a6b07
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 0f1fce512..0fb1ef796 100644
+index 4cacf5650..376d102b4 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22253,6 +22253,7 @@ S:	Maintained
+@@ -22254,6 +22254,7 @@ S:	Maintained
  F:	Documentation/admin-guide/media/rkcif*
  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml

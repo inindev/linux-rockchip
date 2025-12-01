@@ -1,4 +1,4 @@
-From 245ecd65272fcb84514dab3deff092be51b2c14d Mon Sep 17 00:00:00 2001
+From 90d8d596abe516c1c47f3a079dd01cc4981355d3 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 6 Jun 2025 18:18:23 +0300
 Subject: [PATCH 066/108] phy: rockchip: samsung-hdptx: Compute clk rate from

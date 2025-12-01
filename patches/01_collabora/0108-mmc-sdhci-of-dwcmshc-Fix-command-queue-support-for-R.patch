@@ -1,4 +1,4 @@
-From a13c4362b97afdd0e5d634a8b8a83385d21194d5 Mon Sep 17 00:00:00 2001
+From b649a2c416bc92d9073816aa0a14073a37fd176a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 20 Nov 2025 16:33:27 +0100
 Subject: [PATCH 108/108] mmc: sdhci-of-dwcmshc: Fix command queue support for
@@ -43,10 +43,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index bc6c03794..4ccf9b854 100644
+index 348ab1bb9..105a16613 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -1291,6 +1291,7 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
+@@ -1296,6 +1296,7 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
  		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
  			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
  	},

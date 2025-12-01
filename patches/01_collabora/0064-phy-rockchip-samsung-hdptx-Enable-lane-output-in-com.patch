@@ -1,4 +1,4 @@
-From fd56658fdf72dbaf3f434771f87f6aab9e7857ec Mon Sep 17 00:00:00 2001
+From a37a9227e62b139b649ee8eb89d8b8c62954397b Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Jun 2025 10:25:49 +0300
 Subject: [PATCH 064/108] phy: rockchip: samsung-hdptx: Enable lane output in

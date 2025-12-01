@@ -1,4 +1,4 @@
-From 40adf5e0802929dab8c910a73a8ae16fda6a3dfc Mon Sep 17 00:00:00 2001
+From e02e7ccde1913eac5fd1bf6a52528b05818bdf29 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:10 +0200
 Subject: [PATCH 017/108] phy: rockchip: usbdp: move orientation handling

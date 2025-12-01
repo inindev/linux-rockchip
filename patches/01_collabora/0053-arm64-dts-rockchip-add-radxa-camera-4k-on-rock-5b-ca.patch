@@ -1,4 +1,4 @@
-From 8f3d1efb5ddc67c008f5f3e96cc236ad0438c6b9 Mon Sep 17 00:00:00 2001
+From 45a227e0558b95034d47591dfe3b1fd194fc31d3 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:16 +0200
 Subject: [PATCH 053/108] arm64: dts: rockchip: add radxa camera 4k on rock 5b+

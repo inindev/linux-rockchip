@@ -1,4 +1,4 @@
-From 85e842e1aca549e4710c94abaf61060be12b93f4 Mon Sep 17 00:00:00 2001
+From 25afcb7ee1a216662114b73737bc829a5d37b251 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
 Subject: [PATCH 035/108] media: dt-bindings: video-interfaces: add defines for

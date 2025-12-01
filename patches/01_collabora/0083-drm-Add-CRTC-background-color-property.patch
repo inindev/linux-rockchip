@@ -1,4 +1,4 @@
-From 86712e20b4a12e505fb9d70c566951e4da5ff255 Mon Sep 17 00:00:00 2001
+From 99b462a9ec890bf4e504bc17b75e3ad6cf0d24e0 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 19 Aug 2025 11:21:35 +0300
 Subject: [PATCH 083/108] drm: Add CRTC background color property

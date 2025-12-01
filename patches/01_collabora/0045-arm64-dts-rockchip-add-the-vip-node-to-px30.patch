@@ -1,4 +1,4 @@
-From 3a7ce71d8fac3a9b7c8d35a837929fd70ad32dd1 Mon Sep 17 00:00:00 2001
+From 07ecf09e3536ec020caf468cc4009ea49c5db23c Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
 Subject: [PATCH 045/108] arm64: dts: rockchip: add the vip node to px30

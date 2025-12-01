@@ -1,4 +1,4 @@
-From 782a0195d10535a5d99f9b0e824a94e191eb5b63 Mon Sep 17 00:00:00 2001
+From 3112699d44141245f41941aec8b7d30bd0bb80e2 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
 Subject: [PATCH 044/108] arm64: defconfig: enable rockchip camera interface
