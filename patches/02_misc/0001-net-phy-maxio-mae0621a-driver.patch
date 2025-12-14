@@ -1,7 +1,7 @@
-From 0be369420816b2613d59459e21ac8cc851562366 Mon Sep 17 00:00:00 2001
+From 1a0953a34d588b78db2549e657d18212f1e07921 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sat, 17 May 2025 18:02:15 -0400
-Subject: [PATCH 1/4] net: phy: maxio: mae0621a driver
+Subject: [PATCH 1/5] net: phy: maxio: mae0621a driver
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---

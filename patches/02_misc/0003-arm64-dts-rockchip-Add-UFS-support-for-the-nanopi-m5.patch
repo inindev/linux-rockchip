@@ -1,0 +1,28 @@
+From ccdd5461d58c4ed56533ce921674c34997dbc669 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Sun, 14 Dec 2025 08:37:51 -0500
+Subject: [PATCH 3/5] arm64: dts: rockchip: Add UFS support for the nanopi-m5
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+index cce34c541..ee779195e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+@@ -902,6 +902,10 @@ &u2phy1_otg {
+ 	status = "okay";
+ };
+ 
++&ufshc {
++	status = "okay";
++};
++
+ &uart0 {
+ 	status = "okay";
+ };
+-- 
+2.47.3
+
