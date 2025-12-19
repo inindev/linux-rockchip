@@ -1,7 +1,7 @@
-From 24ba92c3e8ac3751c2c1f2ec80db958e3627430f Mon Sep 17 00:00:00 2001
+From d4128f0772f064014e8e4426efb84a2d46536725 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:09 +0200
-Subject: [PATCH 016/108] phy: rockchip: inno-usb2: add soft vbusvalid control
+Subject: [PATCH 016/105] phy: rockchip: inno-usb2: add soft vbusvalid control
 
 With USB type C connectors, the vbus detect pin of the OTG controller
 attached to it is pulled high by a USB Type C controller chip such as
@@ -32,7 +32,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 109 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690e..4f89bd656 100644
+index b0f2369..4f89bd6 100644
 --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 @@ -17,6 +17,7 @@

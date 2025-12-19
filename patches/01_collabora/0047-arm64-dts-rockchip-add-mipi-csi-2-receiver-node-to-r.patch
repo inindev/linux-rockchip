@@ -1,7 +1,7 @@
-From f4801029d3f2a15d94f005fdd78bbbda08401dd2 Mon Sep 17 00:00:00 2001
+From a976e54ceef9810ca6ebaed326abc8fe94753d5f Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 047/108] arm64: dts: rockchip: add mipi csi-2 receiver node to
+Subject: [PATCH 047/105] arm64: dts: rockchip: add mipi csi-2 receiver node to
  rk356x
 
 Add the device tree node for the RK356x MIPI CSI-2 Receiver.
@@ -13,7 +13,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 34 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index e0e4dc85a..4c3dbcabd 100644
+index e0e4dc8..4c3dbca 100644
 --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
 @@ -564,6 +564,36 @@ gpu: gpu@fde60000 {

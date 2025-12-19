@@ -1,7 +1,7 @@
-From 0f65088c67defe45f8696c71a234f9aa0cce1872 Mon Sep 17 00:00:00 2001
+From efafd35260330d96713540633828298dd093662a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
-Subject: [PATCH 022/108] net: phy: realtek: Reset after clock enable
+Subject: [PATCH 022/105] net: phy: realtek: Reset after clock enable
 
 On Radxa ROCK 4D boards we are seeing some issues with PHY detection and
 stability (e.g. link loss or not capable of transceiving packages) after
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index 16a347084..b4053a547 100644
+index b26f4d1..ce46ab7 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -229,6 +229,8 @@ static int rtl821x_probe(struct phy_device *phydev)
@@ -39,7 +39,7 @@ index 16a347084..b4053a547 100644
  
  	ret = phy_read_paged(phydev, RTL8211F_PHYCR_PAGE, RTL8211F_PHYCR1);
  	if (ret < 0)
-@@ -722,8 +724,10 @@ static int rtl821x_resume(struct phy_device *phydev)
+@@ -735,8 +737,10 @@ static int rtl821x_resume(struct phy_device *phydev)
  	struct rtl821x_priv *priv = phydev->priv;
  	int ret;
  
@@ -51,7 +51,7 @@ index 16a347084..b4053a547 100644
  
  	ret = genphy_resume(phydev);
  	if (ret < 0)
-@@ -1783,7 +1787,7 @@ static struct phy_driver realtek_drvs[] = {
+@@ -1796,7 +1800,7 @@ static struct phy_driver realtek_drvs[] = {
  		.resume		= rtl8211f_resume,
  		.read_page	= rtl821x_read_page,
  		.write_page	= rtl821x_write_page,

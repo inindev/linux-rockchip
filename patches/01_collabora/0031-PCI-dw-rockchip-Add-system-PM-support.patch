@@ -1,7 +1,7 @@
-From 8b73676b30fbe22995c174a9d1898d06db4104c8 Mon Sep 17 00:00:00 2001
+From 3580fd94beb862363958c240192af78f4ed404cb Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:49:34 +0200
-Subject: [PATCH 031/108] PCI: dw-rockchip: Add system PM support
+Subject: [PATCH 031/105] PCI: dw-rockchip: Add system PM support
 
 Add system PM support for Rockchip PCIe Designware Controllers.
 
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 93 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 84caade22..34f438395 100644
+index 84caade..34f4383 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -90,6 +90,7 @@ struct rockchip_pcie {

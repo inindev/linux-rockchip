@@ -1,7 +1,7 @@
-From 7e2fac8492748a1ccbd22756596dec3780d445b9 Mon Sep 17 00:00:00 2001
+From 19f8dc9d32493d12b2996ae70d0f314df5619fac Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:39:11 +0100
-Subject: [PATCH 005/108] arm64: dts: rockchip: rk3588-evb1: improve PCIe
+Subject: [PATCH 005/105] arm64: dts: rockchip: rk3588-evb1: improve PCIe
  ethernet pin muxing
 
 Also describe clkreq and wake signals in the PCIe pinmux used
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-index 94fb99f83..332879ff0 100644
+index 94fb99f..332879f 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 @@ -554,7 +554,7 @@ wifi: wifi@0,0 {

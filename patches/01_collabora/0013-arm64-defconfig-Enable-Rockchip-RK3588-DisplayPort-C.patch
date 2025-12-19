@@ -1,7 +1,7 @@
-From b6c90df5cc3cbdfc26d219e3d7c5fd8878e4f5f1 Mon Sep 17 00:00:00 2001
+From 910773766c9ce433950f56fa7990fe248f6e8f30 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 10 Apr 2025 22:44:33 +0200
-Subject: [PATCH 013/108] arm64: defconfig: Enable Rockchip RK3588 DisplayPort
+Subject: [PATCH 013/105] arm64: defconfig: Enable Rockchip RK3588 DisplayPort
  Controller
 
 Enable support for the RK3588 DisplayPort Controller, which is
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 1a48faad2..bdb549d73 100644
+index 1a48faa..bdb549d 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
 @@ -913,6 +913,7 @@ CONFIG_DRM_ROCKCHIP=m

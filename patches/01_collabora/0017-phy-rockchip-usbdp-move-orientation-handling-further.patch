@@ -1,7 +1,7 @@
-From e02e7ccde1913eac5fd1bf6a52528b05818bdf29 Mon Sep 17 00:00:00 2001
+From 22fac7febde1e0f4b66d5cb3021c480e9e24ccd9 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:10 +0200
-Subject: [PATCH 017/108] phy: rockchip: usbdp: move orientation handling
+Subject: [PATCH 017/105] phy: rockchip: usbdp: move orientation handling
  further down
 
 The orientation handling code isn't referenced until very far down the
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 50 insertions(+), 50 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fba35510d..1c0c5b6fa 100644
+index fba3551..1c0c5b6 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -651,56 +651,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)

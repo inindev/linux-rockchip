@@ -1,7 +1,7 @@
-From 71671a3cfc1695505d03d285e791b7d655e483b8 Mon Sep 17 00:00:00 2001
+From ca748e3b302d0373cb731efe1cc60af0932ad8e0 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 040/108] media: rockchip: add a driver for the rockchip camera
+Subject: [PATCH 040/105] media: rockchip: add a driver for the rockchip camera
  interface
 
 The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
@@ -71,7 +71,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcif/rkcif-stream.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 376d102b4..a015ad3fe 100644
+index 376d102..a015ad3 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -22255,6 +22255,7 @@ F:	Documentation/admin-guide/media/rkcif*
@@ -83,7 +83,7 @@ index 376d102b4..a015ad3fe 100644
  ROCKCHIP CRYPTO DRIVERS
  M:	Corentin Labbe <clabbe@baylibre.com>
 diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-index 9bbeec499..ba401d32f 100644
+index 9bbeec4..ba401d3 100644
 --- a/drivers/media/platform/rockchip/Kconfig
 +++ b/drivers/media/platform/rockchip/Kconfig
 @@ -3,5 +3,6 @@
@@ -94,7 +94,7 @@ index 9bbeec499..ba401d32f 100644
  source "drivers/media/platform/rockchip/rkisp1/Kconfig"
  source "drivers/media/platform/rockchip/rkvdec/Kconfig"
 diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-index 286dc5c53..0e0b2cbbd 100644
+index 286dc5c..0e0b2cb 100644
 --- a/drivers/media/platform/rockchip/Makefile
 +++ b/drivers/media/platform/rockchip/Makefile
 @@ -1,4 +1,5 @@
@@ -105,7 +105,7 @@ index 286dc5c53..0e0b2cbbd 100644
  obj-y += rkvdec/
 diff --git a/drivers/media/platform/rockchip/rkcif/Kconfig b/drivers/media/platform/rockchip/rkcif/Kconfig
 new file mode 100644
-index 000000000..efd82ac35
+index 0000000..efd82ac
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/Kconfig
 @@ -0,0 +1,18 @@
@@ -129,7 +129,7 @@ index 000000000..efd82ac35
 +	  will be called rockchip-cif.
 diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
 new file mode 100644
-index 000000000..818424972
+index 0000000..8184249
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/Makefile
 @@ -0,0 +1,7 @@
@@ -142,7 +142,7 @@ index 000000000..818424972
 +	rkcif-stream.o
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c
 new file mode 100644
-index 000000000..4053822bf
+index 0000000..4053822
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c
 @@ -0,0 +1,865 @@
@@ -1013,7 +1013,7 @@ index 000000000..4053822bf
 +}
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h
 new file mode 100644
-index 000000000..4bd72d41e
+index 0000000..4bd72d4
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h
 @@ -0,0 +1,24 @@
@@ -1043,7 +1043,7 @@ index 000000000..4bd72d41e
 +#endif
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
 new file mode 100644
-index 000000000..0c3f7b8cf
+index 0000000..0c3f7b8
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
 @@ -0,0 +1,27 @@
@@ -1076,7 +1076,7 @@ index 000000000..0c3f7b8cf
 +}
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
 new file mode 100644
-index 000000000..ee1a50a59
+index 0000000..ee1a50a
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
 @@ -0,0 +1,20 @@
@@ -1102,7 +1102,7 @@ index 000000000..ee1a50a59
 +#endif
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
 new file mode 100644
-index 000000000..5e7bff585
+index 0000000..5e7bff5
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
 @@ -0,0 +1,220 @@
@@ -1328,7 +1328,7 @@ index 000000000..5e7bff585
 +#endif
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
 new file mode 100644
-index 000000000..b9463d135
+index 0000000..b9463d1
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
 @@ -0,0 +1,301 @@
@@ -1635,7 +1635,7 @@ index 000000000..b9463d135
 +MODULE_LICENSE("GPL");
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
 new file mode 100644
-index 000000000..45a232ea9
+index 0000000..45a232e
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
 @@ -0,0 +1,423 @@
@@ -2064,7 +2064,7 @@ index 000000000..45a232ea9
 +}
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-interface.h b/drivers/media/platform/rockchip/rkcif/rkcif-interface.h
 new file mode 100644
-index 000000000..f37fde4cc
+index 0000000..f37fde4
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-interface.h
 @@ -0,0 +1,30 @@
@@ -2100,7 +2100,7 @@ index 000000000..f37fde4cc
 +#endif
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
 new file mode 100644
-index 000000000..07fd64174
+index 0000000..07fd641
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
 @@ -0,0 +1,132 @@
@@ -2238,7 +2238,7 @@ index 000000000..07fd64174
 +#endif
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
 new file mode 100644
-index 000000000..ce8a743ed
+index 0000000..ce8a743
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
 @@ -0,0 +1,637 @@
@@ -2881,7 +2881,7 @@ index 000000000..ce8a743ed
 +}
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.h b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
 new file mode 100644
-index 000000000..e50c9771f
+index 0000000..e50c977
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
 @@ -0,0 +1,31 @@

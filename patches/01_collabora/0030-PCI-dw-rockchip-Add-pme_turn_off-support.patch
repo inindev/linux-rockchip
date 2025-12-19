@@ -1,7 +1,7 @@
-From 3d9404a91b36e97c70a9ea5c0ce1569e7381053b Mon Sep 17 00:00:00 2001
+From c8f442de4b8a21aa4802ace3e3124abe27c155e5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:38:54 +0200
-Subject: [PATCH 030/108] PCI: dw-rockchip: Add pme_turn_off support
+Subject: [PATCH 030/105] PCI: dw-rockchip: Add pme_turn_off support
 
 Prepare Rockchip PCIe controller for system suspend support by
 adding the PME turn off operation.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 44 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index a4637a2db..84caade22 100644
+index a4637a2..84caade 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -42,6 +42,7 @@

@@ -1,7 +1,7 @@
-From 7434eb874de454ab8ddd9f254b0e48def0e61d7a Mon Sep 17 00:00:00 2001
+From eab46f1634d3833f8a626f319d1c60bd5b22c3b9 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 038/108] media: dt-bindings: add rockchip rk3568 mipi csi-2
+Subject: [PATCH 038/105] media: dt-bindings: add rockchip rk3568 mipi csi-2
  receiver
 
 Add documentation for the Rockchip RK3568 MIPI CSI-2 Receiver.
@@ -16,7 +16,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
 diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
 new file mode 100644
-index 000000000..8cbab93b4
+index 0000000..8cbab93
 --- /dev/null
 +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
 @@ -0,0 +1,144 @@
@@ -165,7 +165,7 @@ index 000000000..8cbab93b4
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 71bd23ea1..4cacf5650 100644
+index 71bd23e..4cacf56 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -22281,6 +22281,12 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst

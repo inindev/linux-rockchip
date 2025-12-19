@@ -1,7 +1,7 @@
-From 8dbd397bea0b54bcc86b02cc3ec4c8e08bc7283b Mon Sep 17 00:00:00 2001
+From f826383c625fb494ab9f64b7a609e2979f86481b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 049/108] arm64: dts: rockchip: add mipi csi-2 receiver nodes
+Subject: [PATCH 049/105] arm64: dts: rockchip: add mipi csi-2 receiver nodes
  to rk3588
 
 Add the device tree nodes for the six MIPI CSI-2 Receiver units
@@ -13,7 +13,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 156 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index c0f106837..9937663f9 100644
+index c0f1068..9937663 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1366,6 +1366,162 @@ av1d: video-codec@fdc70000 {

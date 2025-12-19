@@ -1,7 +1,7 @@
-From 301a5fa17716389aa160c394416c0eca67965a84 Mon Sep 17 00:00:00 2001
+From 44631ed946128e368266eb7a039fffdd7a950523 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:16 +0200
-Subject: [PATCH 054/108] media: rockchip: rkcsi: enable interrupts and error
+Subject: [PATCH 054/105] media: rockchip: rkcsi: enable interrupts and error
  reporting
 
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
@@ -10,7 +10,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 47 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-index 5658ffb60..e5fd16b4c 100644
+index 5658ffb..e5fd16b 100644
 --- a/drivers/media/platform/rockchip/rkcsi/rkcsi.c
 +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
 @@ -265,6 +265,9 @@ static int rkcsi_start(struct rkcsi_device *csi_dev)

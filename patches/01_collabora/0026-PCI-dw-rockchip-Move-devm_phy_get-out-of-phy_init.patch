@@ -1,7 +1,7 @@
-From 317586c8d3fc1e9391a39744c400323fc0ae6ab5 Mon Sep 17 00:00:00 2001
+From 1c6c7147bd8e7d290ce74271747b64c3119b3c46 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:06:36 +0200
-Subject: [PATCH 026/108] PCI: dw-rockchip: Move devm_phy_get out of phy_init
+Subject: [PATCH 026/105] PCI: dw-rockchip: Move devm_phy_get out of phy_init
 
 By moving devm_phy_get() to the probe routine, rockchip_pcie_phy_init()
 can be used to re-initialize the PCIe PHY, which is for example needed
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index e3d7792f7..8e584016e 100644
+index e3d7792..8e58401 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -425,14 +425,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,

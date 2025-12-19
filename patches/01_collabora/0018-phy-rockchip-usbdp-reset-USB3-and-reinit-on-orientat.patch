@@ -1,7 +1,7 @@
-From 2534de13fb1753f8905ed922ffaa204d08de4d18 Mon Sep 17 00:00:00 2001
+From e39dc9137b66ecdf727313cd06b38552a9a5e586 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:11 +0200
-Subject: [PATCH 018/108] phy: rockchip: usbdp: reset USB3 and reinit on
+Subject: [PATCH 018/105] phy: rockchip: usbdp: reset USB3 and reinit on
  orientation switch
 
 Until now, super speed on Type-C only worked in one orientation. This is
@@ -40,7 +40,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 54 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 1c0c5b6fa..9e10f4e4a 100644
+index 1c0c5b6..9e10f4e 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -200,6 +200,10 @@ struct rk_udphy {

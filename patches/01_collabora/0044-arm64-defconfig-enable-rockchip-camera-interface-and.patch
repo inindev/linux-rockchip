@@ -1,7 +1,7 @@
-From 3112699d44141245f41941aec8b7d30bd0bb80e2 Mon Sep 17 00:00:00 2001
+From a92a54d4d333d73c922f8033f40d1070a7b90f2b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 044/108] arm64: defconfig: enable rockchip camera interface
+Subject: [PATCH 044/105] arm64: defconfig: enable rockchip camera interface
  and mipi csi-2 receiver
 
 The Rockchip Camera Interface (CIF) and the Rockchip MIPI CSI-2 Receiver
@@ -14,7 +14,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index bdb549d73..13b198949 100644
+index bdb549d..13b1989 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
 @@ -883,6 +883,8 @@ CONFIG_VIDEO_RENESAS_FCP=m

@@ -1,7 +1,7 @@
-From 21c4da6930affff36686dd732288f4234ca4b817 Mon Sep 17 00:00:00 2001
+From 6f6c3de5c82a0eaa6f44bce39492cda4758e9ac5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:27:04 +0200
-Subject: [PATCH 028/108] PCI: dw-rockchip: Add helper function for controller
+Subject: [PATCH 028/105] PCI: dw-rockchip: Add helper function for controller
  mode
 
 Remove code duplication and improve readability by introducing a new
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index ad659e2c6..e885e5e75 100644
+index ad659e2..e885e5e 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -522,6 +522,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci

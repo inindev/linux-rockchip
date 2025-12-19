@@ -1,7 +1,7 @@
-From f419cee2713ca99d2bbdbb7ebf085e5403702297 Mon Sep 17 00:00:00 2001
+From 272a7e38b0e0746aa42aac205a666b9c27bddc1b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 042/108] media: rockchip: rkcif: add support for mipi csi-2
+Subject: [PATCH 042/105] media: rockchip: rkcif: add support for mipi csi-2
  capture
 
 The RK3568 Video Capture (VICAP) unit features a MIPI CSI-2 capture
@@ -21,7 +21,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  6 files changed, 809 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-index 0c3f7b8cf..f6c61e1a4 100644
+index 0c3f7b8..f6c61e1 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
 @@ -6,22 +6,772 @@
@@ -798,7 +798,7 @@ index 0c3f7b8cf..f6c61e1a4 100644
 +	}
  }
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-index ee1a50a59..1248af70b 100644
+index ee1a50a..1248af7 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
 @@ -11,6 +11,8 @@
@@ -811,7 +811,7 @@ index ee1a50a59..1248af70b 100644
  
  void rkcif_mipi_unregister(struct rkcif_device *rkcif);
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-index 5e7bff585..a6c5cd2f0 100644
+index 5e7bff5..a6c5cd2 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
 @@ -34,6 +34,17 @@ enum rkcif_format_type {
@@ -875,7 +875,7 @@ index 5e7bff585..a6c5cd2f0 100644
  
  struct rkcif_device {
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-index b9463d135..d857c4a5b 100644
+index b9463d1..d857c4a 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
 @@ -49,6 +49,7 @@ static const struct rkcif_match_data rk3568_vicap_match_data = {
@@ -887,7 +887,7 @@ index b9463d135..d857c4a5b 100644
  
  static const struct of_device_id rkcif_plat_of_match[] = {
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
-index 45a232ea9..ef0775960 100644
+index 45a232e..ef07759 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
 @@ -188,8 +188,10 @@ static int rkcif_interface_enable_streams(struct v4l2_subdev *sd,
@@ -904,7 +904,7 @@ index 45a232ea9..ef0775960 100644
  
  	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_IF_PAD_SINK,
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
-index 07fd64174..3d1f0c45c 100644
+index 07fd641..3d1f0c4 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
 @@ -30,7 +30,29 @@ enum rkcif_dvp_register_index {

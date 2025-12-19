@@ -1,7 +1,7 @@
-From ee2269f1f362e5847db829ecb040d1081b606d56 Mon Sep 17 00:00:00 2001
+From 7bb3494587c920752362f34b4f4a9ea129093ff0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:54:37 +0200
-Subject: [PATCH 024/108] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm
+Subject: [PATCH 024/105] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm
  function
 
 Rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 3e2752c7d..58427db1c 100644
+index 3e2752c..58427db 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -175,7 +175,7 @@ static int rockchip_pcie_init_irq_domain(struct rockchip_pcie *rockchip)

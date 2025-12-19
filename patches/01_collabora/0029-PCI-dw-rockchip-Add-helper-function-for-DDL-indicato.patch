@@ -1,7 +1,7 @@
-From 5651b3fcc842ba484559f1ba519348a30014e902 Mon Sep 17 00:00:00 2001
+From 3d8f4a12f24c7ab82b73e0babac14b20547b9f2d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:30:11 +0200
-Subject: [PATCH 029/108] PCI: dw-rockchip: Add helper function for DDL
+Subject: [PATCH 029/105] PCI: dw-rockchip: Add helper function for DDL
  indicator
 
 Remove code duplication and improve readability by introducing a new
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 10 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index e885e5e75..a4637a2db 100644
+index e885e5e..a4637a2 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -527,6 +527,15 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3

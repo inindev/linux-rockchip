@@ -1,7 +1,7 @@
-From 91580e0a028ea095a19c8c319514529adf82da06 Mon Sep 17 00:00:00 2001
+From 72cb8827f7e513d4ceba4dfb59beab194ee9e3e3 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
-Subject: [PATCH 034/108] Documentation: admin-guide: media: add rockchip
+Subject: [PATCH 034/105] Documentation: admin-guide: media: add rockchip
  camera interface
 
 Add a document that describes the different variants of the Rockchip
@@ -22,7 +22,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
 diff --git a/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
 new file mode 100644
-index 000000000..02340135a
+index 0000000..0234013
 --- /dev/null
 +++ b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
 @@ -0,0 +1,21 @@
@@ -49,7 +49,7 @@ index 000000000..02340135a
 +}
 diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
 new file mode 100644
-index 000000000..f35f644a5
+index 0000000..f35f644
 --- /dev/null
 +++ b/Documentation/admin-guide/media/rkcif.rst
 @@ -0,0 +1,83 @@
@@ -137,7 +137,7 @@ index 000000000..f35f644a5
 +    :alt:   Topology of the RK3568 Video Capture (VICAP) unit
 +    :align: center
 diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
-index 3bac5165b..694fad685 100644
+index 3bac516..694fad6 100644
 --- a/Documentation/admin-guide/media/v4l-drivers.rst
 +++ b/Documentation/admin-guide/media/v4l-drivers.rst
 @@ -25,6 +25,7 @@ Video4Linux (V4L) driver-specific documentation
@@ -149,7 +149,7 @@ index 3bac5165b..694fad685 100644
  	raspberrypi-rp1-cfe
  	saa7134
 diff --git a/MAINTAINERS b/MAINTAINERS
-index e8f06145f..b33146257 100644
+index e8f0614..b331462 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -22246,6 +22246,13 @@ S:	Maintained

@@ -1,7 +1,7 @@
-From ac69d42a7cc8dd35e9fa59ac6f1fab022693b7e5 Mon Sep 17 00:00:00 2001
+From c246996f4186e54477da7cd2287dc510ff2dceee Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 036/108] media: dt-bindings: add rockchip px30 vip
+Subject: [PATCH 036/105] media: dt-bindings: add rockchip px30 vip
 
 Add documentation for the Rockchip PX30 Video Input Processor (VIP).
 
@@ -18,7 +18,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
 diff --git a/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
 new file mode 100644
-index 000000000..9f7ab6965
+index 0000000..9f7ab69
 --- /dev/null
 +++ b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
 @@ -0,0 +1,122 @@
@@ -145,7 +145,7 @@ index 000000000..9f7ab6965
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index b33146257..ae73065a6 100644
+index b331462..ae73065 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -22252,6 +22252,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>

@@ -1,7 +1,7 @@
-From 652a9dd71d3110b58b40f178979f00504530acc7 Mon Sep 17 00:00:00 2001
+From 34263eaea7072fc16aead89460e9284683319a72 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 23 Sep 2025 18:01:04 +0200
-Subject: [PATCH 056/108] drm/bridge: dw-hdmi-qp: Fix spurious IRQ on resume
+Subject: [PATCH 056/105] drm/bridge: dw-hdmi-qp: Fix spurious IRQ on resume
 
 After resume from suspend to RAM, the following splash is generated if
 the HDMI driver is probed (independent of a connected cable):
@@ -29,7 +29,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 21 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 39332c57f..c85eb340e 100644
+index 39332c5..c85eb34 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -143,6 +143,7 @@ struct dw_hdmi_qp {
@@ -66,7 +66,7 @@ index 39332c57f..c85eb340e 100644
  EXPORT_SYMBOL_GPL(dw_hdmi_qp_resume);
  
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index ed6e8f036..9ac45e7bc 100644
+index ed6e8f0..9ac45e7 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -597,6 +597,15 @@ static void dw_hdmi_qp_rockchip_remove(struct platform_device *pdev)
@@ -96,7 +96,7 @@ index ed6e8f036..9ac45e7bc 100644
  
  struct platform_driver dw_hdmi_qp_rockchip_pltfm_driver = {
 diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index e9be6d507..895545066 100644
+index e9be6d5..8955450 100644
 --- a/include/drm/bridge/dw_hdmi_qp.h
 +++ b/include/drm/bridge/dw_hdmi_qp.h
 @@ -28,5 +28,6 @@ struct dw_hdmi_qp_plat_data {
