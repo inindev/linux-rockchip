@@ -49,8 +49,11 @@ build: configure
 	start_time=$$(date +%s); \
 	nice $(MAKE) -C "$(LDIR)" -j$$(nproc) CC=$$(readlink /usr/bin/gcc) \
 	    bindeb-pkg KBUILD_IMAGE=arch/arm64/boot/Image LOCALVERSION="-$$build_ver-arm64"; \
-	end_time=$$(date +%s); \
-	echo "$(cya)Kernel package ready (elapsed: $$(date -d@$$((end_time-start_time)) '+%H:%M:%S'))$(rst)"
+	elapsed=$$(($$(date +%s) - start_time)); \
+	el_hr=$$((elapsed / 3600)); \
+	el_min=$$(((elapsed % 3600) / 60)); \
+	el_sec=$$((elapsed % 60)); \
+	echo "$(cya)Kernel package ready (elapsed: $$el_hr:$$el_min:$$el_sec)$(rst)";
 
 $(LDIR): | downloads/$(LINUX_FILE)
 	@echo "$(h1)Checking SHA256 $(LINUX_SHA256)...$(rst)"
