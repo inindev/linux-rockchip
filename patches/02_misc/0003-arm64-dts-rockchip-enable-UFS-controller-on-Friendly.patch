@@ -1,4 +1,4 @@
-From 2d031730bf609c19a2e6ca893dd5abe4b0a5d4aa Mon Sep 17 00:00:00 2001
+From efb817032371f6c99d04ad4e8dd33fab9a873b03 Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Mon, 1 Dec 2025 15:35:38 +0400
 Subject: [PATCH 3/5] arm64: dts: rockchip: enable UFS controller on

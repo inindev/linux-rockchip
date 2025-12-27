@@ -1,4 +1,4 @@
-From 1a0953a34d588b78db2549e657d18212f1e07921 Mon Sep 17 00:00:00 2001
+From 572550e6117a634793bdb8ffe8a203d79ce1dac2 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sat, 17 May 2025 18:02:15 -0400
 Subject: [PATCH 1/5] net: phy: maxio: mae0621a driver
@@ -12,7 +12,7 @@ Signed-off-by: John Clark <inindev@gmail.com>
  create mode 100644 drivers/net/phy/maxio.c
 
 diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 98700d069..6e5714e45 100644
+index a7ade7b95..8c125cab6 100644
 --- a/drivers/net/phy/Kconfig
 +++ b/drivers/net/phy/Kconfig
 @@ -276,6 +276,11 @@ config MARVELL_88X2222_PHY

@@ -1,7 +1,7 @@
-From 8f2aa6861bd1a624ab0ffcf7fbd9d56ab990a9d7 Mon Sep 17 00:00:00 2001
+From 78b7b001d66bc4dd0adef98f20bd18779cd68ae5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 8 Nov 2024 17:35:44 +0100
-Subject: [PATCH 011/105] arm64: dts: rockchip: rk3588-evb1: add DSI panel
+Subject: [PATCH 11/80] arm64: dts: rockchip: rk3588-evb1: add DSI panel
 
 The RK3588 EVB1 comes with a W552793DBA-V10 Touchscreen/Display
 combination. It contains a Wanchanglong W552793BAA panel and a
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 90 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-index 332879f..a7775d1 100644
+index 332879ff0..a7775d15b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 @@ -213,6 +213,15 @@ vcc12v_dcin: regulator-vcc12v-dcin {

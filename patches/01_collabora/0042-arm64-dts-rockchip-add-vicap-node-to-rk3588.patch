@@ -1,0 +1,179 @@
+From 2862dd2ce9700899528640cc8f7450d2ebb1d2aa Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 1 Sep 2025 23:40:15 +0200
+Subject: [PATCH 42/80] arm64: dts: rockchip: add vicap node to rk3588
+
+Add the device tree node for the RK3588 Video Capture (VICAP) unit.
+
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 111 ++++++++++++++++++
+ 1 file changed, 111 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index c858c418c..d47d07412 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1366,6 +1366,93 @@ av1d: video-codec@fdc70000 {
+ 		resets = <&cru SRST_A_AV1>, <&cru SRST_P_AV1>, <&cru SRST_A_AV1_BIU>, <&cru SRST_P_AV1_BIU>;
+ 	};
+ 
++	vicap: video-capture@fdce0000 {
++		compatible = "rockchip,rk3588-vicap";
++		reg = <0x0 0xfdce0000 0x0 0x800>;
++		interrupts = <GIC_SPI 155 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>,
++			 <&cru DCLK_VICAP>, <&cru ICLK_CSIHOST0>,
++			 <&cru ICLK_CSIHOST1>;
++		clock-names = "aclk", "hclk", "dclk", "iclk_host0", "iclk_host1";
++		iommus = <&vicap_mmu>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_A_VICAP>, <&cru SRST_H_VICAP>,
++			 <&cru SRST_D_VICAP>, <&cru SRST_CSIHOST0_VICAP>,
++			 <&cru SRST_CSIHOST1_VICAP>, <&cru SRST_CSIHOST2_VICAP>,
++			 <&cru SRST_CSIHOST3_VICAP>, <&cru SRST_CSIHOST4_VICAP>,
++			 <&cru SRST_CSIHOST5_VICAP>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			vicap_dvp: port@0 {
++				reg = <0>;
++			};
++
++			vicap_mipi0: port@1 {
++				reg = <1>;
++
++				vicap_mipi0_input: endpoint {
++					remote-endpoint = <&csi0_output>;
++				};
++			};
++
++			vicap_mipi1: port@2 {
++				reg = <2>;
++
++				vicap_mipi1_input: endpoint {
++					remote-endpoint = <&csi1_output>;
++				};
++			};
++
++			vicap_mipi2: port@3 {
++				reg = <3>;
++
++				vicap_mipi2_input: endpoint {
++					remote-endpoint = <&csi2_output>;
++				};
++			};
++
++			vicap_mipi3: port@4 {
++				reg = <4>;
++
++				vicap_mipi3_input: endpoint {
++					remote-endpoint = <&csi3_output>;
++				};
++			};
++
++			vicap_mipi4: port@5 {
++				reg = <5>;
++
++				vicap_mipi4_input: endpoint {
++					remote-endpoint = <&csi4_output>;
++				};
++			};
++
++			vicap_mipi5: port@6 {
++				reg = <6>;
++
++				vicap_mipi5_input: endpoint {
++					remote-endpoint = <&csi5_output>;
++				};
++			};
++		};
++	};
++
++	vicap_mmu: iommu@fdce0800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdce0800 0x0 0x40>, <0x0 0xfdce0900 0x0 0x40>;
++		interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH 0>;
++		clock-names = "aclk", "iface";
++		clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>;
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_VI>;
++		rockchip,disable-mmu-reset;
++		status = "disabled";
++	};
++
+ 	csi0: csi@fdd10000 {
+ 		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
+ 		reg = <0x0 0xfdd10000 0x0 0x10000>;
+@@ -1388,6 +1475,10 @@ csi0_in: port@0 {
+ 
+ 			csi0_out: port@1 {
+ 				reg = <1>;
++
++				csi0_output: endpoint {
++					remote-endpoint = <&vicap_mipi0_input>;
++				};
+ 			};
+ 		};
+ 	};
+@@ -1414,6 +1505,10 @@ csi1_in: port@0 {
+ 
+ 			csi1_out: port@1 {
+ 				reg = <1>;
++
++				csi1_output: endpoint {
++					remote-endpoint = <&vicap_mipi1_input>;
++				};
+ 			};
+ 		};
+ 	};
+@@ -1440,6 +1535,10 @@ csi2_in: port@0 {
+ 
+ 			csi2_out: port@1 {
+ 				reg = <1>;
++
++				csi2_output: endpoint {
++					remote-endpoint = <&vicap_mipi2_input>;
++				};
+ 			};
+ 		};
+ 	};
+@@ -1466,6 +1565,10 @@ csi3_in: port@0 {
+ 
+ 			csi3_out: port@1 {
+ 				reg = <1>;
++
++				csi3_output: endpoint {
++					remote-endpoint = <&vicap_mipi3_input>;
++				};
+ 			};
+ 		};
+ 	};
+@@ -1492,6 +1595,10 @@ csi4_in: port@0 {
+ 
+ 			csi4_out: port@1 {
+ 				reg = <1>;
++
++				csi4_output: endpoint {
++					remote-endpoint = <&vicap_mipi4_input>;
++				};
+ 			};
+ 		};
+ 	};
+@@ -1518,6 +1625,10 @@ csi5_in: port@0 {
+ 
+ 			csi5_out: port@1 {
+ 				reg = <1>;
++
++				csi5_output: endpoint {
++					remote-endpoint = <&vicap_mipi5_input>;
++				};
+ 			};
+ 		};
+ 	};
+-- 
+2.47.3
+

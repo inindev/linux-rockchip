@@ -1,7 +1,7 @@
-From fd2761eb4a47d08599686a2a2f0842363e0ae1bb Mon Sep 17 00:00:00 2001
+From 461d445d6e02038d63871d14e7b698c1fe5d83cc Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:13:50 +0200
-Subject: [PATCH 002/105] clk: divider: Fix divisor masking on 64 bit platforms
+Subject: [PATCH 02/80] clk: divider: Fix divisor masking on 64 bit platforms
 
 The clock framework handles clock rates as "unsigned long", so u32 on
 32-bit architectures and u64 on 64-bit architectures.
@@ -29,7 +29,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/clk/clk-divider.c b/drivers/clk/clk-divider.c
-index 2601b61..a3dec26 100644
+index 2601b6155..a3dec26e7 100644
 --- a/drivers/clk/clk-divider.c
 +++ b/drivers/clk/clk-divider.c
 @@ -226,7 +226,7 @@ static int _div_round_up(const struct clk_div_table *table,

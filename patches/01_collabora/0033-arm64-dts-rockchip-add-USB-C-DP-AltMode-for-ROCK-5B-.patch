@@ -1,8 +1,8 @@
-From 7153b91fb5a1f4c58e7c72b7c0cf82e0c6fcd0c6 Mon Sep 17 00:00:00 2001
+From 12b65d642e6f48e8215d50394e343274623ac42b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 28 Jul 2025 16:58:21 +0200
-Subject: [PATCH 033/105] arm64: dts: rockchip: add USB-C DP AltMode for ROCK
- 5B family
+Subject: [PATCH 33/80] arm64: dts: rockchip: add USB-C DP AltMode for ROCK 5B
+ family
 
 Enable support for USB-C DP AltMode to the ROCK 5B/5B+/5T.
 
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 72 insertions(+), 11 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-index b2d2b37..00a42f5 100644
+index 6e7c6b717..1d4b5047d 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 @@ -177,6 +177,22 @@ &cpu_l3 {
@@ -63,7 +63,7 @@ index b2d2b37..00a42f5 100644
  					};
  				};
  			};
-@@ -997,18 +1013,41 @@ &usbdp_phy0 {
+@@ -1004,18 +1020,41 @@ &usbdp_phy0 {
  	orientation-switch;
  	status = "okay";
  
@@ -110,7 +110,7 @@ index b2d2b37..00a42f5 100644
  		};
  	};
  };
-@@ -1029,9 +1068,24 @@ &usb_host0_xhci {
+@@ -1036,9 +1075,24 @@ &usb_host0_xhci {
  	usb-role-switch;
  	status = "okay";
  
@@ -138,7 +138,7 @@ index b2d2b37..00a42f5 100644
  		};
  	};
  };
-@@ -1070,3 +1124,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+@@ -1077,3 +1131,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
  		remote-endpoint = <&hdmi1_in_vp1>;
  	};
  };

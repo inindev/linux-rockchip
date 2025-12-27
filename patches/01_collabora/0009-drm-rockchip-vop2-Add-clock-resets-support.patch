@@ -1,7 +1,7 @@
-From c08530fa9e9ddb648a4a742c97d18809362ceffe Mon Sep 17 00:00:00 2001
+From dadfc432f23782e29c5bac1aaee3a9b32c827064 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:41 -0500
-Subject: [PATCH 009/105] drm/rockchip: vop2: Add clock resets support
+Subject: [PATCH 09/80] drm/rockchip: vop2: Add clock resets support
 
 At the end of initialization, each VP clock needs to be reset before
 they can be used.
@@ -24,7 +24,7 @@ Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
  2 files changed, 29 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 7ec7bea..07c66f5 100644
+index 498df0ce4..df80bc34e 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -17,6 +17,7 @@
@@ -35,7 +35,7 @@ index 7ec7bea..07c66f5 100644
  #include <linux/swab.h>
  
  #include <drm/drm.h>
-@@ -1601,6 +1602,26 @@ static int us_to_vertical_line(struct drm_display_mode *mode, int us)
+@@ -1607,6 +1608,26 @@ static int us_to_vertical_line(struct drm_display_mode *mode, int us)
  	return us * mode->clock / mode->htotal / 1000;
  }
  
@@ -62,7 +62,7 @@ index 7ec7bea..07c66f5 100644
  static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
  				    struct drm_atomic_state *state)
  {
-@@ -1779,6 +1800,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+@@ -1791,6 +1812,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
  
  	vop2_vp_write(vp, RK3568_VP_DSP_CTRL, dsp_ctrl);
  
@@ -71,7 +71,7 @@ index 7ec7bea..07c66f5 100644
  	vop2_crtc_atomic_try_set_gamma(vop2, vp, crtc, crtc_state);
  
  	drm_crtc_vblank_on(crtc);
-@@ -2353,6 +2376,11 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+@@ -2365,6 +2388,11 @@ static int vop2_create_crtcs(struct vop2 *vop2)
  		vp->id = vp_data->id;
  		vp->data = vp_data;
  
@@ -84,7 +84,7 @@ index 7ec7bea..07c66f5 100644
  		vp->dclk = devm_clk_get(vop2->dev, dclk_name);
  		if (IS_ERR(vp->dclk))
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 9124191..a3e89c1 100644
+index 912419189..a3e89c19b 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -238,6 +238,7 @@ struct vop2_video_port {

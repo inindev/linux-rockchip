@@ -1,7 +1,7 @@
-From b1c1bef50b5e9a1dc0a5192c3cfc84533a4c58b1 Mon Sep 17 00:00:00 2001
+From 20b047884fb52fcd4a97cfe1944f35fdd2092d06 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 22 Aug 2025 18:49:35 +0200
-Subject: [PATCH 032/105] dt-bindings: phy: rockchip-usbdp: add improved ports
+Subject: [PATCH 32/80] dt-bindings: phy: rockchip-usbdp: add improved ports
  scheme
 
 Currently the Rockchip USBDP PHY as a very simply port scheme: It just
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 23 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
-index 8b7059d..f728acf 100644
+index 8b7059d5b..f728acf05 100644
 --- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
 +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
 @@ -114,6 +114,29 @@ properties:

@@ -1,7 +1,7 @@
-From c8f442de4b8a21aa4802ace3e3124abe27c155e5 Mon Sep 17 00:00:00 2001
+From 98df139f66a8851c9dd5bcb7321704285c3ac3b2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:38:54 +0200
-Subject: [PATCH 030/105] PCI: dw-rockchip: Add pme_turn_off support
+Subject: [PATCH 30/80] PCI: dw-rockchip: Add pme_turn_off support
 
 Prepare Rockchip PCIe controller for system suspend support by
 adding the PME turn off operation.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 44 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index a4637a2..84caade 100644
+index 8bd2952ba..f08ac3e5d 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -42,6 +42,7 @@
@@ -33,9 +33,9 @@ index a4637a2..84caade 100644
 +#define PME_TURN_OFF			FIELD_PREP_WM16(BIT(4), 1)
 +#define PME_TO_ACK			FIELD_PREP_WM16(BIT(9), 1)
  
- /* Hot Reset Control Register */
- #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
-@@ -277,8 +283,46 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+ /* Power Management Control Register */
+ #define PCIE_CLIENT_POWER_CON		0x2c
+@@ -314,8 +320,46 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
  	return 0;
  }
  
