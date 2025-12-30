@@ -86,9 +86,13 @@ check_prereqs:
 	fi
 
 clean:
-	@echo "$(h1)Cleaning...$(rst)"
-	@echo "Removing kernel-$(LINUX_VER)..."
-	@rm -rf "kernel-$(LINUX_VER)"
+	@echo "$(h1)Cleaning...$(rst)"; \
+	for dir in kernel-*; do \
+	    if [ -d "$$dir" ]; then \
+	        echo "Removing $$dir..."; \
+	        rm -rf "$$dir"; \
+	    fi; \
+	done
 
 # require linux
 UNAME_S := $(shell uname -s)
