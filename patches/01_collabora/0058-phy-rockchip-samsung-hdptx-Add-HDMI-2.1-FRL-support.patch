@@ -1,7 +1,7 @@
-From ea40b481f9c255727807e4a58e6c90bfb094efdd Mon Sep 17 00:00:00 2001
+From 1f6266f6a108f2f5579c043b76489d33069b7281 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 30 May 2025 00:58:26 +0300
-Subject: [PATCH 58/80] phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support
+Subject: [PATCH 58/79] phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support
 
 The PHY is capable of handling four HDMI 2.1 Fixed Rate Link (FRL)
 lanes, and each one can operate at any of the rates of 3Gbps, 6Gbps,

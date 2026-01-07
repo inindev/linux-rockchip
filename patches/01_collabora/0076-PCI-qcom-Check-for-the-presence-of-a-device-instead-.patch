@@ -1,7 +1,7 @@
-From 279ac17d8314cc530ff2dd8c0bafc10457747d53 Mon Sep 17 00:00:00 2001
+From 20ba6f608d475c8230103a0f3b88deec2c788060 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:18 +0530
-Subject: [PATCH 76/80] PCI: qcom: Check for the presence of a device instead
+Subject: [PATCH 76/79] PCI: qcom: Check for the presence of a device instead
  of Link up during suspend
 
 The suspend handler checks for the PCIe Link up to decide when to turn off

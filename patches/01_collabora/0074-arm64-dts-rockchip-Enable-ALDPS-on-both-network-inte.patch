@@ -1,7 +1,7 @@
-From 240babce77e1d720e156131c37e7f4b0d5ba57db Mon Sep 17 00:00:00 2001
+From 958a470041600a570ed7e5b72aa800a881305433 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 5 Nov 2025 18:44:09 +0100
-Subject: [PATCH 74/80] arm64: dts: rockchip: Enable ALDPS on both network
+Subject: [PATCH 74/79] arm64: dts: rockchip: Enable ALDPS on both network
  interfaces of RK3576 EVB1
 
 ALDPS reduces the power consumption while the network interfaces

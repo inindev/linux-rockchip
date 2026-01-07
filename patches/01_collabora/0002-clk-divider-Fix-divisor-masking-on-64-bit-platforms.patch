@@ -1,7 +1,7 @@
-From 461d445d6e02038d63871d14e7b698c1fe5d83cc Mon Sep 17 00:00:00 2001
+From 465f49c2c0c723eb5379d68e9ff686bd174e4e00 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:13:50 +0200
-Subject: [PATCH 02/80] clk: divider: Fix divisor masking on 64 bit platforms
+Subject: [PATCH 02/79] clk: divider: Fix divisor masking on 64 bit platforms
 
 The clock framework handles clock rates as "unsigned long", so u32 on
 32-bit architectures and u64 on 64-bit architectures.

@@ -1,7 +1,7 @@
-From 0bf4592ba38e8c4f78a950947a643728e6b021f4 Mon Sep 17 00:00:00 2001
+From f45edd78b7d98267fe2e8db6aeb20f2a3e06635d Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Tue, 2 Sep 2025 01:24:33 +0200
-Subject: [PATCH 46/80] disable mipi hosts that are attached to csi dcphy
+Subject: [PATCH 46/79] disable mipi hosts that are attached to csi dcphy
 
 While the DSI part of the MIPI Combo DCPHYs is supported, the CSI
 side should probably not be used right now.

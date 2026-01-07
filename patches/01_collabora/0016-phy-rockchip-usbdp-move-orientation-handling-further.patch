@@ -1,7 +1,7 @@
-From 0b91c686b5168a0cc24676704a2e0c8e39af7f07 Mon Sep 17 00:00:00 2001
+From c03788932a31b35e4596cbbecaa2aac21dcc541d Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:10 +0200
-Subject: [PATCH 16/80] phy: rockchip: usbdp: move orientation handling further
+Subject: [PATCH 16/79] phy: rockchip: usbdp: move orientation handling further
  down
 
 The orientation handling code isn't referenced until very far down the

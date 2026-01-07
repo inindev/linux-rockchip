@@ -1,7 +1,7 @@
-From 0711b84d1ba87b57d040d3acda755fb9679f8c13 Mon Sep 17 00:00:00 2001
+From 6bcf2aa673b2ae8fd70773c95e98c86d7e5c10ce Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 18:09:57 +0200
-Subject: [PATCH 03/80] clk: composite: replace open-coded abs_diff()
+Subject: [PATCH 03/79] clk: composite: replace open-coded abs_diff()
 
 Replace the open coded abs_diff() with the existing helper function.
 

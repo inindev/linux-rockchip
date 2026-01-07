@@ -1,7 +1,7 @@
-From e873e623ea289b4acfc8a052942a08bc9bcbe733 Mon Sep 17 00:00:00 2001
+From 026b3b3e0777846eef2335f2a12b6add07b5ac6f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 8 Oct 2025 18:15:24 +0200
-Subject: [PATCH 72/80] arm64: dts: rockchip: add missing UFS regulators
+Subject: [PATCH 72/79] arm64: dts: rockchip: add missing UFS regulators
 
 Add missing regulator information for the ROCK 4D UFS interface.
 

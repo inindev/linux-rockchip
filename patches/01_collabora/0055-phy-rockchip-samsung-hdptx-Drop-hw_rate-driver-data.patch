@@ -1,7 +1,7 @@
-From 2e2e5aed38a2f09918a2fed1f10fb748387b24dd Mon Sep 17 00:00:00 2001
+From 6a517e34954afc386c0fee2c6a3c9ad68066c1c1 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 1 Aug 2025 17:10:15 +0300
-Subject: [PATCH 55/80] phy: rockchip: samsung-hdptx: Drop hw_rate driver data
+Subject: [PATCH 55/79] phy: rockchip: samsung-hdptx: Drop hw_rate driver data
 
 The ->hw_rate member of struct rk_hdptx_phy was mainly used to keep
 track of the clock rate programmed in hardware and support implementing

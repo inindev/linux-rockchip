@@ -1,7 +1,7 @@
-From c965697387979ad89817cffcbc5e4f95e299bc45 Mon Sep 17 00:00:00 2001
+From c558b84eef1b1949e4bc63654f01b7d0360d11c4 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 37/80] media: rockchip: rkcif: add support for rk3588 vicap
+Subject: [PATCH 37/79] media: rockchip: rkcif: add support for rk3588 vicap
 
 The RK3588 Video Capture (VICAP) unit features a Digital Video
 Port (DVP) and six MIPI CSI-2 capture interfaces. Add initial

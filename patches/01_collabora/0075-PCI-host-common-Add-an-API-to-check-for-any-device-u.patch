@@ -1,7 +1,7 @@
-From f2fdabb3acf6271efcb655418e9f6770c10355a3 Mon Sep 17 00:00:00 2001
+From f13b33f34abc6882dae5eafb4bfefa0ca4c83d56 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:17 +0530
-Subject: [PATCH 75/80] PCI: host-common: Add an API to check for any device
+Subject: [PATCH 75/79] PCI: host-common: Add an API to check for any device
  under the Root Ports
 
 Some controller drivers need to check if there is any device available

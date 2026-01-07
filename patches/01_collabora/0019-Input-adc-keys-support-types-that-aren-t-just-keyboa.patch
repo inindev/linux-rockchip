@@ -1,7 +1,7 @@
-From 2dd59f72ddc1021bfa1a9e389b3c3d8ecbd0583c Mon Sep 17 00:00:00 2001
+From ae07eeb4c4a550e4ae9ce768592d8728a5a73fd0 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:25 +0200
-Subject: [PATCH 19/80] Input: adc-keys - support types that aren't just
+Subject: [PATCH 19/79] Input: adc-keys - support types that aren't just
  keyboard keys
 
 Instead of doing something like what gpio-keys is doing, adc-keys

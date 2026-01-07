@@ -1,7 +1,7 @@
-From a8117d6050764b154bc877a3d8e958f0d978ca0f Mon Sep 17 00:00:00 2001
+From dd0accd9b756cb4d8422551921bf8dd93243de0b Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:19 +0530
-Subject: [PATCH 77/80] PCI: dwc: Check for the device presence during suspend
+Subject: [PATCH 77/79] PCI: dwc: Check for the device presence during suspend
  and resume
 
 If there is no device available under the Root Ports, there is no point in

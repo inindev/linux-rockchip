@@ -1,7 +1,7 @@
-From c7632352c2c0cbd44422533a93eba56622de6450 Mon Sep 17 00:00:00 2001
+From b16551a72cb919a1138c389d82b45996dc1495b1 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 7 Jul 2025 23:23:52 +0300
-Subject: [PATCH 56/80] phy: rockchip: samsung-hdptx: Switch to driver specific
+Subject: [PATCH 56/79] phy: rockchip: samsung-hdptx: Switch to driver specific
  HDMI config
 
 In preparation to support the FRL operation mode which gets configured

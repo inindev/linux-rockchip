@@ -1,7 +1,7 @@
-From 008c84b0ad8d3f0aa69a9423c02b0d1edc7e4e66 Mon Sep 17 00:00:00 2001
+From 7b68ce5950a96a42aa8608f744e2d44325c32e05 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 29 Jul 2025 18:21:03 +0200
-Subject: [PATCH 13/80] arm64: dts: rockchip: Fix USB-C description for RK3588
+Subject: [PATCH 13/79] arm64: dts: rockchip: Fix USB-C description for RK3588
  EVB1
 
 Fix the USB-C connector description, so that it follows the binding:

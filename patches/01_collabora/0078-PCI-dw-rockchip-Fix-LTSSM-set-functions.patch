@@ -1,7 +1,7 @@
-From 358e6ff1fb6c7d274325b5519228eee56e769b43 Mon Sep 17 00:00:00 2001
+From e98070cf7311acb2f0f7911e3d5e1a46e4559747 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 21 Nov 2025 19:27:00 +0100
-Subject: [PATCH 78/80] PCI: dw-rockchip: Fix LTSSM set functions
+Subject: [PATCH 78/79] PCI: dw-rockchip: Fix LTSSM set functions
 
 Before the Rockchip PCIe driver has been switched over to the
 FIELD_PREP_WM16 macro, PCIE_CLIENT_ENABLE_LTSSM and PCIE_CLIENT_DISABLE_LTSSM

@@ -1,7 +1,7 @@
-From 373eaa8a1f8741cb89686d702e11b6f3ec2bd632 Mon Sep 17 00:00:00 2001
+From 250d0c49f36f14d59645efaa35ef7ad50cabf35b Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 3 Jul 2025 12:44:04 +0300
-Subject: [PATCH 70/80] drm/rockchip: dw_hdmi_qp: Add HDMI 2.1 FRL support
+Subject: [PATCH 70/79] drm/rockchip: dw_hdmi_qp: Add HDMI 2.1 FRL support
 
 Extend ->enc_init() hooks of {rk3576,rk3588}_hdmi_ctrl_ops to enable
 HDMI 2.1 FRL operation mode.

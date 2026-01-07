@@ -1,7 +1,7 @@
-From a22cd180b3b496e8aa65b5896491ff36168b424f Mon Sep 17 00:00:00 2001
+From 66bf4f16acffbb8ea4217fd6bf81f9b9b5d786a7 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 23 Sep 2025 18:01:04 +0200
-Subject: [PATCH 47/80] drm/bridge: dw-hdmi-qp: Fix spurious IRQ on resume
+Subject: [PATCH 47/79] drm/bridge: dw-hdmi-qp: Fix spurious IRQ on resume
 
 After resume from suspend to RAM, the following splash is generated if
 the HDMI driver is probed (independent of a connected cable):

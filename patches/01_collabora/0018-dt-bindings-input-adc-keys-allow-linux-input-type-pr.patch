@@ -1,7 +1,7 @@
-From 307560ba127b7a8d173743cc6970b614251a21ec Mon Sep 17 00:00:00 2001
+From 50bc60cb0ca4a927ba00a86f1838a0ffe7c8d4c6 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:24 +0200
-Subject: [PATCH 18/80] dt-bindings: input: adc-keys: allow linux,input-type
+Subject: [PATCH 18/79] dt-bindings: input: adc-keys: allow linux,input-type
  property
 
 adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid

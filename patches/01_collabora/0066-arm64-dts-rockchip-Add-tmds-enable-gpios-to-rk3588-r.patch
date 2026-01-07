@@ -1,7 +1,7 @@
-From a0d5202f69a3d90b98dede8354f3cde6a74b40a7 Mon Sep 17 00:00:00 2001
+From af9591430bb9b8e9bd0a773f8f5597546826afd8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:31:51 +0300
-Subject: [PATCH 66/80] arm64: dts: rockchip: Add tmds-enable-gpios to
+Subject: [PATCH 66/79] arm64: dts: rockchip: Add tmds-enable-gpios to
  rk3588-rock-5b
 
 In preparation to support HDMI 2.1 FRL operating mode, make use of the

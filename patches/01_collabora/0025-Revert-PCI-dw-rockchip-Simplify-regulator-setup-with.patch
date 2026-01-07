@@ -1,7 +1,7 @@
-From 48a40211cf19c9732e84ed8caf7a9ffd0c14766e Mon Sep 17 00:00:00 2001
+From 2e6d6bbc2f400c32c0dff215ae1a8fcc90fc79d6 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
-Subject: [PATCH 25/80] Revert "PCI: dw-rockchip: Simplify regulator setup with
+Subject: [PATCH 25/79] Revert "PCI: dw-rockchip: Simplify regulator setup with
  devm_regulator_get_enable_optional()"
 
 This reverts commit c930b10f17c03858cfe19b9873ba5240128b4d1b. We need
