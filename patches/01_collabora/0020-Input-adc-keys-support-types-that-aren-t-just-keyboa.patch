@@ -1,7 +1,7 @@
-From 7c240b4cb29cbc9300fc2a6841be80406daee32f Mon Sep 17 00:00:00 2001
+From 483f37aa99e3869e1c23e2ed698307db11219f58 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:25 +0200
-Subject: [PATCH 020/105] Input: adc-keys - support types that aren't just
+Subject: [PATCH 020/104] Input: adc-keys - support types that aren't just
  keyboard keys
 
 Instead of doing something like what gpio-keys is doing, adc-keys
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 12 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/input/keyboard/adc-keys.c b/drivers/input/keyboard/adc-keys.c
-index f175320..339dd4d 100644
+index f17532074..339dd4d4a 100644
 --- a/drivers/input/keyboard/adc-keys.c
 +++ b/drivers/input/keyboard/adc-keys.c
 @@ -19,12 +19,14 @@

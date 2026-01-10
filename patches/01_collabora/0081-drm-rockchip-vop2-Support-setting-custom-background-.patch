@@ -1,7 +1,7 @@
-From d33e914836f7437bb627cbd65c7d01a48d13b00b Mon Sep 17 00:00:00 2001
+From 6144f8c144d7504e4b2589602cc58ee895594379 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 15 Aug 2025 18:36:54 +0300
-Subject: [PATCH 081/105] drm/rockchip: vop2: Support setting custom background
+Subject: [PATCH 081/104] drm/rockchip: vop2: Support setting custom background
  color
 
 VOP2 allows configuring the background color of each video output port.
@@ -21,7 +21,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index f75fb7f..cd70928 100644
+index f75fb7f2d..cd70928ac 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1549,6 +1549,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
@@ -66,7 +66,7 @@ index f75fb7f..cd70928 100644
  		if (vop2->lut_regs) {
  			const struct vop2_video_port_data *vp_data = &vop2_data->vp[vp->id];
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 3257b89..b819871 100644
+index 3257b89e6..b8198714c 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -667,6 +667,10 @@ enum dst_factor_mode {

@@ -1,7 +1,7 @@
-From 0f1a7ff1e7e6b6359d5b44204dd9ddc156511d1c Mon Sep 17 00:00:00 2001
+From d5c1a354831336189fae8aa0a9c7703cfe3e5663 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 046/105] arm64: dts: rockchip: add vicap node to rk356x
+Subject: [PATCH 046/104] arm64: dts: rockchip: add vicap node to rk356x
 
 Add the device tree node for the RK356x Video Capture (VICAP) unit.
 
@@ -12,7 +12,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 44 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index fd2214b..e0e4dc8 100644
+index fd2214b6f..e0e4dc85a 100644
 --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
 @@ -564,6 +564,50 @@ gpu: gpu@fde60000 {

@@ -1,7 +1,7 @@
-From 7b3c2950a10beb1e760012d557bcdf7ec79ff49a Mon Sep 17 00:00:00 2001
+From 1afbdcf08ad13f135f06e312bd2b00c9e1a85bf3 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 9 Jul 2025 22:25:43 +0300
-Subject: [PATCH 070/105] drm/rockchip: dw_hdmi_qp: Improve error handling with
+Subject: [PATCH 070/104] drm/rockchip: dw_hdmi_qp: Improve error handling with
  dev_err_probe()
 
 The error handling in dw_hdmi_qp_rockchip_bind() is quite inconsistent,
@@ -17,7 +17,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 24 insertions(+), 38 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 9ac45e7..9d20df8 100644
+index 9ac45e7bc..9d20df85d 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -455,10 +455,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,

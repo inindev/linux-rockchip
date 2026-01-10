@@ -1,7 +1,7 @@
-From c93dc12d5dcbf1c323ecac857f247cb85319aa75 Mon Sep 17 00:00:00 2001
+From 7228932988dace7ab989964403797fd08ab857fb Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 5 Jun 2025 21:31:22 +0300
-Subject: [PATCH 062/105] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq
+Subject: [PATCH 062/104] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq
  lists
 
 Drop redundant reg_sequence entries from rk_hdptx_common_cmn_init_seq[],
@@ -20,7 +20,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 4 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 574e468..8e38adc 100644
+index 574e468e5..8e38adcb8 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -465,13 +465,11 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {

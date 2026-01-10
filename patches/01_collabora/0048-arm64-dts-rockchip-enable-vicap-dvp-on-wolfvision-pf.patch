@@ -1,7 +1,7 @@
-From d845e72c08782df8ef81a6ff747c9cb1183b7310 Mon Sep 17 00:00:00 2001
+From 812c6aa3612d214abe6a92b2a34a126778c582a0 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 048/105] arm64: dts: rockchip: enable vicap dvp on wolfvision
+Subject: [PATCH 048/104] arm64: dts: rockchip: enable vicap dvp on wolfvision
  pf5 io expander
 
 The Digital Video Port (DVP, the 16-bit variant) of the RK3568 VICAP
@@ -18,7 +18,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 20 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-index 048933d..8cfce71 100644
+index 048933de2..8cfce71dd 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
 +++ b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
 @@ -11,6 +11,7 @@

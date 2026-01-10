@@ -1,7 +1,7 @@
-From edc3cc223e440e3bca40b4ad52ba3dc477ac54e4 Mon Sep 17 00:00:00 2001
+From 534e685569c35ff7da42e6d9149f9ccb4fe747b8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:50:25 +0300
-Subject: [PATCH 088/105] drm/rockchip: dw_hdmi_qp: Fixup usage of enable_gpio
+Subject: [PATCH 088/104] drm/rockchip: dw_hdmi_qp: Fixup usage of enable_gpio
  member in main struct
 
 The name of the enable_gpio member in struct rockchip_hdmi_qp is too
@@ -24,7 +24,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index d03a5dd..21e3955 100644
+index d03a5dd3e..21e395520 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -95,7 +95,7 @@ struct rockchip_hdmi_qp {

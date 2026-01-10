@@ -1,7 +1,7 @@
-From 95a43ab6f4b9dda2dbb460360ec2f37ec290b157 Mon Sep 17 00:00:00 2001
+From e7ed108830987f3612897f8afc073693f045999d Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 045/105] arm64: dts: rockchip: add the vip node to px30
+Subject: [PATCH 045/104] arm64: dts: rockchip: add the vip node to px30
 
 Add the device tree node for the PX30 Video Input Processor (VIP).
 
@@ -14,7 +14,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 12 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/px30.dtsi b/arch/arm64/boot/dts/rockchip/px30.dtsi
-index 46f64cd..ef52879 100644
+index 46f64cd33..ef52879d6 100644
 --- a/arch/arm64/boot/dts/rockchip/px30.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/px30.dtsi
 @@ -1280,6 +1280,18 @@ isp_mmu: iommu@ff4a8000 {

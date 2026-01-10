@@ -1,7 +1,7 @@
-From 4870fd18a2794edc37b88903c08ae6b0ded842ad Mon Sep 17 00:00:00 2001
+From 1aa28140fad11dbbd383a0d4625c02d869fd193a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:02:57 +0200
-Subject: [PATCH 076/105] drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
+Subject: [PATCH 076/104] drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
 
 Stop relying on phy_set_bus_width() based workaround to setup the TMDS
 character rate and, instead, use the recently introduced HDMI PHY
@@ -22,7 +22,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 19 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 490c7be..f3b7888 100644
+index 490c7beab..f3b7888dd 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -14,6 +14,7 @@

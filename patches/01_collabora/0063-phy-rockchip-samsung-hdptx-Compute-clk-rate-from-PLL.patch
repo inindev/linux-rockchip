@@ -1,7 +1,7 @@
-From a331d46611ad15efee7b8dc86c6bdde29be3a0cb Mon Sep 17 00:00:00 2001
+From f3b23ee0b5b920e807cda94ea152048efb973148 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 6 Jun 2025 18:18:23 +0300
-Subject: [PATCH 063/105] phy: rockchip: samsung-hdptx: Compute clk rate from
+Subject: [PATCH 063/104] phy: rockchip: samsung-hdptx: Compute clk rate from
  PLL config
 
 Improve ->recalc_rate() callback of hdptx_phy_clk_ops to calculate the
@@ -14,7 +14,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 90 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 8e38adc..2303c13 100644
+index 8e38adcb8..2303c1321 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -1850,12 +1850,101 @@ static void rk_hdptx_phy_clk_unprepare(struct clk_hw *hw)

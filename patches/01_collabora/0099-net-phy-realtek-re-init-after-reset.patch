@@ -1,7 +1,7 @@
-From 398b63ad1d415d099a4e6ed113e36c3a8a60326b Mon Sep 17 00:00:00 2001
+From 589e2781f5e43eeaa8c8e8eb6182e1030f489d16 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 6 Nov 2025 16:21:05 +0100
-Subject: [PATCH 100/105] net: phy: realtek: re-init after reset
+Subject: [PATCH 099/104] net: phy: realtek: re-init after reset
 
 The reset in the resume function results in the custom configuration
 being lost, which effectively renders the 'realtek,aldps-enable'
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index ce46ab7..05f2784 100644
+index e846fc9c3..06e3125e1 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
-@@ -735,11 +735,13 @@ static int rtl8211f_suspend(struct phy_device *phydev)
+@@ -763,11 +763,13 @@ static int rtl8211f_suspend(struct phy_device *phydev)
  static int rtl821x_resume(struct phy_device *phydev)
  {
  	struct rtl821x_priv *priv = phydev->priv;
@@ -30,7 +30,7 @@ index ce46ab7..05f2784 100644
  	}
  
  	ret = genphy_resume(phydev);
-@@ -748,6 +750,9 @@ static int rtl821x_resume(struct phy_device *phydev)
+@@ -776,6 +778,9 @@ static int rtl821x_resume(struct phy_device *phydev)
  
  	msleep(20);
  

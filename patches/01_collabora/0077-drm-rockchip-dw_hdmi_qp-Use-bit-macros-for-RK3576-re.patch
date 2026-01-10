@@ -1,7 +1,7 @@
-From 433553137e7386de54d929601af5f5317663ed17 Mon Sep 17 00:00:00 2001
+From d3952511dc023ea083aaac40497e4be5f62cd383 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 21 Jul 2025 13:17:41 +0300
-Subject: [PATCH 077/105] drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576
+Subject: [PATCH 077/104] drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576
  regs
 
 For consistency and improved readability, redefine a few RK3576 specific
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 8 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index f3b7888..982d7c8 100644
+index f3b7888dd..982d7c877 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -39,21 +39,16 @@

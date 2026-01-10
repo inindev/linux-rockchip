@@ -1,7 +1,7 @@
-From 7bd4142a05a69143560cfbf16b9ec5bada1e3d7d Mon Sep 17 00:00:00 2001
+From 4254ae81e05afac56407a6291debc21ce3e02dfc Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:17 +0530
-Subject: [PATCH 102/105] PCI: host-common: Add an API to check for any device
+Subject: [PATCH 101/104] PCI: host-common: Add an API to check for any device
  under the Root Ports
 
 Some controller drivers need to check if there is any device available
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  2 files changed, 23 insertions(+)
 
 diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index 810d1c8..772bac8 100644
+index 810d1c8de..772bac8b3 100644
 --- a/drivers/pci/controller/pci-host-common.c
 +++ b/drivers/pci/controller/pci-host-common.c
 @@ -17,6 +17,27 @@
@@ -53,7 +53,7 @@ index 810d1c8..772bac8 100644
  {
  	pci_ecam_free((struct pci_config_window *)ptr);
 diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index 51c35ec..ff1c2ff 100644
+index 51c35ec0c..ff1c2ff98 100644
 --- a/drivers/pci/controller/pci-host-common.h
 +++ b/drivers/pci/controller/pci-host-common.h
 @@ -19,4 +19,6 @@ void pci_host_common_remove(struct platform_device *pdev);

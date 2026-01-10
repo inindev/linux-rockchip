@@ -1,7 +1,7 @@
-From c49cac0f85511298ae2c8a8b4d3acee3a76263a2 Mon Sep 17 00:00:00 2001
+From bcfc3a21f17ce7ef9ab7704369591d4aa130366a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 20 Nov 2025 16:33:27 +0100
-Subject: [PATCH 105/105] mmc: sdhci-of-dwcmshc: Fix command queue support for
+Subject: [PATCH 104/104] mmc: sdhci-of-dwcmshc: Fix command queue support for
  RK3576
 
 When I added command queue engine (CQE) support for the Rockchip eMMC
@@ -43,7 +43,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 348ab1b..105a166 100644
+index 348ab1bb9..105a16613 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
 @@ -1296,6 +1296,7 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {

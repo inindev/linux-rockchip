@@ -1,7 +1,7 @@
-From f905adffd3d1fcbbac63a3307ef67c010c98be03 Mon Sep 17 00:00:00 2001
+From a31f844244d7183d48ca0650930500ffcb096cb5 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:19 +0530
-Subject: [PATCH 104/105] PCI: dwc: Check for the device presence during
+Subject: [PATCH 103/104] PCI: dwc: Check for the device presence during
  suspend and resume
 
 If there is no device available under the Root Ports, there is no point in
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 13 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index e92513c..37d3d3a 100644
+index e92513c5b..37d3d3a75 100644
 --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
 @@ -20,6 +20,7 @@

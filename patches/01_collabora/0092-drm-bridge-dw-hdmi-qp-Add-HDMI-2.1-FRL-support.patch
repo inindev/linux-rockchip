@@ -1,7 +1,7 @@
-From 1020c3ddb59153c5bf287215177b5e6f1472c4e9 Mon Sep 17 00:00:00 2001
+From 7c08f241d86b1f369e853aca66102013568779b8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 3 Jul 2025 12:42:38 +0300
-Subject: [PATCH 092/105] drm/bridge: dw-hdmi-qp: Add HDMI 2.1 FRL support
+Subject: [PATCH 092/104] drm/bridge: dw-hdmi-qp: Add HDMI 2.1 FRL support
 
 Implement the link training state machine required to support HDMI 2.1
 FRL display modes.
@@ -19,7 +19,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 577 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index b5daa9b..6952611 100644
+index b5daa9b53..69526112f 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -41,9 +41,26 @@
@@ -706,7 +706,7 @@ index b5daa9b..6952611 100644
  	hdmi->dev = dev;
  
 diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 3af12f8..9e29bc1 100644
+index 3af12f82d..9e29bc1a1 100644
 --- a/include/drm/bridge/dw_hdmi_qp.h
 +++ b/include/drm/bridge/dw_hdmi_qp.h
 @@ -7,16 +7,27 @@

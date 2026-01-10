@@ -1,7 +1,7 @@
-From c194f4ffaa0e5d7aeaa4ba26a00b03fc9901fdbc Mon Sep 17 00:00:00 2001
+From 7b9fdbfeee57b2154db192a216fe55bab712f9da Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 6 Oct 2025 18:59:35 +0200
-Subject: [PATCH 096/105] mmc: sdhci-of-dwcmshc: Add command queue support for
+Subject: [PATCH 096/104] mmc: sdhci-of-dwcmshc: Add command queue support for
  rockchip SOCs
 
 This adds CQE support for the Rockchip RK3588 and RK3576 platform. To
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 89 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 4e25667..348ab1b 100644
+index 4e256673a..348ab1bb9 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
 @@ -24,6 +24,7 @@

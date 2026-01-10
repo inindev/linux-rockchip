@@ -1,7 +1,7 @@
-From dff4d600ecdcff27fb0ac6d303f809fac67fcc6f Mon Sep 17 00:00:00 2001
+From 956ee3e090dfab1fb7d94732a59d2e953e69cbcd Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 30 Jun 2025 22:58:06 +0300
-Subject: [PATCH 069/105] drm/bridge: dw-hdmi-qp: Fixup timer base setup
+Subject: [PATCH 069/104] drm/bridge: dw-hdmi-qp: Fixup timer base setup
 
 Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
 value as initially found in vendor driver code supporting the RK3588
@@ -25,7 +25,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 10 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 0d9d651..2c0fbee 100644
+index 0d9d651ce..2c0fbeeae 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -161,6 +161,7 @@ struct dw_hdmi_qp {
@@ -66,7 +66,7 @@ index 0d9d651..2c0fbee 100644
  
  	hdmi->main_irq = plat_data->main_irq;
 diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 1bdac35..71ad628 100644
+index 1bdac35b3..71ad6280c 100644
 --- a/include/drm/bridge/dw_hdmi_qp.h
 +++ b/include/drm/bridge/dw_hdmi_qp.h
 @@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {

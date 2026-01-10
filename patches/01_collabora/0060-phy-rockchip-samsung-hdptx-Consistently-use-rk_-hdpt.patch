@@ -1,7 +1,7 @@
-From 9abe3cb40e8b0713795b41846779e912fbe53102 Mon Sep 17 00:00:00 2001
+From f4077088269cbfa8afb60aba122b4e4258483375 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Jun 2025 12:03:11 +0300
-Subject: [PATCH 060/105] phy: rockchip: samsung-hdptx: Consistently use
+Subject: [PATCH 060/104] phy: rockchip: samsung-hdptx: Consistently use
  [rk_]hdptx_[tmds_] prefixes
 
 Fix the naming inconsistencies for some of the functions and global
@@ -17,7 +17,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 31 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index a729e15..44fda73 100644
+index a729e15de..44fda7397 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -32,17 +32,17 @@

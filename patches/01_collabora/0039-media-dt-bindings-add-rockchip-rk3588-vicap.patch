@@ -1,7 +1,7 @@
-From 2e96ab18310b45f870bdda796a99c4cbcb09cdcb Mon Sep 17 00:00:00 2001
+From 47d0c3eca2903845a71ca02e6e7fe34a44bc3f8a Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 039/105] media: dt-bindings: add rockchip rk3588 vicap
+Subject: [PATCH 039/104] media: dt-bindings: add rockchip rk3588 vicap
 
 Add documentation for the Rockchip RK3588 Video Capture (VICAP) unit.
 
@@ -14,7 +14,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
 diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml
 new file mode 100644
-index 0000000..0911a6b
+index 000000000..0911a6b07
 --- /dev/null
 +++ b/Documentation/devicetree/bindings/media/rockchip,rk3588-vicap.yaml
 @@ -0,0 +1,236 @@
@@ -255,7 +255,7 @@ index 0000000..0911a6b
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 4cacf56..376d102 100644
+index 4cacf5650..376d102b4 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -22254,6 +22254,7 @@ S:	Maintained

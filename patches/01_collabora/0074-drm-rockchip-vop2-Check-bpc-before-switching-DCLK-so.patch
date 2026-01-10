@@ -1,7 +1,7 @@
-From 0dee194e1389bac0a26e2b4ab80f37d7b696fd19 Mon Sep 17 00:00:00 2001
+From 80f4d8c80468ccc34c88f9e917ae35346f8aebc5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 13:19:13 +0200
-Subject: [PATCH 074/105] drm/rockchip: vop2: Check bpc before switching DCLK
+Subject: [PATCH 074/104] drm/rockchip: vop2: Check bpc before switching DCLK
  source
 
 When making use of the HDMI PHY PLL as a VOP2 DCLK source, it's output
@@ -24,7 +24,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 35 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 2e01f40..f75fb7f 100644
+index 2e01f407a..f75fb7f2d 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -102,7 +102,7 @@ enum vop2_afbc_format {

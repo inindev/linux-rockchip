@@ -1,7 +1,7 @@
-From d4be2b52ebd71ec784a6da855b47845746cf1850 Mon Sep 17 00:00:00 2001
+From d56c849116d573f5520e20912fa50a081d64030c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 14 Nov 2024 17:36:18 +0100
-Subject: [PATCH 012/105] drm/rockchip: vop2: Add core reset support
+Subject: [PATCH 012/104] drm/rockchip: vop2: Add core reset support
 
 A previous from Detlev Casanova adds reset handling for the
 video ports. This also resets the AHB and AXI interface when
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 23 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 07c66f5..2e01f40 100644
+index 07c66f529..2e01f407a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -2660,6 +2660,21 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
@@ -43,7 +43,7 @@ index 07c66f5..2e01f40 100644
  	if (!res)
  		return dev_err_probe(drm->dev, -EINVAL,
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index a3e89c1..3257b89 100644
+index a3e89c19b..3257b89e6 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -8,6 +8,7 @@

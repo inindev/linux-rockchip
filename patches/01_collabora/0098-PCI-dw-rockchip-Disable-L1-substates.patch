@@ -1,7 +1,7 @@
-From 955f9aeea0c39210c5df9dc054674e0109b6b9f0 Mon Sep 17 00:00:00 2001
+From f8ccae143bfc4461f8fad2e9e074298f7313b53d Mon Sep 17 00:00:00 2001
 From: Niklas Cassel <cassel@kernel.org>
 Date: Thu, 16 Oct 2025 11:04:22 +0200
-Subject: [PATCH 098/105] PCI: dw-rockchip: Disable L1 substates
+Subject: [PATCH 098/104] PCI: dw-rockchip: Disable L1 substates
 
 The L1 substates support requires additional steps to work, see e.g.
 section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0.
@@ -28,7 +28,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 21 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 34f4383..7b8019a 100644
+index 34f438395..7b8019a61 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -215,6 +215,25 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)

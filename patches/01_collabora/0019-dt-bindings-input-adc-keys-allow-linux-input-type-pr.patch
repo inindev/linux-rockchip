@@ -1,7 +1,7 @@
-From 441c277f809ef9e2242209be4287ab46f1eaeec5 Mon Sep 17 00:00:00 2001
+From 5a39f970724e1e79394e74261b3789834ce14ed9 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:24 +0200
-Subject: [PATCH 019/105] dt-bindings: input: adc-keys: allow linux,input-type
+Subject: [PATCH 019/104] dt-bindings: input: adc-keys: allow linux,input-type
  property
 
 adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/input/adc-keys.yaml b/Documentation/devicetree/bindings/input/adc-keys.yaml
-index 7aa078d..e372ebc 100644
+index 7aa078dea..e372ebc23 100644
 --- a/Documentation/devicetree/bindings/input/adc-keys.yaml
 +++ b/Documentation/devicetree/bindings/input/adc-keys.yaml
 @@ -42,6 +42,9 @@ patternProperties:

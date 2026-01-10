@@ -1,7 +1,7 @@
-From 059fcf621107582da9ab7f13f573586da3acbb82 Mon Sep 17 00:00:00 2001
+From 7a7ecfe45e13c6004a226121e0a5ac4af9c70264 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:15:40 +0300
-Subject: [PATCH 087/105] dt-bindings: display: rockchip: Add tmds-enable-gpios
+Subject: [PATCH 087/104] dt-bindings: display: rockchip: Add tmds-enable-gpios
  property to rk3588-dw-hdmi-qp
 
 Add an optional property to RK3588 HDMI TX Controller binding describing
@@ -16,7 +16,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 10 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-index 96b4b08..eec0d40 100644
+index 96b4b088e..eec0d40c9 100644
 --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
 +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
 @@ -113,6 +113,13 @@ properties:

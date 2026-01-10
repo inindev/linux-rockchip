@@ -1,7 +1,7 @@
-From ab03d22c0799c29666f6542f7559067f6ba0290a Mon Sep 17 00:00:00 2001
+From 16f3c3aff37e1acbd6b0a933ef2d2f7720905176 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 30 Jun 2025 22:18:14 +0300
-Subject: [PATCH 072/105] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
+Subject: [PATCH 072/104] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
  dw_hdmi_qp_plat_data
 
 In order to support correct initialization of the timer base in the HDMI
@@ -17,7 +17,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 96dedd5..490c7be 100644
+index 96dedd571..490c7beab 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -429,14 +429,15 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,

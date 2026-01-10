@@ -1,7 +1,7 @@
-From bcda67ae6bb9d4fff93da92467916b39c5d9abaa Mon Sep 17 00:00:00 2001
+From 998bdd04ba37ca62af515b6643b7726a59ae8902 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 13:26:13 +0200
-Subject: [PATCH 085/105] drm/rockchip: vop2: Add YUV420 output format support
+Subject: [PATCH 085/104] drm/rockchip: vop2: Add YUV420 output format support
 
 TODO: proper colorspace conversion handling
 
@@ -13,7 +13,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  3 files changed, 48 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-index 2e86ad0..084a383 100644
+index 2e86ad009..084a383da 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
 @@ -57,6 +57,8 @@ struct rockchip_crtc_state {
@@ -26,7 +26,7 @@ index 2e86ad0..084a383 100644
   * Rockchip drm private structure.
   *
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index cd70928..949401c 100644
+index cd70928ac..949401cf6 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -656,6 +656,39 @@ static void vop2_setup_scale(struct vop2 *vop2, const struct vop2_win *win,
@@ -94,7 +94,7 @@ index cd70928..949401c 100644
  
  static int us_to_vertical_line(struct drm_display_mode *mode, int us)
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index b819871..95f13de 100644
+index b8198714c..95f13de1a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -674,6 +674,9 @@ enum dst_factor_mode {

@@ -1,7 +1,7 @@
-From 0267b4a7b3b3312323a6855f953b24d92e869a6c Mon Sep 17 00:00:00 2001
+From 6f6acb80234012a2890b7d97f577446f72e02ad2 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:18 +0530
-Subject: [PATCH 103/105] PCI: qcom: Check for the presence of a device instead
+Subject: [PATCH 102/104] PCI: qcom: Check for the presence of a device instead
  of Link up during suspend
 
 The suspend handler checks for the PCIe Link up to decide when to turn off
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index c48a206..fad75bf 100644
+index c48a20602..fad75bf8d 100644
 --- a/drivers/pci/controller/dwc/pcie-qcom.c
 +++ b/drivers/pci/controller/dwc/pcie-qcom.c
 @@ -1982,6 +1982,7 @@ static int qcom_pcie_probe(struct platform_device *pdev)

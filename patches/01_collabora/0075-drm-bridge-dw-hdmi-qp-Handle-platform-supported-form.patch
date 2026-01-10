@@ -1,7 +1,7 @@
-From 15b74b57139e4105ff0d4c05b1c9d13d6845da08 Mon Sep 17 00:00:00 2001
+From f9d68c544bd47e839cb6f502d5cd5852a441866a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 18 Jul 2025 21:49:57 +0300
-Subject: [PATCH 075/105] drm/bridge: dw-hdmi-qp: Handle platform supported
+Subject: [PATCH 075/104] drm/bridge: dw-hdmi-qp: Handle platform supported
  formats and color depth
 
 Extend struct dw_hdmi_qp_plat_data to include the supported display
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 2c0fbee..6016691 100644
+index 2c0fbeeae..60166919c 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -869,8 +869,9 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
@@ -47,7 +47,7 @@ index 2c0fbee..6016691 100644
  	if (IS_ERR(hdmi->bridge.ddc))
  		return ERR_CAST(hdmi->bridge.ddc);
 diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 71ad628..3af12f8 100644
+index 71ad6280c..3af12f82d 100644
 --- a/include/drm/bridge/dw_hdmi_qp.h
 +++ b/include/drm/bridge/dw_hdmi_qp.h
 @@ -25,6 +25,10 @@ struct dw_hdmi_qp_plat_data {

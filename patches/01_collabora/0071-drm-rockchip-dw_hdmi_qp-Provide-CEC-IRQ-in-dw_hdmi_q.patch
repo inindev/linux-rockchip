@@ -1,7 +1,7 @@
-From 3e5aceea3f88053f40940300f51c1ae2b45e55af Mon Sep 17 00:00:00 2001
+From dbeafb1237ecd277c23ec5b33eb2e12021041d70 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Jun 2025 20:07:51 +0300
-Subject: [PATCH 071/105] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in
+Subject: [PATCH 071/104] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in
  dw_hdmi_qp_plat_data
 
 In order to support the CEC interface of the DesignWare HDMI QP IP
@@ -13,7 +13,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 4 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 9d20df8..96dedd5 100644
+index 9d20df85d..96dedd571 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -525,6 +525,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,

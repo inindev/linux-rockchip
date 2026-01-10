@@ -1,14 +1,14 @@
-From c213284e2af314b4932b0131a4774addf1e1830b Mon Sep 17 00:00:00 2001
+From 360960820d4052f2d30fd42057ce75d6b29b4a94 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 19 Jan 2024 19:51:32 +0200
-Subject: [PATCH 079/105] phy: rockchip: samsung-hdptx: Add verbose logging
+Subject: [PATCH 079/104] phy: rockchip: samsung-hdptx: Add verbose logging
 
 ---
  .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 23 +++++++++++++++++++
  1 file changed, 23 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index a474400..fe296f3 100644
+index a474400f4..fe296f358 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -1070,6 +1070,8 @@ static void rk_hdptx_phy_disable(struct rk_hdptx_phy *hdptx)
