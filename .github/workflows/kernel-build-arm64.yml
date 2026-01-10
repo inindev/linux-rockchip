@@ -1,0 +1,102 @@
+name: Build Linux Kernel (arm64)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-arm64:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Parse Makefile for Variables
+        run: |
+          VER=$(grep -E "^LINUX_VER\s*=" Makefile | cut -d'=' -f2 | xargs)
+          SHA=$(grep -E "^LINUX_SHA256\s*=" Makefile | cut -d'=' -f2 | xargs)
+
+          echo "LINUX_VER=$VER" >> $GITHUB_ENV
+          echo "LINUX_SHA256=$SHA" >> $GITHUB_ENV
+
+          if [[ "$VER" == *"-rc"* ]]; then
+            echo "LINUX_FILE=linux-$VER.tar.gz" >> $GITHUB_ENV
+            echo "LINUX_URL=https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-$VER.tar.gz" >> $GITHUB_ENV
+          else
+            echo "LINUX_FILE=linux-$VER.tar.xz" >> $GITHUB_ENV
+            echo "LINUX_URL=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-$VER.tar.xz" >> $GITHUB_ENV
+          fi
+
+      - name: Install Build Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            bc build-essential debhelper flex bison pahole python3 \
+            rsync libdw-dev libelf-dev libncurses-dev libssl-dev lz4 zstd \
+            curl tar patch
+
+      - name: Download and Verify Source
+        run: |
+          mkdir -p downloads
+          echo "Downloading: ${{ env.LINUX_URL }}"
+          curl -L -o downloads/${{ env.LINUX_FILE }} ${{ env.LINUX_URL }}
+
+          # verify sha
+          echo "${{ env.LINUX_SHA256 }} downloads/${{ env.LINUX_FILE }}" | sha256sum -c -
+
+      - name: Extract and Patch
+        run: |
+          mkdir -p kernel-${{ env.LINUX_VER }}
+          tar --one-top-level=kernel-${{ env.LINUX_VER }} -xvf downloads/${{ env.LINUX_FILE }}
+
+          LDIR="kernel-${{ env.LINUX_VER }}/linux-${{ env.LINUX_VER }}"
+
+          if [ -d "patches" ]; then
+            echo "Applying patches..."
+            find patches -name '*.patch' | sort | while read patch; do
+              echo "Applying $patch"
+              patch -p1 -d "$LDIR" -i "../../$patch"
+            done
+          fi
+
+      - name: Configure Kernel
+        run: |
+          LDIR="kernel-${{ env.LINUX_VER }}/linux-${{ env.LINUX_VER }}"
+
+          make -C "$LDIR" ARCH=arm64 inindev_defconfig
+
+          if [ -f "custom_config" ]; then
+            echo "Applying options from custom_config..."
+            while read -r opt; do
+              "$LDIR/scripts/config" --file "$LDIR/.config" $opt
+            done < custom_config
+            make -C "$LDIR" ARCH=arm64 olddefconfig
+          fi
+
+      - name: Build Kernel Deb Packages
+        run: |
+          LDIR="kernel-${{ env.LINUX_VER }}/linux-${{ env.LINUX_VER }}"
+
+          KERNEL_VER=$(make --no-print-directory -C "$LDIR" kernelversion)
+          BUILD_VER="1"
+          SOURCE_DATE_EPOCH=$(stat -c %Y "$LDIR/README")
+
+          export KDEB_CHANGELOG_DIST=stable
+          export KBUILD_BUILD_TIMESTAMP="Debian $KERNEL_VER-$BUILD_VER $(date -ud @$SOURCE_DATE_EPOCH +'(%Y-%m-%d)')"
+          export KBUILD_BUILD_HOST="github.com/${{ github.repository }}"
+          export KBUILD_BUILD_USER="linux-kernel"
+          export KBUILD_BUILD_VERSION="$BUILD_VER"
+
+          make -C "$LDIR" -j$(nproc) \
+            ARCH=arm64 \
+            CC=gcc \
+            bindeb-pkg \
+            KBUILD_IMAGE=arch/arm64/boot/Image \
+            LOCALVERSION="-$BUILD_VER-arm64"
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-kernel-${{ env.LINUX_VER }}-arm64
+          path: kernel-${{ env.LINUX_VER }}/*.deb
+          if-no-files-found: error
