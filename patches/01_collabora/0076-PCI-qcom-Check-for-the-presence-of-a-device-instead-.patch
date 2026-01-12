@@ -1,4 +1,4 @@
-From 20ba6f608d475c8230103a0f3b88deec2c788060 Mon Sep 17 00:00:00 2001
+From e085ded51d43d24a18df79d8ca174bc91d58e293 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Fri, 7 Nov 2025 10:13:18 +0530
 Subject: [PATCH 76/79] PCI: qcom: Check for the presence of a device instead
@@ -20,10 +20,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index 7b92e7a1c..a3d8009b1 100644
+index 5a318487b..4b6f0223d 100644
 --- a/drivers/pci/controller/dwc/pcie-qcom.c
 +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -2010,6 +2010,7 @@ static int qcom_pcie_probe(struct platform_device *pdev)
+@@ -2012,6 +2012,7 @@ static int qcom_pcie_probe(struct platform_device *pdev)
  static int qcom_pcie_suspend_noirq(struct device *dev)
  {
  	struct qcom_pcie *pcie;
@@ -31,7 +31,7 @@ index 7b92e7a1c..a3d8009b1 100644
  	int ret = 0;
  
  	pcie = dev_get_drvdata(dev);
-@@ -2045,8 +2046,9 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
+@@ -2047,8 +2048,9 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
  	 * powerdown state. This will affect the lifetime of the storage devices
  	 * like NVMe.
  	 */
