@@ -1,0 +1,158 @@
+From fec0537d4e3948d0f7bf0614f4b2d37ed2a7ffe1 Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Fri, 9 Jan 2026 18:01:19 +0800
+Subject: [PATCH 110/137] arm64: dts: rockchip: add USB-C DP AltMode for ArmSom
+ Sige5
+
+Enable USB-C DP AltMode for the ArmSom Sige5.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+
+This has two issues:
+1. The USB-C hotplug detection does not yet work properly. I.e. even
+after plugging in a device with DP AltMode, /sys/class/drm/card0-DP-1
+stays at 'disconnected'. This is a problem I've already seen on the
+Rock 5B, which needs further investigation.
+
+2. The DT binding does not yet look good for upstream.
+
+On the plus side there are no regressions and this results in probing
+the DP driver, which means it is already good for regression testing.
+Thus I am already adding this to our development branch.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts | 77 ++++++++++++++++---
+ 1 file changed, 67 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 3386084f6..72bcb5f42 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -280,6 +280,22 @@ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
+ };
+ 
++&dp {
++	status = "okay";
++};
++
++&dp0_in {
++	dp0_in_vp1: endpoint {
++		remote-endpoint = <&vp1_out_dp0>;
++	};
++};
++
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&usbdp_phy_dp_in>;
++	};
++};
++
+ &gmac0 {
+ 	phy-mode = "rgmii-id";
+ 	clock_in_out = "output";
+@@ -727,20 +743,22 @@ ports {
+ 
+ 				port@0 {
+ 					reg = <0>;
+-					usbc0_hs_ep: endpoint {
++					usbc0_hs: endpoint {
+ 						remote-endpoint = <&usb_drd0_hs_ep>;
+ 					};
+ 				};
++
+ 				port@1 {
+ 					reg = <1>;
+-					usbc0_ss_ep: endpoint {
+-						remote-endpoint = <&usb_drd0_ss_ep>;
++					usbc0_ss: endpoint {
++						remote-endpoint = <&usbdp_phy_ss_out>;
+ 					};
+ 				};
++
+ 				port@2 {
+ 					reg = <2>;
+-					usbc0_dp_ep: endpoint {
+-						remote-endpoint = <&usbdp_phy_ep>;
++					usbc0_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy0_dp_out>;
+ 					};
+ 				};
+ 			};
+@@ -991,14 +1009,14 @@ ports {
+ 		port@0 {
+ 			reg = <0>;
+ 			usb_drd0_hs_ep: endpoint {
+-				remote-endpoint = <&usbc0_hs_ep>;
++				remote-endpoint = <&usbc0_hs>;
+ 			};
+ 		};
+ 
+ 		port@1 {
+ 			reg = <1>;
+ 			usb_drd0_ss_ep: endpoint {
+-				remote-endpoint = <&usbc0_ss_ep>;
++				remote-endpoint = <&usbdp_phy_ss_in>;
+ 			};
+ 		};
+ 	};
+@@ -1018,9 +1036,41 @@ &usbdp_phy {
+ 	sbu2-dc-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ 
+-	port {
+-		usbdp_phy_ep: endpoint {
+-			remote-endpoint = <&usbc0_dp_ep>;
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++
++		port@0 {
++			reg = <0>;
++
++			usbdp_phy_ss_out: endpoint {
++				remote-endpoint = <&usbc0_ss>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			usbdp_phy_ss_in: endpoint {
++				remote-endpoint = <&usb_drd0_ss_ep>;
++			};
++		};
++
++		port@2 {
++			reg = <2>;
++
++			usbdp_phy_dp_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
++			};
++		};
++
++		port@3 {
++			reg = <3>;
++
++			usbdp_phy0_dp_out: endpoint {
++				remote-endpoint = <&usbc0_sbu>;
++			};
+ 		};
+ 	};
+ };
+@@ -1039,3 +1089,10 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi_in_vp0>;
+ 	};
+ };
++
++&vp1 {
++	vp1_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp1>;
++	};
++};
+-- 
+2.47.3
+

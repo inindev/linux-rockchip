@@ -1,0 +1,42 @@
+From d32a37eab9e3b028889b552702ecce28c24427e1 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 29 May 2025 19:31:51 +0300
+Subject: [PATCH 111/137] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588-rock-5b
+
+In preparation to support HDMI 2.1 FRL operating mode, make use of the
+GPIO4_B1 and GPIO4_A1 lines (labeled HDMI0_TX_ON_H & HDMI1_TX_ON_H in
+the schematics) to control the voltage bias for HDMI0 and HDMI1 data
+lines, respectively.
+
+The GPIO lines are asserted when operating in FRL mode and deasserted
+for TMDS.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index fb35c52b2..a7d29f51a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -199,6 +199,7 @@ &gpu {
+ };
+ 
+ &hdmi0 {
++	frl-enable-gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ };
+ 
+@@ -221,6 +222,7 @@ &hdmi0_sound {
+ &hdmi1 {
+ 	pinctrl-0 = <&hdmim0_tx1_cec &hdmim0_tx1_hpd
+ 		     &hdmim1_tx1_scl &hdmim1_tx1_sda>;
++	frl-enable-gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ };
+ 
+-- 
+2.47.3
+

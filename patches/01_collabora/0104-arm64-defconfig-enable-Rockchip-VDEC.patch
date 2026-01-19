@@ -1,0 +1,28 @@
+From 47bb69ecaa0ea852b53c90be209efa9c129378c1 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Sat, 10 Jan 2026 04:29:23 +0100
+Subject: [PATCH 104/137] arm64: defconfig: enable Rockchip VDEC
+
+Enable the VDPU381/VDPU383 video decoder driver used for H.264 and H.265
+decoding on Rockchip RK3588 and RK3576.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index dd4c76637..52ba16c58 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -897,6 +897,7 @@ CONFIG_VIDEO_RENESAS_VSP1=m
+ CONFIG_VIDEO_RCAR_DRIF=m
+ CONFIG_VIDEO_ROCKCHIP_CIF=m
+ CONFIG_VIDEO_ROCKCHIP_CSI=m
++CONFIG_VIDEO_ROCKCHIP_VDEC=m
+ CONFIG_VIDEO_ROCKCHIP_RGA=m
+ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
+ CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+-- 
+2.47.3
+

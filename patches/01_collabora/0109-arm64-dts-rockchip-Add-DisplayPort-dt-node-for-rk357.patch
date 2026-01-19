@@ -1,0 +1,59 @@
+From 98e16a79404c76e13723b31b19dbcc12b3f0341b Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Fri, 9 Jan 2026 16:00:48 +0800
+Subject: [PATCH 109/137] arm64: dts: rockchip: Add DisplayPort dt node for
+ rk3576
+
+The DisplayPort on rk3576 is compliant with DisplayPort Specification
+Version 1.4 with MST support, and share the USBDP combo PHY with USB 3.1
+OTG0 controller.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20260109080054.228671-6-andyshrk@163.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 28 ++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 3994dc8d1..28ee4f007 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1481,6 +1481,34 @@ hdmi_out: port@1 {
+ 			};
+ 		};
+ 
++		dp: dp@27e40000 {
++			compatible = "rockchip,rk3576-dp";
++			reg = <0x0 0x27e40000 0x0 0x30000>;
++			interrupts = <GIC_SPI 337 IRQ_TYPE_LEVEL_HIGH>;
++			assigned-clocks = <&cru CLK_AUX16MHZ_0>;
++			assigned-clock-rates = <16000000>;
++			clocks = <&cru PCLK_DP0>, <&cru CLK_AUX16MHZ_0>,
++				 <&cru ACLK_DP0>;
++			clock-names = "apb", "aux", "hdcp";
++			resets = <&cru SRST_DP0>;
++			phys = <&usbdp_phy PHY_TYPE_DP>;
++			power-domains = <&power RK3576_PD_VO1>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				dp0_in: port@0 {
++					reg = <0>;
++				};
++
++				dp0_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		sai7: sai@27ed0000 {
+ 			compatible = "rockchip,rk3576-sai";
+ 			reg = <0x0 0x27ed0000 0x0 0x1000>;
+-- 
+2.47.3
+

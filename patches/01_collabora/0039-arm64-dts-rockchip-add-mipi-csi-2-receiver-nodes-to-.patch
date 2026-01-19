@@ -1,0 +1,184 @@
+From a35b612e84ad515b8e6ae65c851b6478ad366bb8 Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 1 Sep 2025 23:40:15 +0200
+Subject: [PATCH 039/137] arm64: dts: rockchip: add mipi csi-2 receiver nodes
+ to rk3588
+
+Add the device tree nodes for the six MIPI CSI-2 Receiver units
+of the RK3588.
+
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 156 ++++++++++++++++++
+ 1 file changed, 156 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 50ee07b0e..c858c418c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1366,6 +1366,162 @@ av1d: video-codec@fdc70000 {
+ 		resets = <&cru SRST_A_AV1>, <&cru SRST_P_AV1>, <&cru SRST_A_AV1_BIU>, <&cru SRST_P_AV1_BIU>;
+ 	};
+ 
++	csi0: csi@fdd10000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd10000 0x0 0x10000>;
++		interrupts = <GIC_SPI 143 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_0>;
++		phys = <&mipidcphy0 PHY_TYPE_DPHY>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_0>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi0_in: port@0 {
++				reg = <0>;
++			};
++
++			csi0_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	csi1: csi@fdd20000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd20000 0x0 0x10000>;
++		interrupts = <GIC_SPI 145 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_1>;
++		phys = <&mipidcphy1 PHY_TYPE_DPHY>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_1>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi1_in: port@0 {
++				reg = <0>;
++			};
++
++			csi1_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	csi2: csi@fdd30000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd30000 0x0 0x10000>;
++		interrupts = <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_2>;
++		phys = <&csi_dphy0>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_2>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi2_in: port@0 {
++				reg = <0>;
++			};
++
++			csi2_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	csi3: csi@fdd40000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd40000 0x0 0x10000>;
++		interrupts = <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_3>;
++		phys = <&csi_dphy0>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_3>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi3_in: port@0 {
++				reg = <0>;
++			};
++
++			csi3_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	csi4: csi@fdd50000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd50000 0x0 0x10000>;
++		interrupts = <GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_4>;
++		phys = <&csi_dphy1>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_4>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi4_in: port@0 {
++				reg = <0>;
++			};
++
++			csi4_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
++	csi5: csi@fdd60000 {
++		compatible = "rockchip,rk3588-mipi-csi", "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdd60000 0x0 0x10000>;
++		interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 154 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "irq1", "irq2";
++		clocks = <&cru PCLK_CSI_HOST_5>;
++		phys = <&csi_dphy1>;
++		power-domains = <&power RK3588_PD_VI>;
++		resets = <&cru SRST_P_CSI_HOST_5>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi5_in: port@0 {
++				reg = <0>;
++			};
++
++			csi5_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	vop: vop@fdd90000 {
+ 		compatible = "rockchip,rk3588-vop";
+ 		reg = <0x0 0xfdd90000 0x0 0x4200>, <0x0 0xfdd95000 0x0 0x1000>;
+-- 
+2.47.3
+

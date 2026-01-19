@@ -1,7 +1,7 @@
-From b9dcf8ab5d39b4d76ce5872cb564a1153b160d2c Mon Sep 17 00:00:00 2001
+From 253a7fc9dc53cb7a0862449aa38fc4395df0987a Mon Sep 17 00:00:00 2001
 From: "Carsten Haitzler (Rasterman)" <raster@rasterman.com>
 Date: Tue, 6 Feb 2024 10:12:54 +0000
-Subject: [PATCH 06/79] arm64: dts: rockchip: Slow down EMMC a bit to keep IO
+Subject: [PATCH 006/137] arm64: dts: rockchip: Slow down EMMC a bit to keep IO
  stable
 
 This drops to hs200 mode and 150Mhz as this is actually stable across

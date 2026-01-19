@@ -1,0 +1,62 @@
+From 681d58edf3c368b9d73a0c08ac116b189f50f318 Mon Sep 17 00:00:00 2001
+From: Mark Brown <broonie@kernel.org>
+Date: Thu, 8 Jan 2026 20:08:47 +0000
+Subject: [PATCH 131/137] media: synopsys: hdmirx: support use with sleeping
+ GPIOs
+
+The recent change in 20cf2aed89ac (gpio: rockchip: mark the GPIO
+controller as sleeping) to mark the rockchip GPIO driver as sleeping has
+started triggering the warning at drivers/gpio/gpiolib.c:3523 indicating
+that a sleepable GPIO was called via the non-sleeping APIs on the Rock 5B:
+
+<4>[   14.699308] Call trace:
+<4>[   14.699545]  gpiod_get_value+0x90/0x98 (P)
+<4>[   14.699928]  tx_5v_power_present+0x44/0xd0 [synopsys_hdmirx]
+<4>[   14.700446]  hdmirx_delayed_work_hotplug+0x34/0x128 [synopsys_hdmirx]
+<4>[   14.701031]  process_one_work+0x14c/0x28c
+<4>[   14.701405]  worker_thread+0x184/0x300
+<4>[   14.701756]  kthread+0x11c/0x128
+<4>[   14.702065]  ret_from_fork+0x10/0x20
+
+Currently the active use of the GPIO is all done from process context so
+can be simply converted to use gpiod_get_value_cansleep(). There is one use
+of the GPIO from hard interrupt context but this is only done so the status
+can be displayed in a debug print so can simply be deleted without any
+functional effect.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Link: https://lore.kernel.org/r/20260108-media-synopsys-hdmirx-fix-gpio-cansleep-v1-1-3570518d8bab@kernel.org
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+index c3007e09b..1eaa25efe 100644
+--- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
++++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+@@ -230,7 +230,7 @@ static bool tx_5v_power_present(struct snps_hdmirx_dev *hdmirx_dev)
+ 
+ 	for (i = 0; i < 10; i++) {
+ 		usleep_range(1000, 1100);
+-		val = gpiod_get_value(hdmirx_dev->detect_5v_gpio);
++		val = gpiod_get_value_cansleep(hdmirx_dev->detect_5v_gpio);
+ 		if (val > 0)
+ 			cnt++;
+ 		if (cnt >= detection_threshold)
+@@ -2204,10 +2204,6 @@ static void hdmirx_delayed_work_res_change(struct work_struct *work)
+ static irqreturn_t hdmirx_5v_det_irq_handler(int irq, void *dev_id)
+ {
+ 	struct snps_hdmirx_dev *hdmirx_dev = dev_id;
+-	u32 val;
+-
+-	val = gpiod_get_value(hdmirx_dev->detect_5v_gpio);
+-	v4l2_dbg(3, debug, &hdmirx_dev->v4l2_dev, "%s: 5v:%d\n", __func__, val);
+ 
+ 	queue_delayed_work(system_unbound_wq,
+ 			   &hdmirx_dev->delayed_work_hotplug,
+-- 
+2.47.3
+

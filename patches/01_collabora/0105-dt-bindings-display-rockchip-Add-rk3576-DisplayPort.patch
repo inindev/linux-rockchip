@@ -1,0 +1,85 @@
+From 3b5b98a447c80426460271be89690acde511d9df Mon Sep 17 00:00:00 2001
+From: Andy Yan <andy.yan@rock-chips.com>
+Date: Fri, 9 Jan 2026 16:00:44 +0800
+Subject: [PATCH 105/137] dt-bindings: display: rockchip: Add rk3576
+ DisplayPort
+
+The DisplayPort found on RK3576 is very similar to that of RK3588,
+but work in dual pixel mode. And itself does not depend on the I2S
+clock or the SPDIF clock when transmit audio.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20260109080054.228671-2-andyshrk@163.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../display/rockchip/rockchip,dw-dp.yaml      | 29 +++++++++++++++++--
+ 1 file changed, 26 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+index 6345f0132..1bfe1bd64 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+@@ -27,13 +27,11 @@ description: |
+   * Pixel clock up to 594MHz
+   * I2S, SPDIF audio interface
+ 
+-allOf:
+-  - $ref: /schemas/sound/dai-common.yaml#
+-
+ properties:
+   compatible:
+     enum:
+       - rockchip,rk3588-dp
++      - rockchip,rk3576-dp
+ 
+   reg:
+     maxItems: 1
+@@ -42,6 +40,7 @@ properties:
+     maxItems: 1
+ 
+   clocks:
++    minItems: 3
+     items:
+       - description: Peripheral/APB bus clock
+       - description: DisplayPort AUX clock
+@@ -50,6 +49,7 @@ properties:
+       - description: SPDIF interfce clock
+ 
+   clock-names:
++    minItems: 3
+     items:
+       - const: apb
+       - const: aux
+@@ -95,6 +95,29 @@ required:
+   - ports
+   - resets
+ 
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3588-dp
++    then:
++      properties:
++        clocks:
++          minItems: 5
++          maxItems: 5
++        clock-names:
++          minItems: 5
++          maxItems: 5
++    else:
++      properties:
++        clocks:
++          maxItems: 3
++        clock-names:
++          maxItems: 3
++
+ unevaluatedProperties: false
+ 
+ examples:
+-- 
+2.47.3
+
