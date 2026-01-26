@@ -1,7 +1,7 @@
-From 8e224a1ced3d9d1f4f6373b012d566c6111b524e Mon Sep 17 00:00:00 2001
+From cfe347db11a48d437ecb3487ad9c2d7f652d37aa Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Fri, 16 Jan 2026 08:55:28 +0800
-Subject: [PATCH 125/137] soc: rockchip: grf: Fix wrong RK3576_IOCGRF_MISC_CON
+Subject: [PATCH 125/136] soc: rockchip: grf: Fix wrong RK3576_IOCGRF_MISC_CON
  definition
 
 RK3576_IOCGRF_MISC_CON is IOC_GRF + 0x40F0, fix it.
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-index 27bfa09ff..8974d1c6b 100644
+index 27bfa09..8974d1c 100644
 --- a/drivers/soc/rockchip/grf.c
 +++ b/drivers/soc/rockchip/grf.c
 @@ -146,7 +146,7 @@ static const struct rockchip_grf_info rk3576_sysgrf __initconst = {

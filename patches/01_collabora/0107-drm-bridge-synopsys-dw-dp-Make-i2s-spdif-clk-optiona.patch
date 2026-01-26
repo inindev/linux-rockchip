@@ -1,7 +1,7 @@
-From f39192d3a9b7b31c9ee0927bc1bc24424d410535 Mon Sep 17 00:00:00 2001
+From 9588d6201b3328c6350439ce82742de572a26b28 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:46 +0800
-Subject: [PATCH 107/137] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
+Subject: [PATCH 107/136] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
  optional
 
 The i2s/spdif clk are mandatory for rk3588, but not used
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index eccf6299b..93e3efe18 100644
+index ccc0d7c..81d9c93 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -2014,13 +2014,13 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,

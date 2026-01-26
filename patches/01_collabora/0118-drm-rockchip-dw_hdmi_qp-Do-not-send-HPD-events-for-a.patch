@@ -1,7 +1,7 @@
-From ba28e26cd7fe9fe6adf03ef43c7e50cbb7d98ce0 Mon Sep 17 00:00:00 2001
+From ed96275e8c917b7f830dfa4ffb89b8f73e7c4f7a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 1 Dec 2025 21:37:56 +0200
-Subject: [PATCH 118/137] drm/rockchip: dw_hdmi_qp: Do not send HPD events for
+Subject: [PATCH 118/136] drm/rockchip: dw_hdmi_qp: Do not send HPD events for
  all connectors
 
 In order to optimize the HPD event handling and run the detect cycle on
@@ -20,7 +20,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 20 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 8604342f9..413d45144 100644
+index 8604342..413d451 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -92,6 +92,7 @@ struct rockchip_hdmi_qp {

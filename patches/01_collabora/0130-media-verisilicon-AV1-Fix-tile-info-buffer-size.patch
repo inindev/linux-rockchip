@@ -1,7 +1,7 @@
-From 821cb57db9d41774358358ebd48a709570718ba5 Mon Sep 17 00:00:00 2001
+From c0c8d92c9ba1a9e3820b1eed341de123f4305dfc Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 14 Jan 2026 10:07:10 +0100
-Subject: [PATCH 130/137] media: verisilicon: AV1: Fix tile info buffer size
+Subject: [PATCH 130/136] media: verisilicon: AV1: Fix tile info buffer size
 
 Each tile info is composed of: row_sb, col_sb, start_pos
 and end_pos (4 bytes each). So the total required memory
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index 9a51909ba..e8ba8ad8b 100644
+index 9a51909..e8ba8ad 100644
 --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 @@ -376,12 +376,12 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)

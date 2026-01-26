@@ -1,7 +1,7 @@
-From a31d0a08c12534d0211c113f421fbc885fbe3945 Mon Sep 17 00:00:00 2001
+From 88a8ba1dd6c31d00afd41f29ed0886c9fa83b549 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 22:48:01 +0200
-Subject: [PATCH 115/137] drm/bridge: Add ->detect_ctx hook and
+Subject: [PATCH 115/136] drm/bridge: Add ->detect_ctx hook and
  drm_bridge_detect_ctx()
 
 Add an atomic variant of the ->detect callback and a new helper to call
@@ -20,7 +20,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 88 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 8f355df88..1fe03bcf2 100644
+index 8f355df..1fe03bc 100644
 --- a/drivers/gpu/drm/drm_bridge.c
 +++ b/drivers/gpu/drm/drm_bridge.c
 @@ -1280,6 +1280,64 @@ drm_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
@@ -89,7 +89,7 @@ index 8f355df88..1fe03bcf2 100644
   * drm_bridge_get_modes - fill all modes currently valid for the sink into the
   * @connector
 diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index dbafe1368..095e672eb 100644
+index dbafe13..095e672 100644
 --- a/include/drm/drm_bridge.h
 +++ b/include/drm/drm_bridge.h
 @@ -547,6 +547,33 @@ struct drm_bridge_funcs {

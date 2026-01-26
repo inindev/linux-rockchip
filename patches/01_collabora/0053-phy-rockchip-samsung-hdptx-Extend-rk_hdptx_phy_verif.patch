@@ -1,7 +1,7 @@
-From 2a82c2b1d980ea7fe5f2c482647e4d55a557ae5a Mon Sep 17 00:00:00 2001
+From 8586cf48a0800fc9046930c28d17982a2806f947 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 8 Jul 2025 12:19:37 +0300
-Subject: [PATCH 053/137] phy: rockchip: samsung-hdptx: Extend
+Subject: [PATCH 053/136] phy: rockchip: samsung-hdptx: Extend
  rk_hdptx_phy_verify_hdmi_config() helper
 
 In order to facilitate introduction of HDMI 2.1 FRL support and to avoid
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 18 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 358625790..048725544 100644
+index 3586257..0487255 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -1471,25 +1471,24 @@ static int rk_hdptx_phy_power_off(struct phy *phy)

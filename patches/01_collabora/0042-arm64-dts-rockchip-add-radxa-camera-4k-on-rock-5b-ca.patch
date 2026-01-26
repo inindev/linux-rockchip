@@ -1,7 +1,7 @@
-From 2f61c05a4ad18428ec2713da3064ec97bbc5aea3 Mon Sep 17 00:00:00 2001
+From 178099a4870fdc3f81cf2d8690eb13317d66c5f3 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 042/137] arm64: dts: rockchip: add radxa camera 4k on rock 5b+
+Subject: [PATCH 042/136] arm64: dts: rockchip: add radxa camera 4k on rock 5b+
  cam0
 
 Add device tree overlay for the Radxa Camera 4K (featuring the
@@ -16,7 +16,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
 
 diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index dbdda9783..4ec21b91d 100644
+index dbdda97..4ec21b9 100644
 --- a/arch/arm64/boot/dts/rockchip/Makefile
 +++ b/arch/arm64/boot/dts/rockchip/Makefile
 @@ -194,6 +194,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
@@ -40,7 +40,7 @@ index dbdda9783..4ec21b91d 100644
  	rk3588-tiger-haikou-video-demo.dtbo
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
 new file mode 100644
-index 000000000..a6d52607f
+index 0000000..a6d5260
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
 @@ -0,0 +1,90 @@

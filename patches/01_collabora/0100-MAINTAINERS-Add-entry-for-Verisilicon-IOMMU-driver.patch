@@ -1,7 +1,7 @@
-From a67e3a486d709f79bb76de925ddf0a534fb8c922 Mon Sep 17 00:00:00 2001
+From 633d295fa5d9dc4164e2bfee01fba6bb82d0cce4 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:54 +0100
-Subject: [PATCH 100/137] MAINTAINERS: Add entry for Verisilicon IOMMU driver
+Subject: [PATCH 100/136] MAINTAINERS: Add entry for Verisilicon IOMMU driver
 
 Add maintainer for Verisilicon iommu driver.
 
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 8 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 61c399ffb..c1166afe4 100644
+index 2e44bb6..66b3f27 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -27334,6 +27334,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
+@@ -27340,6 +27340,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
  F:	include/media/v4l2-isp.h
  F:	include/uapi/linux/media/v4l2-isp.h
  

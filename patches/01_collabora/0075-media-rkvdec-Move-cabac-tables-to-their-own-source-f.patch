@@ -1,7 +1,7 @@
-From 3d362e305cc6813ae42cd105c1b0158372898e8e Mon Sep 17 00:00:00 2001
+From 42e0574ed73d3278b59be74c9a31fb3849de2941 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:21 -0500
-Subject: [PATCH 075/137] media: rkvdec: Move cabac tables to their own source
+Subject: [PATCH 075/136] media: rkvdec: Move cabac tables to their own source
  file
 
 This is in preparation to add support for new variants that will use the
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  rename drivers/media/platform/rockchip/rkvdec/{rkvdec-hevc-data.c => rkvdec-cabac.c} (86%)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index a77122641..a8ff5e3d7 100644
+index a771226..a8ff5e3 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -1,3 +1,8 @@
@@ -38,7 +38,7 @@ diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c b/drivers
 similarity index 86%
 rename from drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
 rename to drivers/media/platform/rockchip/rkvdec/rkvdec-cabac.c
-index eac4ea604..bc87f5963 100644
+index eac4ea6..bc87f59 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-cabac.c
 @@ -1,19 +1,517 @@
@@ -564,7 +564,7 @@ index eac4ea604..bc87f5963 100644
  	0x68, 0x48, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x07, 0x40,
  	0x40, 0x68, 0x58, 0x60, 0x40, 0x1f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x48, 0x48, 0x60,
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index 68e20cb81..088840248 100644
+index 68e20cb..0888402 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 @@ -15,6 +15,8 @@
@@ -1083,7 +1083,7 @@ index 68e20cb81..088840248 100644
  {
  	u8 bit = field.offset % 32, word = field.offset / 32;
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index 2d9e0e947..dfadb9a13 100644
+index 2d9e0e9..dfadb9a 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 @@ -16,7 +16,6 @@

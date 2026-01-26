@@ -1,7 +1,7 @@
-From accc2b2da89d919c4edf478328ba52f0b9ad7902 Mon Sep 17 00:00:00 2001
+From 90530bd926eba6a5a4ece526a3c57a484c38efef Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Fri, 16 Jan 2026 08:55:31 +0800
-Subject: [PATCH 128/137] arm64: dts: rockchip: Fix SD card support for RK3576
+Subject: [PATCH 128/136] arm64: dts: rockchip: Fix SD card support for RK3576
  EVB1
 
 When runtime suspend is enabled, the associated power domain is powered
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 22 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-index 9dd5b8152..bb7a2e7d1 100644
+index 9dd5b81..bb7a2e7 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
 @@ -223,6 +223,18 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {

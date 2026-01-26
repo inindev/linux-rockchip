@@ -1,7 +1,7 @@
-From ebe16f86b649121469951e083c3a04b78f79d11a Mon Sep 17 00:00:00 2001
+From 247f47f79079be6fedf268675ad6eff9770b84c9 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 23:04:23 +0200
-Subject: [PATCH 116/137] drm/bridge-connector: Switch to using ->detect_ctx
+Subject: [PATCH 116/136] drm/bridge-connector: Switch to using ->detect_ctx
  hook
 
 In preparation to allow bridge drivers relying on the HDMI connector
@@ -21,7 +21,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 38 insertions(+), 35 deletions(-)
 
 diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index a2d30cf9e..0142c6125 100644
+index a2d30cf..0142c61 100644
 --- a/drivers/gpu/drm/display/drm_bridge_connector.c
 +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
 @@ -200,39 +200,6 @@ static void drm_bridge_connector_disable_hpd(struct drm_connector *connector)

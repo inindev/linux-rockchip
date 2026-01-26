@@ -1,7 +1,7 @@
-From 4c50f7a3a7f1472fbf6051405928b8e9410b2214 Mon Sep 17 00:00:00 2001
+From e0f99312f938c85d8e5c8ff6741f1dc58aaf8349 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:07 +0800
-Subject: [PATCH 134/137] phy: rockchip-snps-pcie3: Add phy_calibrate() support
+Subject: [PATCH 133/136] phy: rockchip-snps-pcie3: Add phy_calibrate() support
 
 Move calibration from phy_init() to phy_calibrate().
 
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 34 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 4e8ffd173..9933cda0b 100644
+index 4e8ffd1..9933cda 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -71,6 +71,7 @@ struct rockchip_p3phy_priv {

@@ -1,7 +1,7 @@
-From 8bda0f80e66b618ab2f01da1b033c6f7e78ced03 Mon Sep 17 00:00:00 2001
+From 26bcacac03dd1c061076adee8c1c1a7e13d4e185 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 8 Jul 2025 20:12:00 +0300
-Subject: [PATCH 058/137] arm64: dts: rockchip: Assign ACLK_VOP to 750 MHz on
+Subject: [PATCH 058/136] arm64: dts: rockchip: Assign ACLK_VOP to 750 MHz on
  rk3588
 
 In preparation to support HDMI 2.1 display modes on RK3588, e.g.
@@ -23,7 +23,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index d47d07412..23512b98b 100644
+index 046bc66..f331ee6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1638,6 +1638,8 @@ vop: vop@fdd90000 {

@@ -1,7 +1,7 @@
-From 311b30d9568f019a5adafbf620748df8acccc616 Mon Sep 17 00:00:00 2001
+From ae9a20ba160ef2dbde1608bf17210037806be606 Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:19 +0100
-Subject: [PATCH 090/137] drm/rockchip: vop2: Fix Esmart test condition
+Subject: [PATCH 090/136] drm/rockchip: vop2: Fix Esmart test condition
 
 If we want to find out if a window is Esmart or not, test for not being
 a cluster window, rather than AFBDC presence.
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4ad435097..38dcc1e53 100644
+index 4ad4350..38dcc1e 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1263,12 +1263,10 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,

@@ -1,7 +1,7 @@
-From 54f283bff0ccc6bfa400647a3b5f64fa01b1c2fe Mon Sep 17 00:00:00 2001
+From 6661468cf4d7267e92410fcb0c7bbe197c593097 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 7 Jul 2025 23:23:52 +0300
-Subject: [PATCH 052/137] phy: rockchip: samsung-hdptx: Switch to driver
+Subject: [PATCH 052/136] phy: rockchip: samsung-hdptx: Switch to driver
  specific HDMI config
 
 In preparation to support the FRL operation mode which gets configured
@@ -19,7 +19,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 25 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 7b1526c1e..358625790 100644
+index 7b1526c..3586257 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -387,6 +387,11 @@ struct rk_hdptx_phy_cfg {

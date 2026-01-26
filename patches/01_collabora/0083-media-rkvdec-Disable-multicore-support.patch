@@ -1,7 +1,7 @@
-From 6db1adc778ebfa75c0d228f19d3c9c802d12020d Mon Sep 17 00:00:00 2001
+From bce0fae237daa8aee26b94529070c93de9356ad6 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:29 -0500
-Subject: [PATCH 083/137] media: rkvdec: Disable multicore support
+Subject: [PATCH 083/136] media: rkvdec: Disable multicore support
 
 Similarly to what is done in Hantro, avoid exposing equal video codecs to
 userspace. Equal video codecs allow scheduling work between the cores.
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 47 insertions(+)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index ce96a0470..af2eced90 100644
+index ce96a04..af2eced 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -1269,6 +1269,49 @@ static void rkvdec_watchdog_func(struct work_struct *work)

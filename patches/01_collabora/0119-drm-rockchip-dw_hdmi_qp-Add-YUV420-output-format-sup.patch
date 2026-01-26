@@ -1,7 +1,7 @@
-From e451e6a3d0b299a8107728a8bfeefabfb01b31e6 Mon Sep 17 00:00:00 2001
+From 71eb98af785425940f7d56cd2045828313068bfb Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:09:35 +0200
-Subject: [PATCH 119/137] drm/rockchip: dw_hdmi_qp: Add YUV420 output format
+Subject: [PATCH 119/136] drm/rockchip: dw_hdmi_qp: Add YUV420 output format
  support
 
 Program the necessary bridge registers to allow using the YUV420 color
@@ -13,7 +13,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 26 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 413d45144..dac98300b 100644
+index 413d451..dac9830 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -9,6 +9,7 @@

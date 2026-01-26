@@ -1,7 +1,7 @@
-From c15d18f1602842131d54dfd67e5bf37206f9a00f Mon Sep 17 00:00:00 2001
+From 4c8a8aba27aea866d96720feb096ce38b3c5bfed Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:58:18 +0200
-Subject: [PATCH 022/137] PCI: dw-rockchip: Support get_ltssm operation
+Subject: [PATCH 022/136] PCI: dw-rockchip: Support get_ltssm operation
 
 Implement .get_ltssm operation function pointer, which will be needed
 for system suspend support. As the driver used to have a function
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index b6f6a12a6..2db1d0a7b 100644
+index b6f6a12..2db1d0a 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -186,6 +186,14 @@ static u32 rockchip_pcie_get_ltssm_status_reg(struct rockchip_pcie *rockchip)

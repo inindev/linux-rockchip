@@ -1,7 +1,7 @@
-From 25aa1d490ad165e918dda5a58557bd9a92dfba10 Mon Sep 17 00:00:00 2001
+From 1a116eacaddc1e768dd9a954aafacf98b60fb700 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:24 -0500
-Subject: [PATCH 078/137] media: rkvdec: Move hevc functions to common file
+Subject: [PATCH 078/136] media: rkvdec: Move hevc functions to common file
 
 This is a preparation commit to add support for new variants of the
 decoder.
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index d2ba7a7c1..1b4bc44be 100644
+index d2ba7a7..1b4bc44 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -6,4 +6,5 @@ rockchip-vdec-y += \
@@ -35,7 +35,7 @@ index d2ba7a7c1..1b4bc44be 100644
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 new file mode 100644
-index 000000000..cb56a9a24
+index 0000000..cb56a9a
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 @@ -0,0 +1,206 @@
@@ -247,7 +247,7 @@ index 000000000..cb56a9a24
 +}
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 new file mode 100644
-index 000000000..e3099fdd7
+index 0000000..e3099fd
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 @@ -0,0 +1,49 @@
@@ -301,7 +301,7 @@ index 000000000..e3099fdd7
 +enum rkvdec_image_fmt rkvdec_hevc_get_image_fmt(struct rkvdec_ctx *ctx, struct v4l2_ctrl *ctrl);
 +void rkvdec_hevc_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_hevc_run *run);
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index dfadb9a13..156ce381f 100644
+index dfadb9a..156ce38 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 @@ -16,6 +16,7 @@

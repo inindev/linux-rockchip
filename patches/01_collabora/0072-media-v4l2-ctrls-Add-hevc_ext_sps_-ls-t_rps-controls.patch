@@ -1,7 +1,7 @@
-From 3cf4cbeb4ac24e67e3614bbda6c7dc70f3b04551 Mon Sep 17 00:00:00 2001
+From 7923ba433dc7423afc774106fe63df1f70235e37 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:18 -0500
-Subject: [PATCH 072/137] media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps
+Subject: [PATCH 072/136] media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps
  controls
 
 The vdpu381 decoder found on newer Rockchip SoC need the information
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  4 files changed, 101 insertions(+)
 
 diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
-index 209bc0588..f11255255 100644
+index 209bc05..f112552 100644
 --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
 +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
 @@ -424,6 +424,12 @@ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl)
@@ -87,7 +87,7 @@ index 209bc0588..f11255255 100644
  		elem_size = sizeof(struct v4l2_ctrl_hevc_scaling_matrix);
  		break;
 diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-index ad41f6537..167286c9e 100644
+index ad41f65..167286c 100644
 --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
 +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
 @@ -1233,6 +1233,8 @@ const char *v4l2_ctrl_get_name(u32 id)
@@ -115,7 +115,7 @@ index ad41f6537..167286c9e 100644
  		*type = V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR;
  		break;
 diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-index f84ed133a..e9f1fcc4f 100644
+index f84ed13..e9f1fcc 100644
 --- a/include/uapi/linux/v4l2-controls.h
 +++ b/include/uapi/linux/v4l2-controls.h
 @@ -2099,6 +2099,8 @@ struct v4l2_ctrl_mpeg2_quantisation {
@@ -194,7 +194,7 @@ index f84ed133a..e9f1fcc4f 100644
  
  #define V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED	0x1
 diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index add08188f..5efaeb74e 100644
+index add0818..5efaeb7 100644
 --- a/include/uapi/linux/videodev2.h
 +++ b/include/uapi/linux/videodev2.h
 @@ -1985,6 +1985,8 @@ enum v4l2_ctrl_type {

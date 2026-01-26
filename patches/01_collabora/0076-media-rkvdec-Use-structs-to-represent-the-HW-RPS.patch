@@ -1,7 +1,7 @@
-From 23a6408a8007d6691de5538a4b2e0323f70732cb Mon Sep 17 00:00:00 2001
+From 2da3b7fb93a3cadde0040c956139a72074970431 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:22 -0500
-Subject: [PATCH 076/137] media: rkvdec: Use structs to represent the HW RPS
+Subject: [PATCH 076/136] media: rkvdec: Use structs to represent the HW RPS
 
 This is in preparation to add support for other variants of the decoder.
 
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 84 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index 088840248..fd941e926 100644
+index 0888402..fd941e9 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 @@ -19,7 +19,6 @@ extern const s8 rkvdec_h264_cabac_table[4][464][2];

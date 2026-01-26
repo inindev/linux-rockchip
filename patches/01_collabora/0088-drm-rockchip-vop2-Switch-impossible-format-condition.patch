@@ -1,7 +1,7 @@
-From 2b71f4908dc38e50f13dbaaf876ad541f290b4bd Mon Sep 17 00:00:00 2001
+From 55904f7c82669ebd401216ac4778903218e4793a Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:17 +0100
-Subject: [PATCH 088/137] drm/rockchip: vop2: Switch impossible format
+Subject: [PATCH 088/136] drm/rockchip: vop2: Switch impossible format
  conditional to WARN_ON
 
 We should never be able to create a framebuffer with an unsupported
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 033bff7a3..ac633407c 100644
+index 033bff7..ac63340 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1064,7 +1064,8 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,

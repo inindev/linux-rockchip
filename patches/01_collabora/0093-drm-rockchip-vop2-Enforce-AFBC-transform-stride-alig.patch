@@ -1,7 +1,7 @@
-From 7fdd38ccf73af55590c797c02b2f2550568ab590 Mon Sep 17 00:00:00 2001
+From 551da70d67f88280b21a311887f297c9f571aa2a Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:22 +0100
-Subject: [PATCH 093/137] drm/rockchip: vop2: Enforce AFBC transform stride
+Subject: [PATCH 093/136] drm/rockchip: vop2: Enforce AFBC transform stride
  align in plane_check
 
 Make sure we can't break the hardware by requesting an unsupported
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 2991a4756..9eaffa756 100644
+index 2991a47..9eaffa7 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1117,6 +1117,15 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,

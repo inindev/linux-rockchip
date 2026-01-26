@@ -1,7 +1,7 @@
-From 55270dc62afebca8b4e28e805e535f4e2aa85425 Mon Sep 17 00:00:00 2001
+From 27074e3284696a18daa89dfd20b39710278007c4 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 15 Jan 2026 14:16:20 +0200
-Subject: [PATCH 122/137] drm/rockchip: dw_hdmi_qp: Fix RK3576 HPD interrupt
+Subject: [PATCH 122/136] drm/rockchip: dw_hdmi_qp: Fix RK3576 HPD interrupt
  handling
 
 The threaded interrupt handler on RK3576 checks HPD IRQ status before
@@ -26,7 +26,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index c24b0e7fd..58e302a96 100644
+index c24b0e7..58e302a 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -467,12 +467,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)

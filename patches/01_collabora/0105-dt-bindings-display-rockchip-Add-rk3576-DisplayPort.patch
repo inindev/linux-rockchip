@@ -1,7 +1,7 @@
-From 3b5b98a447c80426460271be89690acde511d9df Mon Sep 17 00:00:00 2001
+From 986cd9050422a24243026d1d4678f5a0aba77d7f Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:44 +0800
-Subject: [PATCH 105/137] dt-bindings: display: rockchip: Add rk3576
+Subject: [PATCH 105/136] dt-bindings: display: rockchip: Add rk3576
  DisplayPort
 
 The DisplayPort found on RK3576 is very similar to that of RK3588,
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 26 insertions(+), 3 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-index 6345f0132..1bfe1bd64 100644
+index 6345f01..1bfe1bd 100644
 --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
 +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
 @@ -27,13 +27,11 @@ description: |

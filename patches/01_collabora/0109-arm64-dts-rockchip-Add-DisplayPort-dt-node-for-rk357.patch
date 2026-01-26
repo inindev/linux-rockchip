@@ -1,7 +1,7 @@
-From 98e16a79404c76e13723b31b19dbcc12b3f0341b Mon Sep 17 00:00:00 2001
+From 50c1f42cdc8a1c0a8db231f2c001a900e15cfc17 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:48 +0800
-Subject: [PATCH 109/137] arm64: dts: rockchip: Add DisplayPort dt node for
+Subject: [PATCH 109/136] arm64: dts: rockchip: Add DisplayPort dt node for
  rk3576
 
 The DisplayPort on rk3576 is compliant with DisplayPort Specification
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 28 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 3994dc8d1..28ee4f007 100644
+index 23399a9..6b75cf3 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 @@ -1481,6 +1481,34 @@ hdmi_out: port@1 {

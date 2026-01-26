@@ -1,7 +1,7 @@
-From c8f87a27425e344c4c83541af29dde4984d4ba8c Mon Sep 17 00:00:00 2001
+From 5b44d0c42de1569a78fc726fd3c5a49129a83a0e Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:26 -0500
-Subject: [PATCH 080/137] media: rkvdec: Add RCB and SRAM support
+Subject: [PATCH 080/136] media: rkvdec: Add RCB and SRAM support
 
 The RCB (Rows and Cols Buffers) are a set of buffers used by other
 variations of the decoder to store temporary data.
@@ -36,7 +36,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index 1b4bc44be..3d75103e5 100644
+index 1b4bc44..3d75103 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -7,4 +7,5 @@ rockchip-vdec-y += \
@@ -47,7 +47,7 @@ index 1b4bc44be..3d75103e5 100644
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
 new file mode 100644
-index 000000000..fdcf1f177
+index 0000000..fdcf1f1
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
 @@ -0,0 +1,179 @@
@@ -232,7 +232,7 @@ index 000000000..fdcf1f177
 +}
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
 new file mode 100644
-index 000000000..30e800255
+index 0000000..30e8002
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
 @@ -0,0 +1,29 @@
@@ -266,7 +266,7 @@ index 000000000..30e800255
 +int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
 +void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 92b1c7b62..ff6a09e45 100644
+index 92b1c7b..ff6a09e 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -10,6 +10,7 @@
@@ -359,7 +359,7 @@ index 92b1c7b62..ff6a09e45 100644
  }
  
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 8c4f96ba5..751f39afe 100644
+index 8c4f96b..751f39a 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -19,12 +19,14 @@

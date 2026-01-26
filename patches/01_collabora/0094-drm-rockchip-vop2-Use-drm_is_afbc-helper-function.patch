@@ -1,7 +1,7 @@
-From b39f07ca3b9cd102c94e249029344f19026d0e58 Mon Sep 17 00:00:00 2001
+From 34258e43bf53fa5e68b7722891ecb17879ce2048 Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:23 +0100
-Subject: [PATCH 094/137] drm/rockchip: vop2: Use drm_is_afbc helper function
+Subject: [PATCH 094/136] drm/rockchip: vop2: Use drm_is_afbc helper function
 
 We don't need to do a long open-coded walk here; we can simply check the
 modifier value.
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 9eaffa756..ff77424cc 100644
+index 9eaffa7..ff77424 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1241,7 +1241,7 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,

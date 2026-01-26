@@ -1,7 +1,7 @@
-From be9c3639c77ee58bbebccbaf6ad9d25f25cf8d13 Mon Sep 17 00:00:00 2001
+From e6a680f628bedf8801baf1bc7c9b926a30b07915 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:55 +0100
-Subject: [PATCH 101/137] media: verisilicon: AV1: Restore IOMMU context before
+Subject: [PATCH 101/136] media: verisilicon: AV1: Restore IOMMU context before
  decoding a frame
 
 AV1 is a stateless decoder which means multiple AV1 bitstreams could be
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 15 insertions(+)
 
 diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index 5d4146b60..9a51909ba 100644
+index 5d4146b..9a51909 100644
 --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 @@ -5,6 +5,9 @@

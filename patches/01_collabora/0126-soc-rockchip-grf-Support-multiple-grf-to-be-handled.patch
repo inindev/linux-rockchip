@@ -1,7 +1,7 @@
-From 3e010f3ac3bb3e1bc5ff2fe8e9533b4dcbf35d14 Mon Sep 17 00:00:00 2001
+From 0ba2df11b2e5d82b2068f5860709434883b66a6d Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Fri, 16 Jan 2026 08:55:29 +0800
-Subject: [PATCH 126/137] soc: rockchip: grf: Support multiple grf to be
+Subject: [PATCH 126/136] soc: rockchip: grf: Support multiple grf to be
  handled
 
 Currently, only the first matched node will be handled. This leads
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 27 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-index 8974d1c6b..04937c40d 100644
+index 8974d1c..04937c4 100644
 --- a/drivers/soc/rockchip/grf.c
 +++ b/drivers/soc/rockchip/grf.c
 @@ -217,34 +217,33 @@ static int __init rockchip_grf_init(void)

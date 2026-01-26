@@ -1,7 +1,7 @@
-From aeb8f23b63aae4f8043d4db75031f7e1a21d6621 Mon Sep 17 00:00:00 2001
+From 317ad9aa8383ff67cfde9f28e5643c454dc75d6e Mon Sep 17 00:00:00 2001
 From: Chris Morgan <macromorgan@hotmail.com>
 Date: Wed, 19 Nov 2025 16:55:25 -0600
-Subject: [PATCH 114/137] drm/bridge: dw-hdmi-qp: Add support for missing HPD
+Subject: [PATCH 114/136] drm/bridge: dw-hdmi-qp: Add support for missing HPD
 
 Add support for the dw-hdmi-qp driver to handle devices with missing
 HPD pins.
@@ -21,7 +21,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 30 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 60166919c..e1755dc78 100644
+index 6016691..e1755dc 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -166,6 +166,7 @@ struct dw_hdmi_qp {

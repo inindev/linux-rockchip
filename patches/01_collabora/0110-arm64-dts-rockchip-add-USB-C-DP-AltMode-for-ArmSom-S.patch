@@ -1,7 +1,7 @@
-From fec0537d4e3948d0f7bf0614f4b2d37ed2a7ffe1 Mon Sep 17 00:00:00 2001
+From 079c4cdcd8ccc9d43694e80a22dc2e06556c5442 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 18:01:19 +0800
-Subject: [PATCH 110/137] arm64: dts: rockchip: add USB-C DP AltMode for ArmSom
+Subject: [PATCH 110/136] arm64: dts: rockchip: add USB-C DP AltMode for ArmSom
  Sige5
 
 Enable USB-C DP AltMode for the ArmSom Sige5.
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 67 insertions(+), 10 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 3386084f6..72bcb5f42 100644
+index 3386084..72bcb5f 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 @@ -280,6 +280,22 @@ &cpu_l3 {

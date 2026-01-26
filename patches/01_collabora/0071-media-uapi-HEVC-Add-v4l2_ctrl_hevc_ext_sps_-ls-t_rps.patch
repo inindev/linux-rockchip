@@ -1,7 +1,7 @@
-From 4d1a9bdcfb71ee8f31db62cc79f4a99fda5fabd0 Mon Sep 17 00:00:00 2001
+From b57f9b31bd1fecfe60bab28d875484a4e5178f62 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:17 -0500
-Subject: [PATCH 071/137] media: uapi: HEVC: Add
+Subject: [PATCH 071/136] media: uapi: HEVC: Add
  v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
 
 Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need to fully parse
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  3 files changed, 134 insertions(+)
 
 diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
-index 497ae7437..3b1e05c6e 100644
+index 497ae74..3b1e05c 100644
 --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
 +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
 @@ -2959,6 +2959,126 @@ This structure contains all loop filter related parameters. See sections
@@ -158,7 +158,7 @@ index 497ae7437..3b1e05c6e 100644
  
  ``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
 diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
-index c41693115..6182b4e2d 100644
+index c416931..6182b4e 100644
 --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
 +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
 @@ -150,6 +150,8 @@ replace symbol V4L2_CTRL_TYPE_H264_SCALING_MATRIX :c:type:`V4L.v4l2_ctrl_type`
@@ -171,7 +171,7 @@ index c41693115..6182b4e2d 100644
  replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`V4L.v4l2_ctrl_type`
  replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`V4L.v4l2_ctrl_type`
 diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
-index c8baa9430..82c8b52e7 100644
+index c8baa94..82c8b52 100644
 --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
 +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
 @@ -531,6 +531,18 @@ See also the examples in :ref:`control`.

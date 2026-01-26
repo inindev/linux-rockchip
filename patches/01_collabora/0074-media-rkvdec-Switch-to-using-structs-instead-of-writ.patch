@@ -1,7 +1,7 @@
-From d085540fc0f68df5cc0c7a7555963b5c2a6d99db Mon Sep 17 00:00:00 2001
+From 398383fd1e6403eaef706851b727d502486254ff Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:20 -0500
-Subject: [PATCH 074/137] media: rkvdec: Switch to using structs instead of
+Subject: [PATCH 074/136] media: rkvdec: Switch to using structs instead of
  writel
 
 In an effort to merge the rkvdec2 driver [1] with this one, switch from
@@ -53,7 +53,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  6 files changed, 604 insertions(+), 455 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index d14b4d173..68e20cb81 100644
+index d14b4d1..68e20cb 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 @@ -115,6 +115,7 @@ struct rkvdec_h264_run {
@@ -303,7 +303,7 @@ index d14b4d173..68e20cb81 100644
  	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
  
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index fc7e6a260..2d9e0e947 100644
+index fc7e6a2..2d9e0e9 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 @@ -129,6 +129,7 @@ struct rkvdec_hevc_run {
@@ -435,7 +435,7 @@ index fc7e6a260..2d9e0e947 100644
  	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
  
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-index c627b6b6f..1af66c5f1 100644
+index c627b6b..1af66c5 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
 @@ -3,7 +3,12 @@
@@ -1042,7 +1042,7 @@ index c627b6b6f..1af66c5f1 100644
 +
  #endif /* RKVDEC_REGS_H_ */
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-index b4bf01e83..ba51a7c2f 100644
+index b4bf01e..ba51a7c 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
 @@ -163,6 +163,7 @@ struct rkvdec_vp9_ctx {
@@ -1419,7 +1419,7 @@ index b4bf01e83..ba51a7c2f 100644
  		rkvdec_quirks_disable_qos(ctx);
  
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 5af9aa5ab..776149f87 100644
+index 5af9aa5..776149f 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -914,6 +914,15 @@ void rkvdec_quirks_disable_qos(struct rkvdec_ctx *ctx)
@@ -1447,7 +1447,7 @@ index 5af9aa5ab..776149f87 100644
  	}
  }
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 566e06fa2..f35f6e80e 100644
+index 566e06f..f35f6e8 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -151,6 +151,7 @@ struct rkvdec_aux_buf {

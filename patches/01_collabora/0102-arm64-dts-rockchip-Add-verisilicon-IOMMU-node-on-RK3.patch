@@ -1,7 +1,7 @@
-From 443fbf55103468cea770798c9b273aabe26d8540 Mon Sep 17 00:00:00 2001
+From de3f1fb421028614725ee4ecc9efffeffef75ab8 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:56 +0100
-Subject: [PATCH 102/137] arm64: dts: rockchip: Add verisilicon IOMMU node on
+Subject: [PATCH 102/136] arm64: dts: rockchip: Add verisilicon IOMMU node on
  RK3588
 
 Add the device tree node for the Verisilicon IOMMU present
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 11 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index f3955eebf..1791a0ff9 100644
+index 7a962e8..6d2472e 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1428,6 +1428,17 @@ av1d: video-codec@fdc70000 {

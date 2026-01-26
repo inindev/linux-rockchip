@@ -1,7 +1,7 @@
-From 0b2abae73959f20bbf14224c442428ff0095d734 Mon Sep 17 00:00:00 2001
+From 7041fd07915c4ec56a7af00f7b9ee99b54df8db5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 15 Jan 2026 17:35:04 +0200
-Subject: [PATCH 123/137] drm/rockchip: dw_hdmi_qp: Optimize RK3588 HPD
+Subject: [PATCH 123/136] drm/rockchip: dw_hdmi_qp: Optimize RK3588 HPD
  interrupt handling
 
 The threaded interrupt handler on RK3588 checks HPD IRQ status before
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 58e302a96..2b909aad7 100644
+index 58e302a..2b909aa 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -502,11 +502,7 @@ static irqreturn_t dw_hdmi_qp_rk3588_hardirq(int irq, void *dev_id)

@@ -1,7 +1,7 @@
-From 681d58edf3c368b9d73a0c08ac116b189f50f318 Mon Sep 17 00:00:00 2001
+From 7cd6add0159f4d712ea02a988e14c57ca2141079 Mon Sep 17 00:00:00 2001
 From: Mark Brown <broonie@kernel.org>
 Date: Thu, 8 Jan 2026 20:08:47 +0000
-Subject: [PATCH 131/137] media: synopsys: hdmirx: support use with sleeping
+Subject: [PATCH 131/136] media: synopsys: hdmirx: support use with sleeping
  GPIOs
 
 The recent change in 20cf2aed89ac (gpio: rockchip: mark the GPIO
@@ -34,7 +34,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
-index c3007e09b..1eaa25efe 100644
+index c3007e0..1eaa25e 100644
 --- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
 +++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
 @@ -230,7 +230,7 @@ static bool tx_5v_power_present(struct snps_hdmirx_dev *hdmirx_dev)

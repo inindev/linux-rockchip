@@ -1,7 +1,7 @@
-From 76e1526297a5004799383e5bbe2177a89d038727 Mon Sep 17 00:00:00 2001
+From 59fc8049c15c4052eba7fc2e7cd8ac4e02a17a89 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Fri, 16 Jan 2026 08:55:30 +0800
-Subject: [PATCH 127/137] mmc: dw_mmc-rockchip: Fix runtime PM support for
+Subject: [PATCH 127/136] mmc: dw_mmc-rockchip: Fix runtime PM support for
  internal phase support
 
 RK3576 is the first platform to introduce internal phase support, and
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 37 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/dw_mmc-rockchip.c b/drivers/mmc/host/dw_mmc-rockchip.c
-index 62c68cda1..ff6a52d85 100644
+index 62c68cd..ff6a52d 100644
 --- a/drivers/mmc/host/dw_mmc-rockchip.c
 +++ b/drivers/mmc/host/dw_mmc-rockchip.c
 @@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {

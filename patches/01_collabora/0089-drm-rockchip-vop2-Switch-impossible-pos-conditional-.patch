@@ -1,7 +1,7 @@
-From 08b48222ee3b61df54554827fad755847b84d478 Mon Sep 17 00:00:00 2001
+From ce980e70a563fe4d78d857324fe1c18a361221d8 Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:18 +0100
-Subject: [PATCH 089/137] drm/rockchip: vop2: Switch impossible pos conditional
+Subject: [PATCH 089/136] drm/rockchip: vop2: Switch impossible pos conditional
  to WARN_ON
 
 We already clip the plane to the display bounds in atomic_check, and
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 8 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index ac633407c..4ad435097 100644
+index ac63340..4ad4350 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1248,28 +1248,16 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,

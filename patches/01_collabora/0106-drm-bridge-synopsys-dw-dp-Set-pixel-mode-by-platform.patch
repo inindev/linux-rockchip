@@ -1,7 +1,7 @@
-From ed2104a1b7b4af4e87a244dde19b4cd45ca0271e Mon Sep 17 00:00:00 2001
+From c68f7c90ad92bcf12791043678d04d06c5d78b55 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:45 +0800
-Subject: [PATCH 106/137] drm/bridge: synopsys: dw-dp: Set pixel mode by
+Subject: [PATCH 106/136] drm/bridge: synopsys: dw-dp: Set pixel mode by
  platform data
 
 The DW DisplayPort hardware block can be configured to work in single,
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 23 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 82aaf74e1..eccf6299b 100644
+index 4323424..ccc0d7c 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -352,12 +352,6 @@ enum {
@@ -44,7 +44,7 @@ index 82aaf74e1..eccf6299b 100644
  	dp->plat_data.max_link_rate = plat_data->max_link_rate;
  	bridge = &dp->bridge;
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 25ab4e463..89d614d53 100644
+index 25ab4e4..89d614d 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -75,7 +75,7 @@ static const struct drm_encoder_helper_funcs dw_dp_encoder_helper_funcs = {
@@ -96,7 +96,7 @@ index 25ab4e463..89d614d53 100644
  };
  MODULE_DEVICE_TABLE(of, dw_dp_of_match);
 diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index d05df49fd..25363541e 100644
+index d05df49..2536354 100644
 --- a/include/drm/bridge/dw_dp.h
 +++ b/include/drm/bridge/dw_dp.h
 @@ -11,8 +11,15 @@
