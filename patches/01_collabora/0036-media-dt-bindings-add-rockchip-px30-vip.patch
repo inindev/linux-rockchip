@@ -1,7 +1,7 @@
-From 580d472e7e0c6b4ef28c51cf19320d03a2a04d71 Mon Sep 17 00:00:00 2001
+From 039bd0ba0a997538342f50aca03d652b28de4e52 Mon Sep 17 00:00:00 2001
 From: Mehdi Djait <mehdi.djait@bootlin.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 036/104] media: dt-bindings: add rockchip px30 vip
+Subject: [PATCH 036/103] media: dt-bindings: add rockchip px30 vip
 
 Add documentation for the Rockchip PX30 Video Input Processor (VIP).
 

@@ -1,7 +1,7 @@
-From d88374bac2b2fbad9d63a47b5baab8be8a9c4445 Mon Sep 17 00:00:00 2001
+From e6b387816d6c3642d18f4a53e5f94934aad9a705 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:27:04 +0200
-Subject: [PATCH 028/104] PCI: dw-rockchip: Add helper function for controller
+Subject: [PATCH 028/103] PCI: dw-rockchip: Add helper function for controller
  mode
 
 Remove code duplication and improve readability by introducing a new

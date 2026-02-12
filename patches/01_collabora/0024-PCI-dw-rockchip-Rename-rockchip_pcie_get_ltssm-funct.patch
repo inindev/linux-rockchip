@@ -1,7 +1,7 @@
-From 09a62b664ca72da2801c754e31c78cb085759735 Mon Sep 17 00:00:00 2001
+From 4c51d43b03b39f6ec463980a8ec94faba8c15c7e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:54:37 +0200
-Subject: [PATCH 024/104] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm
+Subject: [PATCH 024/103] PCI: dw-rockchip: Rename rockchip_pcie_get_ltssm
  function
 
 Rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg

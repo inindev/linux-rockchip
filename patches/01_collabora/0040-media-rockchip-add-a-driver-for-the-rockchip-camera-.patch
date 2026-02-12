@@ -1,7 +1,7 @@
-From 055123d11c5d9aa1483d8e5afb25060b166b86a5 Mon Sep 17 00:00:00 2001
+From 5f4bb89c1994d5aec65449e42a07098cff6b44a1 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 040/104] media: rockchip: add a driver for the rockchip camera
+Subject: [PATCH 040/103] media: rockchip: add a driver for the rockchip camera
  interface
 
 The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs

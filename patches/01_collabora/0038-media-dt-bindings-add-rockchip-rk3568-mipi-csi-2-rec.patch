@@ -1,7 +1,7 @@
-From f216be2ae7b9958e1c7295c7ff67897470e70129 Mon Sep 17 00:00:00 2001
+From 4d3a805a9f59039c7ba8464c031de4fbddf8f0a5 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 038/104] media: dt-bindings: add rockchip rk3568 mipi csi-2
+Subject: [PATCH 038/103] media: dt-bindings: add rockchip rk3568 mipi csi-2
  receiver
 
 Add documentation for the Rockchip RK3568 MIPI CSI-2 Receiver.

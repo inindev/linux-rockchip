@@ -1,7 +1,7 @@
-From f2ea477c68795a9d296431822747613c5c9e9f1a Mon Sep 17 00:00:00 2001
+From 2be0e3abdb424c207206fec51d935b48b462ca41 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:16 +0200
-Subject: [PATCH 054/104] media: rockchip: rkcsi: enable interrupts and error
+Subject: [PATCH 054/103] media: rockchip: rkcsi: enable interrupts and error
  reporting
 
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>

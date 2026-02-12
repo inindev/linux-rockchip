@@ -1,7 +1,7 @@
-From cee31c04aad451ad191db2ae93297341623b212d Mon Sep 17 00:00:00 2001
+From 86c87201419cd0fdf511f8a79d12ba25989b7c1b Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:41 -0500
-Subject: [PATCH 009/104] drm/rockchip: vop2: Add clock resets support
+Subject: [PATCH 009/103] drm/rockchip: vop2: Add clock resets support
 
 At the end of initialization, each VP clock needs to be reset before
 they can be used.

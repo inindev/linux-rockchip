@@ -1,7 +1,7 @@
-From ca4c057789608aa9ccefd0f012dad6421e12530b Mon Sep 17 00:00:00 2001
+From 1c138709effb39dd6928452f969ad81f6ba28f3b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:12 +0200
-Subject: [PATCH 034/104] Documentation: admin-guide: media: add rockchip
+Subject: [PATCH 034/103] Documentation: admin-guide: media: add rockchip
  camera interface
 
 Add a document that describes the different variants of the Rockchip

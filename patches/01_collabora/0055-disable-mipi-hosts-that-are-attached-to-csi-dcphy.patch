@@ -1,7 +1,7 @@
-From 4b1a06dd6c9e50cdee37b3fd9475098aeb9fb99e Mon Sep 17 00:00:00 2001
+From be893905a23beb6c552b8660e7f736f2e8a8ee57 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Tue, 2 Sep 2025 01:24:33 +0200
-Subject: [PATCH 055/104] disable mipi hosts that are attached to csi dcphy
+Subject: [PATCH 055/103] disable mipi hosts that are attached to csi dcphy
 
 While the DSI part of the MIPI Combo DCPHYs is supported, the CSI
 side should probably not be used right now.
@@ -12,7 +12,7 @@ TODO: figure out the best approach to deal with this situation.
  1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index df3e69688..a4e184f59 100644
+index 5c5a0f00c..e2cc1ae10 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1394,17 +1394,21 @@ vicap_dvp: port@0 {

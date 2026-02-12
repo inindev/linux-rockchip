@@ -1,7 +1,7 @@
-From 8198947fed7e063b95ce53d84ec6baa9d792c102 Mon Sep 17 00:00:00 2001
+From b25c69a5e3e7c0f594749c1c3bdb1485bc159818 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:11 +0200
-Subject: [PATCH 018/104] phy: rockchip: usbdp: reset USB3 and reinit on
+Subject: [PATCH 018/103] phy: rockchip: usbdp: reset USB3 and reinit on
  orientation switch
 
 Until now, super speed on Type-C only worked in one orientation. This is

@@ -1,7 +1,7 @@
-From 812c6aa3612d214abe6a92b2a34a126778c582a0 Mon Sep 17 00:00:00 2001
+From e05bfcceac66b815674182153787d7aa492fbea6 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 048/104] arm64: dts: rockchip: enable vicap dvp on wolfvision
+Subject: [PATCH 048/103] arm64: dts: rockchip: enable vicap dvp on wolfvision
  pf5 io expander
 
 The Digital Video Port (DVP, the 16-bit variant) of the RK3568 VICAP

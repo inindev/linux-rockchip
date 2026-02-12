@@ -1,7 +1,7 @@
-From 79153f99206b0d446a223f3e43bc2dbdd7c3c312 Mon Sep 17 00:00:00 2001
+From 512eca449b88e98c8ccac3b22a5c03f01af5f16e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 19:58:18 +0200
-Subject: [PATCH 025/104] PCI: dw-rockchip: Support get_ltssm operation
+Subject: [PATCH 025/103] PCI: dw-rockchip: Support get_ltssm operation
 
 Implement .get_ltssm operation function pointer, which will be needed
 for system suspend support. As the driver used to have a function

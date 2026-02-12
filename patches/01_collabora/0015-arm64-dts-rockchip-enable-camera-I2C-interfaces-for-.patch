@@ -1,7 +1,7 @@
-From fd8586953291c09b21252f8958658d0a43ecb086 Mon Sep 17 00:00:00 2001
+From 8722a70972aa40a293d35d49aa531b6af141d5ec Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Sat, 15 Mar 2025 09:34:02 +0100
-Subject: [PATCH 015/104] arm64: dts: rockchip: enable camera I2C interfaces
+Subject: [PATCH 015/103] arm64: dts: rockchip: enable camera I2C interfaces
  for ROCK 5B family
 
 Any camera related IP of the RK3588 is not yet supported and the cameras

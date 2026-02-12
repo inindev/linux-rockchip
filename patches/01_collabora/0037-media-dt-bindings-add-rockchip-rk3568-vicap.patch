@@ -1,7 +1,7 @@
-From 77bf4aea9aa9d0a6b35a45b1a497a49bac3ce07c Mon Sep 17 00:00:00 2001
+From 9c8273260793323e5027ef2fefdf55b1190fb36f Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 037/104] media: dt-bindings: add rockchip rk3568 vicap
+Subject: [PATCH 037/103] media: dt-bindings: add rockchip rk3568 vicap
 
 Add documentation for the Rockchip RK3568 Video Capture (VICAP) unit.
 

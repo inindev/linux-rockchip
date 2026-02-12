@@ -1,7 +1,7 @@
-From 035973f0657659abd2e32434e812cb282fd67e4d Mon Sep 17 00:00:00 2001
+From fbec86a384b0549284fcfef7dcfbf6d5abf96ec7 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 035/104] media: dt-bindings: video-interfaces: add defines for
+Subject: [PATCH 035/103] media: dt-bindings: video-interfaces: add defines for
  sampling modes
 
 Add defines for the pixel clock sampling modes (rising edge, falling edge,

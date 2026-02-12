@@ -1,7 +1,7 @@
-From 6c81b1a327102148096c52e056689b2aec631f01 Mon Sep 17 00:00:00 2001
+From f29f5cb653b735d1e1963cfb6b1c823489a07d31 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:30:11 +0200
-Subject: [PATCH 029/104] PCI: dw-rockchip: Add helper function for DDL
+Subject: [PATCH 029/103] PCI: dw-rockchip: Add helper function for DDL
  indicator
 
 Remove code duplication and improve readability by introducing a new

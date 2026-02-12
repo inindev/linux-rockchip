@@ -1,7 +1,7 @@
-From d5c1a354831336189fae8aa0a9c7703cfe3e5663 Mon Sep 17 00:00:00 2001
+From 79130850563ef4b18e0f2572a3421b8662ff364e Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 046/104] arm64: dts: rockchip: add vicap node to rk356x
+Subject: [PATCH 046/103] arm64: dts: rockchip: add vicap node to rk356x
 
 Add the device tree node for the RK356x Video Capture (VICAP) unit.
 

@@ -1,7 +1,7 @@
-From 8c840d7a39e029910732fd1818fc938242bf8700 Mon Sep 17 00:00:00 2001
+From 6d9e383aaba122aa89671cf518319edc02205d41 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:09 +0200
-Subject: [PATCH 016/104] phy: rockchip: inno-usb2: add soft vbusvalid control
+Subject: [PATCH 016/103] phy: rockchip: inno-usb2: add soft vbusvalid control
 
 With USB type C connectors, the vbus detect pin of the OTG controller
 attached to it is pulled high by a USB Type C controller chip such as
@@ -32,7 +32,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 109 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690e..4f89bd656 100644
+index 8f4c08e59..42116db38 100644
 --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 @@ -17,6 +17,7 @@
@@ -121,7 +121,7 @@ index b0f23690e..4f89bd656 100644
  
  	sch_work = false;
  	notify_charger = false;
-@@ -1276,6 +1298,83 @@ static int rockchip_otg_event(struct notifier_block *nb,
+@@ -1280,6 +1302,83 @@ static int rockchip_otg_event(struct notifier_block *nb,
  	return NOTIFY_DONE;
  }
  
@@ -205,7 +205,7 @@ index b0f23690e..4f89bd656 100644
  static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
  					  struct rockchip_usb2phy_port *rport,
  					  struct device_node *child_np)
-@@ -1297,6 +1396,8 @@ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
+@@ -1301,6 +1400,8 @@ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
  
  	mutex_init(&rport->mutex);
  
@@ -214,7 +214,7 @@ index b0f23690e..4f89bd656 100644
  	rport->mode = of_usb_get_dr_mode_by_phy(child_np, -1);
  	if (rport->mode == USB_DR_MODE_HOST ||
  	    rport->mode == USB_DR_MODE_UNKNOWN) {
-@@ -2050,6 +2151,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
+@@ -2054,6 +2155,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
  		.port_cfgs	= {
  			[USB2PHY_PORT_OTG] = {
  				.phy_sus	= { 0x0000, 8, 0, 0, 0x1d1 },
@@ -223,7 +223,7 @@ index b0f23690e..4f89bd656 100644
  				.bvalid_det_en	= { 0x00c0, 1, 1, 0, 1 },
  				.bvalid_det_st	= { 0x00c4, 1, 1, 0, 1 },
  				.bvalid_det_clr = { 0x00c8, 1, 1, 0, 1 },
-@@ -2087,6 +2190,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
+@@ -2091,6 +2194,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
  		.port_cfgs	= {
  			[USB2PHY_PORT_OTG] = {
  				.phy_sus	= { 0x2000, 8, 0, 0, 0x1d1 },
