@@ -1,7 +1,7 @@
-From 1a05507faaedfc7c4db3fb580ef305118317ea40 Mon Sep 17 00:00:00 2001
+From 8ffc5e7f710afe677871addfaefa01d2e6d1e68b Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Tue, 30 Dec 2025 17:23:34 +0400
-Subject: [PATCH 3/5] arm64: dts: rockchip: enable UFS controller on
+Subject: [PATCH 3/6] arm64: dts: rockchip: enable UFS controller on
  FriendlyElec NanoPi M5
 
 The NanoPi M5 board supports pluggable UFS modules using the UFSHC
