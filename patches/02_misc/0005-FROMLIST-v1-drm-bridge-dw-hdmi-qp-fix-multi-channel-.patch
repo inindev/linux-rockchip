@@ -1,0 +1,36 @@
+From c464406619fa0f3a2de08758a709bd11a94df9a8 Mon Sep 17 00:00:00 2001
+From: Jonas Karlman <jonas@kwiboo.se>
+Date: Fri, 28 Nov 2025 10:42:30 +0000
+Subject: [PATCH 5/7] FROMLIST(v1): drm/bridge: dw-hdmi-qp: fix multi-channel
+ audio output
+
+Channel Allocation (PB4) and Level Shift Information (PB5) are
+configured with values from PB1 and PB2 due to the wrong offset
+being used. This results in missing audio channels or incorrect
+speaker placement when playing multi-channel audio.
+
+Use the correct offset to fix multi-channel audio output.
+
+Fixes: fd0141d1a8a2 ("drm/bridge: synopsys: Add audio support for dw-hdmi-qp")
+Reported-by: Christian Hewitt <christianshewitt@gmail.com>
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 2777286ee..7d6f55dee 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -929,7 +929,7 @@ static int dw_hdmi_qp_config_audio_infoframe(struct dw_hdmi_qp *hdmi,
+ 
+ 	regmap_bulk_write(hdmi->regm, PKT_AUDI_CONTENTS0, &header_bytes, 1);
+ 	regmap_bulk_write(hdmi->regm, PKT_AUDI_CONTENTS1, &buffer[3], 1);
+-	regmap_bulk_write(hdmi->regm, PKT_AUDI_CONTENTS2, &buffer[4], 1);
++	regmap_bulk_write(hdmi->regm, PKT_AUDI_CONTENTS2, &buffer[7], 1);
+ 
+ 	/* Enable ACR, AUDI, AMD */
+ 	dw_hdmi_qp_mod(hdmi,
+-- 
+2.47.3
+

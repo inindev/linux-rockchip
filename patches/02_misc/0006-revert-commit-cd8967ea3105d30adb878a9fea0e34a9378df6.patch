@@ -1,7 +1,7 @@
-From 1cded4c1e1e123aa6e06dbaa30351d5fe32ff917 Mon Sep 17 00:00:00 2001
+From 94b6498e42f5aa025071469983180671517194b5 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 25 Feb 2026 16:30:31 -0500
-Subject: [PATCH 5/6] revert commit cd8967ea3105d30adb878a9fea0e34a9378df610
+Subject: [PATCH 6/7] revert commit cd8967ea3105d30adb878a9fea0e34a9378df610
 
 ---
  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 4 ++--
