@@ -1,7 +1,7 @@
-From 7a123ed08bb694160c2541a44da4a57bc37f9465 Mon Sep 17 00:00:00 2001
+From f3928d89c9ef59c0e3f9e5a86874812318d9cd95 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 13 Sep 2024 17:30:35 +0300
-Subject: [PATCH 117/136] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and
+Subject: [PATCH 117/135] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and
  scrambling support
 
 Add support for HDMI 2.0 display modes, e.g. 4K@60Hz, by permitting TMDS
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 167 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index e1755dc..8ceb699 100644
+index e1755dc78..8ceb699df 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 @@ -2,6 +2,7 @@

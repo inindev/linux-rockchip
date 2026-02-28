@@ -1,7 +1,7 @@
-From 890927261fc1cf2bb41f9225bad49d188ea5c188 Mon Sep 17 00:00:00 2001
+From c9a1a5a4bc38350d70c09e39f6ed18af01a26048 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:09 +0800
-Subject: [PATCH 135/136] phy: rockchip-snps-pcie3: Check more sram init status
+Subject: [PATCH 134/135] phy: rockchip-snps-pcie3: Check more sram init status
  for RK3588
 
 All the lower 4 bits should be checked which shows the mpllx_state.
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index f5a5d0a..6cc38e3 100644
+index f5a5d0af3..6cc38e36a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -43,7 +43,7 @@

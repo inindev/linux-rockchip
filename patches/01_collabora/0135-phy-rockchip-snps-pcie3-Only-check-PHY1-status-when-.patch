@@ -1,7 +1,7 @@
-From d4a07b5bde271a5e3c67200ec1d442e9257c93d4 Mon Sep 17 00:00:00 2001
+From 52cdbd8d3f5ee68bd7d935997bbd30153ee32a70 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:10 +0800
-Subject: [PATCH 136/136] phy: rockchip-snps-pcie3: Only check PHY1 status when
+Subject: [PATCH 135/135] phy: rockchip-snps-pcie3: Only check PHY1 status when
  using it
 
 RK3588_LANE_AGGREGATION and RK3588_BIFURCATION_LANE_2_3 should be
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 6cc38e3..36b2142 100644
+index 6cc38e36a..36b2142ec 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -183,6 +183,7 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)

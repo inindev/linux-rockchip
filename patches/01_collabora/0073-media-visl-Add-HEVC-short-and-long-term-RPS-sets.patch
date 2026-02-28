@@ -1,7 +1,7 @@
-From 6f96dfb5bdda43ae56347c89d0c8808588baac29 Mon Sep 17 00:00:00 2001
+From 3d49814b92179e7155810453577f3cc9c1b11265 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:19 -0500
-Subject: [PATCH 073/136] media: visl: Add HEVC short and long term RPS sets
+Subject: [PATCH 073/135] media: visl: Add HEVC short and long term RPS sets
 
 Log the recently added v4l2 controls to set HEVC short and long term RPS
 sets with 2 new ftrace entries.
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  3 files changed, 69 insertions(+)
 
 diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/test-drivers/visl/visl-dec.c
-index d90b79d..6bbf937 100644
+index d90b79de8..6bbf93757 100644
 --- a/drivers/media/test-drivers/visl/visl-dec.c
 +++ b/drivers/media/test-drivers/visl/visl-dec.c
 @@ -547,6 +547,9 @@ static void visl_trace_ctrls(struct visl_ctx *ctx, struct visl_run *run)
@@ -41,7 +41,7 @@ index d90b79d..6bbf937 100644
  	case VISL_CODEC_AV1:
  		run.av1.seq = visl_find_control_data(ctx, V4L2_CID_STATELESS_AV1_SEQUENCE);
 diff --git a/drivers/media/test-drivers/visl/visl-dec.h b/drivers/media/test-drivers/visl/visl-dec.h
-index c2c2ef3..6e7562e 100644
+index c2c2ef3a8..6e7562e55 100644
 --- a/drivers/media/test-drivers/visl/visl-dec.h
 +++ b/drivers/media/test-drivers/visl/visl-dec.h
 @@ -7,6 +7,7 @@
@@ -62,7 +62,7 @@ index c2c2ef3..6e7562e 100644
  
  struct visl_av1_run {
 diff --git a/drivers/media/test-drivers/visl/visl-trace-hevc.h b/drivers/media/test-drivers/visl/visl-trace-hevc.h
-index 837b8ec..963914c 100644
+index 837b8ec12..963914c46 100644
 --- a/drivers/media/test-drivers/visl/visl-trace-hevc.h
 +++ b/drivers/media/test-drivers/visl/visl-trace-hevc.h
 @@ -1,4 +1,5 @@

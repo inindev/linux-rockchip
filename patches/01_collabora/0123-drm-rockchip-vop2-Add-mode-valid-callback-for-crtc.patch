@@ -1,7 +1,7 @@
-From 6c053c0ca459afdbe5d83f5069f26bf6f7f008d9 Mon Sep 17 00:00:00 2001
+From cc622f4514b425927217c1ec3d58faf069e35f61 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 16 Jan 2026 08:59:49 +0800
-Subject: [PATCH 124/136] drm/rockchip: vop2: Add mode valid callback for crtc
+Subject: [PATCH 123/135] drm/rockchip: vop2: Add mode valid callback for crtc
 
 Filter the mode that can't output by the crtc.
 
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 12 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index bb03413..4001704 100644
+index bb0341367..40017045a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1460,6 +1460,17 @@ static void vop2_crtc_disable_vblank(struct drm_crtc *crtc)

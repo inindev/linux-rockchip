@@ -1,7 +1,7 @@
-From 600ec0c9d605ee10ea06c2c6336fe032358dc2b4 Mon Sep 17 00:00:00 2001
+From e2356b93783dd93e44986877de63b43424d4cfd2 Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:24 +0100
-Subject: [PATCH 095/136] drm/rockchip: vop2: Simplify format_mod_supported
+Subject: [PATCH 095/135] drm/rockchip: vop2: Simplify format_mod_supported
 
 Make it a little less convoluted, and just directly check if the
 combination of plane + format + modifier is supported.
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 22 insertions(+), 34 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index ff77424..bb03413 100644
+index ff77424cc..bb0341367 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -368,59 +368,47 @@ static bool is_yuv_output(u32 bus_format)

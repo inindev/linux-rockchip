@@ -1,7 +1,7 @@
-From 77f7c809f114a097aa815d778157ac223222f6cd Mon Sep 17 00:00:00 2001
+From 3a35c09fbbeac8077e2a8952082de5597526fee3 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 034/136] media: rockchip: add driver for mipi csi-2 receiver
+Subject: [PATCH 034/135] media: rockchip: add driver for mipi csi-2 receiver
 
 The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
 input port and one output port. It receives the data with the help
@@ -25,10 +25,10 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  create mode 100644 drivers/media/platform/rockchip/rkcsi/rkcsi.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 6759673..2e44bb6 100644
+index bc5866847..95e027150 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -22654,6 +22654,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+@@ -22670,6 +22670,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
  L:	linux-media@vger.kernel.org
  S:	Maintained
  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
@@ -37,7 +37,7 @@ index 6759673..2e44bb6 100644
  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
  M:	Daniel Golle <daniel@makrotopia.org>
 diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-index ba401d3..54b698c 100644
+index ba401d32f..54b698c4c 100644
 --- a/drivers/media/platform/rockchip/Kconfig
 +++ b/drivers/media/platform/rockchip/Kconfig
 @@ -4,5 +4,6 @@ comment "Rockchip media platform drivers"
@@ -48,7 +48,7 @@ index ba401d3..54b698c 100644
  source "drivers/media/platform/rockchip/rkisp1/Kconfig"
  source "drivers/media/platform/rockchip/rkvdec/Kconfig"
 diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-index 0e0b2cb..522a7d3 100644
+index 0e0b2cbbd..522a7d3e3 100644
 --- a/drivers/media/platform/rockchip/Makefile
 +++ b/drivers/media/platform/rockchip/Makefile
 @@ -1,5 +1,6 @@
@@ -60,7 +60,7 @@ index 0e0b2cb..522a7d3 100644
  obj-y += rkvdec/
 diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
 new file mode 100644
-index 0000000..d800419
+index 000000000..d8004198c
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
 @@ -0,0 +1,16 @@
@@ -82,7 +82,7 @@ index 0000000..d800419
 +	  will be called rockchip-mipi-csi.
 diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
 new file mode 100644
-index 0000000..147712c
+index 000000000..147712cbb
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcsi/Makefile
 @@ -0,0 +1,3 @@
@@ -91,7 +91,7 @@ index 0000000..147712c
 +rockchip-mipi-csi-objs += rkcsi.o
 diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
 new file mode 100644
-index 0000000..5658ffb
+index 000000000..5658ffb60
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
 @@ -0,0 +1,741 @@

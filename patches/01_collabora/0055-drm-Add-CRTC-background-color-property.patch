@@ -1,7 +1,7 @@
-From da7c3a85a7679e6c4b10054f0a41181eaf5c8641 Mon Sep 17 00:00:00 2001
+From 5569c2796a993850d1641c11d9fd62a9239c99a2 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 19 Aug 2025 11:21:35 +0300
-Subject: [PATCH 055/136] drm: Add CRTC background color property
+Subject: [PATCH 055/135] drm: Add CRTC background color property
 
 Some display controllers can be hardware programmed to show non-black
 colors for pixels that are either not covered by any plane or are
@@ -34,7 +34,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  8 files changed, 100 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index cee6d8f..57668f1 100644
+index cee6d8fc4..57668f1c9 100644
 --- a/drivers/gpu/drm/drm_atomic_state_helper.c
 +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
 @@ -75,6 +75,7 @@ __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
@@ -46,7 +46,7 @@ index cee6d8f..57668f1 100644
  EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
  
 diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
-index 7320db4..db8fdfe 100644
+index 7320db4b8..db8fdfea7 100644
 --- a/drivers/gpu/drm/drm_atomic_uapi.c
 +++ b/drivers/gpu/drm/drm_atomic_uapi.c
 @@ -436,6 +436,8 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
@@ -68,7 +68,7 @@ index 7320db4..db8fdfe 100644
  		*val = 0;
  	else if (property == crtc->scaling_filter_property)
 diff --git a/drivers/gpu/drm/drm_blend.c b/drivers/gpu/drm/drm_blend.c
-index 6852d73..3af042f 100644
+index 6852d73c9..3af042f08 100644
 --- a/drivers/gpu/drm/drm_blend.c
 +++ b/drivers/gpu/drm/drm_blend.c
 @@ -191,10 +191,6 @@
@@ -127,7 +127,7 @@ index 6852d73..3af042f 100644
 +}
 +EXPORT_SYMBOL(drm_crtc_attach_background_color_property);
 diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index d12db9b..dba7aa8 100644
+index d12db9b0b..dba7aa871 100644
 --- a/drivers/gpu/drm/drm_mode_config.c
 +++ b/drivers/gpu/drm/drm_mode_config.c
 @@ -380,6 +380,12 @@ static int drm_mode_create_standard_properties(struct drm_device *dev)
@@ -144,7 +144,7 @@ index d12db9b..dba7aa8 100644
  				   DRM_MODE_PROP_IMMUTABLE | DRM_MODE_PROP_BLOB,
  				   "IN_FORMATS", 0);
 diff --git a/include/drm/drm_blend.h b/include/drm/drm_blend.h
-index 88bdfec..c7e8887 100644
+index 88bdfec3b..c7e888767 100644
 --- a/include/drm/drm_blend.h
 +++ b/include/drm/drm_blend.h
 @@ -31,8 +31,9 @@
@@ -165,7 +165,7 @@ index 88bdfec..c7e8887 100644
 +void drm_crtc_attach_background_color_property(struct drm_crtc *crtc);
  #endif
 diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
-index 66278ff..d99a742 100644
+index 66278ffee..d99a74258 100644
 --- a/include/drm/drm_crtc.h
 +++ b/include/drm/drm_crtc.h
 @@ -274,6 +274,18 @@ struct drm_crtc_state {
@@ -188,7 +188,7 @@ index 66278ff..d99a742 100644
  	 * @target_vblank:
  	 *
 diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
-index 895fb82..14fc41d 100644
+index 895fb820d..14fc41da2 100644
 --- a/include/drm/drm_mode_config.h
 +++ b/include/drm/drm_mode_config.h
 @@ -832,6 +832,11 @@ struct drm_mode_config {
@@ -204,7 +204,7 @@ index 895fb82..14fc41d 100644
  	/**
  	 * @suggested_x_property: Optional connector property with a hint for
 diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
-index cbbbfc1..010cc14 100644
+index cbbbfc1df..010cc1462 100644
 --- a/include/uapi/drm/drm_mode.h
 +++ b/include/uapi/drm/drm_mode.h
 @@ -1545,6 +1545,42 @@ struct drm_mode_closefb {

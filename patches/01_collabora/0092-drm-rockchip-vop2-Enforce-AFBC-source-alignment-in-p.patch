@@ -1,7 +1,7 @@
-From 703527e50b8cd874558bdab9dabe8805a1b99cf7 Mon Sep 17 00:00:00 2001
+From 94cc24fb81aa160ce1d24ab8279c777e0ec1f6d7 Mon Sep 17 00:00:00 2001
 From: Daniel Stone <daniels@collabora.com>
 Date: Mon, 15 Dec 2025 15:09:21 +0100
-Subject: [PATCH 092/136] drm/rockchip: vop2: Enforce AFBC source alignment in
+Subject: [PATCH 092/135] drm/rockchip: vop2: Enforce AFBC source alignment in
  plane_check
 
 Planes can only source AFBC framebuffers at multiples of 4px wide on
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 10 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index e9e0a3b..2991a47 100644
+index e9e0a3b20..2991a4756 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1110,6 +1110,13 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,

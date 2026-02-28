@@ -1,7 +1,7 @@
-From 23db4d2915bbb87836c4fc65c85f57405f1b8acc Mon Sep 17 00:00:00 2001
+From 32b0e0e7169be639d298bed6a8219a628fcd6045 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:31 -0500
-Subject: [PATCH 085/136] media: rkvdec: Add H264 support for the VDPU383
+Subject: [PATCH 085/135] media: rkvdec: Add H264 support for the VDPU383
  variant
 
 This variant is used on the RK3576 SoC.
@@ -30,7 +30,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index 7bfd951..a58d4ae 100644
+index 7bfd95151..a58d4aede 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -9,4 +9,5 @@ rockchip-vdec-y += \
@@ -41,7 +41,7 @@ index 7bfd951..a58d4ae 100644
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
 new file mode 100644
-index 0000000..c7ba01f
+index 000000000..c7ba01fa8
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
 @@ -0,0 +1,572 @@
@@ -619,7 +619,7 @@ index 0000000..c7ba01f
 +};
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
 new file mode 100644
-index 0000000..04eb232
+index 000000000..04eb23297
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
 @@ -0,0 +1,281 @@
@@ -905,7 +905,7 @@ index 0000000..04eb232
 +
 +#endif /* __RKVDEC_VDPU838_REGS_H__ */
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index c6877df..804381d 100644
+index c6877dfb0..804381d36 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -9,6 +9,7 @@
@@ -1090,7 +1090,7 @@ index c6877df..804381d 100644
  
  	ret = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 4afa9cd..4e9cd12 100644
+index 4afa9cd69..4e9cd12fb 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -73,6 +73,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)

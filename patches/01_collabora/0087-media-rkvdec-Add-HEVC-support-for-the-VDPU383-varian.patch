@@ -1,7 +1,7 @@
-From df209e385669d42f6a597dc1afa27e2f4222561b Mon Sep 17 00:00:00 2001
+From da894dfc223e53e109d57df190ba3c610ca8cb7f Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:33 -0500
-Subject: [PATCH 087/136] media: rkvdec: Add HEVC support for the VDPU383
+Subject: [PATCH 087/135] media: rkvdec: Add HEVC support for the VDPU383
  variant
 
 The VDPU383 decoder is used on the RK3576 SoC and has support for HEVC.
@@ -28,7 +28,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index e30fdd7..e629d57 100644
+index e30fdd7d5..e629d571e 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -11,4 +11,5 @@ rockchip-vdec-y += \
@@ -38,7 +38,7 @@ index e30fdd7..e629d57 100644
 +		   rkvdec-vdpu383-hevc.o \
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-index 52926c6..81f41bf 100644
+index 52926c67d..81f41bf66 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 @@ -140,56 +140,26 @@ static void set_ref_poc(struct rkvdec_rps_short_term_ref_set *set, int poc, int
@@ -139,7 +139,7 @@ index 52926c6..81f41bf 100644
  	memcpy(cache, scaling,
  	       sizeof(struct v4l2_ctrl_hevc_scaling_matrix));
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-index 0d7498e..96521d7 100644
+index 0d7498e6a..96521d723 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 @@ -97,7 +97,8 @@ void compute_tiles_non_uniform(struct rkvdec_hevc_run *run, u16 log2_min_cb_size
@@ -153,7 +153,7 @@ index 0d7498e..96521d7 100644
  					  struct v4l2_ctrl_hevc_scaling_matrix *cache);
  struct vb2_buffer *get_ref_buf(struct rkvdec_ctx *ctx,
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index 156ce38..89b70ca 100644
+index 156ce381f..89b70ca27 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
 @@ -567,7 +567,7 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
@@ -166,7 +166,7 @@ index 156ce38..89b70ca 100644
  	assemble_hw_pps(ctx, &run);
  	assemble_sw_rps(ctx, &run);
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-index f4cbe40..4fbb30c 100644
+index f4cbe402d..4fbb30c7a 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 @@ -593,8 +593,7 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
@@ -181,7 +181,7 @@ index f4cbe40..4fbb30c 100644
  
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
 new file mode 100644
-index 0000000..4083741
+index 000000000..408374107
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
 @@ -0,0 +1,710 @@
@@ -896,7 +896,7 @@ index 0000000..4083741
 +	.get_image_fmt = rkvdec_hevc_get_image_fmt,
 +};
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 395ecdc..a5cf6f3 100644
+index 395ecdc15..a5cf6f324 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -499,6 +499,22 @@ static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] = {
@@ -1026,7 +1026,7 @@ index 395ecdc..a5cf6f3 100644
  
  static const struct rkvdec_variant vdpu383_variant = {
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index c723eaa..a24be66 100644
+index c723eaaef..a24be6638 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -74,6 +74,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)

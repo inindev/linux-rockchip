@@ -1,7 +1,7 @@
-From 6275bf3314d30c647494ba3c326e9af7f063fb20 Mon Sep 17 00:00:00 2001
+From 4fda37a22613626728ced66a822428d600fb83c3 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:30 -0500
-Subject: [PATCH 084/136] media: rkvdec: Add H264 support for the VDPU381
+Subject: [PATCH 084/135] media: rkvdec: Add H264 support for the VDPU381
  variant
 
 This decoder variant is found in Rockchip RK3588 SoC family.
@@ -33,7 +33,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index 3d75103..7bfd951 100644
+index 3d75103e5..7bfd95151 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -8,4 +8,5 @@ rockchip-vdec-y += \
@@ -43,7 +43,7 @@ index 3d75103..7bfd951 100644
 +		   rkvdec-vdpu381-h264.o \
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
-index bd0c008..3be6cea 100644
+index bd0c00813..3be6cea3a 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
 @@ -74,6 +74,8 @@ struct rkvdec_rps {
@@ -57,7 +57,7 @@ index bd0c008..3be6cea 100644
  		     struct rkvdec_h264_run *run,
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
 new file mode 100644
-index 0000000..0a89ebc
+index 000000000..0a89ebcab
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
 @@ -0,0 +1,468 @@
@@ -531,7 +531,7 @@ index 0000000..0a89ebc
 +};
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
 new file mode 100644
-index 0000000..6da3603
+index 000000000..6da36031d
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
 @@ -0,0 +1,430 @@
@@ -966,7 +966,7 @@ index 0000000..6da3603
 +
 +#endif /* __RKVDEC_REGS_H__ */
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index af2eced..c6877df 100644
+index af2eced90..c6877dfb0 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -29,6 +29,7 @@
@@ -1152,7 +1152,7 @@ index af2eced..c6877df 100644
  	ret = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
  	if (ret) {
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 7766a79..4afa9cd 100644
+index 7766a79ca..4afa9cd69 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -25,6 +25,10 @@

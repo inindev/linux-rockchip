@@ -1,7 +1,7 @@
-From 5f544d3080594ed7b6811bdf5869e2dce1e2f539 Mon Sep 17 00:00:00 2001
+From e61b96f8b9768ba657cd4b7f9b734051b388217b Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:40 -0500
-Subject: [PATCH 008/136] dt-bindings: display: vop2: Add VP clock resets
+Subject: [PATCH 008/135] dt-bindings: display: vop2: Add VP clock resets
 
 Add the documentation for VOP2 video ports reset clocks.
 One reset can be set per video port.
@@ -13,7 +13,7 @@ Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
  1 file changed, 48 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 93da1fb..8a8993f 100644
+index 93da1fb9a..8a8993fea 100644
 --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
 +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
 @@ -82,6 +82,26 @@ properties:

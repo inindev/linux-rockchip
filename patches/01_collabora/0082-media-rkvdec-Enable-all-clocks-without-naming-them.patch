@@ -1,7 +1,7 @@
-From fc6d6fb86e1847883f806ceff5d910d2e768d4d7 Mon Sep 17 00:00:00 2001
+From b950a3bcdbceeb5685e173368d2a0d9ad5f4d8be Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:28 -0500
-Subject: [PATCH 082/136] media: rkvdec: Enable all clocks without naming them
+Subject: [PATCH 082/135] media: rkvdec: Enable all clocks without naming them
 
 For other variants, the clock names and number will differ.
 
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  2 files changed, 7 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 174536e..ce96a04 100644
+index 174536ebd..ce96a0470 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -1312,15 +1312,10 @@ static const struct of_device_id of_rkvdec_match[] = {
@@ -82,7 +82,7 @@ index 174536e..ce96a04 100644
  }
  #endif
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index faabedd..7766a79 100644
+index faabedd2b..7766a79ca 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -125,6 +125,7 @@ struct rkvdec_dev {

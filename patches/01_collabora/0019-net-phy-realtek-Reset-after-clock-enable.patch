@@ -1,7 +1,7 @@
-From 868eeb51d3e9a59abf73b651e15443e65d523778 Mon Sep 17 00:00:00 2001
+From 48593a8c48577441908c108505841d6fc515ab22 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
-Subject: [PATCH 019/136] net: phy: realtek: Reset after clock enable
+Subject: [PATCH 019/135] net: phy: realtek: Reset after clock enable
 
 On Radxa ROCK 4D boards we are seeing some issues with PHY detection and
 stability (e.g. link loss or not capable of transceiving packages) after
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index 6ff0385..1eb7cb6 100644
+index 6ff038520..1eb7cb634 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -261,6 +261,8 @@ static int rtl821x_probe(struct phy_device *phydev)

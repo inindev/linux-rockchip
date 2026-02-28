@@ -1,7 +1,7 @@
-From 173f29a9ccf877c4fd43ff5a6f1ce47ca7b66b64 Mon Sep 17 00:00:00 2001
+From eab50954c69a1f5474c9642c87e784d25b71e4ae Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Mon, 20 Oct 2025 17:20:08 -0400
-Subject: [PATCH 069/136] arm64: dts: rockchip: Add the vdpu381 Video Decoders
+Subject: [PATCH 069/135] arm64: dts: rockchip: Add the vdpu381 Video Decoders
  on RK3588
 
 Add the vdpu381 Video Decoders to the rk3588-base devicetree.
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 74 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index f331ee6..7a962e8 100644
+index f331ee65e..7a962e89d 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1353,6 +1353,70 @@ vepu121_3_mmu: iommu@fdbac800 {

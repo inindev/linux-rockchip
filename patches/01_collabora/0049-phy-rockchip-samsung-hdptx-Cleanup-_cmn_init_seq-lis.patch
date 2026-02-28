@@ -1,7 +1,7 @@
-From 01feff9572a4e02c3f5c51b3960378d5d9d620e9 Mon Sep 17 00:00:00 2001
+From 14b6c0656bb07e7687a62df3596b3de96b24800b Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 5 Jun 2025 21:31:22 +0300
-Subject: [PATCH 049/136] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq
+Subject: [PATCH 049/135] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq
  lists
 
 Drop redundant reg_sequence entries from rk_hdptx_common_cmn_init_seq[],
@@ -20,10 +20,10 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 4 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 574e468..8e38adc 100644
+index f146e7c07..ae8e92855 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -465,13 +465,11 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -467,13 +467,11 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(000e), 0x0f),
  	REG_SEQ0(CMN_REG(000f), 0x0f),
  	REG_SEQ0(CMN_REG(0010), 0x04),
@@ -37,7 +37,7 @@ index 574e468..8e38adc 100644
  	REG_SEQ0(CMN_REG(0018), 0x04),
  	REG_SEQ0(CMN_REG(0019), 0x48),
  	REG_SEQ0(CMN_REG(001a), 0x01),
-@@ -479,13 +477,7 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -481,13 +479,7 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(001c), 0x01),
  	REG_SEQ0(CMN_REG(001d), 0x64),
  	REG_SEQ0(CMN_REG(001f), 0x00),
@@ -51,7 +51,7 @@ index 574e468..8e38adc 100644
  	REG_SEQ0(CMN_REG(0035), 0x00),
  	REG_SEQ0(CMN_REG(0038), 0x00),
  	REG_SEQ0(CMN_REG(0039), 0x00),
-@@ -496,7 +488,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -498,7 +490,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(003f), 0x83),
  	REG_SEQ0(CMN_REG(0040), 0x06),
  	REG_SEQ0(CMN_REG(0041), 0x20),
@@ -59,7 +59,7 @@ index 574e468..8e38adc 100644
  	REG_SEQ0(CMN_REG(0043), 0x00),
  	REG_SEQ0(CMN_REG(0044), 0x46),
  	REG_SEQ0(CMN_REG(0045), 0x24),
-@@ -506,14 +497,9 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -508,14 +499,9 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(004b), 0x00),
  	REG_SEQ0(CMN_REG(004c), 0x01),
  	REG_SEQ0(CMN_REG(004d), 0x64),
@@ -74,7 +74,7 @@ index 574e468..8e38adc 100644
  	REG_SEQ0(CMN_REG(0075), 0x20),
  	REG_SEQ0(CMN_REG(0076), 0x30),
  	REG_SEQ0(CMN_REG(0077), 0x08),
-@@ -525,13 +511,10 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -527,13 +513,10 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(007e), 0x00),
  	REG_SEQ0(CMN_REG(007f), 0x00),
  	REG_SEQ0(CMN_REG(0080), 0x00),
@@ -88,7 +88,7 @@ index 574e468..8e38adc 100644
  	REG_SEQ0(CMN_REG(008a), 0x55),
  	REG_SEQ0(CMN_REG(008b), 0x25),
  	REG_SEQ0(CMN_REG(008c), 0x2c),
-@@ -543,7 +526,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+@@ -545,7 +528,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(0092), 0x00),
  	REG_SEQ0(CMN_REG(0093), 0x00),
  	REG_SEQ0(CMN_REG(009a), 0x11),
@@ -96,7 +96,7 @@ index 574e468..8e38adc 100644
  };
  
  static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
-@@ -577,9 +559,13 @@ static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
+@@ -579,9 +561,13 @@ static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(0048), 0x11),
  	REG_SEQ0(CMN_REG(004e), 0x34),
  	REG_SEQ0(CMN_REG(005c), 0x25),

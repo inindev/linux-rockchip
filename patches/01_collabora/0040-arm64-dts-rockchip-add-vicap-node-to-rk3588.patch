@@ -1,7 +1,7 @@
-From fcee2b4765a673952d0a1ea81cc17ed9290709eb Mon Sep 17 00:00:00 2001
+From 7bf301c8ebc1c2b2b739f0bcf5d4c71a068944bc Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 040/136] arm64: dts: rockchip: add vicap node to rk3588
+Subject: [PATCH 040/135] arm64: dts: rockchip: add vicap node to rk3588
 
 Add the device tree node for the RK3588 Video Capture (VICAP) unit.
 
@@ -11,7 +11,7 @@ Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
  1 file changed, 111 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 6c25e0d..046bc66 100644
+index 6c25e0d39..046bc66c0 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1366,6 +1366,93 @@ av1d: video-codec@fdc70000 {

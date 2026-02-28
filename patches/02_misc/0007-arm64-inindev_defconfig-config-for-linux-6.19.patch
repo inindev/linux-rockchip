@@ -1,20 +1,22 @@
-From 37d3c99738bd2a8cb4d2ff72f95f8cffd4a021a3 Mon Sep 17 00:00:00 2001
+From 73d05e0a89f19b9ecfc636e0f8827d26d50d2225 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 16 Mar 2025 15:32:30 -0400
 Subject: [PATCH 7/7] arm64: inindev_defconfig: config for linux 6.19
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- arch/arm64/configs/inindev_defconfig | 1149 ++++++++++++++++++++++++++
- 1 file changed, 1149 insertions(+)
+ arch/arm64/configs/inindev_defconfig | 1152 ++++++++++++++++++++++++++
+ 1 file changed, 1152 insertions(+)
  create mode 100644 arch/arm64/configs/inindev_defconfig
 
 diff --git a/arch/arm64/configs/inindev_defconfig b/arch/arm64/configs/inindev_defconfig
 new file mode 100644
-index 000000000..c2361d2b7
+index 000000000..d7ace24c0
 --- /dev/null
 +++ b/arch/arm64/configs/inindev_defconfig
-@@ -0,0 +1,1149 @@
+@@ -0,0 +1,1152 @@
++CONFIG_COMPILE_TEST=y
++# CONFIG_WERROR is not set
 +CONFIG_SYSVIPC=y
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ_IDLE=y
@@ -25,8 +27,6 @@ index 000000000..c2361d2b7
 +CONFIG_PREEMPT_VOLUNTARY=y
 +CONFIG_VIRT_CPU_ACCOUNTING_GEN=y
 +CONFIG_IRQ_TIME_ACCOUNTING=y
-+CONFIG_BSD_PROCESS_ACCT=y
-+CONFIG_BSD_PROCESS_ACCT_V3=y
 +CONFIG_TASKSTATS=y
 +CONFIG_TASK_XACCT=y
 +CONFIG_TASK_IO_ACCOUNTING=y
@@ -98,6 +98,8 @@ index 000000000..c2361d2b7
 +CONFIG_PACKET=y
 +CONFIG_XFRM_USER=m
 +CONFIG_IP_MULTICAST=y
++CONFIG_IP_ADVANCED_ROUTER=y
++CONFIG_IP_MULTIPLE_TABLES=y
 +CONFIG_IP_PNP=y
 +CONFIG_IP_PNP_DHCP=y
 +CONFIG_IP_PNP_BOOTP=y
@@ -1126,6 +1128,7 @@ index 000000000..c2361d2b7
 +CONFIG_IMA_APPRAISE=y
 +CONFIG_DEFAULT_SECURITY_APPARMOR=y
 +CONFIG_LSM="landlock,lockdown,yama,loadpin,safesetid,integrity,apparmor,selinux,smack,tomoyo,bpf,ipe"
++CONFIG_INIT_STACK_ALL_ZERO=y
 +CONFIG_CRYPTO_USER=y
 +CONFIG_CRYPTO_ECHAINIV=y
 +CONFIG_CRYPTO_USER_API_HASH=y

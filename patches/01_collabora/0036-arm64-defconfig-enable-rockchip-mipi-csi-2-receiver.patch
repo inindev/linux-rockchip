@@ -1,7 +1,7 @@
-From 0c4a46eaff1f5f047bbba668206c3c930c733e90 Mon Sep 17 00:00:00 2001
+From e9ba76703a1fd15ac89b31bd7b7e53fe192e03be Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
-Subject: [PATCH 036/136] arm64: defconfig: enable rockchip mipi csi-2 receiver
+Subject: [PATCH 036/135] arm64: defconfig: enable rockchip mipi csi-2 receiver
 
 The Rockchip MIPI CSI-2 Receiver are featured in many Rockchip SoCs in
 different variations. Enable the driver for it in the default config.
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 45288ec..898e90b 100644
+index 35e9eb180..d29d0d5b5 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -896,6 +896,7 @@ CONFIG_VIDEO_RENESAS_FDP1=m
+@@ -895,6 +895,7 @@ CONFIG_VIDEO_RENESAS_FDP1=m
  CONFIG_VIDEO_RENESAS_VSP1=m
  CONFIG_VIDEO_RCAR_DRIF=m
  CONFIG_VIDEO_ROCKCHIP_CIF=m

@@ -1,35 +1,33 @@
-From 349a664014d64c3fe4b870a8cbd5d3925991d5de Mon Sep 17 00:00:00 2001
+From 825db47e2ce9a50f205ce34871d8d7c6361ba28d Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
-Date: Fri, 16 Jan 2026 08:55:32 +0800
-Subject: [PATCH 129/136] arm64: dts: rockchip: Fix SD card support for RK3576
- Nanopi R76s
+Date: Fri, 16 Jan 2026 08:55:31 +0800
+Subject: [PATCH 127/135] arm64: dts: rockchip: Fix SD card support for RK3576
+ EVB1
 
 When runtime suspend is enabled, the associated power domain is powered
 off, which resets the registers, including the power control bit. As a result,
 the card loses power during runtime suspend. The card should still be able
 to process I/O with the help of mmc_blk_mq_rw_recovery(), which is suboptimal.
 To address this issue, we must use vmmc-supply with a GPIO based method to
-maintain power to the card and store valid tuning phases. Also, add cd-gpios
-method to make hot-plug work correctly during idle periods.
+maintain power to the card. Also, add cd-gpios method to make hot-plug work
+correctly during idle periods.
 
-Fixes: 7fee88882704 ("arm64: dts: rockchip: Add devicetree for the FriendlyElec NanoPi R76S")
+Fixes: f135a1a07352 ("arm64: dts: rockchip: Add rk3576 evb1 board")
 Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Tested-by: Marco Schirrmeister <mschirrmeister@gmail.com>
-Link: https://lore.kernel.org/r/1768524932-163929-6-git-send-email-shawn.lin@rock-chips.com
+Link: https://lore.kernel.org/r/1768524932-163929-5-git-send-email-shawn.lin@rock-chips.com
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- .../boot/dts/rockchip/rk3576-nanopi-r76s.dts  | 23 ++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ .../boot/dts/rockchip/rk3576-evb1-v10.dts     | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-index 31fbefa..7ec27b0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-@@ -192,6 +192,18 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
- 		regulator-name = "vcc_3v3_s0";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index 9dd5b8152..bb7a2e7d1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -223,6 +223,18 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
  		vin-supply = <&vcc_3v3_s3>;
  	};
-+
+ 
 +	vcc3v3_sd: regulator-vcc-3v3-sd {
 +		compatible = "regulator-fixed";
 +		enable-active-high;
@@ -41,10 +39,11 @@ index 31fbefa..7ec27b0 100644
 +		regulator-max-microvolt = <3300000>;
 +		vin-supply = <&vcc_3v3_s0>;
 +	};
- };
- 
- &combphy0_ps {
-@@ -726,6 +738,12 @@ pcie1_perstn: pcie1-perstn {
++
+ 	vcc_ufs_s0: regulator-vcc-ufs-s0 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc_ufs_s0";
+@@ -813,6 +825,12 @@ pcie0_rst: pcie0-rst {
  		};
  	};
  
@@ -55,20 +54,20 @@ index 31fbefa..7ec27b0 100644
 +	};
 +
  	usb {
- 		usb_otg0_pwren_h: usb-otg0-pwren-h {
- 			rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-@@ -751,11 +769,14 @@ &sdmmc {
+ 		usb_host_pwren: usb-host-pwren {
+ 			rockchip,pins = <0 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
+@@ -854,11 +872,15 @@ &sdmmc {
  	bus-width = <4>;
  	cap-mmc-highspeed;
  	cap-sd-highspeed;
 +	cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
  	disable-wp;
- 	no-mmc;
+ 	max-frequency = <200000000>;
  	no-sdio;
+ 	no-mmc;
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
  	sd-uhs-sdr104;
--	vmmc-supply = <&vcc_3v3_s3>;
 +	vmmc-supply = <&vcc3v3_sd>;
  	vqmmc-supply = <&vccio_sd_s0>;
  	status = "okay";

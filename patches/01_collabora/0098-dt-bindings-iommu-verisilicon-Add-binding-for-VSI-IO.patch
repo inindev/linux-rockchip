@@ -1,7 +1,7 @@
-From 4ae52209bfabfd227927468ef3311979a9e579b6 Mon Sep 17 00:00:00 2001
+From df7bd61e989fa2d93b9ed2c97f360c850d54afd7 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:52 +0100
-Subject: [PATCH 098/136] dt-bindings: iommu: verisilicon: Add binding for VSI
+Subject: [PATCH 098/135] dt-bindings: iommu: verisilicon: Add binding for VSI
  IOMMU
 
 Add a device tree binding for the Verisilicon (VSI) IOMMU.
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
 
 diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
 new file mode 100644
-index 0000000..d3ce9e6
+index 000000000..d3ce9e603
 --- /dev/null
 +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
 @@ -0,0 +1,71 @@

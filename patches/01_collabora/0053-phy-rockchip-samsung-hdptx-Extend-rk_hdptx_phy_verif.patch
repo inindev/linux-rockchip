@@ -1,7 +1,7 @@
-From 8586cf48a0800fc9046930c28d17982a2806f947 Mon Sep 17 00:00:00 2001
+From 8ab5a9a4f9efb54a26dcec0257afd30c9edc397b Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 8 Jul 2025 12:19:37 +0300
-Subject: [PATCH 053/136] phy: rockchip: samsung-hdptx: Extend
+Subject: [PATCH 053/135] phy: rockchip: samsung-hdptx: Extend
  rk_hdptx_phy_verify_hdmi_config() helper
 
 In order to facilitate introduction of HDMI 2.1 FRL support and to avoid
@@ -18,10 +18,10 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 18 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 3586257..0487255 100644
+index 4972a9485..77fa1ba49 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1471,25 +1471,24 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+@@ -1473,25 +1473,24 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
  }
  
  static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
@@ -54,7 +54,7 @@ index 3586257..0487255 100644
  	case 8:
  	case 10:
  	case 12:
-@@ -1499,6 +1498,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+@@ -1501,6 +1500,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
  		return -EINVAL;
  	}
  
@@ -66,7 +66,7 @@ index 3586257..0487255 100644
  	return 0;
  }
  
-@@ -1764,17 +1768,15 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1766,17 +1770,15 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  	int ret;
  
  	if (mode != PHY_MODE_DP) {
@@ -87,7 +87,7 @@ index 3586257..0487255 100644
  		return ret;
  	}
  
-@@ -1818,7 +1820,7 @@ static int rk_hdptx_phy_validate(struct phy *phy, enum phy_mode mode,
+@@ -1820,7 +1822,7 @@ static int rk_hdptx_phy_validate(struct phy *phy, enum phy_mode mode,
  	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
  
  	if (mode != PHY_MODE_DP)
@@ -96,7 +96,7 @@ index 3586257..0487255 100644
  
  	return rk_hdptx_phy_verify_dp_config(hdptx, &opts->dp);
  }
-@@ -1958,12 +1960,11 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1960,12 +1962,11 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  		struct phy_configure_opts_hdmi hdmi = {
  			.tmds_char_rate = rate,
  		};

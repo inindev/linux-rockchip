@@ -1,7 +1,7 @@
-From 40c7390f996e5020a513bc94a4d211d180ef091d Mon Sep 17 00:00:00 2001
+From c67b922e7cc346583be106619c042ea5149fc155 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 3 Jul 2025 12:44:04 +0300
-Subject: [PATCH 121/136] drm/rockchip: dw_hdmi_qp: Add HDMI 2.1 FRL support
+Subject: [PATCH 121/135] drm/rockchip: dw_hdmi_qp: Add HDMI 2.1 FRL support
 
 Extend ->enc_init() hooks of {rk3576,rk3588}_hdmi_ctrl_ops to enable
 HDMI 2.1 FRL operation mode.
@@ -15,7 +15,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 215 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index dac9830..c24b0e7 100644
+index 5d1b20709..58e302a96 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 @@ -63,13 +63,18 @@
@@ -335,7 +335,7 @@ index dac9830..c24b0e7 100644
  };
  
  static void dw_hdmi_qp_rk3588_hpd_work(struct work_struct *work)
-@@ -401,8 +578,12 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+@@ -396,8 +573,12 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
  static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
  				       struct rockchip_crtc_state *state)
  {
@@ -348,7 +348,7 @@ index dac9830..c24b0e7 100644
  	if (state->output_bpc == 10)
  		val = FIELD_PREP_WM16(RK3576_COLOR_DEPTH_MASK, RK3576_10BPC);
  	else
-@@ -419,8 +600,14 @@ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
+@@ -414,8 +595,14 @@ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
  static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
  				       struct rockchip_crtc_state *state)
  {

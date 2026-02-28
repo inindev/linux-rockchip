@@ -1,7 +1,7 @@
-From cf5d280512f0646e35e0b3780a44c10fa1c0558e Mon Sep 17 00:00:00 2001
+From 6ee64b7694c5ee1212ebfd606257473a510fc25b Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:32 -0500
-Subject: [PATCH 086/136] media: rkvdec: Add HEVC support for the VDPU381
+Subject: [PATCH 086/135] media: rkvdec: Add HEVC support for the VDPU381
  variant
 
 The VDPU381 supports HEVC decoding up to 7680x4320@30fps.
@@ -29,7 +29,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index a58d4ae..e30fdd7 100644
+index a58d4aede..e30fdd7d5 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -9,5 +9,6 @@ rockchip-vdec-y += \
@@ -40,7 +40,7 @@ index a58d4ae..e30fdd7 100644
  		   rkvdec-vdpu383-h264.o \
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-index cb56a9a..52926c6 100644
+index cb56a9a24..52926c67d 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
 @@ -21,6 +21,125 @@
@@ -399,7 +399,7 @@ index cb56a9a..52926c6 100644
  	rkvdec_run_preamble(ctx, &run->base);
  }
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-index e3099fd..0d7498e 100644
+index e3099fdd7..0d7498e6a 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
 @@ -16,11 +16,60 @@
@@ -489,7 +489,7 @@ index e3099fd..0d7498e 100644
  					  struct v4l2_ctrl_hevc_scaling_matrix *cache);
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 new file mode 100644
-index 0000000..f4cbe40
+index 000000000..f4cbe402d
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 @@ -0,0 +1,639 @@
@@ -1133,7 +1133,7 @@ index 0000000..f4cbe40
 +	.get_image_fmt = rkvdec_hevc_get_image_fmt,
 +};
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 804381d..395ecdc 100644
+index 804381d36..395ecdc15 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -153,6 +153,16 @@ static int rkvdec_s_ctrl(struct v4l2_ctrl *ctrl)
@@ -1240,7 +1240,7 @@ index 804381d..395ecdc 100644
  		.fourcc = V4L2_PIX_FMT_H264_SLICE,
  		.frmsize = {
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 4e9cd12..c723eaa 100644
+index 4e9cd12fb..c723eaaef 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -154,6 +154,8 @@ struct rkvdec_ctx {

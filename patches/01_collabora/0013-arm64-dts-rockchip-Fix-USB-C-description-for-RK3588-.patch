@@ -1,7 +1,7 @@
-From f94c300e24d0f32096657e011317c0ca3b9a24ef Mon Sep 17 00:00:00 2001
+From ada087449ee115049d6c051ff4e526c5fca4fdc9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 29 Jul 2025 18:21:03 +0200
-Subject: [PATCH 013/136] arm64: dts: rockchip: Fix USB-C description for
+Subject: [PATCH 013/135] arm64: dts: rockchip: Fix USB-C description for
  RK3588 EVB1
 
 Fix the USB-C connector description, so that it follows the binding:
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-index a7775d1..8a4364c 100644
+index a7775d15b..8a4364c4d 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
 @@ -497,24 +497,24 @@ ports {

@@ -1,7 +1,7 @@
-From 5b1f2447c596f003ef33b1a4cc4345864f46953f Mon Sep 17 00:00:00 2001
+From 89149e38522ecff774bc844690ee78d55fd93fab Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Thu, 8 Jan 2026 14:29:46 +0100
-Subject: [PATCH 096/136] media: verisilicon: AV1: Set IDR flag for intra_only
+Subject: [PATCH 096/135] media: verisilicon: AV1: Set IDR flag for intra_only
  frame type
 
 Intra_only frame could be considered as a key frame so Instantaneous
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index e4703bb..5d4146b 100644
+index e4703bb6b..5d4146b60 100644
 --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
 @@ -1989,7 +1989,7 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)

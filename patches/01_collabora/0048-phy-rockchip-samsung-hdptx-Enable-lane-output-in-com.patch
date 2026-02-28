@@ -1,7 +1,7 @@
-From 3ee60aeccc3860ea2ecef8b15ceb5541832412d8 Mon Sep 17 00:00:00 2001
+From b42032d41368403e5907637d4f373696b4ac7454 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Jun 2025 10:25:49 +0300
-Subject: [PATCH 048/136] phy: rockchip: samsung-hdptx: Enable lane output in
+Subject: [PATCH 048/135] phy: rockchip: samsung-hdptx: Enable lane output in
  common helper
 
 In preparation to support FRL mode, move the PHY lane output enablement
@@ -14,10 +14,10 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 44fda73..574e468 100644
+index e372d12f1..f146e7c07 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -829,6 +829,8 @@ static int rk_hdptx_post_enable_lane(struct rk_hdptx_phy *hdptx)
+@@ -831,6 +831,8 @@ static int rk_hdptx_post_enable_lane(struct rk_hdptx_phy *hdptx)
  	       HDPTX_I_BIAS_EN | HDPTX_I_BGR_EN;
  	regmap_write(hdptx->grf, GRF_HDPTX_CON0, val);
  
@@ -26,7 +26,7 @@ index 44fda73..574e468 100644
  	ret = regmap_read_poll_timeout(hdptx->grf, GRF_HDPTX_STATUS, val,
  				       (val & HDPTX_O_PHY_RDY) &&
  				       (val & HDPTX_O_PLL_LOCK_DONE),
-@@ -882,6 +884,7 @@ static void rk_hdptx_phy_disable(struct rk_hdptx_phy *hdptx)
+@@ -884,6 +886,7 @@ static void rk_hdptx_phy_disable(struct rk_hdptx_phy *hdptx)
  	usleep_range(20, 30);
  	reset_control_deassert(hdptx->rsts[RST_APB].rstc);
  
@@ -34,7 +34,7 @@ index 44fda73..574e468 100644
  	regmap_write(hdptx->regmap, LANE_REG(0300), 0x82);
  	regmap_write(hdptx->regmap, SB_REG(010f), 0xc1);
  	regmap_write(hdptx->regmap, SB_REG(0110), 0x1);
-@@ -1059,7 +1062,6 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
+@@ -1061,7 +1064,6 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
  	}
  
  	regmap_write(hdptx->regmap, LNTOP_REG(0206), 0x07);

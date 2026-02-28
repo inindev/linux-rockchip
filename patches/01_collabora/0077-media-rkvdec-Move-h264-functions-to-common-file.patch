@@ -1,7 +1,7 @@
-From cb061b22291ba14488f108301f6f98cbc7b11811 Mon Sep 17 00:00:00 2001
+From edf1e5640a796a04bd5e7364394c10d7ea1475ac Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:23 -0500
-Subject: [PATCH 077/136] media: rkvdec: Move h264 functions to common file
+Subject: [PATCH 077/135] media: rkvdec: Move h264 functions to common file
 
 This is a preparation commit to add support for new variants of the
 decoder.
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index a8ff5e3..d2ba7a7 100644
+index a8ff5e3d7..d2ba7a7c1 100644
 --- a/drivers/media/platform/rockchip/rkvdec/Makefile
 +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
 @@ -4,5 +4,6 @@ rockchip-vdec-y += \
@@ -36,7 +36,7 @@ index a8ff5e3..d2ba7a7 100644
  		   rkvdec-vp9.o
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
 new file mode 100644
-index 0000000..e28f063
+index 000000000..e28f06394
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
 @@ -0,0 +1,258 @@
@@ -300,7 +300,7 @@ index 0000000..e28f063
 +}
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
 new file mode 100644
-index 0000000..bd0c008
+index 000000000..bd0c00813
 --- /dev/null
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
 @@ -0,0 +1,87 @@
@@ -392,7 +392,7 @@ index 0000000..bd0c008
 +int rkvdec_h264_validate_sps(struct rkvdec_ctx *ctx, const struct v4l2_ctrl_h264_sps *sps);
 +void rkvdec_h264_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_h264_run *run);
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index fd941e9..d93c795 100644
+index fd941e926..d93c79536 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
 @@ -14,59 +14,16 @@

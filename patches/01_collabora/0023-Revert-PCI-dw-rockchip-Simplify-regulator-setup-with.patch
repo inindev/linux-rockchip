@@ -1,7 +1,7 @@
-From 076f78f3561e916a6dbd74a4fe2af6ed8c181e38 Mon Sep 17 00:00:00 2001
+From 991998be9ba806001dd8e8f48e3391b56a7820f9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
-Subject: [PATCH 023/136] Revert "PCI: dw-rockchip: Simplify regulator setup
+Subject: [PATCH 023/135] Revert "PCI: dw-rockchip: Simplify regulator setup
  with devm_regulator_get_enable_optional()"
 
 This reverts commit c930b10f17c03858cfe19b9873ba5240128b4d1b. We need
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 17 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 2db1d0a..f86f414 100644
+index 7879f8048..effc44144 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -88,6 +88,7 @@ struct rockchip_pcie {

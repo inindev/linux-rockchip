@@ -1,7 +1,7 @@
-From e244a28b3484f57c7bb7962361497a69a2287c28 Mon Sep 17 00:00:00 2001
+From 0db3c1f1fe7073212791a2496ca2da6fc920ec53 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 9 Jan 2026 11:15:27 -0500
-Subject: [PATCH 081/136] media: rkvdec: Support per-variant interrupt handler
+Subject: [PATCH 081/135] media: rkvdec: Support per-variant interrupt handler
 
 Prepare for supporting different variants with different interrupt
 managers.
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  2 files changed, 23 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index ff6a09e..174536e 100644
+index ff6a09e45..174536ebd 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 @@ -1222,10 +1222,9 @@ static void rkvdec_iommu_restore(struct rkvdec_dev *rkvdec)
@@ -83,7 +83,7 @@ index ff6a09e..174536e 100644
  
  static const struct of_device_id of_rkvdec_match[] = {
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 751f39a..faabedd 100644
+index 751f39afe..faabedd2b 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
 @@ -67,12 +67,17 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)

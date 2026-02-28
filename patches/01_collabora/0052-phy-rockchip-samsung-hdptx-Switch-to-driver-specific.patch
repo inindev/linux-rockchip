@@ -1,7 +1,7 @@
-From 6661468cf4d7267e92410fcb0c7bbe197c593097 Mon Sep 17 00:00:00 2001
+From e6c0d701e2d740f0e1017f6ddcedc5765541197d Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 7 Jul 2025 23:23:52 +0300
-Subject: [PATCH 052/136] phy: rockchip: samsung-hdptx: Switch to driver
+Subject: [PATCH 052/135] phy: rockchip: samsung-hdptx: Switch to driver
  specific HDMI config
 
 In preparation to support the FRL operation mode which gets configured
@@ -19,7 +19,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 25 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 7b1526c..3586257 100644
+index f7c00391f..4972a9485 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -387,6 +387,11 @@ struct rk_hdptx_phy_cfg {
@@ -43,7 +43,7 @@ index 7b1526c..3586257 100644
  	struct clk_bulk_data *clks;
  	int nr_clks;
  	struct reset_control_bulk_data rsts[RST_MAX];
-@@ -964,19 +969,19 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -966,19 +971,19 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
  	struct ropll_config rc = {0};
  	int i;
  
@@ -67,7 +67,7 @@ index 7b1526c..3586257 100644
  			return -EINVAL;
  		}
  
-@@ -984,7 +989,7 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -986,7 +991,7 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
  	}
  
  	dev_dbg(hdptx->dev, "%s rate=%llu mdiv=%u sdiv=%u sdm_en=%u k_sign=%u k=%u lc=%u\n",
@@ -76,7 +76,7 @@ index 7b1526c..3586257 100644
  		cfg->sdm_en, cfg->sdm_num_sign, cfg->sdm_num, cfg->sdm_deno);
  
  	rk_hdptx_pre_power_up(hdptx);
-@@ -1033,7 +1038,7 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
+@@ -1035,7 +1040,7 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
  
  	regmap_write(hdptx->regmap, LNTOP_REG(0200), 0x06);
  
@@ -85,7 +85,7 @@ index 7b1526c..3586257 100644
  		/* For 1/40 bitrate clk */
  		rk_hdptx_multi_reg_write(hdptx, rk_hdptx_tmds_lntop_highbr_seq);
  	} else {
-@@ -1404,19 +1409,19 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1406,19 +1411,19 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  	int ret, lane;
  
  	if (mode != PHY_MODE_DP) {
@@ -109,7 +109,7 @@ index 7b1526c..3586257 100644
  	}
  
  	ret = rk_hdptx_phy_consumer_get(hdptx);
-@@ -1763,12 +1768,13 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
+@@ -1765,12 +1770,13 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  		if (ret) {
  			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
  		} else {
@@ -125,7 +125,7 @@ index 7b1526c..3586257 100644
  		return ret;
  	}
  
-@@ -1948,7 +1954,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1950,7 +1956,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  	 * To be dropped as soon as the RK DW HDMI QP bridge driver
  	 * switches to make use of phy_configure().
  	 */
@@ -134,7 +134,7 @@ index 7b1526c..3586257 100644
  		struct phy_configure_opts_hdmi hdmi = {
  			.tmds_char_rate = rate,
  		};
-@@ -1957,7 +1963,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1959,7 +1965,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  		if (ret)
  			return ret;
  
@@ -143,7 +143,7 @@ index 7b1526c..3586257 100644
  	}
  
  	/*
-@@ -1965,7 +1971,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1967,7 +1973,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  	 * hence ensure rk_hdptx_phy_clk_set_rate() won't be invoked with
  	 * a different rate argument.
  	 */
@@ -152,7 +152,7 @@ index 7b1526c..3586257 100644
  }
  
  static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -1975,10 +1981,10 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1977,10 +1983,10 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
  	unsigned long long tmds_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
  
  	/* Revert any unlikely TMDS char rate change since round_rate() */
