@@ -1,7 +1,7 @@
-From 2833ab451236082a7ad67e52d6d547651025f7cd Mon Sep 17 00:00:00 2001
+From fd851406d4858333da5c11edc87ac5901c4831fd Mon Sep 17 00:00:00 2001
 From: Alexey Charkov <alchark@gmail.com>
 Date: Tue, 30 Dec 2025 17:23:34 +0400
-Subject: [PATCH 3/5] arm64: dts: rockchip: enable UFS controller on
+Subject: [PATCH 3/7] arm64: dts: rockchip: enable UFS controller on
  FriendlyElec NanoPi M5
 
 The NanoPi M5 board supports pluggable UFS modules using the UFSHC
@@ -16,7 +16,7 @@ Signed-off-by: Alexey Charkov <alchark@gmail.com>
  1 file changed, 25 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-index cce34c541..c5b34069a 100644
+index bb2cc2814..47a42fea2 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
 @@ -110,6 +110,22 @@ vcc12v_dcin: regulator-vcc12v-dcin {
@@ -42,7 +42,7 @@ index cce34c541..c5b34069a 100644
  	vcc3v3_m2_keym: regulator-vcc3v3-m2-keym {
  		compatible = "regulator-fixed";
  		enable-active-high;
-@@ -906,6 +922,15 @@ &uart0 {
+@@ -910,6 +926,15 @@ &uart0 {
  	status = "okay";
  };
  

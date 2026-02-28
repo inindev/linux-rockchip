@@ -1,0 +1,34 @@
+From 619f74a09d3c7a93c5b04a5b3bc17051116cd41c Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Wed, 25 Feb 2026 16:30:31 -0500
+Subject: [PATCH 6/7] revert commit cd8967ea3105d30adb878a9fea0e34a9378df610
+
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index df76f30d8..ddbecbeaa 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1200,7 +1200,7 @@ rknn_core_1: npu@fdac0000 {
+ 		status = "disabled";
+ 	};
+ 
+-	rknn_mmu_1: iommu@fdaca000 {
++	rknn_mmu_1: iommu@fdac9000 {
+ 		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+ 		reg = <0x0 0xfdaca000 0x0 0x100>;
+ 		interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH 0>;
+@@ -1230,7 +1230,7 @@ rknn_core_2: npu@fdad0000 {
+ 		status = "disabled";
+ 	};
+ 
+-	rknn_mmu_2: iommu@fdada000 {
++	rknn_mmu_2: iommu@fdad9000 {
+ 		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+ 		reg = <0x0 0xfdada000 0x0 0x100>;
+ 		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH 0>;
+-- 
+2.47.3
+

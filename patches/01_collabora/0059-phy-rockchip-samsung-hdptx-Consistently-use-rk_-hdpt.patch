@@ -1,6 +1,6 @@
-From 83b2b4e49839fd58e99b0f7950c09a483a4067be Mon Sep 17 00:00:00 2001
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 4 Jun 2025 12:03:11 +0300
+From ce266fbf76e67d09c2a9635b68f5ceb6a776888a Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Sat, 28 Feb 2026 04:43:26 -0500
 Subject: [PATCH 059/103] phy: rockchip: samsung-hdptx: Consistently use
  [rk_]hdptx_[tmds_] prefixes
 
@@ -17,7 +17,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 31 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index a729e15de..44fda7397 100644
+index 268eafd95..e372d12f1 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -32,17 +32,17 @@
@@ -51,8 +51,8 @@ index a729e15de..44fda7397 100644
 +static const struct ropll_config rk_hdptx_tmds_ropll_cfg[] = {
  	{ 594000000ULL, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
  	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 371250000ULL, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-@@ -456,7 +456,7 @@ static const struct ropll_config ropll_tmds_cfg[] = {
+ 	{ 461101250ULL, 97, 97, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 71, 1, 53, 2, 6,
+@@ -458,7 +458,7 @@ static const struct ropll_config ropll_tmds_cfg[] = {
  	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
  };
  
@@ -61,7 +61,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(CMN_REG(0009), 0x0c),
  	REG_SEQ0(CMN_REG(000a), 0x83),
  	REG_SEQ0(CMN_REG(000b), 0x06),
-@@ -546,7 +546,7 @@ static const struct reg_sequence rk_hdtpx_common_cmn_init_seq[] = {
+@@ -548,7 +548,7 @@ static const struct reg_sequence rk_hdtpx_common_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(009b), 0x10),
  };
  
@@ -70,7 +70,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(CMN_REG(0008), 0x00),
  	REG_SEQ0(CMN_REG(0011), 0x01),
  	REG_SEQ0(CMN_REG(0017), 0x20),
-@@ -588,14 +588,14 @@ static const struct reg_sequence rk_hdtpx_tmds_cmn_init_seq[] = {
+@@ -590,14 +590,14 @@ static const struct reg_sequence rk_hdtpx_tmds_cmn_init_seq[] = {
  	REG_SEQ0(CMN_REG(009b), 0x00),
  };
  
@@ -87,7 +87,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(LNTOP_REG(0201), 0x00),
  	REG_SEQ0(LNTOP_REG(0202), 0x00),
  	REG_SEQ0(LNTOP_REG(0203), 0x0f),
-@@ -603,7 +603,7 @@ static const struct reg_sequence rk_hdtpx_tmds_lntop_highbr_seq[] = {
+@@ -605,7 +605,7 @@ static const struct reg_sequence rk_hdtpx_tmds_lntop_highbr_seq[] = {
  	REG_SEQ0(LNTOP_REG(0205), 0xff),
  };
  
@@ -96,7 +96,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(LNTOP_REG(0201), 0x07),
  	REG_SEQ0(LNTOP_REG(0202), 0xc1),
  	REG_SEQ0(LNTOP_REG(0203), 0xf0),
-@@ -611,7 +611,7 @@ static const struct reg_sequence rk_hdtpx_tmds_lntop_lowbr_seq[] = {
+@@ -613,7 +613,7 @@ static const struct reg_sequence rk_hdtpx_tmds_lntop_lowbr_seq[] = {
  	REG_SEQ0(LNTOP_REG(0205), 0x1f),
  };
  
@@ -105,7 +105,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(LANE_REG(0303), 0x0c),
  	REG_SEQ0(LANE_REG(0307), 0x20),
  	REG_SEQ0(LANE_REG(030a), 0x17),
-@@ -666,7 +666,7 @@ static const struct reg_sequence rk_hdtpx_common_lane_init_seq[] = {
+@@ -668,7 +668,7 @@ static const struct reg_sequence rk_hdtpx_common_lane_init_seq[] = {
  	REG_SEQ0(LANE_REG(0620), 0xa0),
  };
  
@@ -114,7 +114,7 @@ index a729e15de..44fda7397 100644
  	REG_SEQ0(LANE_REG(0312), 0x00),
  	REG_SEQ0(LANE_REG(0412), 0x00),
  	REG_SEQ0(LANE_REG(0512), 0x00),
-@@ -970,7 +970,7 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned long long rate,
+@@ -972,7 +972,7 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned long long rate,
  	return true;
  }
  
@@ -123,7 +123,7 @@ index a729e15de..44fda7397 100644
  {
  	const struct ropll_config *cfg = NULL;
  	struct ropll_config rc = {0};
-@@ -979,9 +979,9 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -981,9 +981,9 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
  	if (!hdptx->hdmi_cfg.tmds_char_rate)
  		return 0;
  
@@ -136,7 +136,7 @@ index a729e15de..44fda7397 100644
  			break;
  		}
  
-@@ -1001,8 +1001,8 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -1003,8 +1003,8 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
  
  	rk_hdptx_pre_power_up(hdptx);
  
@@ -147,7 +147,7 @@ index a729e15de..44fda7397 100644
  
  	regmap_write(hdptx->regmap, CMN_REG(0051), cfg->pms_mdiv);
  	regmap_write(hdptx->regmap, CMN_REG(0055), cfg->pms_mdiv_afc);
-@@ -1044,25 +1044,25 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
+@@ -1046,25 +1046,25 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
  	return ret;
  }
  
@@ -179,7 +179,7 @@ index a729e15de..44fda7397 100644
  
  	return rk_hdptx_post_enable_lane(hdptx);
  }
-@@ -1121,7 +1121,7 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
+@@ -1123,7 +1123,7 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
  	if (mode == PHY_MODE_DP) {
  		rk_hdptx_dp_reset(hdptx);
  	} else {
@@ -188,7 +188,7 @@ index a729e15de..44fda7397 100644
  		if (ret)
  			goto dec_usage;
  	}
-@@ -1468,7 +1468,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+@@ -1470,7 +1470,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
  		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
  			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
  
@@ -197,7 +197,7 @@ index a729e15de..44fda7397 100644
  		if (ret)
  			rk_hdptx_phy_consumer_put(hdptx, true);
  	}
-@@ -1491,11 +1491,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+@@ -1493,11 +1493,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
  	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
  		return -EINVAL;
  
@@ -212,7 +212,7 @@ index a729e15de..44fda7397 100644
  	    !rk_hdptx_phy_clk_pll_calc(hdmi->tmds_char_rate, NULL))
  		return -EINVAL;
  
-@@ -1920,7 +1920,7 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1922,7 +1922,7 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
  	 * while the latter being executed only once, i.e. when clock remains
  	 * in the prepared state during rate changes.
  	 */
