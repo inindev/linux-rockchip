@@ -1,0 +1,38 @@
+From a33b5d29bfdb02c1e47ca2c15891e71049032c50 Mon Sep 17 00:00:00 2001
+From: Michael Riesch <michael.riesch@collabora.com>
+Date: Mon, 16 Feb 2026 20:16:09 +0100
+Subject: [PATCH 046/132] media: dt-bindings: rockchip csi-2: Add RK3588
+ support
+
+Add compatible for the RK3588 CSI-2 receiver, which is compatible
+with the one used by RK3568.
+
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+[Ported over from Michael's previous patch]
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../bindings/media/rockchip,rk3568-mipi-csi2.yaml         | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+index 2c2bd8758..423e27a65 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+@@ -16,8 +16,12 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - rockchip,rk3568-mipi-csi2
++    oneOf:
++      - items:
++          - enum:
++              - rockchip,rk3588-mipi-csi2
++          - const: rockchip,rk3568-mipi-csi2
++      - const: rockchip,rk3568-mipi-csi2
+ 
+   reg:
+     maxItems: 1
+-- 
+2.47.3
+

@@ -1,0 +1,50 @@
+From a4621ef018f8b14c566b7dae552203902f329569 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 21 Jan 2026 06:01:21 +0100
+Subject: [PATCH 129/132] arm64: dts: rockchip: Add DP sound support to RK3576
+ device tree
+
+Add support for enabling sound for the DisplayPort to the RK3576 DT.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index b03dd69ec..1449dd919 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -344,6 +344,21 @@ opp-2208000000 {
+ 		};
+ 	};
+ 
++	dp0_sound: dp0-sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,mclk-fs = <512>;
++		simple-audio-card,name = "DP0";
++		status = "disabled";
++
++		simple-audio-card,codec {
++			sound-dai = <&dp 1>;
++		};
++
++		simple-audio-card,cpu {
++			sound-dai = <&spdif_tx3>;
++		};
++	};
++
+ 	gpu_opp_table: opp-table-gpu {
+ 		compatible = "operating-points-v2";
+ 
+@@ -1508,6 +1523,7 @@ dp: dp@27e40000 {
+ 			resets = <&cru SRST_DP0>;
+ 			phys = <&usbdp_phy PHY_TYPE_DP>;
+ 			power-domains = <&power RK3576_PD_VO1>;
++			#sound-dai-cells = <1>;
+ 			status = "disabled";
+ 
+ 			ports {
+-- 
+2.47.3
+

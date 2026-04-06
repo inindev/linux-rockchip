@@ -1,7 +1,7 @@
-From c3b5458e7d947efda1ff3be20b8950e6cf89a155 Mon Sep 17 00:00:00 2001
+From ef0639b1fc9826f06eed3a3f6ba954492d81c3b7 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 15 Aug 2025 18:36:54 +0300
-Subject: [PATCH 056/135] drm/rockchip: vop2: Support setting custom background
+Subject: [PATCH 056/132] drm/rockchip: vop2: Support setting custom background
  color
 
 VOP2 allows configuring the background color of each video output port.
@@ -21,10 +21,10 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index b7d87eb59..7173f1729 100644
+index b46798b8f..b9a8f2b6a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1555,6 +1555,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
+@@ -1553,6 +1553,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
  	struct vop2_video_port *vp = to_vop2_video_port(crtc);
  	struct vop2 *vop2 = vp->vop2;
  	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
@@ -32,7 +32,7 @@ index b7d87eb59..7173f1729 100644
  	u16 vtotal = mode->crtc_vtotal;
  	u16 hdisplay = mode->crtc_hdisplay;
  	u16 hact_st = mode->crtc_htotal - mode->crtc_hsync_start;
-@@ -1600,7 +1601,11 @@ static void vop2_post_config(struct drm_crtc *crtc)
+@@ -1598,7 +1599,11 @@ static void vop2_post_config(struct drm_crtc *crtc)
  		vop2_vp_write(vp, RK3568_VP_POST_DSP_VACT_INFO_F1, val);
  	}
  
@@ -45,7 +45,7 @@ index b7d87eb59..7173f1729 100644
  }
  
  static int us_to_vertical_line(struct drm_display_mode *mode, int us)
-@@ -2007,6 +2012,10 @@ static int vop2_crtc_state_dump(struct drm_crtc *crtc, struct seq_file *s)
+@@ -2006,6 +2011,10 @@ static int vop2_crtc_state_dump(struct drm_crtc *crtc, struct seq_file *s)
  		   drm_get_bus_format_name(vcstate->bus_format));
  	seq_printf(s, "\toutput_mode[%x]", vcstate->output_mode);
  	seq_printf(s, " color_space[%d]\n", vcstate->color_space);
@@ -56,7 +56,7 @@ index b7d87eb59..7173f1729 100644
  	seq_printf(s, "    Display mode: %dx%d%s%d\n",
  		   mode->hdisplay, mode->vdisplay, interlaced ? "i" : "p",
  		   drm_mode_vrefresh(mode));
-@@ -2501,6 +2510,8 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+@@ -2499,6 +2508,8 @@ static int vop2_create_crtcs(struct vop2 *vop2)
  			return dev_err_probe(drm->dev, ret,
  					     "crtc init for video_port%d failed\n", i);
  

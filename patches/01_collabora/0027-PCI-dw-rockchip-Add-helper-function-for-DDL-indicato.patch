@@ -1,7 +1,7 @@
-From e5f8b7ec5e7f5e440c61414ccb8a4cef064aaf7d Mon Sep 17 00:00:00 2001
+From efdc838ff3379a5f66de30dc59ab6c14bf3684da Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:30:11 +0200
-Subject: [PATCH 027/135] PCI: dw-rockchip: Add helper function for DDL
+Subject: [PATCH 027/132] PCI: dw-rockchip: Add helper function for DDL
  indicator
 
 Remove code duplication and improve readability by introducing a new
@@ -9,14 +9,14 @@ function to setup the DLL indicator.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 622379846..4377be5da 100644
+index c32c28c9a..1db6d4838 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -567,6 +567,15 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3
+@@ -559,6 +559,16 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3
  	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
  }
  
@@ -24,20 +24,30 @@ index 622379846..4377be5da 100644
 +{
 +	u32 val;
 +
-+	/* unmask DLL up/down indicator */
-+	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0);
++	/* unmask DLL up/down indicator and hot reset/link-down reset */
++	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
++	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
 +	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
 +}
 +
- static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 				      struct rockchip_pcie *rockchip)
+ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
  {
-@@ -602,9 +611,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 		return ret;
- 	}
+ 	struct dw_pcie_rp *pp;
+@@ -580,7 +590,6 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ {
+ 	struct device *dev = &pdev->dev;
+ 	int irq, ret;
+-	u32 val;
  
--	/* unmask DLL up/down indicator */
--	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0);
+ 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_EP))
+ 		return -ENODEV;
+@@ -620,10 +629,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 
+ 	pci_epc_init_notify(rockchip->pci.ep.epc);
+ 
+-	/* unmask DLL up/down indicator and hot reset/link-down reset */
+-	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
+-	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
 -	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
 +	rockchip_pcie_unmask_dll_indicator(rockchip);
  

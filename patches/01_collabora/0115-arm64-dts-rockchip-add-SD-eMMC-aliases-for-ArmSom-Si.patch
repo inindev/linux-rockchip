@@ -1,0 +1,36 @@
+From 34d750a2ea73f436558b103bbe5ce6d765872dde Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 3 Mar 2026 16:39:54 +0100
+Subject: [PATCH 115/132] arm64: dts: rockchip: add SD/eMMC aliases for ArmSom
+ Sige5
+
+Provide aliases for the SD and eMMC interfaces, so that the operating
+system can assign stable interface names.
+
+On Linux this is only relevant when booting without partition UUID
+based root device identification, e.g. when booting without an
+initramfs. In that case booting with e.g. root=/dev/mmcblk0p2 is
+unreliable without this patch as the device numbers changed based
+on device probe order.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index e43baefd0..411253b6e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -21,6 +21,8 @@ / {
+ 	aliases {
+ 		ethernet0 = &gmac0;
+ 		ethernet1 = &gmac1;
++		mmc0 = &sdhci;
++		mmc1 = &sdmmc;
+ 	};
+ 
+ 	chosen {
+-- 
+2.47.3
+

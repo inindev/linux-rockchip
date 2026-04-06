@@ -1,7 +1,7 @@
-From 5569c2796a993850d1641c11d9fd62a9239c99a2 Mon Sep 17 00:00:00 2001
+From 73fff51234c53bf74d819a9f945bd05ad2408ab6 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 19 Aug 2025 11:21:35 +0300
-Subject: [PATCH 055/135] drm: Add CRTC background color property
+Subject: [PATCH 055/132] drm: Add CRTC background color property
 
 Some display controllers can be hardware programmed to show non-black
 colors for pixels that are either not covered by any plane or are
@@ -34,7 +34,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  8 files changed, 100 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index cee6d8fc4..57668f1c9 100644
+index 41f916f11..4192ad879 100644
 --- a/drivers/gpu/drm/drm_atomic_state_helper.c
 +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
 @@ -75,6 +75,7 @@ __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
@@ -46,10 +46,10 @@ index cee6d8fc4..57668f1c9 100644
  EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
  
 diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
-index 7320db4b8..db8fdfea7 100644
+index 87de41fb4..5bd5bf666 100644
 --- a/drivers/gpu/drm/drm_atomic_uapi.c
 +++ b/drivers/gpu/drm/drm_atomic_uapi.c
-@@ -436,6 +436,8 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+@@ -454,6 +454,8 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
  					&replaced);
  		state->color_mgmt_changed |= replaced;
  		return ret;
@@ -58,7 +58,7 @@ index 7320db4b8..db8fdfea7 100644
  	} else if (property == config->prop_out_fence_ptr) {
  		s32 __user *fence_ptr = u64_to_user_ptr(val);
  
-@@ -483,6 +485,8 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
+@@ -501,6 +503,8 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
  		*val = (state->ctm) ? state->ctm->base.id : 0;
  	else if (property == config->gamma_lut_property)
  		*val = (state->gamma_lut) ? state->gamma_lut->base.id : 0;
@@ -68,7 +68,7 @@ index 7320db4b8..db8fdfea7 100644
  		*val = 0;
  	else if (property == crtc->scaling_filter_property)
 diff --git a/drivers/gpu/drm/drm_blend.c b/drivers/gpu/drm/drm_blend.c
-index 6852d73c9..3af042f08 100644
+index 3b1f5f728..68c7bb7ba 100644
 --- a/drivers/gpu/drm/drm_blend.c
 +++ b/drivers/gpu/drm/drm_blend.c
 @@ -191,10 +191,6 @@

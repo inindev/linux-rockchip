@@ -1,0 +1,47 @@
+From 97e5875b0257302944ca040f5eb9cc565dfc93af Mon Sep 17 00:00:00 2001
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Date: Tue, 17 Feb 2026 17:01:42 +0530
+Subject: [PATCH 001/132] PCI: dwc: Proceed with system suspend even if the
+ endpoint doesn't respond with PME_TO_Ack message
+
+PCIe spec r7.0, sec 5.3.3.2.1, recommends proceeding with L2/L3 sequence
+even if one or devices do not respond with PME_TO_Ack message after 10ms
+timeout.
+
+So just print a warning if the timeout happens and proceed with the system
+suspend.
+
+Reported-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8650-HDK
+Link: https://patch.msgid.link/20260217113142.9140-1-manivannan.sadhasivam@oss.qualcomm.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/pci/controller/dwc/pcie-designware-host.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index 6ae6189e9..ba183fc3e 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -1256,9 +1256,13 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+ 				PCIE_PME_TO_L2_TIMEOUT_US/10,
+ 				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+ 	if (ret) {
+-		/* Only log message when LTSSM isn't in DETECT or POLL */
+-		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+-		return ret;
++		/*
++		 * Failure is non-fatal since spec r7.0, sec 5.3.3.2.1,
++		 * recommends proceeding with L2/L3 sequence even if one or more
++		 * devices do not respond with PME_TO_Ack after 10ms timeout.
++		 */
++		dev_warn(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
++		ret = 0;
+ 	}
+ 
+ 	/*
+-- 
+2.47.3
+

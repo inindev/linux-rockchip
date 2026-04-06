@@ -1,0 +1,36 @@
+From 87b30e1cf6f2e6879d3d7234c6e187ed6fbf1308 Mon Sep 17 00:00:00 2001
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Date: Wed, 7 Jan 2026 11:09:51 +0100
+Subject: [PATCH 064/132] dt-bindings: vendor-prefixes: Add Verisilicon
+
+Verisilicon Microelectronics is a company based in Shanghai, China,
+developping hardware blocks for SoC.
+
+https://verisilicon.com/
+
+Add their name to the list of vendors.
+
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Link: https://patch.msgid.link/20260107101005.84039-2-benjamin.gaignard@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index ee7fd3cfe..ebd907230 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1761,6 +1761,8 @@ patternProperties:
+     description: Variscite Ltd.
+   "^vdl,.*":
+     description: Van der Laan b.v.
++  "^verisilicon,.*":
++    description: VeriSilicon Microelectronics
+   "^vertexcom,.*":
+     description: Vertexcom Technologies, Inc.
+   "^via,.*":
+-- 
+2.47.3
+

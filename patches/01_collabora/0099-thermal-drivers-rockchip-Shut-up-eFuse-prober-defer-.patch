@@ -1,0 +1,33 @@
+From 3c667d26ae68a72c8d7870ffdf4abb031c27b6b4 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 22 Jan 2026 14:57:54 +0100
+Subject: [PATCH 099/132] thermal/drivers/rockchip: Shut up eFuse prober defer
+ warning
+
+Shut up the following message printed at error level on ArmSom Sige5:
+
+rockchip-thermal 2ae70000.tsadc: failed reading trim of sensor 0: -EPROBE_DEFER
+
+Fixes: ae332ec0009d ("thermal/drivers/rockchip: Support reading trim values from OTP")
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/thermal/rockchip_thermal.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
+index c49ddf70f..2a40339de 100644
+--- a/drivers/thermal/rockchip_thermal.c
++++ b/drivers/thermal/rockchip_thermal.c
+@@ -1638,8 +1638,7 @@ rockchip_thermal_register_sensor(struct platform_device *pdev,
+ 	if (tsadc->get_trim_code && sensor->of_node) {
+ 		error = rockchip_get_efuse_value(sensor->of_node, "trim", &trim);
+ 		if (error < 0 && error != -ENOENT) {
+-			dev_err(dev, "failed reading trim of sensor %d: %pe\n",
+-				id, ERR_PTR(error));
++			dev_err_probe(dev, error, "failed reading trim of sensor %d\n", id);
+ 			return error;
+ 		}
+ 		if (trim) {
+-- 
+2.47.3
+

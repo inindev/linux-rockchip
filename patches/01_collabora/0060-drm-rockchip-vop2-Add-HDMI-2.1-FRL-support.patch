@@ -1,7 +1,7 @@
-From 69b1294201d2586421aa7c66da5734be4c103904 Mon Sep 17 00:00:00 2001
+From 83f43c8f6f4e7e8b7accda165662ebe0bc2b0bdd Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 19 Jun 2025 23:57:01 +0300
-Subject: [PATCH 060/135] drm/rockchip: vop2: Add HDMI 2.1 FRL support
+Subject: [PATCH 060/132] drm/rockchip: vop2: Add HDMI 2.1 FRL support
 
 TODO: this has been "borrowed" from downstream code, although it might
 not really be required.

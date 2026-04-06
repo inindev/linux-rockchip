@@ -1,0 +1,31 @@
+From 8106c86fe7f5803b52bcbb150dc04a6138c08d78 Mon Sep 17 00:00:00 2001
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Date: Wed, 7 Jan 2026 11:09:57 +0100
+Subject: [PATCH 070/132] arm64: defconfig: enable Verisilicon IOMMU for
+ Rockchip RK3588
+
+Enable Verisilicon IOMMU used by Rockchip RK3588 AV1 hardware codec.
+This hardware block could be found in Radxa Rock 5B board.
+
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Link: https://patch.msgid.link/20260107101005.84039-8-benjamin.gaignard@collabora.com
+Signed-off-by: Sebastian Reichel <sre@kernel.org>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index b67d5b1fc..0c57539e9 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1592,6 +1592,7 @@ CONFIG_ARM_SMMU_V3=y
+ CONFIG_MTK_IOMMU=y
+ CONFIG_QCOM_IOMMU=y
+ CONFIG_APPLE_DART=m
++CONFIG_VSI_IOMMU=y
+ CONFIG_REMOTEPROC=y
+ CONFIG_IMX_REMOTEPROC=y
+ CONFIG_MTK_SCP=m
+-- 
+2.47.3
+

@@ -1,0 +1,37 @@
+From 4f097d348277a69ccf8ae2aeb1956aa9c9c9c2b6 Mon Sep 17 00:00:00 2001
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Date: Wed, 18 Mar 2026 22:26:19 +0300
+Subject: [PATCH 100/132] media: synopsys: hdmirx: Fix HPD hold time
+
+Increase time of holding HPD pin low by 50ms. This fixes EDID change not
+detected by sink/display side.
+
+Fixes: 7b59b132ad43 ("media: platform: synopsys: Add support for HDMI input driver")
+Reported-by: Ross Cawston <ross@r-sc.ca>
+Closes: https://lore.kernel.org/linux-rockchip/20260209061654.54757-1-ross@r-sc.ca/
+Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Link: https://lore.kernel.org/r/20260318192619.3910060-1-dmitry.osipenko@collabora.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+index 61ad20b18..4c8957505 100644
+--- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
++++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+@@ -506,9 +506,9 @@ static void hdmirx_hpd_ctrl(struct snps_hdmirx_dev *hdmirx_dev, bool en)
+ 	hdmirx_writel(hdmirx_dev, CORE_CONFIG,
+ 		      hdmirx_dev->hpd_trigger_level_high ? en : !en);
+ 
+-	/* 100ms delay as per HDMI spec */
++	/* 100ms delay as per HDMI spec + extra 50ms to cover internal delay */
+ 	if (!en)
+-		msleep(100);
++		msleep(100 + 50);
+ }
+ 
+ static void hdmirx_write_edid_data(struct snps_hdmirx_dev *hdmirx_dev,
+-- 
+2.47.3
+

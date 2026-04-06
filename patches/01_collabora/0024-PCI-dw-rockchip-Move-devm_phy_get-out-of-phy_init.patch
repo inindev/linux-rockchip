@@ -1,7 +1,7 @@
-From 5afa398e227fe054c0166a654e8fc76c5e391c85 Mon Sep 17 00:00:00 2001
+From ab427ba6b463b12b979394e74152ee88f801dfa9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:06:36 +0200
-Subject: [PATCH 024/135] PCI: dw-rockchip: Move devm_phy_get out of phy_init
+Subject: [PATCH 024/132] PCI: dw-rockchip: Move devm_phy_get out of phy_init
 
 By moving devm_phy_get() to the probe routine, rockchip_pcie_phy_init()
 can be used to re-initialize the PCIe PHY, which is for example needed
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index effc44144..8a7975911 100644
+index 520eff523..84f727083 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -465,14 +465,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+@@ -485,14 +485,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
  
  static int rockchip_pcie_phy_init(struct rockchip_pcie *rockchip)
  {
@@ -31,7 +31,7 @@ index effc44144..8a7975911 100644
  	ret = phy_init(rockchip->phy);
  	if (ret < 0)
  		return ret;
-@@ -714,6 +708,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+@@ -680,6 +674,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
  					     "failed to enable vpcie3v3 regulator\n");
  	}
  
