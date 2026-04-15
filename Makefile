@@ -2,15 +2,15 @@
 # Copyright (C) 2026, John Clark <inindev@gmail.com>
 #
 
-LINUX_VER    = 7.0-rc7
-LINUX_SHA256 = 16c8d4c9aa996e963ba6ee71380a36659044a5bfd389091597006ed05dbe5d23
+LINUX_VER    = 7.0
+LINUX_SHA256 = bb7f6d80b387c757b7d14bb93028fcb90f793c5c0d367736ee815a100b3891f0
 
 
 LDIR = kernel-$(LINUX_VER)/linux-$(LINUX_VER)
 
 ifeq ($(findstring -rc,$(LINUX_VER)),)
     LINUX_FILE = linux-$(LINUX_VER).tar.xz
-    LINUX_URL  = https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)
+    LINUX_URL  = https://cdn.kernel.org/pub/linux/kernel/v7.x/$(LINUX_FILE)
 else
     LINUX_FILE = linux-$(LINUX_VER).tar.gz
     LINUX_URL  = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/$(LINUX_FILE)
