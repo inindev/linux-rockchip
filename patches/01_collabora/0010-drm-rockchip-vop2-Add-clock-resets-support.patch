@@ -1,4 +1,4 @@
-From e748f0c4428840e31eb51255d811da426703914a Mon Sep 17 00:00:00 2001
+From 1677a1f7b9658bde89fb1e16abfa9d06b5982441 Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:41 -0500
 Subject: [PATCH 010/132] drm/rockchip: vop2: Add clock resets support

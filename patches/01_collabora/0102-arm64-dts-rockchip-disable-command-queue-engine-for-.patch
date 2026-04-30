@@ -1,4 +1,4 @@
-From a624fbdebefe25787b2dca3d35ff223b462db08d Mon Sep 17 00:00:00 2001
+From 7e4ec6a2c6d514ef762030230c80e5882cb7fba0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 17 Mar 2026 15:44:57 +0100
 Subject: [PATCH 102/132] arm64: dts: rockchip: disable command queue engine

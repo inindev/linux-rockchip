@@ -1,4 +1,4 @@
-From 474a5ccee9390148a55e5f0f6021d1fd5f65466f Mon Sep 17 00:00:00 2001
+From 4d7024ae83cdd55674e8236d74fb4cd1bee8de5c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 17:59:43 +0100
 Subject: [PATCH 105/132] usb: typec: fusb302: add DRM DP HPD bridge support
@@ -45,7 +45,7 @@ index 8cdd84ca5..00baa7503 100644
  	  The Fairchild FUSB302 Type-C chip driver that works with
  	  Type-C Port Controller Manager to provide USB PD and USB
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 19ff82178..ce7069fb4 100644
+index 5b1f2750c..889c4c29c 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -5,6 +5,7 @@
@@ -78,7 +78,7 @@ index 19ff82178..ce7069fb4 100644
  	chip->tcpm_port = tcpm_register_port(&client->dev, &chip->tcpc_dev);
  	if (IS_ERR(chip->tcpm_port)) {
  		fwnode_handle_put(chip->tcpc_dev.fwnode);
-@@ -1764,6 +1773,10 @@ static int fusb302_probe(struct i2c_client *client)
+@@ -1765,6 +1774,10 @@ static int fusb302_probe(struct i2c_client *client)
  	enable_irq_wake(chip->gpio_int_n_irq);
  	i2c_set_clientdata(client, chip);
  

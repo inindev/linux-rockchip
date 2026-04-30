@@ -1,4 +1,4 @@
-From 0051f16c1a496e191a80c089447aca2876c8f800 Mon Sep 17 00:00:00 2001
+From 37478d03d8722e8fb77c0393543ca21a6690fe87 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 18:09:57 +0200
 Subject: [PATCH 004/132] clk: composite: replace open-coded abs_diff()

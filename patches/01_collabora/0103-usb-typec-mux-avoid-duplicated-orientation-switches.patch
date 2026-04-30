@@ -1,4 +1,4 @@
-From 4dbfe6d907761b45e7314a6afb239f786010fd88 Mon Sep 17 00:00:00 2001
+From ad4736ffec849875e432716022dbb7b3a8cb695f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 00:11:02 +0100
 Subject: [PATCH 103/132] usb: typec: mux: avoid duplicated orientation

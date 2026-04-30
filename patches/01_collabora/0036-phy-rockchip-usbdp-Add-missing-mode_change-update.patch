@@ -1,4 +1,4 @@
-From 7bebeb92cf070a7ec82cb3209259b614d6bef1a4 Mon Sep 17 00:00:00 2001
+From 3cd7fb44424609ebadb8f92da2ca7fdb09a91d77 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 21:32:59 +0100
 Subject: [PATCH 036/132] phy: rockchip: usbdp: Add missing mode_change update

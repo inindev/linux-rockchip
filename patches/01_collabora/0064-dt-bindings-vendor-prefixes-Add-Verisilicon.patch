@@ -1,4 +1,4 @@
-From 87b30e1cf6f2e6879d3d7234c6e187ed6fbf1308 Mon Sep 17 00:00:00 2001
+From 5a79098b055c20b43d7345425b83ab72b2bdb69b Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:51 +0100
 Subject: [PATCH 064/132] dt-bindings: vendor-prefixes: Add Verisilicon

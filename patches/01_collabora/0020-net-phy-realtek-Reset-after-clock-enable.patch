@@ -1,4 +1,4 @@
-From df6f5b61427b05f466a589bee4d527148d469d6d Mon Sep 17 00:00:00 2001
+From ed5c6035d19b8c55d195c074204c7d6b084e2af4 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
 Subject: [PATCH 020/132] net: phy: realtek: Reset after clock enable

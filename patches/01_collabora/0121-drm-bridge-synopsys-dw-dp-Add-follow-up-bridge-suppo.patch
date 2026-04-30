@@ -1,4 +1,4 @@
-From c22c60214ffc9199bc2e1136d8e9e4e20de42601 Mon Sep 17 00:00:00 2001
+From 1d6ffee8d71f4beaf58bab7b6cd8303fb0f1ba85 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:12:53 +0100
 Subject: [PATCH 121/132] drm/bridge: synopsys: dw-dp: Add follow-up bridge

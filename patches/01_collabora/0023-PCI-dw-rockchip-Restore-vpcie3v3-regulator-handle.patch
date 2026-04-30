@@ -1,4 +1,4 @@
-From 8ba782f446bd4529b4e940d0ea370629a4568bf9 Mon Sep 17 00:00:00 2001
+From d09d461055f0f1d33d033224b1f0e1de4e09496d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
 Subject: [PATCH 023/132] PCI: dw-rockchip: Restore vpcie3v3 regulator handle

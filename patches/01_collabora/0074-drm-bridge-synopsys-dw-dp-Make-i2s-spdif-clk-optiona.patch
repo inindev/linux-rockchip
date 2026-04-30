@@ -1,4 +1,4 @@
-From 7dd650111ea99017ff13cc5459b23825d0429fdf Mon Sep 17 00:00:00 2001
+From d6ad01f334a4cace3ec39cb9db2be0f80a29eb47 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:46 +0800
 Subject: [PATCH 074/132] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk

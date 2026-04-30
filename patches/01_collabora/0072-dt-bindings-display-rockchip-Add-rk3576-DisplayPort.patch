@@ -1,4 +1,4 @@
-From e8ff33447edaeb9081071928e6f66a1be91c92a2 Mon Sep 17 00:00:00 2001
+From b2b518ad570ade8f5fd746020d0e0a0aeb5f55a9 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:44 +0800
 Subject: [PATCH 072/132] dt-bindings: display: rockchip: Add rk3576

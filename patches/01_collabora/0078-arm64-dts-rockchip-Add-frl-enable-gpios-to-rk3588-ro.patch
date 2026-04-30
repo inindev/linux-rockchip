@@ -1,4 +1,4 @@
-From 27ae13dae860ea74d10f84ef56830bb11cd953bc Mon Sep 17 00:00:00 2001
+From 191427879b4fa0a5c93141f9f45281e7fb421e5c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Thu, 29 May 2025 19:31:51 +0300
 Subject: [PATCH 078/132] arm64: dts: rockchip: Add frl-enable-gpios to

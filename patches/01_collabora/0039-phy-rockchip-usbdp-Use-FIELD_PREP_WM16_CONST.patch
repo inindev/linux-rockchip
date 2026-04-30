@@ -1,4 +1,4 @@
-From 5e4c72f6b9c65fcb0e4ecc3983b980c2b9365152 Mon Sep 17 00:00:00 2001
+From eefd4e52dfa295094701a8d46c230f27db4695a8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:15:23 +0100
 Subject: [PATCH 039/132] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST

@@ -1,4 +1,4 @@
-From 455cc92d0693dc2062deb8bf7fb7a5b290c84ad1 Mon Sep 17 00:00:00 2001
+From 34d03d9143d61904acd2da76f42610996677048f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Feb 2026 19:26:12 +0100
 Subject: [PATCH 033/132] phy: rockchip: usbdp: Keep clocks running on PHY

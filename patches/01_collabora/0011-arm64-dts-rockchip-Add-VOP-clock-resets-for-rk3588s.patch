@@ -1,4 +1,4 @@
-From 020b3bc30a74e62d8c08b191536f8e99aa1e32f9 Mon Sep 17 00:00:00 2001
+From bb8e957db533e47fc590c3becaa91353a790b3cd Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:42 -0500
 Subject: [PATCH 011/132] arm64: dts: rockchip: Add VOP clock resets for

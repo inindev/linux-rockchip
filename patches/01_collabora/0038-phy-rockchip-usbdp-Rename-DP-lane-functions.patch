@@ -1,4 +1,4 @@
-From 8b271618c51d6f9b1480aaaa645d6bea5b062357 Mon Sep 17 00:00:00 2001
+From 65c546324a0b61bf4b9498d1b6cb36c51601d13d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 22:45:18 +0100
 Subject: [PATCH 038/132] phy: rockchip: usbdp: Rename DP lane functions

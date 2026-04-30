@@ -1,4 +1,4 @@
-From 0bdf92bd4ab2a7aa4921bf8f71198de7bd8e8cb8 Mon Sep 17 00:00:00 2001
+From 20394b1dbbe293303ba1296c19eb625b9c9f9bcf Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 23:04:23 +0200
 Subject: [PATCH 082/132] drm/bridge-connector: Switch to using ->detect_ctx

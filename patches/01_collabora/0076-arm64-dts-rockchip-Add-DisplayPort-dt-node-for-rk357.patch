@@ -1,4 +1,4 @@
-From 07d269c8a044be17555cac3a46856e5e091b9f8b Mon Sep 17 00:00:00 2001
+From 4f7fd4ed486fb093868a2e2af668bc058fed6435 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:48 +0800
 Subject: [PATCH 076/132] arm64: dts: rockchip: Add DisplayPort dt node for

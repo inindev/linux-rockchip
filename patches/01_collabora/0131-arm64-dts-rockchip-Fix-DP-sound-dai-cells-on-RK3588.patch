@@ -1,4 +1,4 @@
-From e04f9768d37c47170e03a198681e7a52a65369a4 Mon Sep 17 00:00:00 2001
+From a2338cb1202c70e80a9c66d1660d7244be72c198 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 22:22:54 +0100
 Subject: [PATCH 131/132] arm64: dts: rockchip: Fix DP sound-dai-cells on

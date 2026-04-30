@@ -1,4 +1,4 @@
-From bb977672fd9a9a0dc04cfd29534c94d1a4d3278a Mon Sep 17 00:00:00 2001
+From 4e0b6595b9b7ebf3818b6c461597a8ef8e1826d2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 03:52:38 +0100
 Subject: [PATCH 106/132] usb: typec: tcpm: improve handling of DISCOVER_MODES

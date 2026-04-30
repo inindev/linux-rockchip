@@ -1,4 +1,4 @@
-From 310b9b4c20aa5dd3c73c31dbd17720b55dff513f Mon Sep 17 00:00:00 2001
+From b165c3f0cd9a35b5c375c39c91b9cd9b869157c8 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 9 Mar 2026 21:12:33 +0200
 Subject: [PATCH 118/132] drm/bridge: synopsys: dw-dp: Drop useless memory

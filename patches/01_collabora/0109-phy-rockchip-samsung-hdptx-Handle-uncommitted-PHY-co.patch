@@ -1,4 +1,4 @@
-From 95fe4fa6def3b101fa3a15b249aaa19f322ead28 Mon Sep 17 00:00:00 2001
+From 965cec4d44f55542fd8ca36b3d12a4a0f55fe08e Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:46 +0200
 Subject: [PATCH 109/132] phy: rockchip: samsung-hdptx: Handle uncommitted PHY

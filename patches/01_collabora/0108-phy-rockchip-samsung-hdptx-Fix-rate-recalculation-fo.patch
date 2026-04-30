@@ -1,4 +1,4 @@
-From 04c37aa76428a4239f3fc3a96e10296c7c9f8f43 Mon Sep 17 00:00:00 2001
+From bb4d393b5908329d6ec1a044e8765b27008942ea Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:45 +0200
 Subject: [PATCH 108/132] phy: rockchip: samsung-hdptx: Fix rate recalculation

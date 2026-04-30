@@ -1,4 +1,4 @@
-From dc8b0a40b2a86dafe37ea34a9faab7e9f77fc406 Mon Sep 17 00:00:00 2001
+From 4b5007f2bb09a411890601761b08b7d61d67efc4 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 8 Jul 2025 19:36:31 +0200
 Subject: [PATCH 021/132] arm64: dts: rockchip: use MAC TX delay for ROCK 4D

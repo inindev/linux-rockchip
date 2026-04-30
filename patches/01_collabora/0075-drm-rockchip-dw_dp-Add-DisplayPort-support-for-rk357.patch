@@ -1,4 +1,4 @@
-From 6b5beea93df767bdaaf9953cb2764f45f8bca540 Mon Sep 17 00:00:00 2001
+From 47df36951e5c1787c45359e37f0b3bd24fee0547 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:47 +0800
 Subject: [PATCH 075/132] drm/rockchip: dw_dp: Add DisplayPort support for

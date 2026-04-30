@@ -1,4 +1,4 @@
-From ea96ac218517ed4528894d87e12eabc83008c3dc Mon Sep 17 00:00:00 2001
+From 22ec73b6ef15c08f6ac8038e42e3d075e20efc6f Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 9 Mar 2026 20:43:42 +0200
 Subject: [PATCH 117/132] drm/bridge: synopsys: dw-dp: Unregister AUX channel

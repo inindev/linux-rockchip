@@ -1,4 +1,4 @@
-From 5a07d6298e4cd2501b4c2d76fd3830893b292cc8 Mon Sep 17 00:00:00 2001
+From 377b15bee2d72947d10292ac040222f6987dacdc Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 23 Jan 2026 23:10:22 +0100
 Subject: [PATCH 127/132] dt-bindings: display: rockchip: dw-dp: fix sound DAI

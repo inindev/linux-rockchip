@@ -1,4 +1,4 @@
-From cb6ff0690c6e411768c969f96694c938ae0fb31b Mon Sep 17 00:00:00 2001
+From 7721d0f9ed1de20e5876c25fce71a58fba77e438 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 06:02:48 +0100
 Subject: [PATCH 130/132] arm64: dts: rockchip: Add DP audio for ArmSom Sige5

@@ -1,0 +1,193 @@
+From 87b23be6b39a38092d3d1fb94ba73edd340eccc6 Mon Sep 17 00:00:00 2001
+From: John Clark <inindev@gmail.com>
+Date: Thu, 30 Apr 2026 10:44:47 -0400
+Subject: [PATCH 4/5] usb: dwc3: enable Sparse Control-transfer scheduling by
+ default
+
+Enable GUCTL.SprsCtrlTransEn (bit 17) by default in dwc3_core_init().
+The bit makes the host schedule each phase of a Control transfer
+(SETUP / DATA / STATUS) in its own microframe rather than packing
+them into one. Per the Synopsys DWC_usb31 databook (mirrored on
+Intel's published Agilex 5 register reference for DWC_usb31_block_gbl
+GUCTL):
+
+    Sparse Control Transaction Enable
+    Some devices are slow in responding to Control transfers.
+    Scheduling multiple transactions in one microframe/frame can
+    cause these devices to misbehave. If this bit is set to 1'b1,
+    the host controller schedules each phase of a Control transfer
+    in different microframes/frames.
+
+The reset default is 0. Unlike the neighbouring "fix slow devices"
+bits in the same register (NoExtrDl, InsrtExtrFSBODI), the databook
+description carries no performance-cost warning: the bit only paces
+Control transfers, which run during enumeration/configuration, not
+during ongoing data flow.
+
+This has been an observed problem twice, on independent SoC families
+five years apart, with the same symptom: the device ACKs SET_ADDRESS,
+NAKs the next GET_DESCRIPTOR control transfer, and stops responding,
+surfacing as "usb X-Y: device descriptor read/all, error -110":
+
+  - Yaqin Pan reported in 2021 with a USB 2.0 TF card reader on
+    qcom,sm8350-dwc3 / sm7325-dwc3 / sm6225-dwc3:
+    https://lore.kernel.org/all/20211230135832.23005-2-akingchen@vivo.com/
+
+  - Reproduced in 2026 on a FriendlyElec NanoPC-T6 (Rockchip RK3588)
+    with a passive USB-C SD/MMC card reader. ftrace of usb_control_msg
+    confirmed the device returns 18 bytes for the initial 8-byte
+    GET_DESCRIPTOR at default address, xhci_address_device succeeds,
+    and the next usb_get_descriptor call times out at 5.16s with
+    -ETIMEDOUT.
+
+The 2021 patch carried the bit behind a DT property
+(snps,sprs-ctrl-trans-quirk). Greg KH's review feedback at the time
+was that "burying something as basic as 'reliable device connection'
+in a DT quirk seems very sloppy"; he asked for an automatic mechanism.
+The original submitter never returned with the requested controller
+list, and the patch was not merged.
+
+This v4 addresses that feedback by making the fix the default. The
+opt-out is a "snps,dis-sprs-ctrl-xfer-quirk" DT property, mirroring
+the existing dis-*-quirk pattern, for any platform that finds a
+regression. No public regression has been reported in the five years
+the original patch has been on the mailing list.
+
+Reported-by: Yaqin Pan <akingchen@vivo.com>
+Link: https://lore.kernel.org/all/20211230135832.23005-2-akingchen@vivo.com/
+Link: https://lore.kernel.org/all/Yc3UuSRkgiopJ5jp@kroah.com/
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ .../bindings/usb/snps,dwc3-common.yaml        | 11 +++++
+ drivers/usb/dwc3/core.c                       | 46 +++++++++++++++++++
+ drivers/usb/dwc3/core.h                       |  7 +++
+ 3 files changed, 64 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+index 6c0b8b653..b24ff7db7 100644
+--- a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
++++ b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+@@ -207,6 +207,17 @@ properties:
+       avoid -EPROTO errors with usbhid on some devices (Hikey 970).
+     type: boolean
+ 
++  snps,dis-sprs-ctrl-xfer-quirk:
++    description:
++      When set, disable Sparse Control-transfer scheduling
++      (GUCTL.SprsCtrlTransEn). The driver enables that bit by default
++      to give slow USB devices time to respond between Control-transfer
++      phases (avoiding "device descriptor read/all, error -110" failures
++      observed on Qualcomm sm83xx and Rockchip RK3588 platforms with
++      slow USB 2.0 / USB-C card readers). Set this property only if a
++      platform-specific regression is observed.
++    type: boolean
++
+   snps,gfladj-refclk-lpm-sel-quirk:
+     description:
+       When set, run the SOF/ITP counter based on ref_clk.
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 161a4d58b..7067d297d 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -396,6 +396,47 @@ static void dwc3_frame_length_adjustment(struct dwc3 *dwc)
+ 	}
+ }
+ 
++/**
++ * dwc3_enable_sparse_ctrl_xfer - Enable sparse Control-transfer scheduling.
++ *
++ * Some USB devices respond slowly to Control transfers and misbehave when
++ * the host packs SETUP/DATA/STATUS transactions of a Control transfer into
++ * a single microframe (the IP's reset-default). Symptom: the device ACKs
++ * SET_ADDRESS, but NAKs the next GET_DESCRIPTOR control transfer and stops
++ * responding, eventually surfacing as "device descriptor read/all,
++ * error -110" in dmesg.
++ *
++ * Setting GUCTL.SprsCtrlTransEn (bit 17) makes the host schedule each
++ * Control-transfer phase in its own microframe, which is sufficient to
++ * give slow devices the time they need. Per the Synopsys DWC_usb31
++ * databook (and Intel's published Agilex 5 register reference), this bit
++ * affects host-mode Control-transfer scheduling only; it has no documented
++ * performance cost outside enumeration.
++ *
++ * Two independently-reproduced cases drove this change:
++ *
++ *  - Vivo (Yaqin Pan, 2021) observed the failure on
++ *    qcom,sm8350-dwc3 / sm7325-dwc3 / sm6225-dwc3 with a USB 2.0 TF card
++ *    reader. See:
++ *    https://lore.kernel.org/all/20211230135832.23005-2-akingchen@vivo.com/
++ *
++ *  - FriendlyElec NanoPC-T6 (Rockchip RK3588), 2026, with a passive
++ *    USB-C SD/MMC card reader.
++ *
++ * @dwc: Pointer to our controller context structure
++ */
++static void dwc3_enable_sparse_ctrl_xfer(struct dwc3 *dwc)
++{
++	u32 reg;
++
++	if (dwc->dis_sprs_ctrl_xfer_quirk)
++		return;
++
++	reg = dwc3_readl(dwc, DWC3_GUCTL);
++	reg |= DWC3_GUCTL_SPRSCTRLTRANSEN;
++	dwc3_writel(dwc, DWC3_GUCTL, reg);
++}
++
+ /**
+  * dwc3_ref_clk_period - Reference clock period configuration
+  *		Default reference clock period depends on hardware
+@@ -1390,6 +1431,8 @@ int dwc3_core_init(struct dwc3 *dwc)
+ 	/* Adjust Reference Clock Period */
+ 	dwc3_ref_clk_period(dwc);
+ 
++	dwc3_enable_sparse_ctrl_xfer(dwc);
++
+ 	dwc3_set_incr_burst_type(dwc);
+ 
+ 	dwc3_config_soc_bus(dwc);
+@@ -1855,6 +1898,9 @@ static void dwc3_get_properties(struct dwc3 *dwc)
+ 	dwc->dis_split_quirk = device_property_read_bool(dev,
+ 				"snps,dis-split-quirk");
+ 
++	dwc->dis_sprs_ctrl_xfer_quirk = device_property_read_bool(dev,
++				"snps,dis-sprs-ctrl-xfer-quirk");
++
+ 	dwc->lpm_nyet_threshold = lpm_nyet_threshold;
+ 	dwc->tx_de_emphasis = tx_de_emphasis;
+ 
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index a35b3db1f..b167a6284 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -418,6 +418,7 @@
+ /* Global User Control Register*/
+ #define DWC3_GUCTL_REFCLKPER_MASK		0xffc00000
+ #define DWC3_GUCTL_REFCLKPER_SEL		22
++#define DWC3_GUCTL_SPRSCTRLTRANSEN		BIT(17)
+ 
+ /* Global User Control Register 2 */
+ #define DWC3_GUCTL2_RST_ACTBITLATER		BIT(14)
+@@ -1161,6 +1162,11 @@ struct dwc3_glue_ops {
+  *	3	- Reserved
+  * @dis_metastability_quirk: set to disable metastability quirk.
+  * @dis_split_quirk: set to disable split boundary.
++ * @dis_sprs_ctrl_xfer_quirk: set to disable Sparse Control-transfer
++ *	scheduling. The driver enables GUCTL.SprsCtrlTransEn by default
++ *	to work around devices that NAK packed Control-transfer phases;
++ *	clear via the "snps,dis-sprs-ctrl-xfer-quirk" property if a
++ *	platform regression is observed.
+  * @sys_wakeup: set if the device may do system wakeup.
+  * @wakeup_configured: set if the device is configured for remote wakeup.
+  * @suspended: set to track suspend event due to U3/L2.
+@@ -1403,6 +1409,7 @@ struct dwc3 {
+ 	unsigned		dis_metastability_quirk:1;
+ 
+ 	unsigned		dis_split_quirk:1;
++	unsigned		dis_sprs_ctrl_xfer_quirk:1;
+ 	unsigned		async_callbacks:1;
+ 	unsigned		sys_wakeup:1;
+ 	unsigned		wakeup_configured:1;
+-- 
+2.47.3
+

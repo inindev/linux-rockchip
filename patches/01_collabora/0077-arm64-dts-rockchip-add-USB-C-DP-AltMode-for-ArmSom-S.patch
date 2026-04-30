@@ -1,4 +1,4 @@
-From ae5a0957e1144f5dd518c30acb4fed21127fb7ee Mon Sep 17 00:00:00 2001
+From f1dd38a280fadb3d49a6980fba1bc9339dfc5447 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 18:01:19 +0800
 Subject: [PATCH 077/132] arm64: dts: rockchip: add USB-C DP AltMode for ArmSom

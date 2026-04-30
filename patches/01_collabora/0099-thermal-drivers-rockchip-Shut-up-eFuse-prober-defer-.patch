@@ -1,4 +1,4 @@
-From 3c667d26ae68a72c8d7870ffdf4abb031c27b6b4 Mon Sep 17 00:00:00 2001
+From 97af9142aa8a534865634446805b5e35838f4797 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 22 Jan 2026 14:57:54 +0100
 Subject: [PATCH 099/132] thermal/drivers/rockchip: Shut up eFuse prober defer

@@ -1,4 +1,4 @@
-From 7dc71ec120cc9a3ad9f374a7238bc01ef248f7bb Mon Sep 17 00:00:00 2001
+From e5dee7bd33a72ce7893be13d38aac809970f40dc Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:26 +0200
 Subject: [PATCH 019/132] arm64: dts: rockchip: add analog audio to ROCK 4D

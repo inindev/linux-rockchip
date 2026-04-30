@@ -1,4 +1,4 @@
-From 04c60ab2e0dcc50de42e60543e8bc52e25acb269 Mon Sep 17 00:00:00 2001
+From 2ed2a82172824e02e03be5e810b82a424a91c900 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:40:50 +0100
 Subject: [PATCH 125/132] drm/bridge: synopsys: dw-dp: Add Runtime PM support

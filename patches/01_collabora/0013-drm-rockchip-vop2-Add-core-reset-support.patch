@@ -1,4 +1,4 @@
-From 4257b42b7947b303da723c7fda2f059d94ed188e Mon Sep 17 00:00:00 2001
+From e88890ad500381ff057652a5dbdafb5413798b55 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 14 Nov 2024 17:36:18 +0100
 Subject: [PATCH 013/132] drm/rockchip: vop2: Add core reset support

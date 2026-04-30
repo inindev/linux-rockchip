@@ -1,4 +1,4 @@
-From 85fbd535772a987464b59f7824184f31cafe2ddf Mon Sep 17 00:00:00 2001
+From 4ab04a2374241d6403ab320f6a28e7e508896693 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 2 Jan 2024 09:35:43 +0100
 Subject: [PATCH 005/132] arm64: dts: rockchip: rk3588-evb1: add bluetooth

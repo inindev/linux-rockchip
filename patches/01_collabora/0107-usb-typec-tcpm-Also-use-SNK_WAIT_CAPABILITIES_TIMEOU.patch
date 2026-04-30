@@ -1,4 +1,4 @@
-From e5d2651ea2f56a3ccf673041df9629d3f04efee5 Mon Sep 17 00:00:00 2001
+From 2b75d269fa131ae9d679e8d985a23fa7ebfb27fb Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 2 Mar 2026 22:37:40 +0100
 Subject: [PATCH 107/132] usb: typec: tcpm: Also use

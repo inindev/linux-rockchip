@@ -1,4 +1,4 @@
-From adb34030c1865cfc022d68ed34901b3d6413fe85 Mon Sep 17 00:00:00 2001
+From f35e32c1735ffcd8cf4818db5dda9dd3235fe569 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:29:45 +0100
 Subject: [PATCH 123/132] drm/bridge: synopsys: dw-dp: Support software

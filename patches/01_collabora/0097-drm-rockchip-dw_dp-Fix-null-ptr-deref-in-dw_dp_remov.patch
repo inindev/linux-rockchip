@@ -1,4 +1,4 @@
-From 72184b028a51a8ce348adfbe04115a2bd3586cdb Mon Sep 17 00:00:00 2001
+From e0e4d66ad5a9dc40b0fdacbfce001109cd103524 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 21 Jan 2026 14:02:15 +0200
 Subject: [PATCH 097/132] drm/rockchip: dw_dp: Fix null-ptr-deref in

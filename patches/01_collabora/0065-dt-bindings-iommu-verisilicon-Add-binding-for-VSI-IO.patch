@@ -1,4 +1,4 @@
-From b0038ffa5c84e4d67db40ff893606e0952a4f7a8 Mon Sep 17 00:00:00 2001
+From 7cac562d07806af65d657dcef789439f11a6258c Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:52 +0100
 Subject: [PATCH 065/132] dt-bindings: iommu: verisilicon: Add binding for VSI

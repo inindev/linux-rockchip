@@ -1,4 +1,4 @@
-From f25067d6ae5d5be7dda2db566ffe88770260a343 Mon Sep 17 00:00:00 2001
+From f4eabe4279860983aa5f9d54794be9b6a0fd2e8f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Mar 2026 18:16:31 +0100
 Subject: [PATCH 132/132] usb: typec: tcpm: log when VDM AMS state machine is

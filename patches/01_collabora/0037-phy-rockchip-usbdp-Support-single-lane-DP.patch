@@ -1,4 +1,4 @@
-From ea7f53abd15a5fcd9d9c8288523eb74b312ea86f Mon Sep 17 00:00:00 2001
+From e34ae0b867d7dae1c8b3e75c8664421287021fb2 Mon Sep 17 00:00:00 2001
 From: Zhang Yubing <yubing.zhang@rock-chips.com>
 Date: Thu, 29 Jan 2026 13:04:47 +0100
 Subject: [PATCH 037/132] phy: rockchip: usbdp: Support single-lane DP

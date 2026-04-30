@@ -1,4 +1,4 @@
-From e09b9cb65165bb6a48812e9095420dc03e86d1e4 Mon Sep 17 00:00:00 2001
+From 1aa572e17754f8090abe14974d3ded2ce9e5e8af Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 00:32:51 +0100
 Subject: [PATCH 104/132] usb: typec: mux: avoid duplicated mux switches

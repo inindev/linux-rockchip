@@ -1,4 +1,4 @@
-From a8bb4f78fa758e290c5036be78f99e3cec22c557 Mon Sep 17 00:00:00 2001
+From 539c186b610d46c6b023e8cbe8091e7ffc82f5b3 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:09 +0800
 Subject: [PATCH 092/132] phy: rockchip-snps-pcie3: Check more sram init status

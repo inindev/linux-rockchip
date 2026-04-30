@@ -1,4 +1,4 @@
-From c029379b7058eb7c98ba3f70c9c7566f7185dba6 Mon Sep 17 00:00:00 2001
+From 4cb9400b3b708e8333860373915308f788205bdf Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 21 Jan 2026 12:29:32 +0200
 Subject: [PATCH 096/132] drm/rockchip: dw_dp: Switch to drmm_kzalloc()

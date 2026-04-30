@@ -1,4 +1,4 @@
-From 1ec6df61825b5322b61fb9d3464e6af8b753b7e1 Mon Sep 17 00:00:00 2001
+From 21381d9bfbcfb7fe285f48389a9af21bf7b636d2 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:08 +0800
 Subject: [PATCH 091/132] phy: rockchip-snps-pcie3: Increase sram init timeout

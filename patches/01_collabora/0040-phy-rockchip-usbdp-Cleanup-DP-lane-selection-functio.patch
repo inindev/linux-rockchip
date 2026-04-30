@@ -1,4 +1,4 @@
-From 877713c059e16da5b560b32a2ef38a96138b4757 Mon Sep 17 00:00:00 2001
+From 6b43b1af2b55099d01a007676334264b56057c02 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:24:20 +0100
 Subject: [PATCH 040/132] phy: rockchip: usbdp: Cleanup DP lane selection

@@ -1,4 +1,4 @@
-From d80a518b1bb1c6f392616248f03d5c5298e3aeb6 Mon Sep 17 00:00:00 2001
+From a5652ff5e4bdd1dba7870755045a4f7297509dba Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:48 +0200
 Subject: [PATCH 111/132] phy: rockchip: samsung-hdptx: Drop

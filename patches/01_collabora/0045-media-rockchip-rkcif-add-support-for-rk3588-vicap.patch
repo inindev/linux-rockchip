@@ -1,4 +1,4 @@
-From 3a1e44024fbac1706c3d2a5cf003a68966bcb286 Mon Sep 17 00:00:00 2001
+From 9731dd5857dbfe3071cb15f8f7c8a9bc86cc0dfc Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:14 +0200
 Subject: [PATCH 045/132] media: rockchip: rkcif: add support for rk3588 vicap

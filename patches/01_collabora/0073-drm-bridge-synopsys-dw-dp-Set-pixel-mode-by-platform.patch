@@ -1,4 +1,4 @@
-From 6ea3fb721540d761a0262a70778f80e473d23b00 Mon Sep 17 00:00:00 2001
+From a35856c8d05bbfc77ee99af96b07029a297ca94f Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:45 +0800
 Subject: [PATCH 073/132] drm/bridge: synopsys: dw-dp: Set pixel mode by

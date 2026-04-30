@@ -1,4 +1,4 @@
-From 1fc2408f0cf1938481760c17200379cbe942049f Mon Sep 17 00:00:00 2001
+From 28765a767a0029beb2d77a78fabc6b523263db26 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:49 +0200
 Subject: [PATCH 112/132] phy: rockchip: samsung-hdptx: Simplify GRF access

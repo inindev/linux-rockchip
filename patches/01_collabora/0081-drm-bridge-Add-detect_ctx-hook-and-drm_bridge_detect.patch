@@ -1,4 +1,4 @@
-From 8ac76cd7d0a869b700e394be45484c3e234b4bbf Mon Sep 17 00:00:00 2001
+From 330a89f215786efd4f72e233100bc0499f42ae27 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 22:48:01 +0200
 Subject: [PATCH 081/132] drm/bridge: Add ->detect_ctx hook and

@@ -1,4 +1,4 @@
-From f4c9d27edba83cdd663ac193a462a1f443ae1872 Mon Sep 17 00:00:00 2001
+From 2bbc1838762ef5e2891d1c1f6f40c00aa2eccdec Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:07 +0800
 Subject: [PATCH 090/132] phy: rockchip-snps-pcie3: Add phy_calibrate() support

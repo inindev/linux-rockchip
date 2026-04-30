@@ -1,4 +1,4 @@
-From dd20fae6479ecef6dea31f2f2ef64066491b06c3 Mon Sep 17 00:00:00 2001
+From 8be5cbfc03794055eb40d71a07ebb76357982034 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:06:48 +0100
 Subject: [PATCH 041/132] phy: rockchip: usbdp: Register DP aux bridge

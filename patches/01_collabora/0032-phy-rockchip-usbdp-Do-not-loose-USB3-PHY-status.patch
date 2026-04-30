@@ -1,4 +1,4 @@
-From bf820748cd0a99b68dff405827388e008c99c51e Mon Sep 17 00:00:00 2001
+From ad73c2a8877c78065679ffc835f49e58a4940f83 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 01:22:02 +0100
 Subject: [PATCH 032/132] phy: rockchip: usbdp: Do not loose USB3 PHY status

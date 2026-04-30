@@ -1,4 +1,4 @@
-From c202c99f931715047131e1849197b3dffe0db662 Mon Sep 17 00:00:00 2001
+From 8b34691f044566e9948ebe1c31ff45ab21159b7f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 29 Jul 2025 18:21:03 +0200
 Subject: [PATCH 014/132] arm64: dts: rockchip: Fix USB-C description for

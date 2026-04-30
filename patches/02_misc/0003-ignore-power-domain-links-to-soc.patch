@@ -1,7 +1,7 @@
-From fae5ad9d0615685fdc94ef5c9ef0d24fd90538cd Mon Sep 17 00:00:00 2001
+From ff54e5d3face0789e906970eec4f478d3ffabcf3 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 30 Apr 2025 09:01:09 -0400
-Subject: [PATCH 3/4] ignore power domain links to soc
+Subject: [PATCH 3/5] ignore power domain links to soc
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: John Clark <inindev@gmail.com>
  1 file changed, 7 insertions(+)
 
 diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 09b98f02f..58f900087 100644
+index 0613de0fb..bc9b4a74a 100644
 --- a/drivers/base/core.c
 +++ b/drivers/base/core.c
 @@ -2112,6 +2112,13 @@ static int fw_devlink_create_devlink(struct device *con,

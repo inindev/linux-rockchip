@@ -1,4 +1,4 @@
-From a3db029d4d0fb7b393b4b8fc0125ca80c6a1fd30 Mon Sep 17 00:00:00 2001
+From e7098a086d6944d9f0a3e48f02f250538293b7b0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:44:22 +0100
 Subject: [PATCH 126/132] drm/rockchip: dw_dp: Add runtime PM support

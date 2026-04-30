@@ -1,4 +1,4 @@
-From d3c037af3bf5a23a9755217f3be7ad6bfb02e4c8 Mon Sep 17 00:00:00 2001
+From 7851f379a5d7bc5e752b2fd232a84c770dee2837 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:53:21 +0100
 Subject: [PATCH 042/132] phy: rockchip: usbdp: Drop DP HPD handling

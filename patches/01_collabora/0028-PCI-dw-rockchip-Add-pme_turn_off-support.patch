@@ -1,4 +1,4 @@
-From 004f44342a4047ca59bb8547065024dab8d516dd Mon Sep 17 00:00:00 2001
+From 5ff9ed66b5722298e7c7eaa096e510186d183231 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:38:54 +0200
 Subject: [PATCH 028/132] PCI: dw-rockchip: Add pme_turn_off support

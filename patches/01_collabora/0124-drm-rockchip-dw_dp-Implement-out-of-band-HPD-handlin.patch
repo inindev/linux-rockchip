@@ -1,4 +1,4 @@
-From c9ec8b7b4f1d4153aec19801fa78df84161e1c7e Mon Sep 17 00:00:00 2001
+From e09f17aae40691f00d89c6390dd6263a10b31793 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:34:43 +0100
 Subject: [PATCH 124/132] drm/rockchip: dw_dp: Implement out-of-band HPD

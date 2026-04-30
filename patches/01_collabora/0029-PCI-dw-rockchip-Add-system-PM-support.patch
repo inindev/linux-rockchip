@@ -1,4 +1,4 @@
-From d59549592c996ccf83cd6bcfeb2cfdeaaa21c7b5 Mon Sep 17 00:00:00 2001
+From e3b1ba4fd5b2af3acf934ea89234cfc928fb3b7c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:49:34 +0200
 Subject: [PATCH 029/132] PCI: dw-rockchip: Add system PM support

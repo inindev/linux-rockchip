@@ -1,4 +1,4 @@
-From 3492ceaad531cbf9b6314985a25a15b9a024a92e Mon Sep 17 00:00:00 2001
+From ecbd25979ffa4f1c002850630c4fe2fb956218e9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 21 Nov 2025 19:27:00 +0100
 Subject: [PATCH 022/132] PCI: dw-rockchip: Fix LTSSM set functions

@@ -1,4 +1,4 @@
-From f7272d97984672076a5f0ac5e11027affe383bf8 Mon Sep 17 00:00:00 2001
+From a496147f2bb14bc1ca6d96de8a506490012f86be Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Sat, 10 Jan 2026 04:29:23 +0100
 Subject: [PATCH 071/132] arm64: defconfig: enable Rockchip VDEC

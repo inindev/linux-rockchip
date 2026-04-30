@@ -1,4 +1,4 @@
-From a33b5d29bfdb02c1e47ca2c15891e71049032c50 Mon Sep 17 00:00:00 2001
+From 271d0e01f1bca5e39a27a66d1c5d84ca258258bd Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 16 Feb 2026 20:16:09 +0100
 Subject: [PATCH 046/132] media: dt-bindings: rockchip csi-2: Add RK3588

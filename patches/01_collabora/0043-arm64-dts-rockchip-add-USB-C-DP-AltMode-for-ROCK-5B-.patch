@@ -1,4 +1,4 @@
-From 26495e8cc9320b031c443ec3158ac7dc881b0279 Mon Sep 17 00:00:00 2001
+From 427da5de2274f7eca09941634b94ceb76461e542 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 28 Jul 2025 16:58:21 +0200
 Subject: [PATCH 043/132] arm64: dts: rockchip: add USB-C DP AltMode for ROCK

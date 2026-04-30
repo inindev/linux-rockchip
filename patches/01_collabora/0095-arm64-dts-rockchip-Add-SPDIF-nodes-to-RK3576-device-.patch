@@ -1,4 +1,4 @@
-From b7d71e26d9571debeae02d9358f86f430294bc0a Mon Sep 17 00:00:00 2001
+From b682fd59f80610bd51b2e75ed7a8b5c89b923c42 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 02:47:24 +0100
 Subject: [PATCH 095/132] arm64: dts: rockchip: Add SPDIF nodes to RK3576

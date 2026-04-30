@@ -1,4 +1,4 @@
-From 97e5875b0257302944ca040f5eb9cc565dfc93af Mon Sep 17 00:00:00 2001
+From 96fe4bc0ace96a43bbf8fbc19d9c2afde7dffe29 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Tue, 17 Feb 2026 17:01:42 +0530
 Subject: [PATCH 001/132] PCI: dwc: Proceed with system suspend even if the

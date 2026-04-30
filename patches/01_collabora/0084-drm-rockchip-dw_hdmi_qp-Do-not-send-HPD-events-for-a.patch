@@ -1,4 +1,4 @@
-From dd486da01200cdecf7d00b4f2a51e16fc549603d Mon Sep 17 00:00:00 2001
+From 5250d0f446590c9bf04f4d9ecf1c93aa5d8fd279 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 1 Dec 2025 21:37:56 +0200
 Subject: [PATCH 084/132] drm/rockchip: dw_hdmi_qp: Do not send HPD events for

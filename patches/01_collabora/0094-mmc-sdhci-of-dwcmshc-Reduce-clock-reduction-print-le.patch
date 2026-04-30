@@ -1,4 +1,4 @@
-From 14b75584b4eedf4b731f12eeba3fb827babc1248 Mon Sep 17 00:00:00 2001
+From 9621d835e84098a846992ab4d1ee175d1ae347f5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 19 Jan 2026 13:11:40 +0100
 Subject: [PATCH 094/132] mmc: sdhci-of-dwcmshc: Reduce clock reduction print

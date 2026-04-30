@@ -1,4 +1,4 @@
-From ab427ba6b463b12b979394e74152ee88f801dfa9 Mon Sep 17 00:00:00 2001
+From 21cc22b181ef0548fde2b222bbe4c4ebb8ae2b2c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:06:36 +0200
 Subject: [PATCH 024/132] PCI: dw-rockchip: Move devm_phy_get out of phy_init

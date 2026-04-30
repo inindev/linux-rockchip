@@ -1,4 +1,4 @@
-From 69adf3a7e9741f00c085ea8dbf26d04f907cf7b7 Mon Sep 17 00:00:00 2001
+From 7bab02914433668ed254809b54793e3c2c0c444c Mon Sep 17 00:00:00 2001
 From: Frank Wang <frank.wang@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:28:08 +0100
 Subject: [PATCH 034/132] phy: rockchip: usbdp: Amend SSC modulation deviation

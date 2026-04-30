@@ -1,4 +1,4 @@
-From a4621ef018f8b14c566b7dae552203902f329569 Mon Sep 17 00:00:00 2001
+From aa063f9c841e4fb6d5b4066e37d61525f0ccee74 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 06:01:21 +0100
 Subject: [PATCH 129/132] arm64: dts: rockchip: Add DP sound support to RK3576

@@ -1,4 +1,4 @@
-From 885309f113762de6187b4014a6232bfa92ab4f5f Mon Sep 17 00:00:00 2001
+From 214f1f427a29dce948ff8db21cdd15a63e979a11 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 23:57:28 +0100
 Subject: [PATCH 101/132] drm/rockchip: vop2: Add clock rate mode check

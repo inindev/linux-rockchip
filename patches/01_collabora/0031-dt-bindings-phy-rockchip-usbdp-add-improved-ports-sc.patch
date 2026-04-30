@@ -1,4 +1,4 @@
-From 03fa977dab814ef0cba703bd530bb39cb190cf48 Mon Sep 17 00:00:00 2001
+From 15152d85aa589689f1df71095897ba376465ce6e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 22 Aug 2025 18:49:35 +0200
 Subject: [PATCH 031/132] dt-bindings: phy: rockchip-usbdp: add improved ports

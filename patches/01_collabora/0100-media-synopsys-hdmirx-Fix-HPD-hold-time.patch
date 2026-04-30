@@ -1,4 +1,4 @@
-From 4f097d348277a69ccf8ae2aeb1956aa9c9c9c2b6 Mon Sep 17 00:00:00 2001
+From c58930d7a528c502ca5ba2faa2bce465a6f86bce Mon Sep 17 00:00:00 2001
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 Date: Wed, 18 Mar 2026 22:26:19 +0300
 Subject: [PATCH 100/132] media: synopsys: hdmirx: Fix HPD hold time
