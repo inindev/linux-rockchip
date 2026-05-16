@@ -1,4 +1,4 @@
-From 4e0b6595b9b7ebf3818b6c461597a8ef8e1826d2 Mon Sep 17 00:00:00 2001
+From 98e973be5d8e96d346b490c94c939991f38d2d56 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 03:52:38 +0100
 Subject: [PATCH 106/132] usb: typec: tcpm: improve handling of DISCOVER_MODES
@@ -54,10 +54,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 61 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 8e0e14a27..ec2a4abb9 100644
+index a3b04f060..8bd624d26 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -1995,6 +1995,55 @@ static bool tcpm_cable_vdm_supported(struct tcpm_port *port)
+@@ -2000,6 +2000,55 @@ static bool tcpm_cable_vdm_supported(struct tcpm_port *port)
  	       tcpm_can_communicate_sop_prime(port);
  }
  
@@ -113,7 +113,7 @@ index 8e0e14a27..ec2a4abb9 100644
  static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
  			const u32 *p, int cnt, u32 *response,
  			enum adev_actions *adev_action,
-@@ -2252,41 +2301,11 @@ static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
+@@ -2257,41 +2306,11 @@ static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
  			}
  			break;
  		case CMD_DISCOVER_MODES:
@@ -160,7 +160,7 @@ index 8e0e14a27..ec2a4abb9 100644
  			break;
  		case CMD_ENTER_MODE:
  			*response_tx_sop_type = rx_sop_type;
-@@ -2329,9 +2348,15 @@ static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
+@@ -2334,9 +2353,15 @@ static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
  		switch (cmd) {
  		case CMD_DISCOVER_IDENT:
  		case CMD_DISCOVER_SVID:

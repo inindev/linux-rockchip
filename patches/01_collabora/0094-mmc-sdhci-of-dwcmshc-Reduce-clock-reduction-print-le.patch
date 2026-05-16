@@ -18,14 +18,14 @@ diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwc
 index 2b75a36c0..2275d092d 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -741,7 +741,7 @@ static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock
+@@ -744,7 +744,7 @@ static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock
  	if (clock <= 52000000) {
  		if (host->mmc->ios.timing == MMC_TIMING_MMC_HS200 ||
  		    host->mmc->ios.timing == MMC_TIMING_MMC_HS400) {
 -			dev_err(mmc_dev(host->mmc),
 +			dev_dbg(mmc_dev(host->mmc),
  				"Can't reduce the clock below 52MHz in HS200/HS400 mode");
- 			return;
+ 			goto enable_clk;
  		}
 -- 
 2.47.3
