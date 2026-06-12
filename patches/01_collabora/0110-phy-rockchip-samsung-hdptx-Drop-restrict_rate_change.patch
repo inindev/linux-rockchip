@@ -1,7 +1,7 @@
-From a5652ff5e4bdd1dba7870755045a4f7297509dba Mon Sep 17 00:00:00 2001
+From d8cf3650edd5f104f574bf2cf47d5b3f083118cf Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:48 +0200
-Subject: [PATCH 111/132] phy: rockchip: samsung-hdptx: Drop
+Subject: [PATCH 110/131] phy: rockchip: samsung-hdptx: Drop
  restrict_rate_change handling
 
 Since commit 6efbd0f46dd8 ("phy: rockchip: samsung-hdptx: Restrict

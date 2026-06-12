@@ -1,7 +1,7 @@
-From 6a66184b3137df1d021a0d0f3457a76ed6cc1d08 Mon Sep 17 00:00:00 2001
+From c803925ad67758770d09d62e4dcddbfb5c495d9b Mon Sep 17 00:00:00 2001
 From: William Wu <william.wu@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:31:20 +0100
-Subject: [PATCH 035/132] phy: rockchip: usbdp: Fix LFPS detect threshold
+Subject: [PATCH 035/131] phy: rockchip: usbdp: Fix LFPS detect threshold
  control
 
 According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],

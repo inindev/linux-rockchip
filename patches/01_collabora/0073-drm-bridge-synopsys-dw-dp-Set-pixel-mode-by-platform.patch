@@ -1,7 +1,7 @@
-From a35856c8d05bbfc77ee99af96b07029a297ca94f Mon Sep 17 00:00:00 2001
+From d9d6e30fde54be111c8a1a15a336e9b154f5e691 Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:45 +0800
-Subject: [PATCH 073/132] drm/bridge: synopsys: dw-dp: Set pixel mode by
+Subject: [PATCH 073/131] drm/bridge: synopsys: dw-dp: Set pixel mode by
  platform data
 
 The DW DisplayPort hardware block can be configured to work in single,

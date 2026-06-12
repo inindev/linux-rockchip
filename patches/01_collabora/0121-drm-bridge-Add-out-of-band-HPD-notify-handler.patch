@@ -1,7 +1,7 @@
-From d43163a1cc2425200b7f6eeb7e22bb971a86a115 Mon Sep 17 00:00:00 2001
+From 0b1cb30e418400897879288b89ec7bc1201cd90a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 26 Feb 2026 16:42:44 +0100
-Subject: [PATCH 122/132] drm/bridge: Add out-of-band HPD notify handler
+Subject: [PATCH 121/131] drm/bridge: Add out-of-band HPD notify handler
 
 For DP bridges, that can be used for DP AltMode, it might be necessary
 to enforce HPD status. There is an existing ->oob_hotplug_event() on

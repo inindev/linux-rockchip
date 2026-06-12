@@ -1,7 +1,7 @@
-From 613184d1c9f9b6a7b85c8a83d6c8a80a7d5bd489 Mon Sep 17 00:00:00 2001
+From 3952415c152a285d421be1fe88d7cca0d2b3ed88 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:57 +0100
-Subject: [PATCH 070/132] arm64: defconfig: enable Verisilicon IOMMU for
+Subject: [PATCH 070/131] arm64: defconfig: enable Verisilicon IOMMU for
  Rockchip RK3588
 
 Enable Verisilicon IOMMU used by Rockchip RK3588 AV1 hardware codec.

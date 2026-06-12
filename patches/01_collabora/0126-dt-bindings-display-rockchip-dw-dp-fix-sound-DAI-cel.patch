@@ -1,7 +1,7 @@
-From 377b15bee2d72947d10292ac040222f6987dacdc Mon Sep 17 00:00:00 2001
+From 3ed2f2451b32c14d3def2099648e3017147b2879 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 23 Jan 2026 23:10:22 +0100
-Subject: [PATCH 127/132] dt-bindings: display: rockchip: dw-dp: fix sound DAI
+Subject: [PATCH 126/131] dt-bindings: display: rockchip: dw-dp: fix sound DAI
  cells
 
 The RK3588 and RK3576 DesignWare DisplayPort controllers both have two

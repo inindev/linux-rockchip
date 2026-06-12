@@ -1,7 +1,7 @@
-From 4d2f1ca2ddf768fcf745395c002a438fac973232 Mon Sep 17 00:00:00 2001
+From 14299bb742a6c8f5cadfc63fc292e6800c40ba5b Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:13 +0200
-Subject: [PATCH 044/132] media: dt-bindings: add rockchip rk3588 vicap
+Subject: [PATCH 044/131] media: dt-bindings: add rockchip rk3588 vicap
 
 Add documentation for the Rockchip RK3588 Video Capture (VICAP) unit.
 

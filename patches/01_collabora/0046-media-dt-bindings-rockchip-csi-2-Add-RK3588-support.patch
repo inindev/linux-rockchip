@@ -1,7 +1,7 @@
-From 271d0e01f1bca5e39a27a66d1c5d84ca258258bd Mon Sep 17 00:00:00 2001
+From 53112368120147fd33d022467ae08377a31e39ef Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 16 Feb 2026 20:16:09 +0100
-Subject: [PATCH 046/132] media: dt-bindings: rockchip csi-2: Add RK3588
+Subject: [PATCH 046/131] media: dt-bindings: rockchip csi-2: Add RK3588
  support
 
 Add compatible for the RK3588 CSI-2 receiver, which is compatible

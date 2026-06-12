@@ -1,7 +1,7 @@
-From f54f49b0c503d9545e4e232641bcb0025756ef82 Mon Sep 17 00:00:00 2001
+From 39f1ab77e8d2592962487e723e92d76f1aeaf3d0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 24 Nov 2025 20:06:39 +0100
-Subject: [PATCH 030/132] PCI: dw-rockchip: port some suspend code from vendor
+Subject: [PATCH 030/131] PCI: dw-rockchip: port some suspend code from vendor
  kernel
 
 Rockchip's vendor kernel does these calls before starting the actual

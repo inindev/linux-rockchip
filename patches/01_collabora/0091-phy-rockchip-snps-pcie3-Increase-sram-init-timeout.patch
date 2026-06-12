@@ -1,7 +1,7 @@
-From 21381d9bfbcfb7fe285f48389a9af21bf7b636d2 Mon Sep 17 00:00:00 2001
+From 9eff0a933eeca35e4b6804d7d867d430c37cb269 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:08 +0800
-Subject: [PATCH 091/132] phy: rockchip-snps-pcie3: Increase sram init timeout
+Subject: [PATCH 091/131] phy: rockchip-snps-pcie3: Increase sram init timeout
 
 Per massive test, 500us is not enough for all chips, increase it
 to 20000us for worse case recommended.

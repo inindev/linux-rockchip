@@ -1,7 +1,7 @@
-From 97af9142aa8a534865634446805b5e35838f4797 Mon Sep 17 00:00:00 2001
+From 4a97a7407a6e4a13551c6aba9674347b46afd95a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 22 Jan 2026 14:57:54 +0100
-Subject: [PATCH 099/132] thermal/drivers/rockchip: Shut up eFuse prober defer
+Subject: [PATCH 099/131] thermal/drivers/rockchip: Shut up eFuse prober defer
  warning
 
 Shut up the following message printed at error level on ArmSom Sige5:

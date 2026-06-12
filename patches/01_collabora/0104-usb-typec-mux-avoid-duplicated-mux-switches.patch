@@ -1,7 +1,7 @@
-From 1aa572e17754f8090abe14974d3ded2ce9e5e8af Mon Sep 17 00:00:00 2001
+From c85d51f392321f2e45aa8426817358932076f068 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 00:32:51 +0100
-Subject: [PATCH 104/132] usb: typec: mux: avoid duplicated mux switches
+Subject: [PATCH 104/131] usb: typec: mux: avoid duplicated mux switches
 
 Some devices use combo PHYs (i.e. USB3 + DisplayPort), which also
 handle the lane muxing. These PHYs are referenced twice from

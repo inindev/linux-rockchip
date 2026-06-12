@@ -1,7 +1,7 @@
-From e7098a086d6944d9f0a3e48f02f250538293b7b0 Mon Sep 17 00:00:00 2001
+From 0218d54769b08ac939086017031cfef073e0c05a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:44:22 +0100
-Subject: [PATCH 126/132] drm/rockchip: dw_dp: Add runtime PM support
+Subject: [PATCH 125/131] drm/rockchip: dw_dp: Add runtime PM support
 
 Add support for runtime PM to the Rockchip RK3576/3588 Synopsys
 DesignWare DisplayPort driver.

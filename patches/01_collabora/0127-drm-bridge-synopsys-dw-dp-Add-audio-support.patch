@@ -1,7 +1,7 @@
-From 69f1233b85762a207f57c218071426d9dcb9219a Mon Sep 17 00:00:00 2001
+From b2653e0c1a2ebd84607944a45ba97f7ef959adbb Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 05:22:05 +0100
-Subject: [PATCH 128/132] drm/bridge: synopsys: dw-dp: Add audio support
+Subject: [PATCH 127/131] drm/bridge: synopsys: dw-dp: Add audio support
 
 Implement audio support for the Synopsys DesignWare DisplayPort
 controller.

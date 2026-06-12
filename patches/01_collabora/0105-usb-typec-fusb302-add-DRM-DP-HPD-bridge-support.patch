@@ -1,7 +1,7 @@
-From 4d7024ae83cdd55674e8236d74fb4cd1bee8de5c Mon Sep 17 00:00:00 2001
+From a6682a2511005c7e70de9aa45b4169135256911e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 17:59:43 +0100
-Subject: [PATCH 105/132] usb: typec: fusb302: add DRM DP HPD bridge support
+Subject: [PATCH 105/131] usb: typec: fusb302: add DRM DP HPD bridge support
 
 Add support to use fusb302 based USB-C connectors with the DP altmode
 helper code on devicetree based platforms. To get this working there

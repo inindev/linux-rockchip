@@ -1,7 +1,7 @@
-From e0e4d66ad5a9dc40b0fdacbfce001109cd103524 Mon Sep 17 00:00:00 2001
+From 846bc398bfa7b2323ae9426509f7371c7c2f9755 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 21 Jan 2026 14:02:15 +0200
-Subject: [PATCH 097/132] drm/rockchip: dw_dp: Fix null-ptr-deref in
+Subject: [PATCH 097/131] drm/rockchip: dw_dp: Fix null-ptr-deref in
  dw_dp_remove()
 
 Attempting to access driver data in the platform driver ->remove()

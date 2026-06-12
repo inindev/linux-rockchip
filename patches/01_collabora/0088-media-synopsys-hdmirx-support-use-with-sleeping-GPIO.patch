@@ -1,7 +1,7 @@
-From 4654139f7a9c1dd74ea74208c6720098a1f6caa4 Mon Sep 17 00:00:00 2001
+From 709e5c0f5efec059804394bc768dc100f96e2dbf Mon Sep 17 00:00:00 2001
 From: Mark Brown <broonie@kernel.org>
 Date: Thu, 8 Jan 2026 20:08:47 +0000
-Subject: [PATCH 088/132] media: synopsys: hdmirx: support use with sleeping
+Subject: [PATCH 088/131] media: synopsys: hdmirx: support use with sleeping
  GPIOs
 
 The recent change in 20cf2aed89ac (gpio: rockchip: mark the GPIO

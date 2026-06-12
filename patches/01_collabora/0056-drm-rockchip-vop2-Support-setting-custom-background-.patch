@@ -1,7 +1,7 @@
-From d1aae213e8a816c58f48fab10b9c47acf30dd00f Mon Sep 17 00:00:00 2001
+From 3b3823083dc6d3538f4c719355c65e5a3ee7c9c5 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 15 Aug 2025 18:36:54 +0300
-Subject: [PATCH 056/132] drm/rockchip: vop2: Support setting custom background
+Subject: [PATCH 056/131] drm/rockchip: vop2: Support setting custom background
  color
 
 VOP2 allows configuring the background color of each video output port.

@@ -1,7 +1,7 @@
-From eefd4e52dfa295094701a8d46c230f27db4695a8 Mon Sep 17 00:00:00 2001
+From 5827f0e930595ea554803bd3388624151cac4e8e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:15:23 +0100
-Subject: [PATCH 039/132] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
+Subject: [PATCH 039/131] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
 
 Cleanup code by replacing open-coded version of FIELD_PREP_WM16_CONST
 with the existing helper macro.

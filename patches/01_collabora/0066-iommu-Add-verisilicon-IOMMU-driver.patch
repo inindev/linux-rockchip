@@ -1,7 +1,7 @@
-From fe37ab95815f3187267037d1abf4643e59c24f75 Mon Sep 17 00:00:00 2001
+From 108f9c79ac60c9180723a8cde64a07c810866ef0 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:53 +0100
-Subject: [PATCH 066/132] iommu: Add verisilicon IOMMU driver
+Subject: [PATCH 066/131] iommu: Add verisilicon IOMMU driver
 
 The Verisilicon IOMMU hardware block can be found in combination
 with Verisilicon hardware video codecs (encoders or decoders) on

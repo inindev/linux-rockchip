@@ -1,7 +1,7 @@
-From 7851f379a5d7bc5e752b2fd232a84c770dee2837 Mon Sep 17 00:00:00 2001
+From 78eaa0cc633aa2c149187f5d40bbebf3f9f0b596 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:53:21 +0100
-Subject: [PATCH 042/132] phy: rockchip: usbdp: Drop DP HPD handling
+Subject: [PATCH 042/131] phy: rockchip: usbdp: Drop DP HPD handling
 
 Drop the HPD handling logic from the USBDP PHY. The registers involved
 require the display controller power domain being enabled and thus the

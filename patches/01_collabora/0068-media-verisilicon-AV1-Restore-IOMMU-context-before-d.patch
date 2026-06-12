@@ -1,7 +1,7 @@
-From 2e2f94ae878ab9e397d55acac1cf58d3eecbdce4 Mon Sep 17 00:00:00 2001
+From 02f8eb47205d26355fa7f4a0c619e4f418b0400b Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:55 +0100
-Subject: [PATCH 068/132] media: verisilicon: AV1: Restore IOMMU context before
+Subject: [PATCH 068/131] media: verisilicon: AV1: Restore IOMMU context before
  decoding a frame
 
 AV1 is a stateless decoder which means multiple AV1 bitstreams could be

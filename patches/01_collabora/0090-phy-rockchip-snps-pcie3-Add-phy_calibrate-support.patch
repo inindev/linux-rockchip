@@ -1,7 +1,7 @@
-From 2bbc1838762ef5e2891d1c1f6f40c00aa2eccdec Mon Sep 17 00:00:00 2001
+From c5d12d5a2753565ea83ec4f177ea8c90f825f27a Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:07 +0800
-Subject: [PATCH 090/132] phy: rockchip-snps-pcie3: Add phy_calibrate() support
+Subject: [PATCH 090/131] phy: rockchip-snps-pcie3: Add phy_calibrate() support
 
 Move calibration from phy_init() to phy_calibrate().
 

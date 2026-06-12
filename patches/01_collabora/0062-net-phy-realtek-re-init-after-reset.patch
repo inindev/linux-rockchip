@@ -1,7 +1,7 @@
-From ddc8614162ed695c2ab63ffc60b0c7a93b2205fb Mon Sep 17 00:00:00 2001
+From 686c363036a11c010c2c5a1b92fea51877e33824 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 6 Nov 2025 16:21:05 +0100
-Subject: [PATCH 062/132] net: phy: realtek: re-init after reset
+Subject: [PATCH 062/131] net: phy: realtek: re-init after reset
 
 The reset in the resume function results in the custom configuration
 being lost, which effectively renders the 'realtek,aldps-enable'

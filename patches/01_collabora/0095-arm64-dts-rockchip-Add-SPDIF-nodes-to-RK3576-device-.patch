@@ -1,7 +1,7 @@
-From b682fd59f80610bd51b2e75ed7a8b5c89b923c42 Mon Sep 17 00:00:00 2001
+From b8f37b24b9828ba35c9d9f075c5e28bdd47eb223 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 02:47:24 +0100
-Subject: [PATCH 095/132] arm64: dts: rockchip: Add SPDIF nodes to RK3576
+Subject: [PATCH 095/131] arm64: dts: rockchip: Add SPDIF nodes to RK3576
  device tree
 
 Add support for all six SPDIF transmitters found in the RK3576.
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 82 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 53ff6bd02..b03dd69ec 100644
+index 4c19a445b..28175d820 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 @@ -1379,6 +1379,19 @@ vop_mmu: iommu@27d07e00 {
@@ -96,7 +96,7 @@ index 53ff6bd02..b03dd69ec 100644
  		sai7: sai@27ed0000 {
  			compatible = "rockchip,rk3576-sai";
  			reg = <0x0 0x27ed0000 0x0 0x1000>;
-@@ -2166,6 +2218,36 @@ &sai4m0_sdi
+@@ -2167,6 +2219,36 @@ &sai4m0_sdi
  			status = "disabled";
  		};
  

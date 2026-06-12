@@ -1,7 +1,7 @@
-From 20394b1dbbe293303ba1296c19eb625b9c9f9bcf Mon Sep 17 00:00:00 2001
+From f3460553490ad7b59d36f007e8e0f67ffb963a05 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 10 Jan 2025 23:04:23 +0200
-Subject: [PATCH 082/132] drm/bridge-connector: Switch to using ->detect_ctx
+Subject: [PATCH 082/131] drm/bridge-connector: Switch to using ->detect_ctx
  hook
 
 In preparation to allow bridge drivers relying on the HDMI connector

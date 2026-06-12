@@ -1,7 +1,7 @@
-From 5a79098b055c20b43d7345425b83ab72b2bdb69b Mon Sep 17 00:00:00 2001
+From 04b68e93a015f6b3f64895c65d041e37e3a2230d Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:51 +0100
-Subject: [PATCH 064/132] dt-bindings: vendor-prefixes: Add Verisilicon
+Subject: [PATCH 064/131] dt-bindings: vendor-prefixes: Add Verisilicon
 
 Verisilicon Microelectronics is a company based in Shanghai, China,
 developping hardware blocks for SoC.

@@ -1,7 +1,7 @@
-From 0d57a95906ddbbd341c956610ec4f30d152ada70 Mon Sep 17 00:00:00 2001
+From e1ae71737e9d35ac5217e1e37a67017863b14f28 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 14:09:35 +0200
-Subject: [PATCH 085/132] drm/rockchip: dw_hdmi_qp: Add YUV420 output format
+Subject: [PATCH 085/131] drm/rockchip: dw_hdmi_qp: Add YUV420 output format
  support
 
 Program the necessary bridge registers to allow using the YUV420 color

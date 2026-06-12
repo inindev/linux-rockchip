@@ -1,7 +1,7 @@
-From f35e32c1735ffcd8cf4818db5dda9dd3235fe569 Mon Sep 17 00:00:00 2001
+From 71ed683678e19fc6cacfe39486cadf8e3824d458 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:29:45 +0100
-Subject: [PATCH 123/132] drm/bridge: synopsys: dw-dp: Support software
+Subject: [PATCH 122/131] drm/bridge: synopsys: dw-dp: Support software
  triggered OOB HPD
 
 Add support for USB-C DP AltMode out-of-band hotplug handling. The

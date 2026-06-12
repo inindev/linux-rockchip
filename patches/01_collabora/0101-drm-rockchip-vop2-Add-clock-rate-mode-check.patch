@@ -1,7 +1,7 @@
-From 214f1f427a29dce948ff8db21cdd15a63e979a11 Mon Sep 17 00:00:00 2001
+From d277cf4690ea67f2c43d331e85f50165c3604f8b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 23:57:28 +0100
-Subject: [PATCH 101/132] drm/rockchip: vop2: Add clock rate mode check
+Subject: [PATCH 101/131] drm/rockchip: vop2: Add clock rate mode check
 
 The display might offer modes, which exceed the maximum clock rate of a
 video output. This usually happens for displays that offer refresh rates

@@ -1,7 +1,7 @@
-From 2ed2a82172824e02e03be5e810b82a424a91c900 Mon Sep 17 00:00:00 2001
+From 3aaea1335e06cba1a9d8590aef2a6d5bccc7e771 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:40:50 +0100
-Subject: [PATCH 125/132] drm/bridge: synopsys: dw-dp: Add Runtime PM support
+Subject: [PATCH 124/131] drm/bridge: synopsys: dw-dp: Add Runtime PM support
 
 Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
 driver. Support is not enabled automatically and must be hooked up

@@ -1,7 +1,7 @@
-From c71e160f46f70aa61ab347c4e151b34e3c44158b Mon Sep 17 00:00:00 2001
+From 19c9403bee53972f6b92167de3d37c1aef0c2226 Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 7 Jan 2026 11:09:54 +0100
-Subject: [PATCH 067/132] MAINTAINERS: Add entry for Verisilicon IOMMU driver
+Subject: [PATCH 067/131] MAINTAINERS: Add entry for Verisilicon IOMMU driver
 
 Add maintainer for Verisilicon iommu driver.
 

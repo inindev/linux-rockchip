@@ -1,7 +1,7 @@
-From 1d6ffee8d71f4beaf58bab7b6cd8303fb0f1ba85 Mon Sep 17 00:00:00 2001
+From 8a1f879931074346c2934701aee6717e8f5ae595 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:12:53 +0100
-Subject: [PATCH 121/132] drm/bridge: synopsys: dw-dp: Add follow-up bridge
+Subject: [PATCH 120/131] drm/bridge: synopsys: dw-dp: Add follow-up bridge
  support
 
 Add support to use USB-C connectors with the DP altmode helper code on

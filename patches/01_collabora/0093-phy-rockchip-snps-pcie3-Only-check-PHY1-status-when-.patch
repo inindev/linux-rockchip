@@ -1,7 +1,7 @@
-From 3ffade0efd2f5ea9fda330d150ed33337d5808c1 Mon Sep 17 00:00:00 2001
+From 6b7f03103ca23ec15f216b40de6c61a2eafffe30 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:10 +0800
-Subject: [PATCH 093/132] phy: rockchip-snps-pcie3: Only check PHY1 status when
+Subject: [PATCH 093/131] phy: rockchip-snps-pcie3: Only check PHY1 status when
  using it
 
 RK3588_LANE_AGGREGATION and RK3588_BIFURCATION_LANE_2_3 should be

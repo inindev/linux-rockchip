@@ -1,7 +1,7 @@
-From 8be5cbfc03794055eb40d71a07ebb76357982034 Mon Sep 17 00:00:00 2001
+From 245f846c815ce5eb0e1d39d8b6fd1d36088c9765 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:06:48 +0100
-Subject: [PATCH 041/132] phy: rockchip: usbdp: Register DP aux bridge
+Subject: [PATCH 041/131] phy: rockchip: usbdp: Register DP aux bridge
 
 Add support to use USB-C connectors with the DP altmode helper code on
 devicetree based platforms. To get this working there must be a DRM

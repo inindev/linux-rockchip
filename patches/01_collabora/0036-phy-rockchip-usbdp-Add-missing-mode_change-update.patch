@@ -1,7 +1,7 @@
-From 3cd7fb44424609ebadb8f92da2ca7fdb09a91d77 Mon Sep 17 00:00:00 2001
+From 60dfe5c3c5b28bd8c623f290b9259091680c0105 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 21:32:59 +0100
-Subject: [PATCH 036/132] phy: rockchip: usbdp: Add missing mode_change update
+Subject: [PATCH 036/131] phy: rockchip: usbdp: Add missing mode_change update
 
 rk_udphy_set_typec_default_mapping() updates the available modes,
 but does not set the mode_change as required. This results in

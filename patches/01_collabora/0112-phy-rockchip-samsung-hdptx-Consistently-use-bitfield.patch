@@ -1,7 +1,7 @@
-From b0d8c819bb7820370d30b0a3050420dc8051ae64 Mon Sep 17 00:00:00 2001
+From 2229aef8dda5ea9bcc6165e8998055e7a5761496 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:50 +0200
-Subject: [PATCH 113/132] phy: rockchip: samsung-hdptx: Consistently use
+Subject: [PATCH 112/131] phy: rockchip: samsung-hdptx: Consistently use
  bitfield macros
 
 Make the code more robust and improve readability by using the available

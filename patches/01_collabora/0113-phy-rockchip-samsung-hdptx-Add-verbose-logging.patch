@@ -1,7 +1,7 @@
-From f426a21944ba864f1d0f162b6daafe1cd994bffa Mon Sep 17 00:00:00 2001
+From dbe33fca50fdd018086586f5ed011c065a0ea483 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 17 Feb 2026 20:36:26 +0200
-Subject: [PATCH 114/132] phy: rockchip: samsung-hdptx: Add verbose logging
+Subject: [PATCH 113/131] phy: rockchip: samsung-hdptx: Add verbose logging
 
 ---
  .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++++++++++++++--

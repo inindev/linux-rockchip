@@ -1,7 +1,7 @@
-From d09d461055f0f1d33d033224b1f0e1de4e09496d Mon Sep 17 00:00:00 2001
+From 613e4d55fdc54d5a4645afd0719d5d5f60bff6bc Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
-Subject: [PATCH 023/132] PCI: dw-rockchip: Restore vpcie3v3 regulator handle
+Subject: [PATCH 023/131] PCI: dw-rockchip: Restore vpcie3v3 regulator handle
 
 This reverts c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator setup with
 devm_regulator_get_enable_optional()"), which nicely cleaned up the code.

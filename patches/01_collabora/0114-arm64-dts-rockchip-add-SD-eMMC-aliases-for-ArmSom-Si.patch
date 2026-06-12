@@ -1,7 +1,7 @@
-From c36936f60192bd5b00fe253c29c82f189a7a030b Mon Sep 17 00:00:00 2001
+From e33d1ffb57ab589ef2c74c981475aa50eb4bcc38 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 3 Mar 2026 16:39:54 +0100
-Subject: [PATCH 115/132] arm64: dts: rockchip: add SD/eMMC aliases for ArmSom
+Subject: [PATCH 114/131] arm64: dts: rockchip: add SD/eMMC aliases for ArmSom
  Sige5
 
 Provide aliases for the SD and eMMC interfaces, so that the operating

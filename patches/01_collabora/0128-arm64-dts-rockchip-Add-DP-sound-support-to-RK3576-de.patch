@@ -1,7 +1,7 @@
-From aa063f9c841e4fb6d5b4066e37d61525f0ccee74 Mon Sep 17 00:00:00 2001
+From 3e18afebb1c37fb3d74ef1f653a0f243d0b11ccf Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 06:01:21 +0100
-Subject: [PATCH 129/132] arm64: dts: rockchip: Add DP sound support to RK3576
+Subject: [PATCH 128/131] arm64: dts: rockchip: Add DP sound support to RK3576
  device tree
 
 Add support for enabling sound for the DisplayPort to the RK3576 DT.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 16 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index b03dd69ec..1449dd919 100644
+index 28175d820..f62a0d01f 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 @@ -344,6 +344,21 @@ opp-2208000000 {

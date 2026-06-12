@@ -1,7 +1,7 @@
-From 6ea44ef26098117f2ac1d7c0fbf8d3081105ae49 Mon Sep 17 00:00:00 2001
+From 526719ac314890b0d26f8bc6870e976ac8fe3d1a Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 4 Dec 2024 13:26:13 +0200
-Subject: [PATCH 057/132] drm/rockchip: vop2: Add YUV420 output format support
+Subject: [PATCH 057/131] drm/rockchip: vop2: Add YUV420 output format support
 
 TODO: proper colorspace conversion handling
 

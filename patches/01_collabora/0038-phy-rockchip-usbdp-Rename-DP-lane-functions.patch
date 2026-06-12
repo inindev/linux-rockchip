@@ -1,7 +1,7 @@
-From 65c546324a0b61bf4b9498d1b6cb36c51601d13d Mon Sep 17 00:00:00 2001
+From a72dff4adc579821ad50df40126f8ac648eb3df3 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 22:45:18 +0100
-Subject: [PATCH 038/132] phy: rockchip: usbdp: Rename DP lane functions
+Subject: [PATCH 038/131] phy: rockchip: usbdp: Rename DP lane functions
 
 The common prefix for DisplayPort related functions is rk_udphy_dp_
 (with a final _), so update the two DP lane functions to follow that

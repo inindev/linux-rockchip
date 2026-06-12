@@ -1,7 +1,7 @@
-From b02431d65437da0a0260724e533313b3e2b62121 Mon Sep 17 00:00:00 2001
+From ced20b55e49034e3db34e6507ada702a57b63372 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:47 +0200
-Subject: [PATCH 110/132] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
+Subject: [PATCH 109/131] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
  workaround
 
 Since commit ba9c2fe18c17 ("drm/rockchip: dw_hdmi_qp: Switch to

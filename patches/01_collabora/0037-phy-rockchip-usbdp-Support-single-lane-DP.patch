@@ -1,7 +1,7 @@
-From e34ae0b867d7dae1c8b3e75c8664421287021fb2 Mon Sep 17 00:00:00 2001
+From 50c8d3c0fd8f5ac7a354e8bb408377fd264d4206 Mon Sep 17 00:00:00 2001
 From: Zhang Yubing <yubing.zhang@rock-chips.com>
 Date: Thu, 29 Jan 2026 13:04:47 +0100
-Subject: [PATCH 037/132] phy: rockchip: usbdp: Support single-lane DP
+Subject: [PATCH 037/131] phy: rockchip: usbdp: Support single-lane DP
 
 Implement support for using just a single DisplayPort line.
 

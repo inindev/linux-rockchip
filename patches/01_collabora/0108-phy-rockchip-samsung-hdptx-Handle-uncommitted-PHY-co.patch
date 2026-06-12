@@ -1,7 +1,7 @@
-From 965cec4d44f55542fd8ca36b3d12a4a0f55fe08e Mon Sep 17 00:00:00 2001
+From 3f58369dc9858ebf41f393b647ad9a61c33c4be9 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:46 +0200
-Subject: [PATCH 109/132] phy: rockchip: samsung-hdptx: Handle uncommitted PHY
+Subject: [PATCH 108/131] phy: rockchip: samsung-hdptx: Handle uncommitted PHY
  config changes
 
 Any changes to the PHY link rate and/or color depth done via the HDMI

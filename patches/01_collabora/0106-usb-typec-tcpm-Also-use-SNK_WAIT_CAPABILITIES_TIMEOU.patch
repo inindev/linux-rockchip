@@ -1,7 +1,7 @@
-From 2b75d269fa131ae9d679e8d985a23fa7ebfb27fb Mon Sep 17 00:00:00 2001
+From 3639f84bfcb11293ffc0b42496345208f2e995fe Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 2 Mar 2026 22:37:40 +0100
-Subject: [PATCH 107/132] usb: typec: tcpm: Also use
+Subject: [PATCH 106/131] usb: typec: tcpm: Also use
  SNK_WAIT_CAPABILITIES_TIMEOUT for vbus_never_low
 
 Most USB-C ports on Linux devices are self-powered (i.e. because the
@@ -53,10 +53,10 @@ lab (used for the KernelCI project):
  1 file changed, 19 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index ec2a4abb9..99631d8ae 100644
+index 1e89909b1..3dc26c2ff 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -5251,20 +5251,25 @@ static void run_state_machine(struct tcpm_port *port)
+@@ -5258,20 +5258,25 @@ static void run_state_machine(struct tcpm_port *port)
  			tcpm_set_state(port, SNK_READY, 0);
  			break;
  		}
@@ -87,7 +87,7 @@ index ec2a4abb9..99631d8ae 100644
  		}
  
  		tcpm_set_state(port, upcoming_state,
-@@ -5286,10 +5291,17 @@ static void run_state_machine(struct tcpm_port *port)
+@@ -5293,10 +5298,17 @@ static void run_state_machine(struct tcpm_port *port)
  		 * and handled by all USB PD source and dual role devices
  		 * according to the specification.
  		 */

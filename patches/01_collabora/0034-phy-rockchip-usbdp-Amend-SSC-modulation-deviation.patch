@@ -1,7 +1,7 @@
-From 7bab02914433668ed254809b54793e3c2c0c444c Mon Sep 17 00:00:00 2001
+From 0582ec6d903ed15f3f8fdec62b50b30faa518302 Mon Sep 17 00:00:00 2001
 From: Frank Wang <frank.wang@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:28:08 +0100
-Subject: [PATCH 034/132] phy: rockchip: usbdp: Amend SSC modulation deviation
+Subject: [PATCH 034/131] phy: rockchip: usbdp: Amend SSC modulation deviation
 
 Move SSC modulation deviation into private config of clock
 

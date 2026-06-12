@@ -1,7 +1,7 @@
-From 3a717f86115f1566131094715c026e721be23697 Mon Sep 17 00:00:00 2001
+From 20951cb4dcc009fabb45785eb26cdded7b5743e2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Mar 2026 18:16:31 +0100
-Subject: [PATCH 132/132] usb: typec: tcpm: log when VDM AMS state machine is
+Subject: [PATCH 131/131] usb: typec: tcpm: log when VDM AMS state machine is
  cancelled
 
 Since commit 0bc3ee92880d ("usb: typec: tcpm: Properly interrupt VDM
@@ -44,10 +44,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 884108cad..3df52a34a 100644
+index 3dc26c2ff..e1bc01c75 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -3217,6 +3217,7 @@ static void tcpm_pd_data_request(struct tcpm_port *port,
+@@ -3219,6 +3219,7 @@ static void tcpm_pd_data_request(struct tcpm_port *port,
  	int ret;
  
  	if (tcpm_vdm_ams(port) && type != PD_DATA_VENDOR_DEF) {
@@ -55,7 +55,7 @@ index 884108cad..3df52a34a 100644
  		port->vdm_state = VDM_STATE_ERR_BUSY;
  		tcpm_ams_finish(port);
  		mod_vdm_delayed_work(port, 0);
-@@ -3417,6 +3418,7 @@ static void tcpm_pd_ctrl_request(struct tcpm_port *port,
+@@ -3419,6 +3420,7 @@ static void tcpm_pd_ctrl_request(struct tcpm_port *port,
  	 * VDM AMS if waiting for VDM responses and will be handled later.
  	 */
  	if (tcpm_vdm_ams(port) && type != PD_CTRL_NOT_SUPP && type != PD_CTRL_GOOD_CRC) {
@@ -63,7 +63,7 @@ index 884108cad..3df52a34a 100644
  		port->vdm_state = VDM_STATE_ERR_BUSY;
  		tcpm_ams_finish(port);
  		mod_vdm_delayed_work(port, 0);
-@@ -3704,6 +3706,7 @@ static void tcpm_pd_ext_msg_request(struct tcpm_port *port,
+@@ -3706,6 +3708,7 @@ static void tcpm_pd_ext_msg_request(struct tcpm_port *port,
  
  	/* stopping VDM state machine if interrupted by other Messages */
  	if (tcpm_vdm_ams(port)) {

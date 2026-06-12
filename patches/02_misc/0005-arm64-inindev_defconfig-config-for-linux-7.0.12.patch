@@ -1,20 +1,20 @@
-From 1e960a0725244406fd5ef97844a185fcacf730ed Mon Sep 17 00:00:00 2001
+From 9511e9e10c861d418f319d384f4bd659bc83d20b Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 16 Mar 2025 15:32:30 -0400
-Subject: [PATCH 5/5] arm64: inindev_defconfig: config for linux 7.0
+Subject: [PATCH 5/5] arm64: inindev_defconfig: config for linux 7.0.12
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
- arch/arm64/configs/inindev_defconfig | 1189 ++++++++++++++++++++++++++
- 1 file changed, 1189 insertions(+)
+ arch/arm64/configs/inindev_defconfig | 1192 ++++++++++++++++++++++++++
+ 1 file changed, 1192 insertions(+)
  create mode 100644 arch/arm64/configs/inindev_defconfig
 
 diff --git a/arch/arm64/configs/inindev_defconfig b/arch/arm64/configs/inindev_defconfig
 new file mode 100644
-index 000000000..66f321947
+index 000000000..ad3bcc59d
 --- /dev/null
 +++ b/arch/arm64/configs/inindev_defconfig
-@@ -0,0 +1,1189 @@
+@@ -0,0 +1,1192 @@
 +CONFIG_COMPILE_TEST=y
 +# CONFIG_WERROR is not set
 +CONFIG_SYSVIPC=y
@@ -277,6 +277,9 @@ index 000000000..66f321947
 +CONFIG_EEPROM_AT25=m
 +CONFIG_UACCE=m
 +CONFIG_BLK_DEV_SD=y
++CONFIG_BLK_DEV_SR=y
++CONFIG_CHR_DEV_SG=y
++CONFIG_CHR_DEV_SCH=y
 +CONFIG_SCSI_SAS_ATA=y
 +CONFIG_SCSI_HISI_SAS=y
 +CONFIG_SCSI_HISI_SAS_PCI=y

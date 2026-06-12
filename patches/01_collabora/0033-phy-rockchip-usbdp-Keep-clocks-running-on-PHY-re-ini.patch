@@ -1,7 +1,7 @@
-From 34d03d9143d61904acd2da76f42610996677048f Mon Sep 17 00:00:00 2001
+From 950e94e69494b6a5d7481a4c110128bc6de8bb62 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Feb 2026 19:26:12 +0100
-Subject: [PATCH 033/132] phy: rockchip: usbdp: Keep clocks running on PHY
+Subject: [PATCH 033/131] phy: rockchip: usbdp: Keep clocks running on PHY
  re-init
 
 When a mode change is required rk_udphy_power_on() disables

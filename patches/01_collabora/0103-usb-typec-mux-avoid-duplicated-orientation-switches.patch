@@ -1,7 +1,7 @@
-From ad4736ffec849875e432716022dbb7b3a8cb695f Mon Sep 17 00:00:00 2001
+From 8613649be566032c53048fb782e083a274a4c13e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 00:11:02 +0100
-Subject: [PATCH 103/132] usb: typec: mux: avoid duplicated orientation
+Subject: [PATCH 103/131] usb: typec: mux: avoid duplicated orientation
  switches
 
 Some devices use combo PHYs (i.e. USB3 + DisplayPort), which also

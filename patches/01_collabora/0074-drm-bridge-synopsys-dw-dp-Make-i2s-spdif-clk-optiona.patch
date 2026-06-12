@@ -1,7 +1,7 @@
-From d6ad01f334a4cace3ec39cb9db2be0f80a29eb47 Mon Sep 17 00:00:00 2001
+From edf8713113402d3f66741d754eae8f54f6d4457a Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:46 +0800
-Subject: [PATCH 074/132] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
+Subject: [PATCH 074/131] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
  optional
 
 The i2s/spdif clk are mandatory for rk3588, but not used

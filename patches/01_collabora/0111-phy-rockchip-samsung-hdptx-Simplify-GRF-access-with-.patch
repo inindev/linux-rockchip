@@ -1,7 +1,7 @@
-From 28765a767a0029beb2d77a78fabc6b523263db26 Mon Sep 17 00:00:00 2001
+From de44c26d4663bbc3bc0932a7f031bd37906148c0 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:49 +0200
-Subject: [PATCH 112/132] phy: rockchip: samsung-hdptx: Simplify GRF access
+Subject: [PATCH 111/131] phy: rockchip: samsung-hdptx: Simplify GRF access
  with FIELD_PREP_WM16()
 
 The 16 most significant bits of the general-purpose register (GRF) are

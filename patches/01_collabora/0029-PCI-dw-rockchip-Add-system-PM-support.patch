@@ -1,7 +1,7 @@
-From e3b1ba4fd5b2af3acf934ea89234cfc928fb3b7c Mon Sep 17 00:00:00 2001
+From f46f49e4ea88946dd30b40fa6100c9dc59d85ce4 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:49:34 +0200
-Subject: [PATCH 029/132] PCI: dw-rockchip: Add system PM support
+Subject: [PATCH 029/131] PCI: dw-rockchip: Add system PM support
 
 Add system PM support for Rockchip PCIe Designware Controllers.
 

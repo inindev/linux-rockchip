@@ -1,7 +1,7 @@
-From be8ce9aaa20aaaeef14d825f214371f0a2433a5d Mon Sep 17 00:00:00 2001
+From cfed32f733209b89227daa7519196908d0004ee1 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 20 Jan 2026 21:44:26 +0200
-Subject: [PATCH 098/132] drm/rockchip: dw_hdmi_qp: Switch to
+Subject: [PATCH 098/131] drm/rockchip: dw_hdmi_qp: Switch to
  drmm_encoder_init()
 
 Simplify encoder initialization and cleanup by making use of

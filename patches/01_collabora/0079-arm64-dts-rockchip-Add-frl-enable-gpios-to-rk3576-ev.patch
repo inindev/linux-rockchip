@@ -1,7 +1,7 @@
-From d2c8da3ee0f4592ea541484c32cd951e964c2b5e Mon Sep 17 00:00:00 2001
+From c4cd3fc389398692ff096ea1115606d80380b812 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 12 Jan 2026 16:34:39 +0200
-Subject: [PATCH 079/132] arm64: dts: rockchip: Add frl-enable-gpios to
+Subject: [PATCH 079/131] arm64: dts: rockchip: Add frl-enable-gpios to
  rk3576-evb1-v10
 
 In preparation to support HDMI 2.1 FRL operating mode, make use of the

@@ -1,7 +1,7 @@
-From bb4d393b5908329d6ec1a044e8765b27008942ea Mon Sep 17 00:00:00 2001
+From d8dcefee9b1e27db206a5a7f9399a8f2644d8e31 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Fri, 27 Feb 2026 22:48:45 +0200
-Subject: [PATCH 108/132] phy: rockchip: samsung-hdptx: Fix rate recalculation
+Subject: [PATCH 107/131] phy: rockchip: samsung-hdptx: Fix rate recalculation
  for high bpc
 
 The PHY PLL can been programmed by an external component, e.g. the

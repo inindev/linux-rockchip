@@ -1,4 +1,4 @@
-From 87b23be6b39a38092d3d1fb94ba73edd340eccc6 Mon Sep 17 00:00:00 2001
+From 82fbd020457819b495e96a86994ac6efc7a0dc31 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 30 Apr 2026 10:44:47 -0400
 Subject: [PATCH 4/5] usb: dwc3: enable Sparse Control-transfer scheduling by
@@ -86,7 +86,7 @@ index 6c0b8b653..b24ff7db7 100644
      description:
        When set, run the SOF/ITP counter based on ref_clk.
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 161a4d58b..7067d297d 100644
+index 0d3c7e7b2..f6a66236e 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -396,6 +396,47 @@ static void dwc3_frame_length_adjustment(struct dwc3 *dwc)

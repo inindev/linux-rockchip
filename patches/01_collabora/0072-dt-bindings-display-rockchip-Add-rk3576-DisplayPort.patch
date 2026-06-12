@@ -1,7 +1,7 @@
-From b2b518ad570ade8f5fd746020d0e0a0aeb5f55a9 Mon Sep 17 00:00:00 2001
+From 3884990c1c4ee187bf70356970f5b0a2c04976bd Mon Sep 17 00:00:00 2001
 From: Andy Yan <andy.yan@rock-chips.com>
 Date: Fri, 9 Jan 2026 16:00:44 +0800
-Subject: [PATCH 072/132] dt-bindings: display: rockchip: Add rk3576
+Subject: [PATCH 072/131] dt-bindings: display: rockchip: Add rk3576
  DisplayPort
 
 The DisplayPort found on RK3576 is very similar to that of RK3588,

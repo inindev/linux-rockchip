@@ -1,7 +1,7 @@
-From b35b207c84b99f31b31ac0bbe92169b1a56c0335 Mon Sep 17 00:00:00 2001
+From d02fe0c63fd1fd341745258750a8b6a8123b5208 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@collabora.com>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 051/132] arm64: dts: rockchip: use correct pinctrl for i2c3 on
+Subject: [PATCH 051/131] arm64: dts: rockchip: use correct pinctrl for i2c3 on
  rock 5b family
 
 Use the correct pinctrl for the I2C4 bus on both the Radxa ROCK 5B

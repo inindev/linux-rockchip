@@ -1,7 +1,7 @@
-From a2338cb1202c70e80a9c66d1660d7244be72c198 Mon Sep 17 00:00:00 2001
+From 937ffef1332546ac7cf423ffe3ae0e5bfc704fc6 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 22:22:54 +0100
-Subject: [PATCH 131/132] arm64: dts: rockchip: Fix DP sound-dai-cells on
+Subject: [PATCH 130/131] arm64: dts: rockchip: Fix DP sound-dai-cells on
  RK3588
 
 The DP controller has a I2S and SPDIF interface and thus needs

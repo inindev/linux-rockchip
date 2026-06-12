@@ -1,7 +1,7 @@
-From 990b3bc102b90b46ada9303952171fdc637cece2 Mon Sep 17 00:00:00 2001
+From f3c412394e12271ee897c094ab25f7eefd92738e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Feb 2026 15:55:04 +0100
-Subject: [PATCH 119/132] drm/bridge: synopsys: dw-dp: Simplify driver data
+Subject: [PATCH 118/131] drm/bridge: synopsys: dw-dp: Simplify driver data
  setting
 
 There is no need to get the platform device just for setting up

@@ -1,7 +1,7 @@
-From 96fe4bc0ace96a43bbf8fbc19d9c2afde7dffe29 Mon Sep 17 00:00:00 2001
+From d0905b15f99109c35ad3dbb9a79636e8f4aa00d6 Mon Sep 17 00:00:00 2001
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 Date: Tue, 17 Feb 2026 17:01:42 +0530
-Subject: [PATCH 001/132] PCI: dwc: Proceed with system suspend even if the
+Subject: [PATCH 001/131] PCI: dwc: Proceed with system suspend even if the
  endpoint doesn't respond with PME_TO_Ack message
 
 PCIe spec r7.0, sec 5.3.3.2.1, recommends proceeding with L2/L3 sequence
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 6ae6189e9..ba183fc3e 100644
+index 6adde3fc3..7b5558561 100644
 --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
 @@ -1256,9 +1256,13 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)

@@ -1,7 +1,7 @@
-From 0cde2d453dc9cd1092612b64250cfd3fef1e25e0 Mon Sep 17 00:00:00 2001
+From 4896229d8f8308998c109cc4842144b103e20a45 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 21 Jan 2026 13:50:42 +0200
-Subject: [PATCH 116/132] drm/rockchip: dw_dp: Simplify error handling
+Subject: [PATCH 115/131] drm/rockchip: dw_dp: Simplify error handling
 
 Make the code a bit more compact by getting rid of the superfluous
 assignments around PTR_ERR().

@@ -1,7 +1,7 @@
-From b165c3f0cd9a35b5c375c39c91b9cd9b869157c8 Mon Sep 17 00:00:00 2001
+From e3b25850e3b271e2a9a6761338ee081237716805 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Mon, 9 Mar 2026 21:12:33 +0200
-Subject: [PATCH 118/132] drm/bridge: synopsys: dw-dp: Drop useless memory
+Subject: [PATCH 117/131] drm/bridge: synopsys: dw-dp: Drop useless memory
  allocation
 
 The bridge gets allocated and initialized implicitly via the

@@ -1,7 +1,7 @@
-From 46c2c437ae84803aadb7d4f1ef7f3c3fafecf36d Mon Sep 17 00:00:00 2001
+From 0bc48a1e6f253a60c47e5d96f966ac961dd41040 Mon Sep 17 00:00:00 2001
 From: Michael Riesch <michael.riesch@wolfvision.net>
 Date: Mon, 1 Sep 2025 23:40:15 +0200
-Subject: [PATCH 047/132] arm64: dts: rockchip: add mipi csi-2 receiver node to
+Subject: [PATCH 047/131] arm64: dts: rockchip: add mipi csi-2 receiver node to
  rk356x
 
 Add the device tree node for the RK356x MIPI CSI-2 Receiver.

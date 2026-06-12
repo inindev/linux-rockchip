@@ -1,7 +1,7 @@
-From 6b43b1af2b55099d01a007676334264b56057c02 Mon Sep 17 00:00:00 2001
+From e2ae85e2602aa3a56686a618c79230aaa9d11dc0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:24:20 +0100
-Subject: [PATCH 040/132] phy: rockchip: usbdp: Cleanup DP lane selection
+Subject: [PATCH 040/131] phy: rockchip: usbdp: Cleanup DP lane selection
  function
 
 Use FIELD_PREP_WM16() helpers to simplify the DP lane selection

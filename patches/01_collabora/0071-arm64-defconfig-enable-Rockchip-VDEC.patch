@@ -1,7 +1,7 @@
-From a496147f2bb14bc1ca6d96de8a506490012f86be Mon Sep 17 00:00:00 2001
+From 3dd86ea468d9cef93097ebf478a6977f47022a5c Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Sat, 10 Jan 2026 04:29:23 +0100
-Subject: [PATCH 071/132] arm64: defconfig: enable Rockchip VDEC
+Subject: [PATCH 071/131] arm64: defconfig: enable Rockchip VDEC
 
 Enable the VDPU381/VDPU383 video decoder driver used for H.264 and H.265
 decoding on Rockchip RK3588 and RK3576.

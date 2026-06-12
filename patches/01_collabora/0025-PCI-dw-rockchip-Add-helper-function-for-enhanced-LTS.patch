@@ -1,7 +1,7 @@
-From 540a277d4cefe8c32120f753048528cdcc305c96 Mon Sep 17 00:00:00 2001
+From 6cced349d38ebb056e6c21494a748474ff617b93 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:21:02 +0200
-Subject: [PATCH 025/132] PCI: dw-rockchip: Add helper function for enhanced
+Subject: [PATCH 025/131] PCI: dw-rockchip: Add helper function for enhanced
  LTSSM control mode
 
 Remove code duplication and improve readability by introducing a new
