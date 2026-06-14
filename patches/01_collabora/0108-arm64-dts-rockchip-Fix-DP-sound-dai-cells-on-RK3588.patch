@@ -1,0 +1,44 @@
+From 442ff9206bdf41f49bfeffbe5a0c8ef28ba5ef72 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 12 Feb 2026 22:22:54 +0100
+Subject: [PATCH 108/154] arm64: dts: rockchip: Fix DP sound-dai-cells on
+ RK3588
+
+The DP controller has a I2S and SPDIF interface and thus needs
+one cell to specify the interface being used.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi  | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index e8855b2..43c8172 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1946,7 +1946,7 @@ dp0: dp@fde50000 {
+ 		phys = <&usbdp_phy0 PHY_TYPE_DP>;
+ 		power-domains = <&power RK3588_PD_VO0>;
+ 		resets = <&cru SRST_DP0>;
+-		#sound-dai-cells = <0>;
++		#sound-dai-cells = <1>;
+ 		status = "disabled";
+ 
+ 		ports {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index a264001..b4d7843 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -223,7 +223,7 @@ dp1: dp@fde60000 {
+ 		phys = <&usbdp_phy1 PHY_TYPE_DP>;
+ 		power-domains = <&power RK3588_PD_VO0>;
+ 		resets = <&cru SRST_DP1>;
+-		#sound-dai-cells = <0>;
++		#sound-dai-cells = <1>;
+ 		status = "disabled";
+ 
+ 		ports {
+-- 
+2.47.3
+

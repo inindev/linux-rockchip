@@ -1,0 +1,57 @@
+From 0c7ac998f25e876aa135ecf0d0dbd4098161522e Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 11 Jun 2026 20:07:48 +0200
+Subject: [PATCH 047/154] phy: rockchip: usbdp: Add some extra debug messages
+
+It's useful to log PHY reinit to ease debugging issues around
+USB-C hotplugging.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 236331c..4042e2d 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -491,6 +491,8 @@ static void rk_udphy_u3_port_disable(struct rk_udphy *udphy, u8 disable)
+ 	const struct rk_udphy_cfg *cfg = udphy->cfgs;
+ 	const struct rk_udphy_grf_reg *preg;
+ 
++	dev_dbg(udphy->dev, "USB3 port %s\n", str_on_off(!disable));
++
+ 	preg = udphy->id ? &cfg->grfcfg.usb3otg1_cfg : &cfg->grfcfg.usb3otg0_cfg;
+ 	rk_udphy_grfreg_write(udphy->usbgrf, preg, disable);
+ }
+@@ -784,6 +786,10 @@ static int rk_udphy_init(struct rk_udphy *udphy)
+ 	const struct rk_udphy_cfg *cfg = udphy->cfgs;
+ 	int ret;
+ 
++	dev_dbg(udphy->dev, "(re-)init PHY with USB=%s and DP=%s\n",
++		str_enabled_disabled(udphy->mode & UDPHY_MODE_USB),
++		str_enabled_disabled(udphy->mode & UDPHY_MODE_DP));
++
+ 	rk_udphy_reset_assert_all(udphy);
+ 	usleep_range(10000, 11000);
+ 
+@@ -854,6 +860,8 @@ static int rk_udphy_setup(struct rk_udphy *udphy)
+ {
+ 	int ret;
+ 
++	dev_dbg(udphy->dev, "enable PHY\n");
++
+ 	ret = clk_bulk_prepare_enable(udphy->num_clks, udphy->clks);
+ 	if (ret) {
+ 		dev_err(udphy->dev, "failed to enable clk\n");
+@@ -872,6 +880,7 @@ static int rk_udphy_setup(struct rk_udphy *udphy)
+ 
+ static void rk_udphy_disable(struct rk_udphy *udphy)
+ {
++	dev_dbg(udphy->dev, "disable PHY\n");
+ 	clk_bulk_disable_unprepare(udphy->num_clks, udphy->clks);
+ 	rk_udphy_reset_assert_all(udphy);
+ }
+-- 
+2.47.3
+

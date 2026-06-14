@@ -1,0 +1,53 @@
+From 042b5eaf329d106f3f90f3b2c87558f90fe6f96f Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sat, 11 Apr 2026 00:37:23 +0000
+Subject: [PATCH 149/154] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588s-orangepi-cm5-base
+
+The board exposes the GPIO4_B5 pin to control the voltage bias on the
+HDMI0 data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi0 node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+While at it, rename the hdmi_frl_pin pinmux to hdmi0_tx_on_h, in line
+with the naming commonly used in RK3588s-bassed board schematics.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts      | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
+index 06120b2..20da0c2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
+@@ -143,10 +143,11 @@ &gmac1_rgmii_clk
+ };
+ 
+ &hdmi0 {
+-	pinctrl-names = "default";
++	frl-enable-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
+ 	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
+ 		     &hdmim0_tx0_scl &hdmim0_tx0_sda
+-		     &hdmi_frl_pin>;
++		     &hdmi0_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -245,8 +246,8 @@ key1_pin: key1-pin {
+ 	};
+ 
+ 	hdmi {
+-		hdmi_frl_pin: hdmi-frl-pin {
+-			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
++		hdmi0_tx_on_h: hdmi0-tx-on-h {
++			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+ 
+-- 
+2.47.3
+

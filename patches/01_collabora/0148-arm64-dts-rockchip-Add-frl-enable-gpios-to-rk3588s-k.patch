@@ -1,0 +1,62 @@
+From 0a5bf1bcff4c75208f41002e05b3e47099c55264 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 16 Apr 2026 02:27:22 +0300
+Subject: [PATCH 148/154] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588s-khadas-edge2
+
+The board exposes the GPIO4_B1 pin to control the voltage bias on the
+HDMI0 data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi0 node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+While at it, remove the duplicated &hdmi0_sound node.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588s-khadas-edge2.dts     | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
+index 2c22aba..5afbc59 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
+@@ -194,6 +194,10 @@ &gpu {
+ };
+ 
+ &hdmi0 {
++	frl-enable-gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
++		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -217,10 +221,6 @@ &hdptxphy0 {
+ 	status = "okay";
+ };
+ 
+-&hdmi0_sound {
+-	status = "okay";
+-};
+-
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
+@@ -282,6 +282,12 @@ &pd_gpu {
+ };
+ 
+ &pinctrl {
++	hdmi {
++		hdmi0_tx_on_h: hdmi0-tx-on-h {
++			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	vdd_sd {
+ 		vdd_sd_en: vdd-sd-en {
+ 			rockchip,pins = <1 RK_PB6 RK_FUNC_GPIO &pcfg_pull_up>;
+-- 
+2.47.3
+

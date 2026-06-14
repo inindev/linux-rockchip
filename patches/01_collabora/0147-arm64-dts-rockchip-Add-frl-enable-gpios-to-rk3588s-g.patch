@@ -1,0 +1,60 @@
+From b8ea7287c3857c860967ffdebf1f5e8a2e4a8aa7 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 16 Apr 2026 22:32:06 +0300
+Subject: [PATCH 147/154] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588s-gameforce-ace
+
+The board exposes the GPIO4_B3 pin to control the voltage bias on the
+HDMI0 data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi0 node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+Additionally, drop the now unnecessary ddc-en-gpios property and the
+associated pinctrl-* entries from hdmi0-con, and rename the hdmi0_en
+pinmux to hdmi0_tx_on_h, in line with the naming commonly used in
+RK3588s-based board schematics.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
+index 8961839..b657d54 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
+@@ -302,9 +302,6 @@ amp_headphone: headphone-amplifier {
+ 
+ 	hdmi0-con {
+ 		compatible = "hdmi-connector";
+-		ddc-en-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+-		pinctrl-0 = <&hdmi0_en>;
+-		pinctrl-names = "default";
+ 		type = "d";
+ 
+ 		port {
+@@ -514,8 +511,9 @@ &gpu {
+ 
+ &hdmi0 {
+ 	no-hpd;
++	frl-enable-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_LOW>;
+ 	pinctrl-0 = <&hdmim0_tx0_cec>, <&hdmim0_tx0_scl>,
+-		    <&hdmim0_tx0_sda>;
++		    <&hdmim0_tx0_sda>, <&hdmi0_tx_on_h>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+ };
+@@ -893,7 +891,7 @@ charger_int_h: charger-int-h {
+ 	};
+ 
+ 	hdmi {
+-		hdmi0_en: hdmi0-en {
++		hdmi0_tx_on_h: hdmi0-tx-on-h {
+ 			rockchip,pins =
+ 				<4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+-- 
+2.47.3
+

@@ -1,0 +1,30 @@
+From ae44345db388d3f81c5d4860dcc440e979a5a850 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 17 Mar 2026 15:44:57 +0100
+Subject: [PATCH 080/154] arm64: dts: rockchip: disable command queue engine
+ for Sige5
+
+The Sige5 board often runs into CQE errors, which make the boot
+unreliable; disable support for it to get consistent results
+until somebody found time to analyze the root cause.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 9aca9ea..411253b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -931,6 +931,7 @@ &sdhci {
+ 	no-sdio;
+ 	no-sd;
+ 	non-removable;
++	/delete-property/ supports-cqe;
+ 	status = "okay";
+ };
+ 
+-- 
+2.47.3
+

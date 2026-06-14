@@ -1,0 +1,226 @@
+From c042fd703a01429974079cfcba5e1fbd28bf0524 Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 16 Apr 2026 01:42:34 +0300
+Subject: [PATCH 142/154] arm64: dts: rockchip: Add frl-enable-gpios to rk3576
+ boards
+
+The following RK3576 boards expose a GPIO pin to control the voltage
+bias on the HDMI data lines:
+
+- rk3576-100ask-dshanpi-a1
+- rk3576-armsom-sige5
+- rk3576-evb1-v10
+- rk3576-evb2-v10
+- rk3576-nanopi-m5
+- rk3576-roc-pc
+- rk3576-rock-4d
+
+The pin must be asserted when operating in HDMI 2.1 FRL mode and
+deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts     | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts         | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts         | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts        | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts           | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts          | 9 +++++++++
+ 7 files changed, 63 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+index b19f9b6..a9e3beb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+@@ -278,6 +278,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -738,6 +741,12 @@ hp_det: hp-det {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	pcie {
+ 		pcie_reset: pcie-reset {
+ 			rockchip,pins = <1 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index b76b9c9..f0afbd1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -324,6 +324,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -841,6 +844,12 @@ hp_det_l: hp-det-l {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index 7081c7c..f3ede94 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -370,6 +370,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -897,6 +900,12 @@ host_wake_bt: host-wake-bt {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+index 98d5d00..dfc756d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+@@ -375,6 +375,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -832,6 +835,12 @@ image_pwren: image-pwren {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+index 7406a4a..227fe6f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+@@ -327,6 +327,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -813,6 +816,12 @@ gmac1_rst: gmac1-rst {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+index d0ab1d1..54de3a5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+@@ -283,6 +283,9 @@ &eth0m0_rgmii_bus
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -720,6 +723,12 @@ &sdmmc {
+ };
+ 
+ &pinctrl {
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int_l: rtc-int-l {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 90c4c25..eb8bbd0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -348,6 +348,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -798,6 +801,12 @@ &pcie0 {
+ };
+ 
+ &pinctrl {
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+-- 
+2.47.3
+

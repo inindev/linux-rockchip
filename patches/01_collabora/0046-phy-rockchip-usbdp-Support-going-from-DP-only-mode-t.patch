@@ -1,0 +1,89 @@
+From 496d24458ecc79d458c7a6b12b7a2064a1dd3cd1 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 10 Jun 2026 21:26:48 +0200
+Subject: [PATCH 046/154] phy: rockchip: usbdp: Support going from DP-only mode
+ to USB mode
+
+When a USB-C adapter, which maps all Superspeed lanes to DP is plugged
+in, the USB support is disabled in the PHY. When the adapter is
+unplugged and a different adapter with USB functionality is plugged in
+afterwards, USB functionality is not restored as the USB controller
+keeps the PHY enabled for the entire time.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index f673c54..236331c 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -178,6 +178,7 @@ struct rk_udphy {
+ 
+ 	/* utilized for USB */
+ 	bool hs; /* flag for high-speed */
++	bool usb_in_use;
+ 
+ 	/* utilized for DP */
+ 	struct gpio_desc *sbu1_dc_gpio;
+@@ -1015,6 +1016,9 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 		ret = rk_udphy_init(udphy);
+ 		if (ret)
+ 			return ret;
++
++		if (udphy->mode & UDPHY_MODE_USB)
++			rk_udphy_u3_port_disable(udphy, false);
+ 	}
+ 
+ 	udphy->status |= mode;
+@@ -1278,6 +1282,8 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->usb_in_use = true;
++
+ 	/* DP only or high-speed, disable U3 port */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+@@ -1295,6 +1301,8 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->usb_in_use = false;
++
+ 	/* DP only or high-speed */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
+ 		return 0;
+@@ -1314,6 +1322,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 				  struct typec_mux_state *state)
+ {
+ 	struct rk_udphy *udphy = typec_mux_get_drvdata(mux);
++	u8 old_mode;
+ 
+ 	/*
+ 	 * Ignore mux events not involving DP AltMode, because
+@@ -1325,8 +1334,20 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	old_mode = udphy->mode;
++
+ 	rk_udphy_set_typec_state(udphy, state->mode);
+ 
++	/*
++	 * If the new mode includes USB but the old one didn't (e.g. leaving
++	 * DP-only), and the USB PHY was already initialized by the USB
++	 * controller, we need to power on the USB side now since no
++	 * subsequent phy_init call will come from the controller.
++	 */
++	if ((udphy->mode & UDPHY_MODE_USB) && !(old_mode & UDPHY_MODE_USB) &&
++	    udphy->usb_in_use && !udphy->hs)
++		rk_udphy_power_on(udphy, UDPHY_MODE_USB);
++
+ 	return 0;
+ }
+ 
+-- 
+2.47.3
+

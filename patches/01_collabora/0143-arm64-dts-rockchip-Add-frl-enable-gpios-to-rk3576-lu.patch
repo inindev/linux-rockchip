@@ -1,0 +1,82 @@
+From 700d8e8ebf5462a45417f947aea6a7f594dedfec Mon Sep 17 00:00:00 2001
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 16 Apr 2026 01:34:12 +0300
+Subject: [PATCH 143/154] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576-luckfox-core3576
+
+The board exposes the GPIO4_C6 pin to control the voltage bias on the
+HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+Additionally, remove the now unnecessary workaround of using
+vcc_5v0_hdmi as hdmi-pwr-supply solely to drive the GPIO into its
+default state.
+
+Also rename the hdmi_con_en pinctrl to hdmi_tx_on_h to match the
+schematic naming.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 22 ++++---------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+index 749f0a5..4fc8496 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+@@ -26,7 +26,6 @@ chosen {
+ 
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+-		hdmi-pwr-supply = <&vcc_5v0_hdmi>;
+ 		type = "a";
+ 
+ 		port {
+@@ -138,22 +137,6 @@ regulator-state-mem {
+ 		};
+ 	};
+ 
+-	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
+-		compatible = "regulator-fixed";
+-		enable-active-high;
+-		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&hdmi_con_en>;
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		regulator-name = "vcc_5v0_hdmi";
+-		vin-supply = <&vcc_5v0_sys>;
+-
+-		regulator-state-mem {
+-			regulator-off-in-suspend;
+-		};
+-	};
+-
+ 	vcc_5v0_host: regulator-vcc-5v0-host {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -231,6 +214,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -655,7 +641,7 @@ &pcie0 {
+ 
+ &pinctrl {
+ 	hdmi {
+-		hdmi_con_en: hdmi-con-en {
++		hdmi_tx_on_h: hdmi-tx-on-h {
+ 			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+-- 
+2.47.3
+
