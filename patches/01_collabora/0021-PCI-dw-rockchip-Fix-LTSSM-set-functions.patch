@@ -1,7 +1,7 @@
-From e02ec71c3a3b1acdd3f11dc8bae1cc3730dbe1e1 Mon Sep 17 00:00:00 2001
+From 905e261d1dfd47cac701b1f8307edc92c6d9275b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 21 Nov 2025 19:27:00 +0100
-Subject: [PATCH 021/154] PCI: dw-rockchip: Fix LTSSM set functions
+Subject: [PATCH 021/150] PCI: dw-rockchip: Fix LTSSM set functions
 
 Before the Rockchip PCIe driver has been switched over to the
 FIELD_PREP_WM16 macro, PCIE_CLIENT_ENABLE_LTSSM and PCIE_CLIENT_DISABLE_LTSSM
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 731d936..e86d7ee 100644
+index 731d93663..e86d7ee68 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -317,14 +317,14 @@ static void rockchip_pcie_ltssm_trace(struct rockchip_pcie *rockchip,

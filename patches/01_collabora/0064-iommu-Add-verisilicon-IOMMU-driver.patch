@@ -1,7 +1,7 @@
-From 7a51828a90e88203d4574bd8bfce2bd36a9424d1 Mon Sep 17 00:00:00 2001
+From 80f6a907c9e6000d216470359af0de110f0a856f Mon Sep 17 00:00:00 2001
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 Date: Wed, 15 Apr 2026 09:23:39 +0200
-Subject: [PATCH 064/154] iommu: Add verisilicon IOMMU driver
+Subject: [PATCH 064/150] iommu: Add verisilicon IOMMU driver
 
 The Verisilicon IOMMU hardware block can be found in combination
 with Verisilicon hardware video codecs (encoders or decoders) on
@@ -21,10 +21,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  create mode 100644 drivers/iommu/vsi-iommu.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index f7f36be..4f5f210 100644
+index 4e87d00e3..d8afe5d62 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -27959,6 +27959,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
+@@ -27958,6 +27958,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
  F:	include/media/v4l2-isp.h
  F:	include/uapi/linux/media/v4l2-isp.h
  
@@ -40,7 +40,7 @@ index f7f36be..4f5f210 100644
  M:	Stefan Agner <stefan@agner.ch>
  L:	linux-mtd@lists.infradead.org
 diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index f86262b..18d3d68 100644
+index f86262b11..18d3d68af 100644
 --- a/drivers/iommu/Kconfig
 +++ b/drivers/iommu/Kconfig
 @@ -384,6 +384,17 @@ config SPRD_IOMMU
@@ -62,7 +62,7 @@ index f86262b..18d3d68 100644
  	bool "Debug IOMMU mappings against page allocations"
  	depends on DEBUG_PAGEALLOC && IOMMU_API && PAGE_EXTENSION
 diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
-index 0275821..887af35 100644
+index 0275821f4..887af357a 100644
 --- a/drivers/iommu/Makefile
 +++ b/drivers/iommu/Makefile
 @@ -36,4 +36,5 @@ obj-$(CONFIG_IOMMU_SVA) += iommu-sva.o
@@ -73,7 +73,7 @@ index 0275821..887af35 100644
  obj-$(CONFIG_IOMMU_DEBUG_PAGEALLOC) += iommu-debug-pagealloc.o
 diff --git a/drivers/iommu/vsi-iommu.c b/drivers/iommu/vsi-iommu.c
 new file mode 100644
-index 0000000..5d0721b
+index 000000000..5d0721bd2
 --- /dev/null
 +++ b/drivers/iommu/vsi-iommu.c
 @@ -0,0 +1,796 @@

@@ -1,7 +1,7 @@
-From d2791fa2bbeec84f64d4aba465b77b5c8eb01a83 Mon Sep 17 00:00:00 2001
+From b7ed2a39940fa8f1d4632bce2fa9b8689c84d902 Mon Sep 17 00:00:00 2001
 From: Zhang Yubing <yubing.zhang@rock-chips.com>
 Date: Thu, 29 Jan 2026 13:04:47 +0100
-Subject: [PATCH 036/154] phy: rockchip: usbdp: Support single-lane DP
+Subject: [PATCH 036/150] phy: rockchip: usbdp: Support single-lane DP
 
 Implement support for using just a single DisplayPort line.
 
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 25 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index febc148..bf83941 100644
+index febc148a7..bf8394174 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -193,6 +193,7 @@ struct rk_udphy {

@@ -1,7 +1,7 @@
-From 446e6915d9ab2da0db6d66e83a906f469ffbe15d Mon Sep 17 00:00:00 2001
+From 669abbae8cca63d606ef70f1fd7233e883be838d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 25 Jul 2024 18:12:24 +0200
-Subject: [PATCH 007/154] mfd: rk8xx: Fix shutdown handler
+Subject: [PATCH 007/150] mfd: rk8xx: Fix shutdown handler
 
 When I converted rk808 to device managed resources I converted the rk808
 specific pm_power_off handler to devm_register_sys_off_handler() using
@@ -99,7 +99,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
-index 3dcf6ab..21182df 100644
+index 3dcf6abfd..21182df45 100644
 --- a/drivers/mfd/rk8xx-core.c
 +++ b/drivers/mfd/rk8xx-core.c
 @@ -875,7 +875,7 @@ int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap

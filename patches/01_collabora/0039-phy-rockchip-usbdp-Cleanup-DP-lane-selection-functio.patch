@@ -1,7 +1,7 @@
-From 3f1c9982c43d9674038947cfad5f1820eab3108b Mon Sep 17 00:00:00 2001
+From 0da02bf716c40388b6490ce076dcb37a6067a59e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:24:20 +0100
-Subject: [PATCH 039/154] phy: rockchip: usbdp: Cleanup DP lane selection
+Subject: [PATCH 039/150] phy: rockchip: usbdp: Cleanup DP lane selection
  function
 
 Use FIELD_PREP_WM16() helpers to simplify the DP lane selection
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 1bfc365..beab20e 100644
+index 1bfc365e2..beab20e4c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -550,30 +550,16 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)

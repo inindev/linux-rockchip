@@ -1,7 +1,7 @@
-From 28b53e4d68dab44fc788294557f93eabdeff24c7 Mon Sep 17 00:00:00 2001
+From 57c7197239a6e4086b14332786bd7445c701bc63 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 21:32:59 +0100
-Subject: [PATCH 035/154] phy: rockchip: usbdp: Add missing mode_change update
+Subject: [PATCH 035/150] phy: rockchip: usbdp: Add missing mode_change update
 
 rk_udphy_set_typec_default_mapping() updates the available modes,
 but does not set the mode_change as required. This results in
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 11 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 97e53b9..febc148 100644
+index 97e53b933..febc148a7 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -619,6 +619,15 @@ static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)

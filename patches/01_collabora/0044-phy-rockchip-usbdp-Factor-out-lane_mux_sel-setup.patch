@@ -1,7 +1,7 @@
-From d86774fa677700c8b7d1b0f7647b28bf7760f4e1 Mon Sep 17 00:00:00 2001
+From 773fe561b3c3f58321a494a6837b748e24a2684d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 12:45:50 +0200
-Subject: [PATCH 044/154] phy: rockchip: usbdp: Factor out lane_mux_sel setup
+Subject: [PATCH 044/150] phy: rockchip: usbdp: Factor out lane_mux_sel setup
 
 Avoid describing the USB+DP lane_mux_sel logic twice by introducing
 a helper function to reduce code duplication.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 40 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 89a0826..4ba8b6f 100644
+index 89a082676..4ba8b6f0a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -584,6 +584,42 @@ static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)

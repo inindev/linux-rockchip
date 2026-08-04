@@ -1,7 +1,7 @@
-From 3fd3f218cea2c3830cbd7f7b33e403aa5a0a24a0 Mon Sep 17 00:00:00 2001
+From c743fde1822eb1b794d0460b1405ec4a9432432b Mon Sep 17 00:00:00 2001
 From: Frank Wang <frank.wang@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:28:08 +0100
-Subject: [PATCH 033/154] phy: rockchip: usbdp: Amend SSC modulation deviation
+Subject: [PATCH 033/150] phy: rockchip: usbdp: Amend SSC modulation deviation
 
 Move SSC modulation deviation into private config of clock
 
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 98562a8..1f68684 100644
+index 98562a888..1f686844c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -350,7 +350,8 @@ static const struct reg_sequence rk_udphy_24m_refclk_cfg[] = {

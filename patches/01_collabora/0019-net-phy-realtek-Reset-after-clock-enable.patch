@@ -1,7 +1,7 @@
-From f89377438ef0f3f2c2c406d26e52ea1087482197 Mon Sep 17 00:00:00 2001
+From 635a6486965134adddf7268fd3f002c336019396 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
-Subject: [PATCH 019/154] net: phy: realtek: Reset after clock enable
+Subject: [PATCH 019/150] net: phy: realtek: Reset after clock enable
 
 On Radxa ROCK 4D boards we are seeing some issues with PHY detection and
 stability (e.g. link loss or not capable of transceiving packages) after
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index 79c867e..c35c899 100644
+index 01bbddeb4..59f5d111d 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -291,6 +291,8 @@ static int rtl821x_probe(struct phy_device *phydev)
@@ -51,7 +51,7 @@ index 79c867e..c35c899 100644
  
  	ret = genphy_resume(phydev);
  	if (ret < 0)
-@@ -2456,7 +2460,7 @@ static struct phy_driver realtek_drvs[] = {
+@@ -2457,7 +2461,7 @@ static struct phy_driver realtek_drvs[] = {
  		.resume		= rtl8211f_resume,
  		.read_page	= rtl821x_read_page,
  		.write_page	= rtl821x_write_page,

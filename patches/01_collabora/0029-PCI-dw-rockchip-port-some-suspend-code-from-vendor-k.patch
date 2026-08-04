@@ -1,7 +1,7 @@
-From 7ad061d23520271dd190667cbc433490fb8b6713 Mon Sep 17 00:00:00 2001
+From 46b85baaf596681360fe4299ed8d72b4ce96f945 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 24 Nov 2025 20:06:39 +0100
-Subject: [PATCH 029/154] PCI: dw-rockchip: port some suspend code from vendor
+Subject: [PATCH 029/150] PCI: dw-rockchip: port some suspend code from vendor
  kernel
 
 Rockchip's vendor kernel does these calls before starting the actual
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 14 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 9c6be61..65e85c7 100644
+index 9c6be61cf..65e85c7ea 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -76,6 +76,9 @@

@@ -1,7 +1,7 @@
-From 00bf7dbc9072d99b46597aaf4f97e9ee425eb2ce Mon Sep 17 00:00:00 2001
+From 2b85b48cb9a514876940b3172bfab2087a7dc9c3 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 6 Nov 2025 16:21:05 +0100
-Subject: [PATCH 060/154] net: phy: realtek: re-init after reset
+Subject: [PATCH 060/150] net: phy: realtek: re-init after reset
 
 The reset in the resume function results in the custom configuration
 being lost, which effectively renders the 'realtek,aldps-enable'
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index c35c899..5895d2e 100644
+index 59f5d111d..4ec9e1a2d 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -936,11 +936,13 @@ static int rtl8211f_suspend(struct phy_device *phydev)

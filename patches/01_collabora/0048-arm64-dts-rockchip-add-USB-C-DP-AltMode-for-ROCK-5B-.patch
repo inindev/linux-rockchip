@@ -1,7 +1,7 @@
-From f246bb8cd6960864e377b924a56883f2a404cab5 Mon Sep 17 00:00:00 2001
+From 4b69466bff067b59f16f3100a857b3b4bff7ee1b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 28 Jul 2025 16:58:21 +0200
-Subject: [PATCH 048/154] arm64: dts: rockchip: add USB-C DP AltMode for ROCK
+Subject: [PATCH 048/150] arm64: dts: rockchip: add USB-C DP AltMode for ROCK
  5B family
 
 Enable support for USB-C DP AltMode to the ROCK 5B/5B+/5T.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 72 insertions(+), 11 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-index bb84286..8625f35 100644
+index bb84286cb..8625f35a6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 @@ -177,6 +177,22 @@ &cpu_l3 {

@@ -1,7 +1,7 @@
-From 6689ce7e203b9fd790368d4d6404ebb2adc778c9 Mon Sep 17 00:00:00 2001
+From dcd3ce83a3c7913b32ecb530dee30a43980614c0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:15:23 +0100
-Subject: [PATCH 038/154] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
+Subject: [PATCH 038/150] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
 
 Cleanup code by replacing open-coded version of FIELD_PREP_WM16_CONST
 with the existing helper macro.
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 6d7ca11..1bfc365 100644
+index 6d7ca11b3..1bfc365e2 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -12,6 +12,7 @@

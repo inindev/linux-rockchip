@@ -1,7 +1,7 @@
-From 3f422734437e492576d7baa65d7399521f477a62 Mon Sep 17 00:00:00 2001
+From 2d79cefb84b73766ad7a5b41e703f6f50718c6ff Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 01:22:02 +0100
-Subject: [PATCH 031/154] phy: rockchip: usbdp: Do not lose USB3 PHY status
+Subject: [PATCH 031/150] phy: rockchip: usbdp: Do not lose USB3 PHY status
 
 By default (i.e. without manually enabling runtime PM) DWC3 requests the
 USB3 PHY once and keeps it enabled all the time. When DisplayPort is
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fba3551..744cc7c 100644
+index fba35510d..744cc7c64 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1009,7 +1009,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

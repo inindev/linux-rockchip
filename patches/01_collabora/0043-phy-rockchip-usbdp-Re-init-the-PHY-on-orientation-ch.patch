@@ -1,7 +1,7 @@
-From eead58de238e535c9be3180e0b351817cc06d271 Mon Sep 17 00:00:00 2001
+From 653af447d0c9bbd98b06a2fa6d6dbc70c062c578 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 12:25:32 +0200
-Subject: [PATCH 043/154] phy: rockchip: usbdp: Re-init the PHY on orientation
+Subject: [PATCH 043/150] phy: rockchip: usbdp: Re-init the PHY on orientation
  change
 
 Changing the cable orientation reconfigures the lane muxing, which
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index a3b4e2e..89a0826 100644
+index a3b4e2e0f..89a082676 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -622,6 +622,7 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,

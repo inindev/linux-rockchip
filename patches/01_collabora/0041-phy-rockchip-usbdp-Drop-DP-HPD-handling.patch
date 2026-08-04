@@ -1,7 +1,7 @@
-From a6c3dc8f1c22c134a7bc135cc74c9645185eaff4 Mon Sep 17 00:00:00 2001
+From 7812cd80c5b9ad5453ae03c82992ae27148565b7 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:53:21 +0100
-Subject: [PATCH 041/154] phy: rockchip: usbdp: Drop DP HPD handling
+Subject: [PATCH 041/150] phy: rockchip: usbdp: Drop DP HPD handling
 
 Drop the HPD handling logic from the USBDP PHY. The registers involved
 require the display controller power domain being enabled and thus the
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+), 76 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 77ad2a8..7255c80 100644
+index 77ad2a89d..7255c80e0 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -128,7 +128,6 @@ struct rk_udphy_grf_cfg {

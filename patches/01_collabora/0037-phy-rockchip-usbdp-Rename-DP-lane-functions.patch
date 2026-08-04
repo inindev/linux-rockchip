@@ -1,7 +1,7 @@
-From b597ee66acb583e8c9f538db7fd830fe73edd10a Mon Sep 17 00:00:00 2001
+From 3bd69a6a144c63f758eaef5bd523c4782cfad197 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 22:45:18 +0100
-Subject: [PATCH 037/154] phy: rockchip: usbdp: Rename DP lane functions
+Subject: [PATCH 037/150] phy: rockchip: usbdp: Rename DP lane functions
 
 The common prefix for DisplayPort related functions is rk_udphy_dp_
 (with a final _), so update the two DP lane functions to follow that
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index bf83941..6d7ca11 100644
+index bf8394174..6d7ca11b3 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -547,7 +547,7 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)

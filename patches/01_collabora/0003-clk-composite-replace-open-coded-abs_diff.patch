@@ -1,7 +1,7 @@
-From 415251a530278bb1358d43a0e72263db5bb44ddb Mon Sep 17 00:00:00 2001
+From b3682f9c1fb0dc98816c8086f318b812faee3762 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 18:09:57 +0200
-Subject: [PATCH 003/154] clk: composite: replace open-coded abs_diff()
+Subject: [PATCH 003/150] clk: composite: replace open-coded abs_diff()
 
 Replace the open coded abs_diff() with the existing helper function.
 
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/clk/clk-composite.c b/drivers/clk/clk-composite.c
-index 835b1e4..a452917 100644
+index 835b1e4e5..a45291727 100644
 --- a/drivers/clk/clk-composite.c
 +++ b/drivers/clk/clk-composite.c
 @@ -6,6 +6,7 @@

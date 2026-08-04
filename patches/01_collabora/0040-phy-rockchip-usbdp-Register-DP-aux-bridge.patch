@@ -1,7 +1,7 @@
-From 840f798f9cacfeb279c77b2f6c180771b9c82d94 Mon Sep 17 00:00:00 2001
+From c0a02de0d4fbfe684807abbc7c27da3696c0047a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:06:48 +0100
-Subject: [PATCH 040/154] phy: rockchip: usbdp: Register DP aux bridge
+Subject: [PATCH 040/150] phy: rockchip: usbdp: Register DP aux bridge
 
 Add support to use USB-C connectors with the DP altmode helper code on
 devicetree based platforms. To get this working there must be a DRM
@@ -33,7 +33,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 16 insertions(+)
 
 diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 1469857..39759bb 100644
+index 14698571b..39759bb2f 100644
 --- a/drivers/phy/rockchip/Kconfig
 +++ b/drivers/phy/rockchip/Kconfig
 @@ -136,8 +136,10 @@ config PHY_ROCKCHIP_USBDP
@@ -48,7 +48,7 @@ index 1469857..39759bb 100644
  	  Enable this to support the Rockchip USB3.0/DP combo PHY with
  	  Samsung IP block. This is required for USB3 support on RK3588.
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index beab20e..77ad2a8 100644
+index beab20e4c..77ad2a89d 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -6,6 +6,7 @@

@@ -1,7 +1,7 @@
-From 496d24458ecc79d458c7a6b12b7a2064a1dd3cd1 Mon Sep 17 00:00:00 2001
+From 2c420ac861b1ea96a761fc5a306fc110a74aa89a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 10 Jun 2026 21:26:48 +0200
-Subject: [PATCH 046/154] phy: rockchip: usbdp: Support going from DP-only mode
+Subject: [PATCH 046/150] phy: rockchip: usbdp: Support going from DP-only mode
  to USB mode
 
 When a USB-C adapter, which maps all Superspeed lanes to DP is plugged
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 21 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index f673c54..236331c 100644
+index f673c5481..236331cc0 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -178,6 +178,7 @@ struct rk_udphy {

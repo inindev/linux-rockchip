@@ -1,7 +1,7 @@
-From 45e080c744b5e04b439747f176f43582949fcfb4 Mon Sep 17 00:00:00 2001
+From 0be8be9846178c223128f1cdf369dbc934e02e18 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 19 Jan 2026 13:11:40 +0100
-Subject: [PATCH 073/154] mmc: sdhci-of-dwcmshc: Reduce clock reduction print
+Subject: [PATCH 073/150] mmc: sdhci-of-dwcmshc: Reduce clock reduction print
  level
 
 The system gracefully handles not being able to reduce the clock
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index b9ecd91..0f9576b 100644
+index 29af07561..ae89fda8c 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
 @@ -790,7 +790,7 @@ static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock

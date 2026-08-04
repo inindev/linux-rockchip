@@ -1,7 +1,7 @@
-From 0c7ac998f25e876aa135ecf0d0dbd4098161522e Mon Sep 17 00:00:00 2001
+From 5da8870f23b1ae0dc720dd5acf4ba77390c8cc70 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 11 Jun 2026 20:07:48 +0200
-Subject: [PATCH 047/154] phy: rockchip: usbdp: Add some extra debug messages
+Subject: [PATCH 047/150] phy: rockchip: usbdp: Add some extra debug messages
 
 It's useful to log PHY reinit to ease debugging issues around
 USB-C hotplugging.
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 236331c..4042e2d 100644
+index 236331cc0..4042e2dd8 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -491,6 +491,8 @@ static void rk_udphy_u3_port_disable(struct rk_udphy *udphy, u8 disable)

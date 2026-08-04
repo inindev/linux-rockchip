@@ -1,7 +1,7 @@
-From 223188aa4046fbed945a9f633435470a58ca0ad9 Mon Sep 17 00:00:00 2001
+From 0ccfc9ff2c747db77324aeceb4400fa297777bbc Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:21:02 +0200
-Subject: [PATCH 024/154] PCI: dw-rockchip: Add helper function for enhanced
+Subject: [PATCH 024/150] PCI: dw-rockchip: Add helper function for enhanced
  LTSSM control mode
 
 Remove code duplication and improve readability by introducing a new
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 13 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 42bc4ed..e0709e2 100644
+index 42bc4ed4b..e0709e29e 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -661,17 +661,25 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
