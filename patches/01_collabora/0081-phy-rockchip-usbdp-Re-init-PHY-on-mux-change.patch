@@ -1,0 +1,35 @@
+From c256e35c9f507b26a4ef7f9ba38c7adec3f07b1c Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 1 Jul 2026 23:37:32 +0200
+Subject: [PATCH 081/177] phy: rockchip: usbdp: Re-init PHY on mux change
+
+Ensure that the right part of the PHY are powered up when the
+mode changes. This ensures the PHY is re-initialized in the
+following two scenarios, which are currently broken:
+
+ - cable orientation changes without DP being involved
+ - switching from DP-only into a mode with USB support
+
+Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 892780deb..0daf26c2a 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1372,7 +1372,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 
+ 	rk_udphy_set_typec_state(udphy, state->mode);
+ 
+-	return 0;
++	return rk_udphy_update_power_state(udphy);
+ }
+ 
+ static void rk_udphy_typec_mux_unregister(void *data)
+-- 
+2.47.3
+

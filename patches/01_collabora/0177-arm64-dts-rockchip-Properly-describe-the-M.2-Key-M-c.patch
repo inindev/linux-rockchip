@@ -1,0 +1,92 @@
+From 191bba79a210a55123542440c8eebc69bd4f4d5a Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 19 Aug 2026 19:03:13 +0200
+Subject: [PATCH 177/177] arm64: dts: rockchip: Properly describe the M.2 Key M
+ connector
+
+The Sige5 has a M.2 connector with Key M. Properly describe it including
+the WAKE gpio, and CLKREQ support. Connector pins for I2C, USB, suspend
+clock, power controls pins, ... are not connected. On the PCIe side it
+has just a single lane.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts | 45 ++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 658154c2c..df404221d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -86,6 +86,28 @@ simple-audio-card,codec {
+ 		};
+ 	};
+ 
++	nvme-connector {
++		compatible = "pcie-m2-m-connector";
++		vpcie3v3-supply = <&vcc_3v3_pcie>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				reg = <0>;
++
++				nvme_ep: endpoint@0 {
++					reg = <0>;
++					remote-endpoint = <&pcie0_ep>;
++				};
++			};
++		};
++	};
++
+ 	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc_12v0_dcin";
+@@ -825,10 +847,28 @@ rgmii_phy1: phy@1 {
+ 
+ &pcie0 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie_reset>;
++	pinctrl-0 = <&pcie0m0_pins>, <&pcie_reset>, <&pcie_wake>;
+ 	reset-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
++	supports-clkreq;
++	wake-gpios = <&gpio0 RK_PD2 GPIO_ACTIVE_LOW>;
+ 	vpcie3v3-supply = <&vcc_3v3_pcie>;
+ 	status = "okay";
++
++	pcie@0 {
++		compatible = "pciclass,0604";
++		reg = <0 0 0 0 0>;
++		device_type = "pci";
++		num-lanes = <1>;
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++
++		port {
++			pcie0_ep: endpoint {
++				remote-endpoint = <&nvme_ep>;
++			};
++		};
++	};
+ };
+ 
+ &pinctrl {
+@@ -875,6 +915,9 @@ pcie_pwr_en: pcie-pwr-en {
+ 		pcie_reset: pcie-reset {
+ 			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
++		pcie_wake: pcie-wake {
++			rockchip,pins = <0 RK_PD2 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
+ 	};
+ 
+ 	usb {
+-- 
+2.47.3
+

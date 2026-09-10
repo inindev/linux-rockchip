@@ -1,0 +1,45 @@
+From b7821078fc3358b5c586d03c1fa733b45e65eba3 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 2 Jul 2026 03:54:15 +0200
+Subject: [PATCH 169/177] arm64: dts: rockchip: Support power sink on USB-C for
+ ArmSom Sige5
+
+Receiving 5V on the USB-C port is something, which can always happen
+when plugging in a USB-A to USB-C cable. As far as I can see from
+the Sige5 schematics, the hardware should be fine receiving some
+voltage, but won't use it for anything. Also the voltage shouldn't
+go higher than 5V to ensure staying within the components voltage
+ratings.
+
+This is effectively required to use the USB-C port in gadget mode
+with Linux, as the TCPM code does not trigger the PHY's Vbus detection
+without it.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 9bcddcee7..7a1cab2bb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -723,11 +723,14 @@ connector {
+ 			compatible = "usb-c-connector";
+ 			label = "USB-C";
+ 			data-role = "dual";
++			op-sink-microwatt = <10>;
+ 			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
+ 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
+-			power-role = "source";
++			power-role = "dual";
++			sink-pdos = <PDO_FIXED(5000, 10, PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
+ 			source-pdos = <PDO_FIXED(5000, 2000,
+ 						 PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
++			try-power-role = "source";
+ 
+ 			altmodes {
+ 				displayport {
+-- 
+2.47.3
+

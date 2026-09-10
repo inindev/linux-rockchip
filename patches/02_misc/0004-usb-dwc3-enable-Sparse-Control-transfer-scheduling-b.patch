@@ -1,7 +1,7 @@
-From 863961b715acfd31c6cdcd4c7e9731a7f0e566f2 Mon Sep 17 00:00:00 2001
+From 112968ea7d6639683dca86c682811d3c582b6325 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 30 Apr 2026 10:44:47 -0400
-Subject: [PATCH 4/5] usb: dwc3: enable Sparse Control-transfer scheduling by
+Subject: [PATCH 4/6] usb: dwc3: enable Sparse Control-transfer scheduling by
  default
 
 Enable GUCTL.SprsCtrlTransEn (bit 17) by default in dwc3_core_init().
@@ -86,7 +86,7 @@ index 6c0b8b653..b24ff7db7 100644
      description:
        When set, run the SOF/ITP counter based on ref_clk.
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 65213896d..fc06d52f6 100644
+index 62d9f96d0..76da12477 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -396,6 +396,47 @@ static void dwc3_frame_length_adjustment(struct dwc3 *dwc)
@@ -137,7 +137,7 @@ index 65213896d..fc06d52f6 100644
  /**
   * dwc3_ref_clk_period - Reference clock period configuration
   *		Default reference clock period depends on hardware
-@@ -1410,6 +1451,8 @@ int dwc3_core_init(struct dwc3 *dwc)
+@@ -1406,6 +1447,8 @@ int dwc3_core_init(struct dwc3 *dwc)
  	/* Adjust Reference Clock Period */
  	dwc3_ref_clk_period(dwc);
  
@@ -146,7 +146,7 @@ index 65213896d..fc06d52f6 100644
  	dwc3_set_incr_burst_type(dwc);
  
  	dwc3_config_soc_bus(dwc);
-@@ -1878,6 +1921,9 @@ static void dwc3_get_properties(struct dwc3 *dwc)
+@@ -1874,6 +1917,9 @@ static void dwc3_get_properties(struct dwc3 *dwc)
  	dwc->dis_split_quirk = device_property_read_bool(dev,
  				"snps,dis-split-quirk");
  
@@ -157,7 +157,7 @@ index 65213896d..fc06d52f6 100644
  	dwc->tx_de_emphasis = tx_de_emphasis;
  
 diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index e0dee9d28..54a8a828e 100644
+index 8572d23a8..26b84fca0 100644
 --- a/drivers/usb/dwc3/core.h
 +++ b/drivers/usb/dwc3/core.h
 @@ -419,6 +419,7 @@
@@ -168,7 +168,7 @@ index e0dee9d28..54a8a828e 100644
  
  /* Global User Control Register 2 */
  #define DWC3_GUCTL2_RST_ACTBITLATER		BIT(14)
-@@ -1164,6 +1165,11 @@ struct dwc3_glue_ops {
+@@ -1166,6 +1167,11 @@ struct dwc3_glue_ops {
   *	3	- Reserved
   * @dis_metastability_quirk: set to disable metastability quirk.
   * @dis_split_quirk: set to disable split boundary.
@@ -180,7 +180,7 @@ index e0dee9d28..54a8a828e 100644
   * @enable_usb2_transceiver_delay: Set to insert a delay before the
   *			assertion of the TxValid signal during a HS Chirp.
   * @sys_wakeup: set if the device may do system wakeup.
-@@ -1409,6 +1415,7 @@ struct dwc3 {
+@@ -1411,6 +1417,7 @@ struct dwc3 {
  	unsigned		dis_metastability_quirk:1;
  
  	unsigned		dis_split_quirk:1;

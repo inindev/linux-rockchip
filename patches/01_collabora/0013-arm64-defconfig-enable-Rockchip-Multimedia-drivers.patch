@@ -1,0 +1,77 @@
+From 98afe02da0de8ef409fed4c4d2b7dbbcdc076f9b Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Sat, 10 Jan 2026 04:29:23 +0100
+Subject: [PATCH 013/177] arm64: defconfig: enable Rockchip Multimedia drivers
+
+Enable multimedia related drivers used by the Radxa ROCK 5B (used as an
+example, the config options are relevant for most Rockchip RK3588 and
+RK3576 boards), so that all hardware is supported by the default config.
+
+ * Synopsys MIPI CSI2RX - RK3588 CSI2 Controller
+ * RKVDEC - RK3588/RK3576 video decoder for H.264 and H.265
+ * Sony IMX415 - Sensor used by the Radxa Cam 4K module
+ * Rocket - RK3588 NPU driver
+ * Verisilicon IOMMU - IOMMU used by RK3588 AV1 video decoder
+ * Innosilicon CSI D-PHY - RK3588 CSI PHY (one of them)
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/configs/defconfig | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 654a102cb..49f836ba6 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -915,6 +915,7 @@ CONFIG_SDR_PLATFORM_DRIVERS=y
+ CONFIG_V4L_MEM2MEM_DRIVERS=y
+ CONFIG_VIDEO_AMPHION_VPU=m
+ CONFIG_VIDEO_CADENCE_CSI2RX=m
++CONFIG_VIDEO_DW_MIPI_CSI2RX=m
+ CONFIG_VIDEO_WAVE_VPU=m
+ CONFIG_VIDEO_E5010_JPEG_ENC=m
+ CONFIG_VIDEO_MEDIATEK_JPEG=m
+@@ -939,6 +940,7 @@ CONFIG_VIDEO_RENESAS_VSP1=m
+ CONFIG_VIDEO_RCAR_DRIF=m
+ CONFIG_VIDEO_ROCKCHIP_RGA=m
+ CONFIG_VIDEO_ROCKCHIP_CIF=m
++CONFIG_VIDEO_ROCKCHIP_VDEC=m
+ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
+ CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+ CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
+@@ -949,6 +951,7 @@ CONFIG_VIDEO_TI_J721E_CSI2RX=m
+ CONFIG_VIDEO_HANTRO=m
+ CONFIG_VIDEO_IMX219=m
+ CONFIG_VIDEO_IMX412=m
++CONFIG_VIDEO_IMX415=m
+ CONFIG_VIDEO_OV5640=m
+ CONFIG_VIDEO_OV5645=m
+ CONFIG_VIDEO_S5KJN1=m
+@@ -1063,6 +1066,8 @@ CONFIG_BACKLIGHT_GPIO=m
+ CONFIG_LOGO=y
+ # CONFIG_LOGO_LINUX_MONO is not set
+ # CONFIG_LOGO_LINUX_VGA16 is not set
++CONFIG_DRM_ACCEL=y
++CONFIG_DRM_ACCEL_ROCKET=m
+ CONFIG_SOUND=m
+ CONFIG_SND=m
+ CONFIG_SND_ALOOP=m
+@@ -1611,6 +1616,7 @@ CONFIG_ROCKCHIP_IOMMU=y
+ CONFIG_TEGRA_IOMMU_SMMU=y
+ CONFIG_APPLE_DART=m
+ CONFIG_MTK_IOMMU=y
++CONFIG_VSI_IOMMU=m
+ CONFIG_REMOTEPROC=y
+ CONFIG_IMX_REMOTEPROC=y
+ CONFIG_MTK_SCP=m
+@@ -1785,6 +1791,7 @@ CONFIG_PHY_RZ_G3E_USB3=m
+ CONFIG_PHY_ROCKCHIP_EMMC=y
+ CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
+ CONFIG_PHY_ROCKCHIP_INNO_USB2=y
++CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY=m
+ CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=m
+ CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
+ CONFIG_PHY_ROCKCHIP_PCIE=m
+-- 
+2.47.3
+

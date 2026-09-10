@@ -1,0 +1,39 @@
+From ee422aa8a0ddcb0b4325bd2c220c033ca49da022 Mon Sep 17 00:00:00 2001
+From: Pan Chuang <panchuang@vivo.com>
+Date: Thu, 23 Jul 2026 21:16:37 +0800
+Subject: [PATCH 012/177] drm/bridge: synopsys: dw-dp: Remove redundant
+ dev_err_probe()
+
+Since commit
+55b48e23f5c4 ("genirq/devres: Add error handling in devm_request_*_irq()"),
+devm_request_threaded_irq() automatically logs detailed error messages on
+failure. Remove the now-redundant driver-specific dev_err_probe() call.
+
+Signed-off-by: Pan Chuang <panchuang@vivo.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Tested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Link: https://patch.msgid.link/20260723131649.134127-6-panchuang@vivo.com
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 3445c82e6..aea8973fb 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -2080,10 +2080,8 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 
+ 	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
+ 					IRQF_ONESHOT, dev_name(dev), dp);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "failed to request irq\n");
++	if (ret)
+ 		goto unregister_aux;
+-	}
+ 
+ 	return dp;
+ 
+-- 
+2.47.3
+

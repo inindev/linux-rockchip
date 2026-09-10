@@ -1,0 +1,28 @@
+From 2364b9542613144f5ff8711a1c4dd7e529ee017f Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 1 Jul 2025 22:58:37 +0200
+Subject: [PATCH 015/177] usb: typec: fusb302: also log to dmesg
+
+Also log to normal dmesg to assist debugging hard reset issues.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/usb/typec/tcpm/fusb302.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
+index 3319f6a2b..2c58deca6 100644
+--- a/drivers/usb/typec/tcpm/fusb302.c
++++ b/drivers/usb/typec/tcpm/fusb302.c
+@@ -150,6 +150,8 @@ static void _fusb302_log(struct fusb302_chip *chip, const char *fmt,
+ 
+ 	vsnprintf(tmpbuffer, sizeof(tmpbuffer), fmt, args);
+ 
++	dev_dbg(chip->dev, "%s\n", tmpbuffer);
++
+ 	mutex_lock(&chip->logbuffer_lock);
+ 
+ 	if (fusb302_log_full(chip)) {
+-- 
+2.47.3
+

@@ -1,0 +1,80 @@
+From 3ae65926c3d743c9471b50d6e43a2cf915379c23 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 27 Jul 2026 19:30:07 +0200
+Subject: [PATCH 171/177] arm64: dts: rockchip: Fix USB-C DP AltMode vdo
+
+Set sensible VDO for DP AltMode. The new value is commonly used by other
+boards and dissects into the following:
+
+  0x0002 DP_CAP_DFP_D
++ 0x0004 DP_CAP_SIGNALLING_HBR3
++ 0x0040 DP_CAP_RECEPTACLE
++ 0x1c00 DP_CAP_PIN_ASSIGN_DFP_D(DP_PIN_ASSIGN_C | DP_PIN_ASSIGN_D | DP_PIN_ASSIGN_E)
+  ------
+  0x1c46
+
+DP_CAP_DFP_D: the RK3588 and RK3576 only have a DisplayPort transmitter,
+but no receiver
+
+DP_CAP_SIGNALLING_HBR3: HBR3 is the limit of the DisplayPort controller
+in RK3588 and RK3576
+
+DP_CAP_RECEPTACLE: The DisplayPort interface is presented on a
+receptacle (disabled bit means plug)
+
+DP_CAP_USB: This is not set, which means USB2 "may be required". My
+understanding is, that unsetting this means USB2 is now available
+at all.
+
+DP_CAP_PIN_ASSIGN_DFP_D(DP_PIN_ASSIGN_C | DP_PIN_ASSIGN_D |
+DP_PIN_ASSIGN_E): The USBDP PHY can handle muxing any of these
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts     | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi  | 2 +-
+ arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 7a1cab2bb..658154c2c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -735,7 +735,7 @@ connector {
+ 			altmodes {
+ 				displayport {
+ 					svid = /bits/ 16 <0xff01>;
+-					vdo = <0xffffffff>;
++					vdo = <0x00001c46>;
+ 				};
+ 			};
+ 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index 7db3dcffb..8635b4548 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -367,7 +367,7 @@ usb_con: connector {
+ 			altmodes {
+ 				displayport {
+ 					svid = /bits/ 16 <0xff01>;
+-					vdo = <0xffffffff>;
++					vdo = <0x00001c46>;
+ 				};
+ 			};
+ 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
+index ed36c27c2..300a5ea74 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
+@@ -393,7 +393,7 @@ usb_con: connector {
+ 			altmodes {
+ 				displayport {
+ 					svid = /bits/ 16 <0xff01>;
+-					vdo = <0xffffffff>;
++					vdo = <0x00001c46>;
+ 				};
+ 			};
+ 
+-- 
+2.47.3
+
