@@ -1,19 +1,19 @@
-From ae6fe800d964da705c3c8f69b914b983e0842b87 Mon Sep 17 00:00:00 2001
+From 23151c1a2e80f8824e9faadbebf88bf7326f0e32 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Sun, 16 Mar 2025 15:32:30 -0400
 Subject: [PATCH 6/6] arm64: inindev_defconfig: config for linux 7.2
 
 ---
- arch/arm64/configs/inindev_defconfig | 1189 ++++++++++++++++++++++++++
- 1 file changed, 1189 insertions(+)
+ arch/arm64/configs/inindev_defconfig | 1190 ++++++++++++++++++++++++++
+ 1 file changed, 1190 insertions(+)
  create mode 100644 arch/arm64/configs/inindev_defconfig
 
 diff --git a/arch/arm64/configs/inindev_defconfig b/arch/arm64/configs/inindev_defconfig
 new file mode 100644
-index 000000000..962883b8f
+index 000000000..21ec96873
 --- /dev/null
 +++ b/arch/arm64/configs/inindev_defconfig
-@@ -0,0 +1,1189 @@
+@@ -0,0 +1,1190 @@
 +CONFIG_COMPILE_TEST=y
 +# CONFIG_WERROR is not set
 +CONFIG_SYSVIPC=y
@@ -1144,6 +1144,7 @@ index 000000000..962883b8f
 +CONFIG_EFIVAR_FS=y
 +CONFIG_UBIFS_FS=m
 +CONFIG_SQUASHFS=y
++CONFIG_SQUASHFS_XZ=y
 +CONFIG_PSTORE_RAM=m
 +CONFIG_EROFS_FS=m
 +CONFIG_NFS_FS=y

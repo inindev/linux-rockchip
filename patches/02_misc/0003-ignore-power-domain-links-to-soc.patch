@@ -1,4 +1,4 @@
-From cb3ea64a45c3551da14b21b96e90d35e82a682e2 Mon Sep 17 00:00:00 2001
+From 029845b4c26bbc5729cd59f220e372bbabac5ee5 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 30 Apr 2025 09:01:09 -0400
 Subject: [PATCH 3/6] ignore power domain links to soc

@@ -1,4 +1,4 @@
-From 112968ea7d6639683dca86c682811d3c582b6325 Mon Sep 17 00:00:00 2001
+From c335aa65eb5158b47a119ffd9daba0f6b3edff60 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 30 Apr 2026 10:44:47 -0400
 Subject: [PATCH 4/6] usb: dwc3: enable Sparse Control-transfer scheduling by
