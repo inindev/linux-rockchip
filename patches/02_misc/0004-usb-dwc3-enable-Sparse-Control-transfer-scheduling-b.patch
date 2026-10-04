@@ -1,4 +1,4 @@
-From c335aa65eb5158b47a119ffd9daba0f6b3edff60 Mon Sep 17 00:00:00 2001
+From 8315ebe5c2af0032389a0ee8bd151bfdc8914259 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 30 Apr 2026 10:44:47 -0400
 Subject: [PATCH 4/6] usb: dwc3: enable Sparse Control-transfer scheduling by
@@ -86,7 +86,7 @@ index 6c0b8b653..b24ff7db7 100644
      description:
        When set, run the SOF/ITP counter based on ref_clk.
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 62d9f96d0..76da12477 100644
+index daf5aec07..c178a5055 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -396,6 +396,47 @@ static void dwc3_frame_length_adjustment(struct dwc3 *dwc)
@@ -157,7 +157,7 @@ index 62d9f96d0..76da12477 100644
  	dwc->tx_de_emphasis = tx_de_emphasis;
  
 diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index 8572d23a8..26b84fca0 100644
+index e9d8df0a2..6cf7cd5d1 100644
 --- a/drivers/usb/dwc3/core.h
 +++ b/drivers/usb/dwc3/core.h
 @@ -419,6 +419,7 @@
@@ -168,7 +168,7 @@ index 8572d23a8..26b84fca0 100644
  
  /* Global User Control Register 2 */
  #define DWC3_GUCTL2_RST_ACTBITLATER		BIT(14)
-@@ -1166,6 +1167,11 @@ struct dwc3_glue_ops {
+@@ -1167,6 +1168,11 @@ struct dwc3_glue_ops {
   *	3	- Reserved
   * @dis_metastability_quirk: set to disable metastability quirk.
   * @dis_split_quirk: set to disable split boundary.
@@ -180,7 +180,7 @@ index 8572d23a8..26b84fca0 100644
   * @enable_usb2_transceiver_delay: Set to insert a delay before the
   *			assertion of the TxValid signal during a HS Chirp.
   * @sys_wakeup: set if the device may do system wakeup.
-@@ -1411,6 +1417,7 @@ struct dwc3 {
+@@ -1416,6 +1422,7 @@ struct dwc3 {
  	unsigned		dis_metastability_quirk:1;
  
  	unsigned		dis_split_quirk:1;

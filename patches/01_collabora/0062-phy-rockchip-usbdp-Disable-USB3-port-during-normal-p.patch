@@ -1,0 +1,38 @@
+From 0fd46a0c18418979d5ca93eb6af886ad2c876f37 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 28 Sep 2026 18:42:25 +0200
+Subject: [PATCH 062/137] phy: rockchip: usbdp: Disable USB3 port during normal
+ power-on
+
+In the reset path, the USB3 port is disabled. This re-routes the clock
+going from the PHY to the USB3 controller. This adds the same to the
+normal power-on path, so that it behaves exactly the same (except that
+the clocks routed to the PHY stay enabled in the reset path).
+
+This hasn't been done so far, as it requires the recently introduced
+PHY reset infrastructure to avoid the PHY PLL not locking during
+startup.
+
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 750c6df53..72b25a031 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -991,6 +991,9 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 	if (udphy->status == UDPHY_MODE_NONE) {
+ 		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
+ 
++		rk_udphy_u3_port_disable(udphy, true);
++		udelay(10);
++
+ 		ret = rk_udphy_setup(udphy);
+ 		if (ret) {
+ 			phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+-- 
+2.47.3
+

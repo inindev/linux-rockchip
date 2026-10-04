@@ -1,0 +1,77 @@
+From f81d58f095f812ac9dee553934efff5a4b61a197 Mon Sep 17 00:00:00 2001
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 24 Aug 2026 19:35:12 +0200
+Subject: [PATCH 132/137] Revert "usb: typec: fusb302: drop explicit DRM DP HPD
+ bridge support"
+
+The automatic registration no longer works after rebase to latest master
+branch; until the problem has been investigated restore the manual
+registration.
+
+This reverts commit 3b61766da44aa873940074c56c678e1465336ebe.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/usb/typec/tcpm/Kconfig   |  2 ++
+ drivers/usb/typec/tcpm/fusb302.c | 11 +++++++++++
+ 2 files changed, 13 insertions(+)
+
+diff --git a/drivers/usb/typec/tcpm/Kconfig b/drivers/usb/typec/tcpm/Kconfig
+index 8cdd84ca5..00baa7503 100644
+--- a/drivers/usb/typec/tcpm/Kconfig
++++ b/drivers/usb/typec/tcpm/Kconfig
+@@ -58,6 +58,8 @@ config TYPEC_FUSB302
+ 	tristate "Fairchild FUSB302 Type-C chip driver"
+ 	depends on I2C
+ 	depends on EXTCON || !EXTCON
++	depends on DRM || DRM=n
++	select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+ 	help
+ 	  The Fairchild FUSB302 Type-C chip driver that works with
+ 	  Type-C Port Controller Manager to provide USB PD and USB
+diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
+index 34ce01807..eb7e4a004 100644
+--- a/drivers/usb/typec/tcpm/fusb302.c
++++ b/drivers/usb/typec/tcpm/fusb302.c
+@@ -5,6 +5,7 @@
+  * Fairchild FUSB302 Type-C Chip Driver
+  */
+ 
++#include <drm/bridge/aux-bridge.h>
+ #include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/devm-helpers.h>
+@@ -1682,6 +1683,7 @@ static int fusb302_probe(struct i2c_client *client)
+ {
+ 	struct fusb302_chip *chip;
+ 	struct i2c_adapter *adapter = client->adapter;
++	struct auxiliary_device *bridge_dev;
+ 	struct device *dev = &client->dev;
+ 	const char *name;
+ 	int ret = 0;
+@@ -1745,6 +1747,11 @@ static int fusb302_probe(struct i2c_client *client)
+ 	if (ret < 0)
+ 		return ret;
+ 
++	bridge_dev = devm_drm_dp_hpd_bridge_alloc(chip->dev, to_of_node(chip->tcpc_dev.fwnode));
++	if (IS_ERR(bridge_dev))
++		return dev_err_probe(chip->dev, PTR_ERR(bridge_dev),
++				     "failed to alloc bridge\n");
++
+ 	chip->tcpm_port = devm_tcpm_register_port(&client->dev, &chip->tcpc_dev);
+ 	if (IS_ERR(chip->tcpm_port))
+ 		return dev_err_probe(dev, PTR_ERR(chip->tcpm_port),
+@@ -1768,6 +1775,10 @@ static int fusb302_probe(struct i2c_client *client)
+ 
+ 	i2c_set_clientdata(client, chip);
+ 
++	ret = devm_drm_dp_hpd_bridge_add(chip->dev, bridge_dev);
++	if (ret)
++		return ret;
++
+ 	enable_irq_wake(chip->irq);
+ 
+ 	return ret;
+-- 
+2.47.3
+

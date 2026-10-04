@@ -1,4 +1,4 @@
-From 2f3c56dd0657dea8b7044c723948023734e8261f Mon Sep 17 00:00:00 2001
+From 083a7362941075939d5f33326edc2d85bfb62ab4 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 9 Sep 2026 22:02:48 -0400
 Subject: [PATCH 5/6] arm64: dts: rockchip: Add Xunlong Orange Pi CM4
@@ -28,10 +28,10 @@ Signed-off-by: John Clark <inindev@gmail.com>
  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-orangepi-cm4.dtsi
 
 diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 1a9dde186..22488fa5c 100644
+index a799bb843..6b300da20 100644
 --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
 +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1319,6 +1319,14 @@ properties:
+@@ -1380,6 +1380,14 @@ properties:
            - const: xunlong,orangepi-3b
            - const: rockchip,rk3566
  
@@ -47,10 +47,10 @@ index 1a9dde186..22488fa5c 100644
          items:
            - enum:
 diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 761d82b4f..c255d4a28 100644
+index e7936a21c..60805b56f 100644
 --- a/arch/arm64/boot/dts/rockchip/Makefile
 +++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -108,6 +108,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
+@@ -110,6 +110,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-edge-cube.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v1.1.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v2.1.dtb
@@ -65,7 +65,7 @@ index 761d82b4f..c255d4a28 100644
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.1.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.2.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinetab2-v0.1.dtb
-@@ -274,6 +282,54 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-v2-screen.dtb
+@@ -286,6 +294,54 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-v2-screen.dtb
  rk3399-rockpro64-v2-screen-dtbs := rk3399-rockpro64-v2.dtb \
  	rk3399-rockpro64-screen.dtbo
  
