@@ -1,4 +1,4 @@
-From 5caf04ef706604dffa998080a4fded118f48573a Mon Sep 17 00:00:00 2001
+From 74ae19dc0be1b9d5f0ee8d618bb4cf9e568af63e Mon Sep 17 00:00:00 2001
 From: Zhang Yubing <yubing.zhang@rock-chips.com>
 Date: Thu, 29 Jan 2026 13:04:47 +0100
 Subject: [PATCH 039/137] phy: rockchip: usbdp: Support single-lane DP
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 27 insertions(+), 37 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index b72daf80a..4fce9cd66 100644
+index b72daf8..4fce9cd 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -192,6 +192,7 @@ struct rk_udphy {

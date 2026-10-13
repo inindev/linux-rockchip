@@ -1,4 +1,4 @@
-From 748f9288f1752a5081d3a90973c572fc99b4b332 Mon Sep 17 00:00:00 2001
+From c95a9dfd899f311e8c0c5cccf56deb03fe4a4548 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 11:25:21 +0200
 Subject: [PATCH 046/137] phy: rockchip: usbdp: Rename mode_change to
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 03a276c08..9767fba23 100644
+index 03a276c..9767fba 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -170,7 +170,7 @@ struct rk_udphy {

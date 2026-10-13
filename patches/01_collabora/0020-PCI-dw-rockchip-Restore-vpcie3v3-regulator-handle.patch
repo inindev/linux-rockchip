@@ -1,4 +1,4 @@
-From cd0d46c4730e674c4b979e1e40cf37785fb89b26 Mon Sep 17 00:00:00 2001
+From db22115df44bdef822a398c6f2cebd0185ada03e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
 Subject: [PATCH 020/137] PCI: dw-rockchip: Restore vpcie3v3 regulator handle
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 17 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index dc85564e5..f67ad3c31 100644
+index dc85564..f67ad3c 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -112,6 +112,7 @@ struct rockchip_pcie {

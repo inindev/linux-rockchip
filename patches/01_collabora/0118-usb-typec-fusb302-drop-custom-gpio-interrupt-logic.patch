@@ -1,4 +1,4 @@
-From c6c4ad4448452ae7243a80906c05d9d87e14db47 Mon Sep 17 00:00:00 2001
+From ddf319bb7827872a078e1dbbfb389f3974501201 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 18:17:02 +0200
 Subject: [PATCH 118/137] usb: typec: fusb302: drop custom gpio interrupt logic
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 10 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 911ed910c..eb7e4a004 100644
+index 911ed91..eb7e4a0 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -11,7 +11,6 @@

@@ -1,4 +1,4 @@
-From e78f959352e1c59f9800f222c8fd375bc18a27dc Mon Sep 17 00:00:00 2001
+From 8ffb09307d59bd85da4b4b91f1aa5241294cc9e0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 22 Aug 2025 18:49:35 +0200
 Subject: [PATCH 029/137] dt-bindings: phy: rockchip-usbdp: add improved ports
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 24 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
-index 8b7059d5b..89efaf005 100644
+index 8b7059d..89efaf0 100644
 --- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
 +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
 @@ -110,10 +110,34 @@ properties:

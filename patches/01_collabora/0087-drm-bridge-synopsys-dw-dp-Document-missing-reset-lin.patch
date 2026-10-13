@@ -1,4 +1,4 @@
-From c459ec3663129b5fa7356d5535cff830cd8fd4cb Mon Sep 17 00:00:00 2001
+From 753e791323d3eaeec2c4f10bad1b8427f2a6caf0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 29 Jul 2026 20:31:06 +0200
 Subject: [PATCH 087/137] drm/bridge: synopsys: dw-dp: Document missing reset
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index c4eb2be2a..539436efe 100644
+index c4eb2be..539436e 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -2090,6 +2090,10 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_

@@ -1,4 +1,4 @@
-From ca08a1f083c9b756c63ebb8ca57ac75a48544206 Mon Sep 17 00:00:00 2001
+From 9124706fbf51dd3c1f9f70d1304200997f5a86a1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Jul 2026 15:04:19 +0200
 Subject: [PATCH 089/137] drm/bridge: synopsys: dw-dp: Fix AUX transfer timeout
@@ -30,7 +30,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 8 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index ab1b9bcd3..ea1f904b2 100644
+index ab1b9bc..ea1f904 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1466,6 +1466,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,

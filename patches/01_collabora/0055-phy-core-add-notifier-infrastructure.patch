@@ -1,4 +1,4 @@
-From 641d13540cc575c3a97ad6c5095065a10fb01558 Mon Sep 17 00:00:00 2001
+From c857e1cba778d0ffab98088da1142692c3451986 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 29 Jun 2026 21:03:52 +0200
 Subject: [PATCH 055/137] phy: core: add notifier infrastructure
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 105 insertions(+)
 
 diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-index 21aaf2f76..51d261daa 100644
+index 21aaf2f..51d261d 100644
 --- a/drivers/phy/phy-core.c
 +++ b/drivers/phy/phy-core.c
 @@ -542,6 +542,70 @@ int phy_notify_state(struct phy *phy, union phy_notify state)
@@ -107,7 +107,7 @@ index 21aaf2f76..51d261daa 100644
  	phy->dev.class = &phy_class;
  	phy->dev.parent = dev;
 diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index ea47975e2..3779a4d0a 100644
+index ea47975..3779a4d 100644
 --- a/include/linux/phy/phy.h
 +++ b/include/linux/phy/phy.h
 @@ -11,6 +11,7 @@

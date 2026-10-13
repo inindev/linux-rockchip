@@ -1,4 +1,4 @@
-From fd938e4aaa92f9240d14da1595d2c06644613c0f Mon Sep 17 00:00:00 2001
+From 2c98a5457e80776ff0d1ee5648eb377a0134dea4 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 17 Jun 2026 13:45:06 +0200
 Subject: [PATCH 032/137] phy: rockchip: usbdp: Fix devm_clk_bulk_get_all check
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index da0fa75fc..c6cda0b80 100644
+index da0fa75..c6cda0b 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -426,8 +426,8 @@ static int rk_udphy_clk_init(struct rk_udphy *udphy, struct device *dev)

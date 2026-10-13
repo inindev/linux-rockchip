@@ -1,4 +1,4 @@
-From 6eb97b86539f2cd5c7e6947d1041e030f280b048 Mon Sep 17 00:00:00 2001
+From b2a1aa9174b51df596f48c93b79d6d4b0ac68593 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 11 Aug 2026 18:41:31 +0200
 Subject: [PATCH 057/137] usb: dwc3: core: add post PHY registration hook for
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 4b7132887..daf5aec07 100644
+index 4b71328..daf5aec 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -1613,7 +1613,7 @@ static int dwc3_core_get_phy(struct dwc3 *dwc)
@@ -31,10 +31,10 @@ index 4b7132887..daf5aec07 100644
  
  static int dwc3_core_init_mode(struct dwc3 *dwc)
 diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index 608daeb7e..e9d8df0a2 100644
+index f3dabb3..5f74583 100644
 --- a/drivers/usb/dwc3/core.h
 +++ b/drivers/usb/dwc3/core.h
-@@ -995,10 +995,12 @@ struct dwc3_scratchpad_array {
+@@ -1002,10 +1002,12 @@ struct dwc3_scratchpad_array {
   *				need to be passed on to glue layer
   * @pre_set_role: Notify glue of role switch notifications
   * @pre_run_stop: Notify run stop enable/disable information to glue
@@ -47,7 +47,7 @@ index 608daeb7e..e9d8df0a2 100644
  };
  
  /**
-@@ -1655,6 +1657,13 @@ static inline void dwc3_pre_run_stop(struct dwc3 *dwc, bool is_on)
+@@ -1674,6 +1676,13 @@ static inline void dwc3_pre_run_stop(struct dwc3 *dwc, bool is_on)
  		dwc->glue_ops->pre_run_stop(dwc, is_on);
  }
  

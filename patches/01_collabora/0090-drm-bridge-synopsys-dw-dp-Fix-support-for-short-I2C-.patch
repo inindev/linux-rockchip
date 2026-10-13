@@ -1,4 +1,4 @@
-From 1f94ad3bbf47b37163e309621d2b67b2cab077db Mon Sep 17 00:00:00 2001
+From 294ca05f17c5dea8b154a5b1cc9b9ee36488dec3 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 29 Jul 2026 21:58:06 +0200
 Subject: [PATCH 090/137] drm/bridge: synopsys: dw-dp: Fix support for short
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index ea1f904b2..ab13bbfe4 100644
+index ea1f904..ab13bbf 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1513,7 +1513,7 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,

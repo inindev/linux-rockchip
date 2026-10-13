@@ -1,4 +1,4 @@
-From e92854a4de45fa9549d53157f1397dab25c2837b Mon Sep 17 00:00:00 2001
+From c02c53e58a3b06ac33c03b29a1a4e40c55d5e354 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:44:22 +0100
 Subject: [PATCH 098/137] drm/rockchip: dw_dp: Add runtime PM support
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 21 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index ffcfb887d..770ab042a 100644
+index ffcfb88..770ab04 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -12,6 +12,7 @@

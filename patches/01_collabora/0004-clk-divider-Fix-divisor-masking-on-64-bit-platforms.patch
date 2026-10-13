@@ -1,4 +1,4 @@
-From 61b41ad3bd9f4ac46203f5f12d0caef1193d5541 Mon Sep 17 00:00:00 2001
+From be7834ed6cf4f6c96d103016637e3a0189de8f41 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:13:50 +0200
 Subject: [PATCH 004/137] clk: divider: Fix divisor masking on 64 bit platforms
@@ -29,7 +29,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/clk/clk-divider.c b/drivers/clk/clk-divider.c
-index f68216c65..1678c0125 100644
+index f68216c..1678c01 100644
 --- a/drivers/clk/clk-divider.c
 +++ b/drivers/clk/clk-divider.c
 @@ -227,7 +227,7 @@ static int _div_round_up(const struct clk_div_table *table,

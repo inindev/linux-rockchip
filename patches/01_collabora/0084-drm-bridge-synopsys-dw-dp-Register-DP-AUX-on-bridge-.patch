@@ -1,4 +1,4 @@
-From 648af5499dfb2510a7e4b9421015ed456db2e047 Mon Sep 17 00:00:00 2001
+From e8fb9fab21f4517a8e2670016ab34c775723d907 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 29 Jul 2026 18:55:32 +0200
 Subject: [PATCH 084/137] drm/bridge: synopsys: dw-dp: Register DP AUX on
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 35 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 86a20a0b9..714941026 100644
+index 86a20a0..7149410 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1813,7 +1813,36 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b

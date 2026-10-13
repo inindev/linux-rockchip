@@ -1,4 +1,4 @@
-From a4d6bcc403ad63de9a582aa02018e643c9bfb739 Mon Sep 17 00:00:00 2001
+From a81a8b6814c9b5da4a4a0bee97e6f6c2ca3d8183 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 01:22:02 +0100
 Subject: [PATCH 031/137] phy: rockchip: usbdp: Do not lose USB3 PHY status
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 13649b52e..da0fa75fc 100644
+index 13649b5..da0fa75 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1007,7 +1007,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

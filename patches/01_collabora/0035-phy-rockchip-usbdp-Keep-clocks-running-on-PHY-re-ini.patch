@@ -1,4 +1,4 @@
-From 555a14495d96bf2683b8ddd1fd8e86a998df0aa4 Mon Sep 17 00:00:00 2001
+From c71c51387e4fce2bd22dc94267be97b8366cc2df Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Feb 2026 19:26:12 +0100
 Subject: [PATCH 035/137] phy: rockchip: usbdp: Keep clocks running on PHY
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index ce2b74a28..925f2d162 100644
+index ce2b74a..925f2d1 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -986,8 +986,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

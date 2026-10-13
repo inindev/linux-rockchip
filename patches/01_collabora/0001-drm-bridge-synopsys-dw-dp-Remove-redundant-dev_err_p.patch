@@ -1,4 +1,4 @@
-From 18944913db6f4e38fc054cf49241b8c4ff89ad2c Mon Sep 17 00:00:00 2001
+From 92423df5fa4f730a8f0f5e64e816fb851e5296f9 Mon Sep 17 00:00:00 2001
 From: Pan Chuang <panchuang@vivo.com>
 Date: Thu, 23 Jul 2026 21:16:37 +0800
 Subject: [PATCH 001/137] drm/bridge: synopsys: dw-dp: Remove redundant
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 8b8529e17..86a20a0b9 100644
+index 8b8529e..86a20a0 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -2079,10 +2079,8 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,

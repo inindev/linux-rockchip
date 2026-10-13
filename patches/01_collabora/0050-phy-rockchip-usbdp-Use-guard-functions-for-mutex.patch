@@ -1,4 +1,4 @@
-From dcdfc34c0ce740f1e3be68861eaccc0abb79b42e Mon Sep 17 00:00:00 2001
+From edbcf6db0432af057ee1c1731f3f9f4988110ab5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 13:43:09 +0200
 Subject: [PATCH 050/137] phy: rockchip: usbdp: Use guard functions for mutex
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 23 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9ba571f7b..9864024b9 100644
+index 9ba571f..9864024 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -10,6 +10,7 @@

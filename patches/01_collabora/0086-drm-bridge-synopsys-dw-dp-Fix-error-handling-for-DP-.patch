@@ -1,4 +1,4 @@
-From 3a42634abc729334c176d5937a6486431aa0fa36 Mon Sep 17 00:00:00 2001
+From 659a082986ad13624e9cd6442c118caa94f7ef73 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 3 Aug 2026 19:37:14 +0200
 Subject: [PATCH 086/137] drm/bridge: synopsys: dw-dp: Fix error handling for
@@ -25,7 +25,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 18 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index aa7f026c9..c4eb2be2a 100644
+index aa7f026..c4eb2be 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -280,6 +280,7 @@ struct dw_dp_link {

@@ -1,4 +1,4 @@
-From d0e8b13960c2e56997414f7e95d757821a9a9ea1 Mon Sep 17 00:00:00 2001
+From 234f92873fcb2dccc71dca5ec2680393e8a65e24 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 19 Jan 2026 13:11:40 +0100
 Subject: [PATCH 078/137] mmc: sdhci-of-dwcmshc: Reduce clock reduction print
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 1baa2379c..8cab80d68 100644
+index 1baa237..8cab80d 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
 @@ -790,7 +790,7 @@ static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock

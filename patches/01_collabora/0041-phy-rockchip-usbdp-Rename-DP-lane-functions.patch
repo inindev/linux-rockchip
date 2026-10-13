@@ -1,4 +1,4 @@
-From c7a4ff5b69df2f0bde39a604c248090e3379c5d8 Mon Sep 17 00:00:00 2001
+From 8f371e49e483d75ea4b4ebdaf6a12086517fddbe Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 22:45:18 +0100
 Subject: [PATCH 041/137] phy: rockchip: usbdp: Rename DP lane functions
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 2af7c3878..9dae41239 100644
+index 2af7c38..9dae412 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -544,7 +544,7 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)

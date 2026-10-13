@@ -1,4 +1,4 @@
-From 13da9d8b5a57b3cd09896180a2c7660fcb1b8bd4 Mon Sep 17 00:00:00 2001
+From 7b8b784e7d6a2b72e70243a163b523c299531d4a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 26 Jun 2026 20:38:19 +0200
 Subject: [PATCH 063/137] phy: rockchip: usbdp: Drop -EPROBE_DEFER hack
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 11 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 72b25a031..59059f0d7 100644
+index 72b25a0..59059f0 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -742,17 +742,7 @@ static int rk_udphy_status_check(struct rk_udphy *udphy)

@@ -1,4 +1,4 @@
-From 0fd46a0c18418979d5ca93eb6af886ad2c876f37 Mon Sep 17 00:00:00 2001
+From 70042dff976989ed1beae1e6eb70f3fc0928defe Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 28 Sep 2026 18:42:25 +0200
 Subject: [PATCH 062/137] phy: rockchip: usbdp: Disable USB3 port during normal
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 750c6df53..72b25a031 100644
+index 750c6df..72b25a0 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -991,6 +991,9 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

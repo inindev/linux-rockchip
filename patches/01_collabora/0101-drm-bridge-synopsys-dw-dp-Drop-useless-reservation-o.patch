@@ -1,4 +1,4 @@
-From a4d69535f513645f9690791d2b3c7683f2bb696b Mon Sep 17 00:00:00 2001
+From 1ac4687ad65522bea53705e8a56dc6414c32eee0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 29 Jul 2026 20:52:19 +0200
 Subject: [PATCH 101/137] drm/bridge: synopsys: dw-dp: Drop useless reservation
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 13554989d..f44942ef0 100644
+index 1355498..f44942e 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1712,9 +1712,6 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,

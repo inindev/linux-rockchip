@@ -1,4 +1,4 @@
-From 1546be222924fd4f422eaa85522a03dbf66e0db7 Mon Sep 17 00:00:00 2001
+From 4b1ad379c01a124231de01c772f422e42d17937f Mon Sep 17 00:00:00 2001
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 Date: Tue, 4 Aug 2026 15:07:24 +0800
 Subject: [PATCH 109/137] drm/bridge: aux-hpd-bridge: Add
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 47 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-index a2e525aa5..7aa630fcf 100644
+index a2e525a..7aa630f 100644
 --- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
 +++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
 @@ -13,6 +13,8 @@
@@ -85,7 +85,7 @@ index a2e525aa5..7aa630fcf 100644
  	adev->dev.release = drm_aux_hpd_bridge_release;
  	adev->dev.platform_data = of_node_get(np);
 diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
-index c2f5a8555..cca07a8e2 100644
+index c2f5a85..cca07a8 100644
 --- a/include/drm/bridge/aux-bridge.h
 +++ b/include/drm/bridge/aux-bridge.h
 @@ -25,6 +25,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str

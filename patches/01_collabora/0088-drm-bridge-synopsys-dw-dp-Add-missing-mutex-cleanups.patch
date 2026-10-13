@@ -1,4 +1,4 @@
-From 8044c07dd9ced4ec59de31f1674a5152a15ee329 Mon Sep 17 00:00:00 2001
+From 98eb118a3144dea92383738738a3436f9db387eb Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 22 Jul 2026 20:03:14 +0200
 Subject: [PATCH 088/137] drm/bridge: synopsys: dw-dp: Add missing mutex
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 539436efe..ab1b9bcd3 100644
+index 539436e..ab1b9bc 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -2040,10 +2040,13 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_

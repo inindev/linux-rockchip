@@ -1,4 +1,4 @@
-From baaae9c9b13ef01940bc3aa8eabe979f4550e482 Mon Sep 17 00:00:00 2001
+From b665d5f1a9f843df1919d9ea2ee8b5ef35a23064 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 5 Mar 2026 18:12:53 +0100
 Subject: [PATCH 093/137] drm/bridge: synopsys: dw-dp: Add follow-up bridge
@@ -38,7 +38,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 33 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 00f8a92da..7c5338b72 100644
+index 00f8a92..7c5338b 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -328,6 +328,7 @@ struct dw_dp {

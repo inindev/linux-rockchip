@@ -1,4 +1,4 @@
-From 56f759eea01dbf45420c05ae9128e10b7255fa63 Mon Sep 17 00:00:00 2001
+From 126173e0d62c222bd8b9ec68f8fb7fe139d9e865 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 27 Jul 2026 19:30:07 +0200
 Subject: [PATCH 126/137] arm64: dts: rockchip: Fix USB-C DP AltMode vdo
@@ -37,7 +37,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 7a1cab2bb..658154c2c 100644
+index 7a1cab2..658154c 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 @@ -735,7 +735,7 @@ connector {
@@ -50,7 +50,7 @@ index 7a1cab2bb..658154c2c 100644
  			};
  
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-index 7db3dcffb..8635b4548 100644
+index 7db3dcf..8635b45 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
 @@ -367,7 +367,7 @@ usb_con: connector {
@@ -63,7 +63,7 @@ index 7db3dcffb..8635b4548 100644
  			};
  
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-index ed36c27c2..300a5ea74 100644
+index ed36c27..300a5ea 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
 @@ -393,7 +393,7 @@ usb_con: connector {

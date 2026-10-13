@@ -1,4 +1,4 @@
-From 191ee72eab0a3e4aad246a5c356f400738daa1b9 Mon Sep 17 00:00:00 2001
+From f19c07dee061cff108a95c10f6b64dd8ea01dbdf Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:29:45 +0100
 Subject: [PATCH 095/137] drm/bridge: synopsys: dw-dp: Support software
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 41 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 7c5338b72..839c9e378 100644
+index 7c5338b..839c9e3 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1874,6 +1874,19 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
@@ -94,7 +94,7 @@ index 7c5338b72..839c9e378 100644
  
  	INIT_WORK(&dp->hpd_work, dw_dp_hpd_work);
 diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index a82412a9e..79b2cdf0d 100644
+index a82412a..79b2cdf 100644
 --- a/include/drm/bridge/dw_dp.h
 +++ b/include/drm/bridge/dw_dp.h
 @@ -20,6 +20,9 @@ enum {

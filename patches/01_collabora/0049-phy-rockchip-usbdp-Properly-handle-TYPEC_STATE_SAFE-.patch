@@ -1,4 +1,4 @@
-From 56366c82bc761e487b7db0ab501f1be03520bbb3 Mon Sep 17 00:00:00 2001
+From 9cecf6195c14401f65e86e60a9fd125fdf0e7d42 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 19 Jun 2026 23:02:03 +0200
 Subject: [PATCH 049/137] phy: rockchip: usbdp: Properly handle
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 15 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 4a0733010..9ba571f7b 100644
+index 4a07330..9ba571f 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1292,17 +1292,26 @@ static const struct phy_ops rk_udphy_usb3_phy_ops = {

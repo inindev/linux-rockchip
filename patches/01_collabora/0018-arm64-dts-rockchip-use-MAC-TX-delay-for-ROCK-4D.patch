@@ -1,4 +1,4 @@
-From 5a73db17b96869bdcfb4604f1d4502d1947c6cc3 Mon Sep 17 00:00:00 2001
+From 7d7feedeea1f0e5fd6a77773afa8ac9039ea3a48 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 8 Jul 2025 19:36:31 +0200
 Subject: [PATCH 018/137] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
@@ -34,7 +34,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index a163f255e..b338c63db 100644
+index a163f25..b338c63 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
 @@ -329,7 +329,7 @@ &cpu_l3 {

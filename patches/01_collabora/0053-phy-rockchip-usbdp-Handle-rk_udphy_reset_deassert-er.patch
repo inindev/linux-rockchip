@@ -1,4 +1,4 @@
-From 5882581fd5456475bbdcedadebf094eb2c3ae495 Mon Sep 17 00:00:00 2001
+From 641f2f530b148f35463424267ad94add5e629d86 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 30 Jun 2026 16:27:26 +0200
 Subject: [PATCH 053/137] phy: rockchip: usbdp: Handle rk_udphy_reset_deassert
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 19 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 820478242..1a0430c3c 100644
+index 8204782..1a0430c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -790,8 +790,12 @@ static int rk_udphy_init(struct rk_udphy *udphy)

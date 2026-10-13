@@ -1,4 +1,4 @@
-From 5c5c66c290ed66734455885e81f3245de91cd5fe Mon Sep 17 00:00:00 2001
+From 4b837ec05abfb2b47b25a78431afe10c6df41be1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Jul 2026 15:28:55 +0200
 Subject: [PATCH 091/137] drm/bridge: synopsys: dw-dp: Free output_fmts when
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index ab13bbfe4..831576ce3 100644
+index ab13bbf..831576c 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1820,6 +1820,11 @@ static u32 *dw_dp_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,

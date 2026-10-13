@@ -1,4 +1,4 @@
-From d15fae83c82db53beba0564e73c076d8a8f565a6 Mon Sep 17 00:00:00 2001
+From 7aa36a4043f738a7e7c779e8c2873c801ae18cb8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 6 Mar 2026 14:26:19 +0100
 Subject: [PATCH 092/137] drm/bridge: synopsys: dw-dp: Support
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 32 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 831576ce3..00f8a92da 100644
+index 831576c..00f8a92 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1537,6 +1537,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,

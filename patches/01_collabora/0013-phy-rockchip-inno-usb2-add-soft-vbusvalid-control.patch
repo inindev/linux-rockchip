@@ -1,4 +1,4 @@
-From 12887f4cf4ee9bf98a59d243421b1de47902c17f Mon Sep 17 00:00:00 2001
+From 07509e8891fd4d283fc69f7dad0cb5f8c5e50fc7 Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Tue, 10 Jun 2025 16:07:09 +0200
 Subject: [PATCH 013/137] phy: rockchip: inno-usb2: add soft vbusvalid control
@@ -32,7 +32,7 @@ Signed-off-by: Sebastian Reichel <sre@kernel.org>
  1 file changed, 109 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index 7d8a533f2..229f6f97e 100644
+index 7d8a533..229f6f9 100644
 --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
 @@ -17,6 +17,7 @@

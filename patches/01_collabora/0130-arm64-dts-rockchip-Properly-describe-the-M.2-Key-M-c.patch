@@ -1,4 +1,4 @@
-From e53e20e75b94e53b0ef6658f6a698f2840f41751 Mon Sep 17 00:00:00 2001
+From 43b2c65a07b6ba21de03a7d23b70d1e873ae74ed Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 19 Aug 2026 19:03:13 +0200
 Subject: [PATCH 130/137] arm64: dts: rockchip: Properly describe the M.2 Key M
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 44 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 658154c2c..df404221d 100644
+index 658154c..df40422 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 @@ -86,6 +86,28 @@ simple-audio-card,codec {

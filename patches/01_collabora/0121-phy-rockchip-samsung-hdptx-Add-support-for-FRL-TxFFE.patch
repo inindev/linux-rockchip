@@ -1,4 +1,4 @@
-From d4202adf42f7cfa579932db334bd18a6903dcd1f Mon Sep 17 00:00:00 2001
+From a77c07882754831ec02687217a7d38f342603fb9 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 18 Mar 2026 01:43:24 +0200
 Subject: [PATCH 121/137] phy: rockchip: samsung-hdptx: Add support for FRL
@@ -18,7 +18,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 69 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 24ed0d7eb..223d440c4 100644
+index 24ed0d7..223d440 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 @@ -333,6 +333,7 @@

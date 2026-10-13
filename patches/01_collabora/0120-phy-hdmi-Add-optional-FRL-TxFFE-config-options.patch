@@ -1,4 +1,4 @@
-From a8374421ca9aafaa296ab3501e68ed2ce0a6c0c5 Mon Sep 17 00:00:00 2001
+From 3ae47e2400c12dfcb736d0ae791e4d5f2bd1d86c Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Wed, 18 Mar 2026 01:17:57 +0200
 Subject: [PATCH 120/137] phy: hdmi: Add optional FRL TxFFE config options
@@ -33,7 +33,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 6 insertions(+)
 
 diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
-index d4cf4430e..1d4b62475 100644
+index d4cf443..1d4b624 100644
 --- a/include/linux/phy/phy-hdmi.h
 +++ b/include/linux/phy/phy-hdmi.h
 @@ -19,6 +19,10 @@ enum phy_hdmi_mode {

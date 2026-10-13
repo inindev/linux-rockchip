@@ -1,4 +1,4 @@
-From 6ed39e1dc802b4aca4acc868e8763eb82083a334 Mon Sep 17 00:00:00 2001
+From 1a792dbd75f1378fc50da338b47499b9fb3857a8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 11 Aug 2026 18:57:28 +0200
 Subject: [PATCH 058/137] usb: dwc3: rockchip: support PHY reset notifications
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 129 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-rockchip.c
-index 4129aefd6..17b6c2ca9 100644
+index 4129aef..17b6c2c 100644
 --- a/drivers/usb/dwc3/dwc3-rockchip.c
 +++ b/drivers/usb/dwc3/dwc3-rockchip.c
 @@ -2,11 +2,136 @@
@@ -176,7 +176,7 @@ index 4129aefd6..17b6c2ca9 100644
  	probe_data.dwc = &dwc_rk->dwc;
  	probe_data.res = res;
 diff --git a/drivers/usb/dwc3/trace.c b/drivers/usb/dwc3/trace.c
-index 088995885..8c4e2a7b1 100644
+index 0889958..8c4e2a7 100644
 --- a/drivers/usb/dwc3/trace.c
 +++ b/drivers/usb/dwc3/trace.c
 @@ -9,3 +9,6 @@

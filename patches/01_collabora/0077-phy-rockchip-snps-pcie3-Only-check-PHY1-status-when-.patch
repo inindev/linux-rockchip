@@ -1,4 +1,4 @@
-From 828968d49522b45fb122eb96e86fb62ccb6196d7 Mon Sep 17 00:00:00 2001
+From f25e1b8507d7757194996ea52471c5db90385f95 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:10 +0800
 Subject: [PATCH 077/137] phy: rockchip-snps-pcie3: Only check PHY1 status when
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 6cc38e36a..36b2142ec 100644
+index 6cc38e3..36b2142 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -183,6 +183,7 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)

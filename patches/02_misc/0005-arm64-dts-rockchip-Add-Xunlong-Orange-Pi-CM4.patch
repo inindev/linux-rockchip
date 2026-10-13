@@ -1,4 +1,4 @@
-From 083a7362941075939d5f33326edc2d85bfb62ab4 Mon Sep 17 00:00:00 2001
+From 4ea41959edb8c0770866172c433865385f8ef914 Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Wed, 9 Sep 2026 22:02:48 -0400
 Subject: [PATCH 5/6] arm64: dts: rockchip: Add Xunlong Orange Pi CM4

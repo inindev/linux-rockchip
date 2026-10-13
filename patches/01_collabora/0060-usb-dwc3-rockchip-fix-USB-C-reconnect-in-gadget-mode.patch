@@ -1,4 +1,4 @@
-From 122523aa1720791059fb2bba19b917fb785c25ca Mon Sep 17 00:00:00 2001
+From 610565e9503168a32c753c929620b0238c11d8ad Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 13 Aug 2026 16:48:53 +0200
 Subject: [PATCH 060/137] usb: dwc3: rockchip: fix USB-C reconnect in gadget
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 24 insertions(+)
 
 diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-index 3c120ea97..344291daf 100644
+index 3c120ea..344291d 100644
 --- a/drivers/usb/dwc3/Kconfig
 +++ b/drivers/usb/dwc3/Kconfig
 @@ -193,6 +193,7 @@ config USB_DWC3_OCTEON
@@ -31,7 +31,7 @@ index 3c120ea97..344291daf 100644
  	default USB_DWC3
  	help
 diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-rockchip.c
-index 17b6c2ca9..ba8ffef2f 100644
+index 17b6c2c..ba8ffef 100644
 --- a/drivers/usb/dwc3/dwc3-rockchip.c
 +++ b/drivers/usb/dwc3/dwc3-rockchip.c
 @@ -25,8 +25,17 @@ struct dwc3_rockchip {

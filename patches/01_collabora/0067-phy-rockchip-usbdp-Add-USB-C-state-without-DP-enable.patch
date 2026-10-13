@@ -1,4 +1,4 @@
-From 2f5820daf62f2ef43f2d4d57250b1ef1f58ecd4c Mon Sep 17 00:00:00 2001
+From 316c97b677fe54f9789c06d294f66e644f8efa53 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 2 Jul 2026 20:38:36 +0200
 Subject: [PATCH 067/137] phy: rockchip: usbdp: Add USB-C state without DP
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 33 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 04d52ccaa..ecd55b9df 100644
+index 04d52cc..ecd55b9 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -574,32 +574,14 @@ static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)

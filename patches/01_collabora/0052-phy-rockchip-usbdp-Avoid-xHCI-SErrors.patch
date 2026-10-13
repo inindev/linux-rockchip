@@ -1,4 +1,4 @@
-From aeb9ac6ddba21f3e1ba462893505d5025053a44b Mon Sep 17 00:00:00 2001
+From 50f35190b8839cca5ca195d3775a2a343c6276f8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Jun 2026 18:36:38 +0200
 Subject: [PATCH 052/137] phy: rockchip: usbdp: Avoid xHCI SErrors
@@ -33,7 +33,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 2888a0a97..820478242 100644
+index 2888a0a..8204782 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -984,12 +984,15 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

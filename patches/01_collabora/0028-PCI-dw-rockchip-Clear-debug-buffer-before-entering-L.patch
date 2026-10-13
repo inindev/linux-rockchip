@@ -1,4 +1,4 @@
-From 48fee7fa5b9570a7e98cf97ab900836ac071ace7 Mon Sep 17 00:00:00 2001
+From 685bc16a458797d6e55e7aa00922a1109f6e45a9 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 24 Nov 2025 20:06:39 +0100
 Subject: [PATCH 028/137] PCI: dw-rockchip: Clear debug buffer before entering
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 13 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index e675918ba..a508f4fff 100644
+index e675918..a508f4f 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -77,6 +77,9 @@

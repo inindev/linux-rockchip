@@ -1,4 +1,4 @@
-From 1f6656f081ccbedf1a1422b7424be6d9479fbf26 Mon Sep 17 00:00:00 2001
+From 13e5e18c9cc1febc1e01f0fe7033e4f4ab211781 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 16 Jun 2026 16:28:38 +0200
 Subject: [PATCH 030/137] phy: rockchip: usbdp: Update mode_change after error
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 07a839e41..13649b52e 100644
+index 07a839e..13649b5 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -999,15 +999,14 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

@@ -1,4 +1,4 @@
-From 18e82f182a2bb5a6da6739fd69e6956ce6fb48f4 Mon Sep 17 00:00:00 2001
+From 74c75a631ae0b83b514a8c68d1de432f3d9e654a Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 1 Jul 2026 22:48:25 +0200
 Subject: [PATCH 064/137] phy: rockchip: usbdp: Rename mode to hw_mode
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 59059f0d7..40f8c3fa2 100644
+index 59059f0..40f8c3f 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -172,7 +172,7 @@ struct rk_udphy {

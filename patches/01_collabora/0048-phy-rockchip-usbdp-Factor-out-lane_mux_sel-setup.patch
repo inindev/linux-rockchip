@@ -1,4 +1,4 @@
-From 3d82c3472a6e2b054e2b42e4c9c2819a2870b52e Mon Sep 17 00:00:00 2001
+From 358db4bd1f6a9b57636faba9f9a68033cc6074a6 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 12:45:50 +0200
 Subject: [PATCH 048/137] phy: rockchip: usbdp: Factor out lane_mux_sel setup
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 40 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9a4ead585..4a0733010 100644
+index 9a4ead5..4a07330 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -581,6 +581,42 @@ static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)

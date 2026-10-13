@@ -1,4 +1,4 @@
-From e679e7cb5424c8a60964b139838e4aa099d23b49 Mon Sep 17 00:00:00 2001
+From a792130a2e7a541025b2b91efe848a46678df46d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 25 Jul 2024 18:12:24 +0200
 Subject: [PATCH 009/137] mfd: rk8xx: Fix shutdown handler
@@ -99,7 +99,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
-index 3dcf6abfd..21182df45 100644
+index 3dcf6ab..21182df 100644
 --- a/drivers/mfd/rk8xx-core.c
 +++ b/drivers/mfd/rk8xx-core.c
 @@ -875,7 +875,7 @@ int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap

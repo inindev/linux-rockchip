@@ -1,4 +1,4 @@
-From 3588ea6ef92bb2cb52e8ebcee29a403421b9a769 Mon Sep 17 00:00:00 2001
+From 38a317deecc38f06d581177f34d5c28b1e713b8b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 21 Nov 2025 19:27:00 +0100
 Subject: [PATCH 019/137] PCI: dw-rockchip: Fix LTSSM set functions
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index af26a07c0..dc85564e5 100644
+index af26a07..dc85564 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -321,14 +321,16 @@ static void rockchip_pcie_ltssm_trace(struct rockchip_pcie *rockchip,

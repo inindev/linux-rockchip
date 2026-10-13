@@ -1,4 +1,4 @@
-From 30ce0e5211c5c4c62a1d59712d4d051ccccaa627 Mon Sep 17 00:00:00 2001
+From 818cb3807ef72f8c0ad69fe35028b553d1c7bf88 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 05:22:05 +0100
 Subject: [PATCH 105/137] drm/bridge: synopsys: dw-dp: Add audio support
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 313 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 11807be2c..f3200487e 100644
+index 11807be..f320048 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -23,17 +23,21 @@

@@ -1,4 +1,4 @@
-From 375f33c01978a22fdee0d4d0afd3481c878122b9 Mon Sep 17 00:00:00 2001
+From 42e298f8fd64bfdb265d870c2f6b2c6a77a71e22 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 18 Jun 2026 19:18:48 +0200
 Subject: [PATCH 051/137] phy: rockchip: usbdp: Hold mutex in DP PHY configure
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9864024b9..2888a0a97 100644
+index 9864024..2888a0a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1153,6 +1153,8 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,

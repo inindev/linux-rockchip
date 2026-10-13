@@ -1,4 +1,4 @@
-From 7ca7a877c9e2c9f8f15d099d625df56ce738d61c Mon Sep 17 00:00:00 2001
+From 1ba412948e5b291f4c6e20f2a2b6319499f338c3 Mon Sep 17 00:00:00 2001
 From: William Wu <william.wu@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:31:20 +0100
 Subject: [PATCH 037/137] phy: rockchip: usbdp: Fix LFPS detect threshold
@@ -28,7 +28,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 586363f5c..665a4636d 100644
+index 586363f..665a463 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -412,7 +412,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {

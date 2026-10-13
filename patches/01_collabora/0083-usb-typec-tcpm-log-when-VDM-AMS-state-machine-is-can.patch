@@ -1,4 +1,4 @@
-From 9fc768fdf355136903920bb0480149f96067452f Mon Sep 17 00:00:00 2001
+From 8d99a987afbea86101ef0bf44feed0ddeaf693e0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Mar 2026 18:16:31 +0100
 Subject: [PATCH 083/137] usb: typec: tcpm: log when VDM AMS state machine is
@@ -57,10 +57,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 15 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 504f183d7..098ff82a8 100644
+index 071c676..5f26978 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -1871,6 +1871,15 @@ static bool tcpm_ams_interruptible(struct tcpm_port *port)
+@@ -1872,6 +1872,15 @@ static bool tcpm_ams_interruptible(struct tcpm_port *port)
  	return true;
  }
  
@@ -76,7 +76,7 @@ index 504f183d7..098ff82a8 100644
  static int tcpm_ams_start(struct tcpm_port *port, enum tcpm_ams ams)
  {
  	int ret = 0;
-@@ -3552,11 +3561,8 @@ static void tcpm_pd_data_request(struct tcpm_port *port,
+@@ -3553,11 +3562,8 @@ static void tcpm_pd_data_request(struct tcpm_port *port,
  	bool frs_enable;
  	int ret;
  
@@ -90,7 +90,7 @@ index 504f183d7..098ff82a8 100644
  
  	switch (type) {
  	case PD_DATA_SOURCE_CAP:
-@@ -3753,11 +3759,8 @@ static void tcpm_pd_ctrl_request(struct tcpm_port *port,
+@@ -3754,11 +3760,8 @@ static void tcpm_pd_ctrl_request(struct tcpm_port *port,
  	 * Stop VDM state machine if interrupted by other Messages while NOT_SUPP is allowed in
  	 * VDM AMS if waiting for VDM responses and will be handled later.
  	 */
@@ -104,7 +104,7 @@ index 504f183d7..098ff82a8 100644
  
  	switch (type) {
  	case PD_CTRL_GOOD_CRC:
-@@ -4079,11 +4082,8 @@ static void tcpm_pd_ext_msg_request(struct tcpm_port *port,
+@@ -4080,11 +4083,8 @@ static void tcpm_pd_ext_msg_request(struct tcpm_port *port,
  	const struct pd_chunked_ext_message_data *ext_msg = &msg->ext_msg;
  
  	/* stopping VDM state machine if interrupted by other Messages */

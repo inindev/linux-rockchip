@@ -1,4 +1,4 @@
-From bdd1d9b535cec348d25850f2b3bfe5283b7e9a65 Mon Sep 17 00:00:00 2001
+From 3430ac732d0be090ca4e4179cb15bb8dc2603410 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 2 Mar 2026 22:37:40 +0100
 Subject: [PATCH 082/137] usb: typec: tcpm: Also use
@@ -53,10 +53,10 @@ lab (used for the KernelCI project):
  1 file changed, 19 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 2d6b14aa2..504f183d7 100644
+index 06692fe..071c676 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -5840,20 +5840,25 @@ static void run_state_machine(struct tcpm_port *port)
+@@ -5841,20 +5841,25 @@ static void run_state_machine(struct tcpm_port *port)
  			tcpm_set_state(port, SNK_READY, 0);
  			break;
  		}
@@ -87,7 +87,7 @@ index 2d6b14aa2..504f183d7 100644
  		}
  
  		tcpm_set_state(port, upcoming_state,
-@@ -5875,10 +5880,17 @@ static void run_state_machine(struct tcpm_port *port)
+@@ -5876,10 +5881,17 @@ static void run_state_machine(struct tcpm_port *port)
  		 * and handled by all USB PD source and dual role devices
  		 * according to the specification.
  		 */

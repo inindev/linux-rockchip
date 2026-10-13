@@ -1,4 +1,4 @@
-From c40c739bc7c2b50f1937fd3ab4993a7c2059e965 Mon Sep 17 00:00:00 2001
+From a294403858f2448cbb2925dcdf32fd91d888704f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 23 Jul 2026 22:59:37 +0200
 Subject: [PATCH 100/137] drm/bridge: synopsys: dw-dp: Protect sdp_reg_bank
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 17 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 90b1ff525..13554989d 100644
+index 90b1ff5..1355498 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -323,6 +323,8 @@ struct dw_dp {

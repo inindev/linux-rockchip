@@ -1,4 +1,4 @@
-From 19b29a5a7a6b6a960ab70c31e67f7226bf6e1af7 Mon Sep 17 00:00:00 2001
+From 76fa2fab39e6f9018510a708824d6bb19ba8728e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 16 Jun 2026 18:05:39 +0200
 Subject: [PATCH 040/137] phy: rockchip: usbdp: Limit DP lane count to muxed
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 4fce9cd66..2af7c3878 100644
+index 4fce9cd..2af7c38 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1098,6 +1098,9 @@ static int rk_udphy_dp_phy_verify_link_rate(struct rk_udphy *udphy,

@@ -1,4 +1,4 @@
-From 05842960ccf82766f796cca2c28dfd7c3446bfaf Mon Sep 17 00:00:00 2001
+From 2ce807dd6dd849d3c43bbe7587bfbe26f1300b17 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:38:54 +0200
 Subject: [PATCH 025/137] PCI: dw-rockchip: Add pme_turn_off support
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 44 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 1e48099e3..17530507e 100644
+index 1e48099..1753050 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -45,6 +45,7 @@

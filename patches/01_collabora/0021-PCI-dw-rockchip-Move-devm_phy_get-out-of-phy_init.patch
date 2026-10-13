@@ -1,4 +1,4 @@
-From e90fa430b68790e0c58ad1b8177b0b9bee9780f8 Mon Sep 17 00:00:00 2001
+From fd7baee3981ef7af6ae4c23a6a79362a9a9dee23 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:06:36 +0200
 Subject: [PATCH 021/137] PCI: dw-rockchip: Move devm_phy_get out of phy_init
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index f67ad3c31..7472ec78b 100644
+index f67ad3c..7472ec7 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -612,14 +612,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,

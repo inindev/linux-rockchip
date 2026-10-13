@@ -1,4 +1,4 @@
-From 3e35871a28a8d0af5b6081136a47b93eb22fb4b4 Mon Sep 17 00:00:00 2001
+From 5a4f58825d33599a75cb32d7b6c2ed29cee5b01e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 14 Nov 2024 17:36:18 +0100
 Subject: [PATCH 137/137] drm/rockchip: vop2: Add core reset support
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 23 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index b03072cfb..ca88c03c1 100644
+index b03072c..ca88c03 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -2837,6 +2837,21 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
@@ -43,7 +43,7 @@ index b03072cfb..ca88c03c1 100644
  	if (!res)
  		return dev_err_probe(drm->dev, -EINVAL,
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 24e15a2ac..bf48df7a8 100644
+index 24e15a2..bf48df7 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -8,6 +8,7 @@

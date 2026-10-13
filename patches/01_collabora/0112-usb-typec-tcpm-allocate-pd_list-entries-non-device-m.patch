@@ -1,4 +1,4 @@
-From 5ea88581f518abf95477eaf71924d556009c8b4b Mon Sep 17 00:00:00 2001
+From 8c8e95c46c77417de555585431561292f9a4964e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 17 Aug 2026 17:40:34 +0200
 Subject: [PATCH 112/137] usb: typec: tcpm: allocate pd_list entries non device
@@ -14,10 +14,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 098ff82a8..6bfdc6308 100644
+index 5f26978..ae5263d 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -8088,7 +8088,7 @@ static void tcpm_port_unregister_pd(struct tcpm_port *port)
+@@ -8089,7 +8089,7 @@ static void tcpm_port_unregister_pd(struct tcpm_port *port)
  	for (i = 0; i < port->pd_count; i++) {
  		usb_power_delivery_unregister_capabilities(port->pd_list[i]->sink_cap);
  		usb_power_delivery_unregister_capabilities(port->pd_list[i]->source_cap);
@@ -26,7 +26,7 @@ index 098ff82a8..6bfdc6308 100644
  		port->pd_list[i] = NULL;
  		usb_power_delivery_unregister(port->pds[i]);
  		port->pds[i] = NULL;
-@@ -8387,7 +8387,7 @@ static int tcpm_fw_get_caps(struct tcpm_port *port, struct fwnode_handle *fwnode
+@@ -8388,7 +8388,7 @@ static int tcpm_fw_get_caps(struct tcpm_port *port, struct fwnode_handle *fwnode
  	}
  
  	for (i = 0; i < port->pd_count; i++) {

@@ -1,4 +1,4 @@
-From 1a1f69b5eeac7fe915a0307dfc26f02bae90539c Mon Sep 17 00:00:00 2001
+From 7ce89f205fb1287b0ecb419cceb2884341b62687 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 21:32:59 +0100
 Subject: [PATCH 038/137] phy: rockchip: usbdp: Add missing mode_change update
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 11 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 665a4636d..b72daf80a 100644
+index 665a463..b72daf8 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -616,6 +616,15 @@ static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)

@@ -1,4 +1,4 @@
-From e486a0e3d0dd07337b6db3b4088ea7529095e1bb Mon Sep 17 00:00:00 2001
+From f511e2a06fe2dc2fc1a869e815cc002113b4c2e5 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:24:20 +0100
 Subject: [PATCH 043/137] phy: rockchip: usbdp: Cleanup DP lane selection
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index d95a44835..8874f8429 100644
+index d95a448..8874f84 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -547,30 +547,16 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)

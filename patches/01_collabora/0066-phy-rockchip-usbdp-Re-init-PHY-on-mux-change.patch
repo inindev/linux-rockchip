@@ -1,4 +1,4 @@
-From 72f4e7d62e1a927e21722d8e1feecdcc599b13dc Mon Sep 17 00:00:00 2001
+From cc49cf55f1912a158653aea9c410129617c01de0 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 1 Jul 2026 23:37:32 +0200
 Subject: [PATCH 066/137] phy: rockchip: usbdp: Re-init PHY on mux change
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index e5e811954..04d52ccaa 100644
+index e5e8119..04d52cc 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -1372,7 +1372,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,

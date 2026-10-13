@@ -1,4 +1,4 @@
-From dd83deb152a62da55d98a42a06b1a52aaf8db529 Mon Sep 17 00:00:00 2001
+From f67855f80d94770e251750ad9ec34cc323692e84 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 16:23:15 +0200
 Subject: [PATCH 113/137] usb: typec: tcpm: add device managed port
@@ -15,10 +15,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 27 insertions(+)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 6bfdc6308..02ef4571b 100644
+index ae5263d..2f616c8 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -9008,6 +9008,30 @@ void tcpm_unregister_port(struct tcpm_port *port)
+@@ -9010,6 +9010,30 @@ void tcpm_unregister_port(struct tcpm_port *port)
  }
  EXPORT_SYMBOL_GPL(tcpm_unregister_port);
  
@@ -50,7 +50,7 @@ index 6bfdc6308..02ef4571b 100644
  MODULE_DESCRIPTION("USB Type-C Port Manager");
  MODULE_LICENSE("GPL");
 diff --git a/include/linux/usb/tcpm.h b/include/linux/usb/tcpm.h
-index 93079450b..fc60980f9 100644
+index 9307945..fc60980 100644
 --- a/include/linux/usb/tcpm.h
 +++ b/include/linux/usb/tcpm.h
 @@ -177,6 +177,9 @@ struct tcpm_port;

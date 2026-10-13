@@ -1,4 +1,4 @@
-From 8315ebe5c2af0032389a0ee8bd151bfdc8914259 Mon Sep 17 00:00:00 2001
+From e41d082a5ac06d048d4af27ea279aa93360915ef Mon Sep 17 00:00:00 2001
 From: John Clark <inindev@gmail.com>
 Date: Thu, 30 Apr 2026 10:44:47 -0400
 Subject: [PATCH 4/6] usb: dwc3: enable Sparse Control-transfer scheduling by
@@ -157,10 +157,10 @@ index daf5aec07..c178a5055 100644
  	dwc->tx_de_emphasis = tx_de_emphasis;
  
 diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index e9d8df0a2..6cf7cd5d1 100644
+index 5f745838b..9efd362d9 100644
 --- a/drivers/usb/dwc3/core.h
 +++ b/drivers/usb/dwc3/core.h
-@@ -419,6 +419,7 @@
+@@ -420,6 +420,7 @@
  /* Global User Control Register*/
  #define DWC3_GUCTL_REFCLKPER_MASK		0xffc00000
  #define DWC3_GUCTL_REFCLKPER_SEL		22
@@ -168,7 +168,7 @@ index e9d8df0a2..6cf7cd5d1 100644
  
  /* Global User Control Register 2 */
  #define DWC3_GUCTL2_RST_ACTBITLATER		BIT(14)
-@@ -1167,6 +1168,11 @@ struct dwc3_glue_ops {
+@@ -1179,6 +1180,11 @@ struct dwc3_glue_ops {
   *	3	- Reserved
   * @dis_metastability_quirk: set to disable metastability quirk.
   * @dis_split_quirk: set to disable split boundary.
@@ -180,7 +180,7 @@ index e9d8df0a2..6cf7cd5d1 100644
   * @enable_usb2_transceiver_delay: Set to insert a delay before the
   *			assertion of the TxValid signal during a HS Chirp.
   * @sys_wakeup: set if the device may do system wakeup.
-@@ -1416,6 +1422,7 @@ struct dwc3 {
+@@ -1435,6 +1441,7 @@ struct dwc3 {
  	unsigned		dis_metastability_quirk:1;
  
  	unsigned		dis_split_quirk:1;

@@ -1,4 +1,4 @@
-From e1f1811c454b1004b0cb2b9c2a32fdcad3fb25a7 Mon Sep 17 00:00:00 2001
+From 1cf7ac6a216151e56d875a46bf859c8e6c0b6915 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 3 Jul 2025 01:21:14 +0200
 Subject: [PATCH 017/137] net: phy: realtek: Reset after clock enable
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index 177b62a7b..d6e9d074c 100644
+index 177b62a..d6e9d07 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -721,6 +721,8 @@ static int rtl821x_probe(struct phy_device *phydev)

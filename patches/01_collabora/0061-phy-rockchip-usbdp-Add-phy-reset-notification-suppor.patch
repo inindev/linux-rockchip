@@ -1,4 +1,4 @@
-From 174ae0fdaa4d1647307a678c24ae20cae457f758 Mon Sep 17 00:00:00 2001
+From 6c6dbb752d5f24eea5b54b05ee9b37da0861cb8b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 28 Sep 2026 18:38:25 +0200
 Subject: [PATCH 061/137] phy: rockchip: usbdp: Add phy reset notification
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 14 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 6d84112c1..750c6df53 100644
+index 6d84112..750c6df 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -989,24 +989,36 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)

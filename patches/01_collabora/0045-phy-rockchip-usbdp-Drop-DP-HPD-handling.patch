@@ -1,4 +1,4 @@
-From c05d4d9dd57b481bd612f0ef2f962837e21abd4a Mon Sep 17 00:00:00 2001
+From bc1db5bfc8b1ff9fb4e0a6ee65abc9493a360949 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:53:21 +0100
 Subject: [PATCH 045/137] phy: rockchip: usbdp: Drop DP HPD handling
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+), 76 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fa8324879..03a276c08 100644
+index fa83248..03a276c 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -127,7 +127,6 @@ struct rk_udphy_grf_cfg {

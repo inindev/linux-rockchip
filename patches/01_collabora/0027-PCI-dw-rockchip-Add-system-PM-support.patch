@@ -1,4 +1,4 @@
-From a8c04c9e92ef309cc750a4ff1a240553bd63f1f6 Mon Sep 17 00:00:00 2001
+From 0840845745872578822fecb1946878d4bf41b472 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:49:34 +0200
 Subject: [PATCH 027/137] PCI: dw-rockchip: Add system PM support
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 100 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 47d9cab90..e675918ba 100644
+index 47d9cab..e675918 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -120,6 +120,7 @@ struct rockchip_pcie {

@@ -1,4 +1,4 @@
-From 7570a0d3685e7de12d9df15bc5449bd7fcd8ba2d Mon Sep 17 00:00:00 2001
+From 418970cd8e9d58754ec5f1827d83ef3b6e615ae1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 15:15:23 +0100
 Subject: [PATCH 042/137] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9dae41239..d95a44835 100644
+index 9dae412..d95a448 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -12,6 +12,7 @@

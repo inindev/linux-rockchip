@@ -1,4 +1,4 @@
-From 0f5aaa4bdcd67d9023c2050c8621e2629547b566 Mon Sep 17 00:00:00 2001
+From 0b85d53f96a2d2cde83e4c5ae251b26a51dcb824 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 23 Jul 2026 23:03:29 +0200
 Subject: [PATCH 103/137] drm/bridge: synopsys: dw-dp: Use regmap_set_bits in
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 6a17adc14..11807be2c 100644
+index 6a17adc..11807be 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1069,14 +1069,12 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)

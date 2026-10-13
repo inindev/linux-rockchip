@@ -1,4 +1,4 @@
-From ffc78e71870e5d865de080c9bb5507f26487c0ce Mon Sep 17 00:00:00 2001
+From ac60270b9b6e7cc80f97cb0aaddf461d82f92c2e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 06:02:48 +0100
 Subject: [PATCH 107/137] arm64: dts: rockchip: Add DP audio for ArmSom Sige5
@@ -11,7 +11,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 73ec60dc0..9bcddcee7 100644
+index 73ec60d..9bcddce 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 @@ -288,6 +288,10 @@ dp0_out_con: endpoint {

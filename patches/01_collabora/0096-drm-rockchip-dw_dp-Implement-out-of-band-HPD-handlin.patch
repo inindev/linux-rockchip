@@ -1,4 +1,4 @@
-From c68a8a82a87bb011d89ca56ae1b674260507f296 Mon Sep 17 00:00:00 2001
+From d4816b66f1bdd22714942bc2519fbb56faee7038 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 4 Mar 2026 15:34:43 +0100
 Subject: [PATCH 096/137] drm/rockchip: dw_dp: Implement out-of-band HPD
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 113 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 38e8fe757..9e49e7dbf 100644
+index 38e8fe7..9e49e7d 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -7,9 +7,12 @@

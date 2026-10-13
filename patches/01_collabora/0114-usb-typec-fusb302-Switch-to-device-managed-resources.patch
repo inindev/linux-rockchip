@@ -1,4 +1,4 @@
-From 273ba01f2cf5c09d19c14672816d390e9c9d5a8c Mon Sep 17 00:00:00 2001
+From ca332b9017358ca83ba1f49d0606cf53117edaca Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 17:41:17 +0200
 Subject: [PATCH 114/137] usb: typec: fusb302: Switch to device managed
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 62 insertions(+), 50 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 3319f6a2b..eceed6b7b 100644
+index 3319f6a..eceed6b 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -8,6 +8,7 @@

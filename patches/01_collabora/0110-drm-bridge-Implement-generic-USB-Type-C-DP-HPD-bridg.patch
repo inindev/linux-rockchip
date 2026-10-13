@@ -1,4 +1,4 @@
-From f4952d8ae258973fa5b47a80228cf5182905845b Mon Sep 17 00:00:00 2001
+From d6e32f9779614d37c9397c4e3e68d002398978ae Mon Sep 17 00:00:00 2001
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 Date: Tue, 4 Aug 2026 15:07:25 +0800
 Subject: [PATCH 110/137] drm/bridge: Implement generic USB Type-C DP HPD
@@ -38,7 +38,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
 
 diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 4a57d49b4..9739b2a19 100644
+index 4a57d49..9739b2a 100644
 --- a/drivers/gpu/drm/bridge/Kconfig
 +++ b/drivers/gpu/drm/bridge/Kconfig
 @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
@@ -59,7 +59,7 @@ index 4a57d49b4..9739b2a19 100644
  	depends on DRM && DRM_BRIDGE
  
 diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index 15cc821d8..d88a9e1cc 100644
+index 15cc821..d88a9e1 100644
 --- a/drivers/gpu/drm/bridge/Makefile
 +++ b/drivers/gpu/drm/bridge/Makefile
 @@ -1,6 +1,7 @@
@@ -72,7 +72,7 @@ index 15cc821d8..d88a9e1cc 100644
  obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
 diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
 new file mode 100644
-index 000000000..682bc192e
+index 0000000..682bc19
 --- /dev/null
 +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
 @@ -0,0 +1,67 @@

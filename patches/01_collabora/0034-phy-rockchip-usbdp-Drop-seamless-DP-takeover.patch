@@ -1,4 +1,4 @@
-From eee43a89056174420cea5de1f522d4ba930d0d90 Mon Sep 17 00:00:00 2001
+From d7e8e1a116db11af93c538b057f42674ab954933 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 17 Jun 2026 15:51:07 +0200
 Subject: [PATCH 034/137] phy: rockchip: usbdp: Drop seamless DP takeover
@@ -29,7 +29,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 31 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 93364728b..ce2b74a28 100644
+index 9336472..ce2b74a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -451,11 +451,6 @@ static int rk_udphy_reset_assert_all(struct rk_udphy *udphy)

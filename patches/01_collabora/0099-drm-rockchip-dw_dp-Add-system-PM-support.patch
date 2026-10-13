@@ -1,4 +1,4 @@
-From da36ac1aa1c99128891710dbfd9fa7cf96cfee7e Mon Sep 17 00:00:00 2001
+From 9feb363222d1318a53f4170ea35d39c5976ec1dd Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 21 Aug 2026 15:41:34 +0200
 Subject: [PATCH 099/137] drm/rockchip: dw_dp: Add system PM support
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 770ab042a..c5211578a 100644
+index 770ab04..c521157 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -271,6 +271,7 @@ static int dw_dp_rockchip_runtime_resume(struct device *dev)

@@ -1,4 +1,4 @@
-From a092ff53290fbfcb24878f52a549c7db61c239af Mon Sep 17 00:00:00 2001
+From 8ddb24bffb4922f377acc080a7ec2ea86b2e5d3f Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:09 +0800
 Subject: [PATCH 076/137] phy: rockchip-snps-pcie3: Check more sram init status
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index f5a5d0af3..6cc38e36a 100644
+index f5a5d0a..6cc38e3 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -43,7 +43,7 @@

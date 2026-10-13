@@ -1,4 +1,4 @@
-From 3cfa55d016d5a622f07951742230dbc5eae2693f Mon Sep 17 00:00:00 2001
+From 8f5c68ee325f242f33778a9d5cbaaef417d76617 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 18:01:37 +0200
 Subject: [PATCH 115/137] usb: typec: fusb302: rename init_gpio into
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index eceed6b7b..56edadce9 100644
+index eceed6b..56edadc 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -1642,7 +1642,7 @@ static void fusb302_irq_work(struct work_struct *work)

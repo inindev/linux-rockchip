@@ -1,4 +1,4 @@
-From 44439beb903eca39f44c6767e7417cdd3707f853 Mon Sep 17 00:00:00 2001
+From c6f97166471a0d78bf49ae9e5be03ab0b6a9bae0 Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:07 +0800
 Subject: [PATCH 074/137] phy: rockchip-snps-pcie3: Add phy_calibrate() support
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 34 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 4e8ffd173..9933cda0b 100644
+index 4e8ffd1..9933cda 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -71,6 +71,7 @@ struct rockchip_p3phy_priv {

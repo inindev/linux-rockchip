@@ -1,4 +1,4 @@
-From 95cf5844d367967d0c21b5e5e891c68631c7c38a Mon Sep 17 00:00:00 2001
+From fdd63ad9f9919ce26461eceefa7cb2b453aa80ba Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 28 Jul 2026 02:46:18 +0200
 Subject: [PATCH 102/137] drm/bridge: synopsys: dw-dp: Clear only enabled SDPs
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 23 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index f44942ef0..6a17adc14 100644
+index f44942e..6a17adc 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -336,6 +336,7 @@ struct dw_dp {

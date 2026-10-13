@@ -1,4 +1,4 @@
-From f9a32522f671cd80e837bbe0ee0e93ae01af9751 Mon Sep 17 00:00:00 2001
+From 3815cefa5aa4bc0f631879620efc86aa27be0789 Mon Sep 17 00:00:00 2001
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 Date: Tue, 4 Aug 2026 15:07:26 +0800
 Subject: [PATCH 111/137] drm/display: Add soft depend for
@@ -21,7 +21,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/display/drm_display_helper_mod.c b/drivers/gpu/drm/display/drm_display_helper_mod.c
-index d8a6e6228..f0152d6b0 100644
+index d8a6e62..f0152d6 100644
 --- a/drivers/gpu/drm/display/drm_display_helper_mod.c
 +++ b/drivers/gpu/drm/display/drm_display_helper_mod.c
 @@ -18,5 +18,6 @@ static void __exit drm_display_helper_module_exit(void)

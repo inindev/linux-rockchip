@@ -1,4 +1,4 @@
-From b1e1ee74be3c0a962c5f97ad8a3c6e8947ca254e Mon Sep 17 00:00:00 2001
+From 17f74db2ae864f858f16940b03d86984ae04a883 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 16 Jul 2026 23:43:55 +0200
 Subject: [PATCH 085/137] drm/bridge: synopsys: dw-dp: Fix incorrect resource
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 70 insertions(+), 57 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 714941026..aa7f026c9 100644
+index 7149410..aa7f026 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -1827,16 +1827,22 @@ static int dw_dp_bridge_attach(struct drm_bridge *bridge,
@@ -164,7 +164,7 @@ index 714941026..aa7f026c9 100644
  MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
  MODULE_DESCRIPTION("DW DP Core Library");
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index b23efb153..38e8fe757 100644
+index b23efb1..38e8fe7 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -26,7 +26,7 @@
@@ -267,7 +267,7 @@ index b23efb153..38e8fe757 100644
  		.name = "dw-dp",
  		.of_match_table = dw_dp_of_match,
 diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index 22105c3e8..a82412a9e 100644
+index 22105c3..a82412a 100644
 --- a/include/drm/bridge/dw_dp.h
 +++ b/include/drm/bridge/dw_dp.h
 @@ -22,7 +22,8 @@ struct dw_dp_plat_data {

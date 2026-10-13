@@ -1,4 +1,4 @@
-From bffb13084af642e0660c3ad4b7414c4f2b5e0074 Mon Sep 17 00:00:00 2001
+From 19fea3b93a8aba1e0d61ee6120925543f5cc0e8e Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 24 Apr 2026 12:25:32 +0200
 Subject: [PATCH 047/137] phy: rockchip: usbdp: Re-init the PHY on orientation
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9767fba23..9a4ead585 100644
+index 9767fba..9a4ead5 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -619,6 +619,7 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,

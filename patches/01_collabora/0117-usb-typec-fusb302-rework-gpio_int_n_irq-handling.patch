@@ -1,4 +1,4 @@
-From dd13dcabaa3b02e6f056bf6f80f352731ade15fa Mon Sep 17 00:00:00 2001
+From 2d1d69086f2b6ae1c63d36c0c357011fda2a2896 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 18:10:26 +0200
 Subject: [PATCH 117/137] usb: typec: fusb302: rework gpio_int_n_irq handling
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 66e5f1d4e..911ed910c 100644
+index 66e5f1d..911ed91 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -1655,8 +1655,7 @@ static int fusb302_init_irq(struct fusb302_chip *chip)

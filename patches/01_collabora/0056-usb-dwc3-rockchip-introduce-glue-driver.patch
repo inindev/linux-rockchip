@@ -1,4 +1,4 @@
-From 077f0c1d09fbc4a782dc8f41aea5167522c22050 Mon Sep 17 00:00:00 2001
+From c45af34ccfbbae2dd90bfdccf928d72a1b7cc4d8 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 10 Aug 2026 17:56:27 +0200
 Subject: [PATCH 056/137] usb: dwc3: rockchip: introduce glue driver
@@ -17,7 +17,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  create mode 100644 drivers/usb/dwc3/dwc3-rockchip.c
 
 diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-index 18169727a..3c120ea97 100644
+index 1816972..3c120ea 100644
 --- a/drivers/usb/dwc3/Kconfig
 +++ b/drivers/usb/dwc3/Kconfig
 @@ -190,6 +190,17 @@ config USB_DWC3_OCTEON
@@ -39,7 +39,7 @@ index 18169727a..3c120ea97 100644
  	tristate "Realtek DWC3 Platform Driver"
  	depends on OF && ARCH_REALTEK
 diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-index f37971197..444e7e7f3 100644
+index f379711..444e7e7 100644
 --- a/drivers/usb/dwc3/Makefile
 +++ b/drivers/usb/dwc3/Makefile
 @@ -58,6 +58,7 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
@@ -51,7 +51,7 @@ index f37971197..444e7e7f3 100644
  obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
  obj-$(CONFIG_USB_DWC3_GOOGLE)		+= dwc3-google.o
 diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index fd5c2cd36..4b7132887 100644
+index fd5c2cd..4b71328 100644
 --- a/drivers/usb/dwc3/core.c
 +++ b/drivers/usb/dwc3/core.c
 @@ -2448,11 +2448,26 @@ int dwc3_core_probe(const struct dwc3_probe_data *data)
@@ -83,7 +83,7 @@ index fd5c2cd36..4b7132887 100644
  	if (!res) {
 diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-rockchip.c
 new file mode 100644
-index 000000000..4129aefd6
+index 0000000..4129aef
 --- /dev/null
 +++ b/drivers/usb/dwc3/dwc3-rockchip.c
 @@ -0,0 +1,106 @@

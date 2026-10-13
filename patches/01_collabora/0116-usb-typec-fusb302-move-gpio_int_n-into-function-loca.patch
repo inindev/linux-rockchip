@@ -1,4 +1,4 @@
-From 9b1b3a553090d7d6595cdfd008186476513c7720 Mon Sep 17 00:00:00 2001
+From a7404c24664a9956f3b001319eed2836ec66dade Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 21 Apr 2026 18:03:15 +0200
 Subject: [PATCH 116/137] usb: typec: fusb302: move gpio_int_n into function
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 9 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 56edadce9..66e5f1d4e 100644
+index 56edadc..66e5f1d 100644
 --- a/drivers/usb/typec/tcpm/fusb302.c
 +++ b/drivers/usb/typec/tcpm/fusb302.c
 @@ -85,7 +85,6 @@ struct fusb302_chip {

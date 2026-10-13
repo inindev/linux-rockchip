@@ -1,4 +1,4 @@
-From aae4b8cf4d8956c9f6c0da5d49eb17a9879c40cf Mon Sep 17 00:00:00 2001
+From 6ccbb01f32f633bac3f28619c5f371791e76f7e9 Mon Sep 17 00:00:00 2001
 From: Frank Wang <frank.wang@rock-chips.com>
 Date: Fri, 16 Jan 2026 20:28:08 +0100
 Subject: [PATCH 036/137] phy: rockchip: usbdp: Amend SSC modulation deviation
@@ -20,7 +20,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 925f2d162..586363f5c 100644
+index 925f2d1..586363f 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -349,7 +349,8 @@ static const struct reg_sequence rk_udphy_24m_refclk_cfg[] = {

@@ -1,4 +1,4 @@
-From b9006acb098c961ae1b6d6006e99d4551b3235fe Mon Sep 17 00:00:00 2001
+From ced09a2685df6a0377f3624679330aeb08ec1186 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Wed, 21 Jan 2026 06:01:21 +0100
 Subject: [PATCH 106/137] arm64: dts: rockchip: Add DP sound support to RK3576
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 16 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index b0c0d3c8b..289e5d607 100644
+index b0c0d3c..289e5d6 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 @@ -344,6 +344,21 @@ opp-2208000000 {

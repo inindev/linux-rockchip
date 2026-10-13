@@ -1,4 +1,4 @@
-From c1ca728ecaa694410d90adeafd4f385b217b3e03 Mon Sep 17 00:00:00 2001
+From 36af056cd15fecb80f282ae195e339a4a7d7ffc1 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 19 Mar 2026 16:40:50 +0100
 Subject: [PATCH 097/137] drm/bridge: synopsys: dw-dp: Add Runtime PM support
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 185 insertions(+), 35 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 839c9e378..90b1ff525 100644
+index 839c9e3..90b1ff5 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 @@ -330,6 +330,9 @@ struct dw_dp {
@@ -420,7 +420,7 @@ index 839c9e378..90b1ff525 100644
  MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
  MODULE_DESCRIPTION("DW DP Core Library");
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 9e49e7dbf..ffcfb887d 100644
+index 9e49e7d..ffcfb88 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 @@ -194,7 +194,7 @@ static int dw_dp_rockchip_probe(struct platform_device *pdev)
@@ -449,7 +449,7 @@ index 9e49e7dbf..ffcfb887d 100644
  }
  
 diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index 79b2cdf0d..1e23180b5 100644
+index 79b2cdf..1e23180 100644
 --- a/include/drm/bridge/dw_dp.h
 +++ b/include/drm/bridge/dw_dp.h
 @@ -18,6 +18,7 @@ enum {

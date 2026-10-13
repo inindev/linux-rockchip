@@ -1,4 +1,4 @@
-From 708ced3260c1ce9ba92a6b285547ad0f36706af3 Mon Sep 17 00:00:00 2001
+From 0ed9bf189b5cf22e77182f4c924b5fde885a0f0b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 1 Jun 2026 15:42:59 +0200
 Subject: [PATCH 123/137] drm/rockchip: Select SND_SOC_HDMI_CODEC for
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-index 4e58685f5..b276c90e1 100644
+index 4e58685..b276c90 100644
 --- a/drivers/gpu/drm/rockchip/Kconfig
 +++ b/drivers/gpu/drm/rockchip/Kconfig
 @@ -20,7 +20,7 @@ config DRM_ROCKCHIP

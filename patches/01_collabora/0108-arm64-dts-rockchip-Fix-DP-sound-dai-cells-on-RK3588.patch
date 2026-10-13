@@ -1,4 +1,4 @@
-From af778cf78870cabc664809498ca2fd7751167839 Mon Sep 17 00:00:00 2001
+From f672cb6e921238f8dd91be0e84bb0257c8668673 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 12 Feb 2026 22:22:54 +0100
 Subject: [PATCH 108/137] arm64: dts: rockchip: Fix DP sound-dai-cells on
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 376ad04e0..2862079e1 100644
+index 376ad04..2862079 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
 @@ -1848,7 +1848,7 @@ dp0: dp@fde50000 {
@@ -27,7 +27,7 @@ index 376ad04e0..2862079e1 100644
  
  		ports {
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-index b251bb129..9c3e1c45a 100644
+index b251bb1..9c3e1c4 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
 @@ -223,7 +223,7 @@ dp1: dp@fde60000 {

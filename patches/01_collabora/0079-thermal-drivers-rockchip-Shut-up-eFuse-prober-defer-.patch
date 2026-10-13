@@ -1,4 +1,4 @@
-From c0f7e47586e34ea458a3455b02f7b16bff4d9ee1 Mon Sep 17 00:00:00 2001
+From d1d296450078f057ed71f448f618e3a5cf01beee Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 22 Jan 2026 14:57:54 +0100
 Subject: [PATCH 079/137] thermal/drivers/rockchip: Shut up eFuse prober defer
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index 08891608b..5a835fa16 100644
+index 0889160..5a835fa 100644
 --- a/drivers/thermal/rockchip_thermal.c
 +++ b/drivers/thermal/rockchip_thermal.c
 @@ -1638,8 +1638,7 @@ rockchip_thermal_register_sensor(struct platform_device *pdev,

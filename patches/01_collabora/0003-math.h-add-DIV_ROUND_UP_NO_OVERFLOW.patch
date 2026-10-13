@@ -1,4 +1,4 @@
-From 09100db67c392887c171ea0b9e28bf924a5c137d Mon Sep 17 00:00:00 2001
+From 2cbf9ddc592b3f76d32ddfa4f6f46b63c7c874d2 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Oct 2023 16:09:35 +0200
 Subject: [PATCH 003/137] math.h: add DIV_ROUND_UP_NO_OVERFLOW
@@ -12,7 +12,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 11 insertions(+)
 
 diff --git a/include/linux/math.h b/include/linux/math.h
-index 1e8fb3efb..d7c384fd1 100644
+index 1e8fb3e..d7c384f 100644
 --- a/include/linux/math.h
 +++ b/include/linux/math.h
 @@ -48,6 +48,17 @@

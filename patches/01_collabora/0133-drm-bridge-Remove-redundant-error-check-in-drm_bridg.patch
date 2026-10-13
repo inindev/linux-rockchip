@@ -1,4 +1,4 @@
-From f3a5afa52d88e99eb49c2beac7c95b2c5ae120a9 Mon Sep 17 00:00:00 2001
+From 2660f7efc38508420607e18e01eac46549374ae6 Mon Sep 17 00:00:00 2001
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Date: Tue, 21 Apr 2026 23:51:17 +0300
 Subject: [PATCH 133/137] drm/bridge: Remove redundant error check in
@@ -17,7 +17,7 @@ Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
  1 file changed, 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/drm_bridge_helper.c b/drivers/gpu/drm/drm_bridge_helper.c
-index 420f29cf3..0a3c8fee6 100644
+index 420f29c..0a3c8fe 100644
 --- a/drivers/gpu/drm/drm_bridge_helper.c
 +++ b/drivers/gpu/drm/drm_bridge_helper.c
 @@ -50,8 +50,6 @@ int drm_bridge_helper_reset_crtc(struct drm_bridge *bridge,

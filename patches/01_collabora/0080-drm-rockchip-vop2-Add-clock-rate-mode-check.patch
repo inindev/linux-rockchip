@@ -1,4 +1,4 @@
-From 83db49b1b139490fdea585e36e5d81dc18110ea9 Mon Sep 17 00:00:00 2001
+From db3613f1bd506e29e50249b9fe49cf4152e006c3 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 29 Jan 2026 23:57:28 +0100
 Subject: [PATCH 080/137] drm/rockchip: vop2: Add clock rate mode check
@@ -30,7 +30,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  3 files changed, 14 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4cce3e336..2713ce0ff 100644
+index 4cce3e3..2713ce0 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -1527,6 +1527,9 @@ static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
@@ -44,7 +44,7 @@ index 4cce3e336..2713ce0ff 100644
  }
  
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index ffcb39c13..751f04b54 100644
+index ffcb39c..751f04b 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -225,6 +225,7 @@ struct vop2_video_port_data {
@@ -56,7 +56,7 @@ index ffcb39c13..751f04b54 100644
  	unsigned int offset;
  	/**
 diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index c44648e1b..7e4e40731 100644
+index c44648e..7e4e407 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 @@ -558,18 +558,21 @@ static const struct vop2_video_port_data rk3568_vop_video_ports[] = {

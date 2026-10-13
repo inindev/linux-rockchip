@@ -1,4 +1,4 @@
-From 9e555c493540cd0e83399f76a88b25f4e6b83055 Mon Sep 17 00:00:00 2001
+From 685a4e81821fdfe9d5b46eb75bd39de4362f767d Mon Sep 17 00:00:00 2001
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Date: Mon, 30 Jun 2025 12:19:25 +0200
 Subject: [PATCH 015/137] Input: adc-keys - support types that aren't just
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 12 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/input/keyboard/adc-keys.c b/drivers/input/keyboard/adc-keys.c
-index d687459a0..6d37f348c 100644
+index d687459..6d37f34 100644
 --- a/drivers/input/keyboard/adc-keys.c
 +++ b/drivers/input/keyboard/adc-keys.c
 @@ -19,12 +19,14 @@

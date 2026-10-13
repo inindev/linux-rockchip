@@ -1,4 +1,4 @@
-From cef16e461e8e72fabd0341bdc518f8ee749ca273 Mon Sep 17 00:00:00 2001
+From b5bac0e40bb739a8c589612841474a8bbb8b959a Mon Sep 17 00:00:00 2001
 From: Shawn Lin <shawn.lin@rock-chips.com>
 Date: Wed, 24 Dec 2025 15:10:08 +0800
 Subject: [PATCH 075/137] phy: rockchip-snps-pcie3: Increase sram init timeout
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 9933cda0b..f5a5d0af3 100644
+index 9933cda..f5a5d0a 100644
 --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
 @@ -19,6 +19,9 @@

@@ -1,4 +1,4 @@
-From be5888348e6546f70468e4b2a5c6e644caad6a41 Mon Sep 17 00:00:00 2001
+From 1c624dc48317831479f41809975bb29b8e76d18d Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Fri, 19 Jun 2026 21:42:03 +0200
 Subject: [PATCH 033/137] phy: rockchip: usbdp: Handle missing clock-names DT
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index c6cda0b80..93364728b 100644
+index c6cda0b..9336472 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
 @@ -431,6 +431,9 @@ static int rk_udphy_clk_init(struct rk_udphy *udphy, struct device *dev)

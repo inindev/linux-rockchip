@@ -1,4 +1,4 @@
-From 996bfc3e91c973d8ea962429ddc5fd1f83009c32 Mon Sep 17 00:00:00 2001
+From b736a2ec467c0528763183ea765ba0940e4e93db Mon Sep 17 00:00:00 2001
 From: Haobo Cheng <i@4t.pw>
 Date: Tue, 4 Aug 2026 16:34:34 +0800
 Subject: [PATCH 127/137] usb: typec: mux: initialize orientation switch array
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/usb/typec/mux.c b/drivers/usb/typec/mux.c
-index afa6fc181..57149f537 100644
+index afa6fc1..57149f5 100644
 --- a/drivers/usb/typec/mux.c
 +++ b/drivers/usb/typec/mux.c
 @@ -81,7 +81,7 @@ static void *typec_switch_match(const struct fwnode_handle *fwnode,

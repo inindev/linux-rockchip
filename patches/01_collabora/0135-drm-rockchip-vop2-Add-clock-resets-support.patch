@@ -1,4 +1,4 @@
-From 307c07a15ffd658c2307ee94c182cc307446cfce Mon Sep 17 00:00:00 2001
+From 01f5cf2ac7ef30d9c88068f2f9e8c4467f04442d Mon Sep 17 00:00:00 2001
 From: Detlev Casanova <detlev.casanova@collabora.com>
 Date: Fri, 15 Nov 2024 11:20:41 -0500
 Subject: [PATCH 135/137] drm/rockchip: vop2: Add clock resets support
@@ -24,7 +24,7 @@ Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
  2 files changed, 29 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 2713ce0ff..b03072cfb 100644
+index 2713ce0..b03072c 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 @@ -17,6 +17,7 @@
@@ -84,7 +84,7 @@ index 2713ce0ff..b03072cfb 100644
  		vp->dclk = devm_clk_get(vop2->dev, dclk_name);
  		if (IS_ERR(vp->dclk))
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 751f04b54..24e15a2ac 100644
+index 751f04b..24e15a2 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 @@ -239,6 +239,7 @@ struct vop2_video_port {

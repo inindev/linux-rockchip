@@ -1,4 +1,4 @@
-From b6614a32a18ce22a2d838c11dff8ac35583a8b20 Mon Sep 17 00:00:00 2001
+From 42c37a5e1925e4d151f89077c407695762687769 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 6 Nov 2025 16:21:05 +0100
 Subject: [PATCH 070/137] net: phy: realtek: re-init after reset
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-index d6e9d074c..a7619bb20 100644
+index d6e9d07..a7619bb 100644
 --- a/drivers/net/phy/realtek/realtek_main.c
 +++ b/drivers/net/phy/realtek/realtek_main.c
 @@ -1366,11 +1366,13 @@ static int rtl8211f_suspend(struct phy_device *phydev)
