@@ -1,4 +1,4 @@
-From 0840845745872578822fecb1946878d4bf41b472 Mon Sep 17 00:00:00 2001
+From d6480895075e8efcd91a4e66ee962740d6e89668 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:49:34 +0200
 Subject: [PATCH 027/137] PCI: dw-rockchip: Add system PM support
@@ -23,7 +23,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 100 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 47d9cab..e675918 100644
+index 5437a2156..46d396705 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -120,6 +120,7 @@ struct rockchip_pcie {
@@ -34,7 +34,7 @@ index 47d9cab..e675918 100644
  	const struct rockchip_pcie_of_data *data;
  	bool supports_clkreq;
  	struct delayed_work trace_work;
-@@ -1042,6 +1043,99 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
+@@ -1041,6 +1042,99 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
  	return ret;
  }
  
@@ -134,7 +134,7 @@ index 47d9cab..e675918 100644
  static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
  	.mode = DW_PCIE_RC_TYPE,
  };
-@@ -1072,11 +1166,17 @@ static const struct of_device_id rockchip_pcie_of_match[] = {
+@@ -1071,11 +1165,17 @@ static const struct of_device_id rockchip_pcie_of_match[] = {
  	{},
  };
  

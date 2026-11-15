@@ -1,4 +1,4 @@
-From db22115df44bdef822a398c6f2cebd0185ada03e Mon Sep 17 00:00:00 2001
+From f653c2c0e6a1854b4979d4393faf286d671584af Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 22 Dec 2025 20:25:56 +0100
 Subject: [PATCH 020/137] PCI: dw-rockchip: Restore vpcie3v3 regulator handle
@@ -16,7 +16,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 17 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index dc85564..f67ad3c 100644
+index 8a3ab3b19..15bb24e3c 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -112,6 +112,7 @@ struct rockchip_pcie {
@@ -27,7 +27,7 @@ index dc85564..f67ad3c 100644
  	struct irq_domain *irq_domain;
  	const struct rockchip_pcie_of_data *data;
  	bool supports_clkreq;
-@@ -844,15 +845,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+@@ -843,15 +844,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
  		return ret;
  
  	/* DON'T MOVE ME: must be enable before PHY init */
@@ -56,7 +56,7 @@ index dc85564..f67ad3c 100644
  
  	ret = reset_control_deassert(rockchip->rst);
  	if (ret)
-@@ -885,6 +893,9 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+@@ -884,6 +892,9 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
  	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
  deinit_phy:
  	rockchip_pcie_phy_deinit(rockchip);

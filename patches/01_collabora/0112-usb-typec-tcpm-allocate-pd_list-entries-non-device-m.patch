@@ -1,4 +1,4 @@
-From 8c8e95c46c77417de555585431561292f9a4964e Mon Sep 17 00:00:00 2001
+From ee5ef7a0f8d2c647fb7216be9adaf36accceae75 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 17 Aug 2026 17:40:34 +0200
 Subject: [PATCH 112/137] usb: typec: tcpm: allocate pd_list entries non device
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 5f26978..ae5263d 100644
+index 5f2697827..ae5263d66 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
 @@ -8089,7 +8089,7 @@ static void tcpm_port_unregister_pd(struct tcpm_port *port)

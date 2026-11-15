@@ -1,4 +1,4 @@
-From 367f9957cb2d13553bb681c643f036a7a2b6c697 Mon Sep 17 00:00:00 2001
+From 65583d31fe2f56be2987dc49db8a47dae2f4dafb Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Thu, 20 Aug 2026 18:43:30 +0200
 Subject: [PATCH 026/137] PCI: dw-rockchip: Set broken L1SS resume flag
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 16 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 1753050..47d9cab 100644
+index b36ff3ccd..5437a2156 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -458,6 +458,21 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+@@ -444,6 +444,21 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
  	return 0;
  }
  
@@ -38,7 +38,7 @@ index 1753050..47d9cab 100644
  static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
  {
  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -497,6 +512,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+@@ -483,6 +498,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
  
  static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
  	.init = rockchip_pcie_host_init,

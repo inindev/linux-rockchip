@@ -1,4 +1,4 @@
-From fd7baee3981ef7af6ae4c23a6a79362a9a9dee23 Mon Sep 17 00:00:00 2001
+From 7d7e114a0bcd4bb76347f835859353652532c086 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:06:36 +0200
 Subject: [PATCH 021/137] PCI: dw-rockchip: Move devm_phy_get out of phy_init
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index f67ad3c..7472ec7 100644
+index 15bb24e3c..1de229728 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -612,14 +612,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+@@ -598,14 +598,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
  
  static int rockchip_pcie_phy_init(struct rockchip_pcie *rockchip)
  {
@@ -31,7 +31,7 @@ index f67ad3c..7472ec7 100644
  	ret = phy_init(rockchip->phy);
  	if (ret < 0)
  		return ret;
-@@ -858,6 +852,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+@@ -857,6 +851,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
  					     "failed to enable vpcie3v3 regulator\n");
  	}
  

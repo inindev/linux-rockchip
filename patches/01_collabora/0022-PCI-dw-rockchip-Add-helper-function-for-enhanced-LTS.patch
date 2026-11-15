@@ -1,4 +1,4 @@
-From da83035c7404e8bbe536c6a8ad6bfa0aedd0c91b Mon Sep 17 00:00:00 2001
+From 61612bdd53204ec0f7730dfb2f1fee26f18efc17 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:21:02 +0200
 Subject: [PATCH 022/137] PCI: dw-rockchip: Add helper function for enhanced
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 7472ec7..6f84b07 100644
+index 1de229728..7b7269b36 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -696,6 +696,18 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+@@ -682,6 +682,18 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
  	return IRQ_HANDLED;
  }
  
@@ -35,7 +35,7 @@ index 7472ec7..6f84b07 100644
  static int rockchip_pcie_configure_rc(struct platform_device *pdev,
  				      struct rockchip_pcie *rockchip)
  {
-@@ -719,9 +731,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+@@ -705,9 +717,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
  		return ret;
  	}
  
@@ -46,7 +46,7 @@ index 7472ec7..6f84b07 100644
  
  	rockchip_pcie_writel_apb(rockchip,
  				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
-@@ -765,13 +775,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+@@ -764,13 +774,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
  		return ret;
  	}
  

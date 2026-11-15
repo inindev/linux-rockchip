@@ -1,4 +1,4 @@
-From 3430ac732d0be090ca4e4179cb15bb8dc2603410 Mon Sep 17 00:00:00 2001
+From eb00964793cb6a4a9beaf97e5479e1d5722c3a8f Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 2 Mar 2026 22:37:40 +0100
 Subject: [PATCH 082/137] usb: typec: tcpm: Also use
@@ -53,7 +53,7 @@ lab (used for the KernelCI project):
  1 file changed, 19 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 06692fe..071c676 100644
+index 06692feb6..071c676ca 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
 @@ -5841,20 +5841,25 @@ static void run_state_machine(struct tcpm_port *port)

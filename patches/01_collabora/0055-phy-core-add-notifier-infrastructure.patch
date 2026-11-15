@@ -1,4 +1,4 @@
-From c857e1cba778d0ffab98088da1142692c3451986 Mon Sep 17 00:00:00 2001
+From 1cc97521a9f809fed56efff05fa3deee12efb943 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 29 Jun 2026 21:03:52 +0200
 Subject: [PATCH 055/137] phy: core: add notifier infrastructure
@@ -24,7 +24,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  2 files changed, 105 insertions(+)
 
 diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-index 21aaf2f..51d261d 100644
+index 89addd732..c3b7fc32b 100644
 --- a/drivers/phy/phy-core.c
 +++ b/drivers/phy/phy-core.c
 @@ -542,6 +542,70 @@ int phy_notify_state(struct phy *phy, union phy_notify state)
@@ -98,7 +98,7 @@ index 21aaf2f..51d261d 100644
  /**
   * phy_configure() - Changes the phy parameters
   * @phy: the phy returned by phy_get()
-@@ -1018,6 +1082,7 @@ struct phy *phy_create(struct device *dev, struct device_node *node,
+@@ -1033,6 +1097,7 @@ struct phy *phy_create(struct device *dev, struct device_node *node,
  	device_initialize(&phy->dev);
  	lockdep_register_key(&phy->lockdep_key);
  	mutex_init_with_key(&phy->mutex, &phy->lockdep_key);
@@ -107,7 +107,7 @@ index 21aaf2f..51d261d 100644
  	phy->dev.class = &phy_class;
  	phy->dev.parent = dev;
 diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index ea47975..3779a4d 100644
+index ea47975e2..3779a4d0a 100644
 --- a/include/linux/phy/phy.h
 +++ b/include/linux/phy/phy.h
 @@ -11,6 +11,7 @@

@@ -1,4 +1,4 @@
-From 8d99a987afbea86101ef0bf44feed0ddeaf693e0 Mon Sep 17 00:00:00 2001
+From 264ac127f8c234c3d120e5caa82011566d81d675 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Tue, 24 Mar 2026 18:16:31 +0100
 Subject: [PATCH 083/137] usb: typec: tcpm: log when VDM AMS state machine is
@@ -57,7 +57,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 15 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 071c676..5f26978 100644
+index 071c676ca..5f2697827 100644
 --- a/drivers/usb/typec/tcpm/tcpm.c
 +++ b/drivers/usb/typec/tcpm/tcpm.c
 @@ -1872,6 +1872,15 @@ static bool tcpm_ams_interruptible(struct tcpm_port *port)

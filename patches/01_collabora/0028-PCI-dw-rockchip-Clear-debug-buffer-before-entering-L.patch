@@ -1,4 +1,4 @@
-From 685bc16a458797d6e55e7aa00922a1109f6e45a9 Mon Sep 17 00:00:00 2001
+From 3bc070616b425207fd6f769ba6487895015764c6 Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 24 Nov 2025 20:06:39 +0100
 Subject: [PATCH 028/137] PCI: dw-rockchip: Clear debug buffer before entering
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 13 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index e675918..a508f4f 100644
+index 46d396705..0941ef408 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 @@ -77,6 +77,9 @@
@@ -27,7 +27,7 @@ index e675918..a508f4f 100644
  /* RASDES TBA information */
  #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
  #define  PCIE_CLIENT_CDM_RASDES_TBA_L1_1	BIT(4)
-@@ -1043,6 +1046,11 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
+@@ -1042,6 +1045,11 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
  	return ret;
  }
  
@@ -39,7 +39,7 @@ index e675918..a508f4f 100644
  static int rockchip_pcie_suspend(struct device *dev)
  {
  	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-@@ -1056,6 +1064,11 @@ static int rockchip_pcie_suspend(struct device *dev)
+@@ -1055,6 +1063,11 @@ static int rockchip_pcie_suspend(struct device *dev)
  
  	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
  

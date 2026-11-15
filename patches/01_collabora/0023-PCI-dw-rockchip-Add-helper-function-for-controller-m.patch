@@ -1,4 +1,4 @@
-From 23476b4eceaa1de5054bddeb8be5441df4262304 Mon Sep 17 00:00:00 2001
+From 732bdb89b3910c20333e4dd3e9c13ac9ac69d48b Mon Sep 17 00:00:00 2001
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 Date: Mon, 20 Oct 2025 20:27:04 +0200
 Subject: [PATCH 023/137] PCI: dw-rockchip: Add helper function for controller
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
  1 file changed, 7 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 6f84b07..211776b 100644
+index 7b7269b36..4fa1fe9fe 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -708,6 +708,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci
+@@ -694,6 +694,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci
  	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
  }
  
@@ -28,7 +28,7 @@ index 6f84b07..211776b 100644
  static int rockchip_pcie_configure_rc(struct platform_device *pdev,
  				      struct rockchip_pcie *rockchip)
  {
-@@ -732,10 +737,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+@@ -718,10 +723,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
  	}
  
  	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
@@ -38,9 +38,9 @@ index 6f84b07..211776b 100644
 -				 PCIE_CLIENT_GENERAL_CON);
 +	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
  
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
-@@ -776,10 +778,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 	irq = of_irq_get_byname(dev->of_node, "legacy");
+ 	if (irq < 0)
+@@ -775,10 +777,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
  	}
  
  	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, PCIE_LTSSM_APP_DLY2_EN);
